@@ -1,6 +1,7 @@
 #!/bin/sh
 
 export LC_ALL=C
+MUSL=${MUSL:-../musl}
 
 ( cd $MUSL; git log -n1 ) | awk '
 BEGIN {
@@ -24,7 +25,7 @@ BEGIN {
 		if ($2 ~ /bits\//)
 			s = $3 " "
 		else
-			s = "<a href=\"http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/" $2 ";hb=" hash "#l" $4 "\">" $3 "</a> "
+			s = "<a href=\"http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/" $2 "#l" $4 "\">" $3 "</a> "
 		kind[$1] = kind[$1] $3
 		kindstr[$1] = kindstr[$1] s
 	}

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 export LC_ALL=C
-MUSL=../musl
+MUSL=${MUSL:-../musl}
 
 (
 	cd $MUSL/include

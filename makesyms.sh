@@ -1,7 +1,7 @@
 #!/bin/sh
 
 export LC_ALL=C
-MUSL=../musl
+MUSL=${MUSL:-../musl}
 
 nm -p -P $MUSL/lib/libc.a |awk '$2~/[A-Zvw]/{print $1,$2}' |sort |uniq |awk '
 NR==1 {
