@@ -1,0 +1,4 @@
+musl development tools:
+	api tables (posix and c99 api coverage)
+	sizeof public types
+
