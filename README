@@ -1,4 +1,20 @@
 musl development tools:
 	api tables (posix and c99 api coverage)
-	sizeof public types
+	sizeof varios declared types (glibc vs musl)
 
+download:
+	git clone git://repo.or.cz/musl-tools.git
+
+depends:
+	a git clone of musl is needed
+	git clone git://git.etalabs.net/musl
+	exuberant ctags
+	apt-get install exuberant-ctags
+
+build:
+	set MUSL in Makefile to the musl git repo root
+	build musl (cd $MUSL && make)
+	run make
+
+	various files will be generated under data/
+	*html and sizeof.diff are the relevant outputs
