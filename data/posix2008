@@ -1,0 +1,1191 @@
+FD_CLR	sys_select.h		pselect, select - synchronous I/O multiplexing
+FD_ISSET	sys_select.h		pselect, select - synchronous I/O multiplexing
+FD_SET	sys_select.h		pselect, select - synchronous I/O multiplexing
+FD_ZERO	sys_select.h		pselect, select - synchronous I/O multiplexing
+_Exit	stdlib.h unistd.h		_Exit, _exit - terminate a process
+_exit	stdlib.h unistd.h		_Exit, _exit - terminate a process
+_longjmp	setjmp.h	OB XSI	_longjmp, _setjmp - non-local goto
+_setjmp	setjmp.h	OB XSI	_longjmp, _setjmp - non-local goto
+_tolower	ctype.h	OB XSI	_tolower - transliterate uppercase characters to lowercase
+_toupper	ctype.h	OB XSI	_toupper - transliterate lowercase characters to uppercase
+a64l	stdlib.h	XSI	a64l, l64a - convert between a 32-bit integer and a radix-64 ASCII string
+abort	stdlib.h		abort - generate an abnormal process abort
+abs	stdlib.h		abs - return an integer absolute value
+accept	sys_socket.h		accept - accept a new connection on a socket
+access	unistd.h		access, faccessat - determine accessibility of a file relative to directory file descriptor
+acos	math.h		acos, acosf, acosl - arc cosine functions
+acosf	math.h		acos, acosf, acosl - arc cosine functions
+acosh	math.h		acosh, acoshf, acoshl - inverse hyperbolic cosine functions
+acoshf	math.h		acosh, acoshf, acoshl - inverse hyperbolic cosine functions
+acoshl	math.h		acosh, acoshf, acoshl - inverse hyperbolic cosine functions
+acosl	math.h		acos, acosf, acosl - arc cosine functions
+aio_cancel	aio.h		aio_cancel - cancel an asynchronous I/O request
+aio_error	aio.h		aio_error - retrieve errors status for an asynchronous I/O operation
+aio_fsync	aio.h		aio_fsync - asynchronous file synchronization
+aio_read	aio.h		aio_read - asynchronous read from a file
+aio_return	aio.h		aio_return - retrieve return status of an asynchronous I/O operation
+aio_suspend	aio.h		aio_suspend - wait for an asynchronous I/O request
+aio_write	aio.h		aio_write - asynchronous write to a file
+alarm	unistd.h		alarm - schedule an alarm signal
+alphasort	dirent.h		alphasort, scandir - scan a directory
+asctime	time.h	OB OB CX	asctime, asctime_r - convert date and time to a string
+asctime_r	time.h	OB OB CX	asctime, asctime_r - convert date and time to a string
+asin	math.h		asin, asinf, asinl - arc sine function
+asinf	math.h		asin, asinf, asinl - arc sine function
+asinh	math.h		asinh, asinhf, asinhl - inverse hyperbolic sine functions
+asinhf	math.h		asinh, asinhf, asinhl - inverse hyperbolic sine functions
+asinhl	math.h		asinh, asinhf, asinhl - inverse hyperbolic sine functions
+asinl	math.h		asin, asinf, asinl - arc sine function
+assert	assert.h		assert - insert program diagnostics
+atan	math.h		atan, atanf, atanl - arc tangent function
+atan2	math.h		atan2, atan2f, atan2l - arc tangent functions
+atan2f	math.h		atan2, atan2f, atan2l - arc tangent functions
+atan2l	math.h		atan2, atan2f, atan2l - arc tangent functions
+atanf	math.h		atan, atanf, atanl - arc tangent function
+atanh	math.h		atanh, atanhf, atanhl - inverse hyperbolic tangent functions
+atanhf	math.h		atanh, atanhf, atanhl - inverse hyperbolic tangent functions
+atanhl	math.h		atanh, atanhf, atanhl - inverse hyperbolic tangent functions
+atanl	math.h		atan, atanf, atanl - arc tangent function
+atexit	stdlib.h		atexit - register a function to run at process termination
+atof	stdlib.h		atof - convert a string to a double-precision number
+atoi	stdlib.h		atoi - convert a string to an integer
+atol	stdlib.h		atol, atoll - convert a string to a long integer
+atoll	stdlib.h		atol, atoll - convert a string to a long integer
+basename	libgen.h	XSI	basename - return the last component of a pathname
+bind	sys_socket.h		bind - bind a name to a socket
+bsearch	stdlib.h		bsearch - binary search a sorted table
+btowc	stdio.h wchar.h		btowc - single byte to wide character conversion
+cabs	complex.h		cabs, cabsf, cabsl - return a complex absolute value
+cabsf	complex.h		cabs, cabsf, cabsl - return a complex absolute value
+cabsl	complex.h		cabs, cabsf, cabsl - return a complex absolute value
+cacos	complex.h		cacos, cacosf, cacosl - complex arc cosine functions
+cacosf	complex.h		cacos, cacosf, cacosl - complex arc cosine functions
+cacosh	complex.h		cacosh, cacoshf, cacoshl - complex arc hyperbolic cosine functions
+cacoshf	complex.h		cacosh, cacoshf, cacoshl - complex arc hyperbolic cosine functions
+cacoshl	complex.h		cacosh, cacoshf, cacoshl - complex arc hyperbolic cosine functions
+cacosl	complex.h		cacos, cacosf, cacosl - complex arc cosine functions
+calloc	stdlib.h		calloc - a memory allocator
+carg	complex.h		carg, cargf, cargl - complex argument functions
+cargf	complex.h		carg, cargf, cargl - complex argument functions
+cargl	complex.h		carg, cargf, cargl - complex argument functions
+casin	complex.h		casin, casinf, casinl - complex arc sine functions
+casinf	complex.h		casin, casinf, casinl - complex arc sine functions
+casinh	complex.h		casinh, casinhf, casinhl - complex arc hyperbolic sine functions
+casinhf	complex.h		casinh, casinhf, casinhl - complex arc hyperbolic sine functions
+casinhl	complex.h		casinh, casinhf, casinhl - complex arc hyperbolic sine functions
+casinl	complex.h		casin, casinf, casinl - complex arc sine functions
+catan	complex.h		catan, catanf, catanl - complex arc tangent functions
+catanf	complex.h		catan, catanf, catanl - complex arc tangent functions
+catanh	complex.h		catanh, catanhf, catanhl - complex arc hyperbolic tangent functions
+catanhf	complex.h		catanh, catanhf, catanhl - complex arc hyperbolic tangent functions
+catanhl	complex.h		catanh, catanhf, catanhl - complex arc hyperbolic tangent functions
+catanl	complex.h		catan, catanf, catanl - complex arc tangent functions
+catclose	nl_types.h		catclose - close a message catalog descriptor
+catgets	nl_types.h		catgets - read a program message
+catopen	nl_types.h		catopen - open a message catalog
+cbrt	math.h		cbrt, cbrtf, cbrtl - cube root functions
+cbrtf	math.h		cbrt, cbrtf, cbrtl - cube root functions
+cbrtl	math.h		cbrt, cbrtf, cbrtl - cube root functions
+ccos	complex.h		ccos, ccosf, ccosl - complex cosine functions
+ccosf	complex.h		ccos, ccosf, ccosl - complex cosine functions
+ccosh	complex.h		ccosh, ccoshf, ccoshl - complex hyperbolic cosine functions
+ccoshf	complex.h		ccosh, ccoshf, ccoshl - complex hyperbolic cosine functions
+ccoshl	complex.h		ccosh, ccoshf, ccoshl - complex hyperbolic cosine functions
+ccosl	complex.h		ccos, ccosf, ccosl - complex cosine functions
+ceil	math.h		ceil, ceilf, ceill - ceiling value function
+ceilf	math.h		ceil, ceilf, ceill - ceiling value function
+ceill	math.h		ceil, ceilf, ceill - ceiling value function
+cexp	complex.h		cexp, cexpf, cexpl - complex exponential functions
+cexpf	complex.h		cexp, cexpf, cexpl - complex exponential functions
+cexpl	complex.h		cexp, cexpf, cexpl - complex exponential functions
+cfgetispeed	termios.h		cfgetispeed - get input baud rate
+cfgetospeed	termios.h		cfgetospeed - get output baud rate
+cfsetispeed	termios.h		cfsetispeed - set input baud rate
+cfsetospeed	termios.h		cfsetospeed - set output baud rate
+chdir	unistd.h		chdir - change working directory
+chmod	sys_stat.h		chmod, fchmodat - change mode of a file relative to directory file descriptor
+chown	unistd.h		chown, fchownat - change owner and group of a file relative to directory file descriptor
+cimag	complex.h		cimag, cimagf, cimagl - complex imaginary functions
+cimagf	complex.h		cimag, cimagf, cimagl - complex imaginary functions
+cimagl	complex.h		cimag, cimagf, cimagl - complex imaginary functions
+clearerr	stdio.h		clearerr - clear indicators on a stream
+clock	time.h		clock - report CPU time used
+clock_getcpuclockid	time.h	CPT	clock_getcpuclockid - access a process CPU-time clock (<b>ADVANCED REALTIME</b>)
+clock_getres	time.h	CX	clock_getres, clock_gettime, clock_settime - clock and timer functions
+clock_gettime	time.h	CX	clock_getres, clock_gettime, clock_settime - clock and timer functions
+clock_nanosleep	time.h	CX	clock_nanosleep - high resolution sleep with specifiable clock
+clock_settime	time.h	CX	clock_getres, clock_gettime, clock_settime - clock and timer functions
+clog	complex.h		clog, clogf, clogl - complex natural logarithm functions
+clogf	complex.h		clog, clogf, clogl - complex natural logarithm functions
+clogl	complex.h		clog, clogf, clogl - complex natural logarithm functions
+close	unistd.h		close - close a file descriptor
+closedir	dirent.h		closedir - close a directory stream
+closelog	syslog.h	XSI	closelog, openlog, setlogmask, syslog - control system log
+confstr	unistd.h		confstr - get configurable variables
+conj	complex.h		conj, conjf, conjl - complex conjugate functions
+conjf	complex.h		conj, conjf, conjl - complex conjugate functions
+conjl	complex.h		conj, conjf, conjl - complex conjugate functions
+connect	sys_socket.h		connect - connect a socket
+copysign	math.h		copysign, copysignf, copysignl - number manipulation function
+copysignf	math.h		copysign, copysignf, copysignl - number manipulation function
+copysignl	math.h		copysign, copysignf, copysignl - number manipulation function
+cos	math.h		cos, cosf, cosl - cosine function
+cosf	math.h		cos, cosf, cosl - cosine function
+cosh	math.h		cosh, coshf, coshl - hyperbolic cosine functions
+coshf	math.h		cosh, coshf, coshl - hyperbolic cosine functions
+coshl	math.h		cosh, coshf, coshl - hyperbolic cosine functions
+cosl	math.h		cos, cosf, cosl - cosine function
+cpow	complex.h		cpow, cpowf, cpowl - complex power functions
+cpowf	complex.h		cpow, cpowf, cpowl - complex power functions
+cpowl	complex.h		cpow, cpowf, cpowl - complex power functions
+cproj	complex.h		cproj, cprojf, cprojl - complex projection functions
+cprojf	complex.h		cproj, cprojf, cprojl - complex projection functions
+cprojl	complex.h		cproj, cprojf, cprojl - complex projection functions
+creal	complex.h		creal, crealf, creall - complex real functions
+crealf	complex.h		creal, crealf, creall - complex real functions
+creall	complex.h		creal, crealf, creall - complex real functions
+creat	sys/stat.h fcntl.h	OH	creat - create a new file or rewrite an existing one
+crypt	unistd.h	XSI	crypt - string encoding function (<b>CRYPT</b>)
+csin	complex.h		csin, csinf, csinl - complex sine functions
+csinf	complex.h		csin, csinf, csinl - complex sine functions
+csinh	complex.h		csinh, csinhf, csinhl - complex hyperbolic sine functions
+csinhf	complex.h		csinh, csinhf, csinhl - complex hyperbolic sine functions
+csinhl	complex.h		csinh, csinhf, csinhl - complex hyperbolic sine functions
+csinl	complex.h		csin, csinf, csinl - complex sine functions
+csqrt	complex.h		csqrt, csqrtf, csqrtl - complex square root functions
+csqrtf	complex.h		csqrt, csqrtf, csqrtl - complex square root functions
+csqrtl	complex.h		csqrt, csqrtf, csqrtl - complex square root functions
+ctan	complex.h		ctan, ctanf, ctanl - complex tangent functions
+ctanf	complex.h		ctan, ctanf, ctanl - complex tangent functions
+ctanh	complex.h		ctanh, ctanhf, ctanhl - complex hyperbolic tangent functions
+ctanhf	complex.h		ctanh, ctanhf, ctanhl - complex hyperbolic tangent functions
+ctanhl	complex.h		ctanh, ctanhf, ctanhl - complex hyperbolic tangent functions
+ctanl	complex.h		ctan, ctanf, ctanl - complex tangent functions
+ctermid	stdio.h	CX	ctermid - generate a pathname for the controlling terminal
+ctime	time.h	OB OB CX	ctime, ctime_r - convert a time value to a date and time string
+ctime_r	time.h	OB OB CX	ctime, ctime_r - convert a time value to a date and time string
+daylight	time.h	XSI CX	daylight, timezone, tzname, tzset - set timezone conversion information
+dbm_clearerr	ndbm.h	XSI	dbm_clearerr, dbm_close, dbm_delete, dbm_error, dbm_fetch, dbm_firstkey, dbm_nextkey, dbm_open, dbm_store - database functions
+dbm_close	ndbm.h	XSI	dbm_clearerr, dbm_close, dbm_delete, dbm_error, dbm_fetch, dbm_firstkey, dbm_nextkey, dbm_open, dbm_store - database functions
+dbm_delete	ndbm.h	XSI	dbm_clearerr, dbm_close, dbm_delete, dbm_error, dbm_fetch, dbm_firstkey, dbm_nextkey, dbm_open, dbm_store - database functions
+dbm_error	ndbm.h	XSI	dbm_clearerr, dbm_close, dbm_delete, dbm_error, dbm_fetch, dbm_firstkey, dbm_nextkey, dbm_open, dbm_store - database functions
+dbm_fetch	ndbm.h	XSI	dbm_clearerr, dbm_close, dbm_delete, dbm_error, dbm_fetch, dbm_firstkey, dbm_nextkey, dbm_open, dbm_store - database functions
+dbm_firstkey	ndbm.h	XSI	dbm_clearerr, dbm_close, dbm_delete, dbm_error, dbm_fetch, dbm_firstkey, dbm_nextkey, dbm_open, dbm_store - database functions
+dbm_nextkey	ndbm.h	XSI	dbm_clearerr, dbm_close, dbm_delete, dbm_error, dbm_fetch, dbm_firstkey, dbm_nextkey, dbm_open, dbm_store - database functions
+dbm_open	ndbm.h	XSI	dbm_clearerr, dbm_close, dbm_delete, dbm_error, dbm_fetch, dbm_firstkey, dbm_nextkey, dbm_open, dbm_store - database functions
+dbm_store	ndbm.h	XSI	dbm_clearerr, dbm_close, dbm_delete, dbm_error, dbm_fetch, dbm_firstkey, dbm_nextkey, dbm_open, dbm_store - database functions
+difftime	time.h		difftime - compute the difference between two calendar time values
+dirfd	dirent.h		dirfd - extract the file descriptor used by a DIR stream
+dirname	libgen.h	XSI	dirname - report the parent directory name of a file pathname
+div	stdlib.h		div - compute the quotient and remainder of an integer division
+dlclose	dlfcn.h		dlclose - close a dlopen object
+dlerror	dlfcn.h		dlerror - get diagnostic information
+dlopen	dlfcn.h		dlopen - gain access to an executable object file
+dlsym	dlfcn.h		dlsym - obtain the address of a symbol from a dlopen object
+dprintf	stdio.h	CX	dprintf, fprintf, printf, snprintf, sprintf - print formatted output
+drand48	stdlib.h	XSI	drand48, erand48, jrand48, lcong48, lrand48, mrand48, nrand48, seed48, srand48 - generate uniformly distributed pseudo-random numbers
+dup	unistd.h		dup, dup2 - duplicate an open file descriptor
+dup2	unistd.h		dup, dup2 - duplicate an open file descriptor
+duplocale	locale.h	CX	duplocale - duplicate a locale object
+encrypt	unistd.h	XSI	encrypt - encoding function (<b>CRYPT</b>)
+endgrent	grp.h	XSI	endgrent, getgrent, setgrent - group database entry functions
+endhostent	netdb.h		endhostent, gethostent, sethostent - network host database functions
+endnetent	netdb.h		endnetent, getnetbyaddr, getnetbyname, getnetent, setnetent - network database functions
+endprotoent	netdb.h		endprotoent, getprotobyname, getprotobynumber, getprotoent, setprotoent - network protocol database functions
+endpwent	pwd.h	XSI	endpwent, getpwent, setpwent - user database functions
+endservent	netdb.h		endservent, getservbyname, getservbyport, getservent, setservent - network services database functions
+endutxent	utmpx.h	XSI	endutxent, getutxent, getutxid, getutxline, pututxline, setutxent - user accounting database functions
+environ	unistd.h		environ, execl, execle, execlp, execv, execve, execvp, fexecve - execute a file
+erand48	stdlib.h	XSI	drand48, erand48, jrand48, lcong48, lrand48, mrand48, nrand48, seed48, srand48 - generate uniformly distributed pseudo-random numbers
+erf	math.h		erf, erff, erfl - error functions
+erfc	math.h		erfc, erfcf, erfcl - complementary error functions
+erfcf	math.h		erfc, erfcf, erfcl - complementary error functions
+erfcl	math.h		erfc, erfcf, erfcl - complementary error functions
+erff	math.h		erf, erff, erfl - error functions
+erfl	math.h		erf, erff, erfl - error functions
+errno	errno.h		errno - error return value
+execl	unistd.h		environ, execl, execle, execlp, execv, execve, execvp, fexecve - execute a file
+execle	unistd.h		environ, execl, execle, execlp, execv, execve, execvp, fexecve - execute a file
+execlp	unistd.h		environ, execl, execle, execlp, execv, execve, execvp, fexecve - execute a file
+execv	unistd.h		environ, execl, execle, execlp, execv, execve, execvp, fexecve - execute a file
+execve	unistd.h		environ, execl, execle, execlp, execv, execve, execvp, fexecve - execute a file
+execvp	unistd.h		environ, execl, execle, execlp, execv, execve, execvp, fexecve - execute a file
+exit	stdlib.h		exit - terminate a process
+exp	math.h		exp, expf, expl - exponential function
+exp2	math.h		exp2, exp2f, exp2l - exponential base 2 functions
+exp2f	math.h		exp2, exp2f, exp2l - exponential base 2 functions
+exp2l	math.h		exp2, exp2f, exp2l - exponential base 2 functions
+expf	math.h		exp, expf, expl - exponential function
+expl	math.h		exp, expf, expl - exponential function
+expm1	math.h		expm1, expm1f, expm1l - compute exponential functions
+expm1f	math.h		expm1, expm1f, expm1l - compute exponential functions
+expm1l	math.h		expm1, expm1f, expm1l - compute exponential functions
+fabs	math.h		fabs, fabsf, fabsl - absolute value function
+fabsf	math.h		fabs, fabsf, fabsl - absolute value function
+fabsl	math.h		fabs, fabsf, fabsl - absolute value function
+faccessat	unistd.h		access, faccessat - determine accessibility of a file relative to directory file descriptor
+fattach	stropts.h	OB XSR	fattach - attach a STREAMS-based file descriptor to a file in the file system name space (<b>STREAMS</b>)
+fchdir	unistd.h		fchdir - change working directory
+fchmod	sys_stat.h		fchmod - change mode of a file
+fchmodat	sys_stat.h		chmod, fchmodat - change mode of a file relative to directory file descriptor
+fchown	unistd.h		fchown - change owner and group of a file
+fchownat	unistd.h		chown, fchownat - change owner and group of a file relative to directory file descriptor
+fclose	stdio.h		fclose - close a stream
+fcntl	fcntl.h		fcntl - file control
+fdatasync	unistd.h	SIO	fdatasync - synchronize the data of a file (<b>REALTIME</b>)
+fdetach	stropts.h	OB XSR	fdetach - detach a name from a STREAMS-based file descriptor (<b>STREAMS</b>)
+fdim	math.h		fdim, fdimf, fdiml - compute positive difference between two floating-point numbers
+fdimf	math.h		fdim, fdimf, fdiml - compute positive difference between two floating-point numbers
+fdiml	math.h		fdim, fdimf, fdiml - compute positive difference between two floating-point numbers
+fdopen	stdio.h	CX	fdopen - associate a stream with a file descriptor
+fdopendir	dirent.h		fdopendir, opendir - open directory associated with file descriptor
+feclearexcept	fenv.h		feclearexcept - clear floating-point exception
+fegetenv	fenv.h		fegetenv, fesetenv - get and set current floating-point environment
+fegetexceptflag	fenv.h		fegetexceptflag, fesetexceptflag - get and set floating-point status flags
+fegetround	fenv.h		fegetround, fesetround - get and set current rounding direction
+feholdexcept	fenv.h		feholdexcept - save current floating-point environment
+feof	stdio.h		feof - test end-of-file indicator on a stream
+feraiseexcept	fenv.h		feraiseexcept - raise floating-point exception
+ferror	stdio.h		ferror - test error indicator on a stream
+fesetenv	fenv.h		fegetenv, fesetenv - get and set current floating-point environment
+fesetexceptflag	fenv.h		fegetexceptflag, fesetexceptflag - get and set floating-point status flags
+fesetround	fenv.h		fegetround, fesetround - get and set current rounding direction
+fetestexcept	fenv.h		fetestexcept - test floating-point exception flags
+feupdateenv	fenv.h		feupdateenv - update floating-point environment
+fexecve	unistd.h		environ, execl, execle, execlp, execv, execve, execvp, fexecve - execute a file
+fflush	stdio.h		fflush - flush a stream
+ffs	strings.h	XSI	ffs - find first set bit
+fgetc	stdio.h		fgetc - get a byte from a stream
+fgetpos	stdio.h		fgetpos - get current file position information
+fgets	stdio.h		fgets - get a string from a stream
+fgetwc	stdio.h wchar.h		fgetwc - get a wide-character code from a stream
+fgetws	stdio.h wchar.h		fgetws - get a wide-character string from a stream
+fileno	stdio.h	CX	fileno - map a stream pointer to a file descriptor
+flockfile	stdio.h	CX	flockfile, ftrylockfile, funlockfile - stdio locking functions
+floor	math.h		floor, floorf, floorl - floor function
+floorf	math.h		floor, floorf, floorl - floor function
+floorl	math.h		floor, floorf, floorl - floor function
+fma	math.h		fma, fmaf, fmal - floating-point multiply-add
+fmaf	math.h		fma, fmaf, fmal - floating-point multiply-add
+fmal	math.h		fma, fmaf, fmal - floating-point multiply-add
+fmax	math.h		fmax, fmaxf, fmaxl - determine maximum numeric value of two floating-point numbers
+fmaxf	math.h		fmax, fmaxf, fmaxl - determine maximum numeric value of two floating-point numbers
+fmaxl	math.h		fmax, fmaxf, fmaxl - determine maximum numeric value of two floating-point numbers
+fmemopen	stdio.h	CX	fmemopen - open a memory buffer stream
+fmin	math.h		fmin, fminf, fminl - determine minimum numeric value of two floating-point numbers
+fminf	math.h		fmin, fminf, fminl - determine minimum numeric value of two floating-point numbers
+fminl	math.h		fmin, fminf, fminl - determine minimum numeric value of two floating-point numbers
+fmod	math.h		fmod, fmodf, fmodl - floating-point remainder value function
+fmodf	math.h		fmod, fmodf, fmodl - floating-point remainder value function
+fmodl	math.h		fmod, fmodf, fmodl - floating-point remainder value function
+fmtmsg	fmtmsg.h	XSI	fmtmsg - display a message in the specified format on standard error and/or a system console
+fnmatch	fnmatch.h		fnmatch - match a filename or a pathname
+fopen	stdio.h		fopen - open a stream
+fork	unistd.h		fork - create a new process
+fpathconf	unistd.h		fpathconf, pathconf - get configurable pathname variables
+fpclassify	math.h		fpclassify - classify real floating type
+fprintf	stdio.h	CX	dprintf, fprintf, printf, snprintf, sprintf - print formatted output
+fputc	stdio.h		fputc - put a byte on a stream
+fputs	stdio.h		fputs - put a string on a stream
+fputwc	stdio.h wchar.h		fputwc - put a wide-character code on a stream
+fputws	stdio.h wchar.h		fputws - put a wide-character string on a stream
+fread	stdio.h		fread - binary input
+free	stdlib.h		free - free allocated memory
+freeaddrinfo	sys_socket.h netdb.h		freeaddrinfo, getaddrinfo - get address information
+freelocale	locale.h	CX	freelocale - free resources allocated for a locale object
+freopen	stdio.h		freopen - open a stream
+frexp	math.h		frexp, frexpf, frexpl - extract mantissa and exponent from a double precision number
+frexpf	math.h		frexp, frexpf, frexpl - extract mantissa and exponent from a double precision number
+frexpl	math.h		frexp, frexpf, frexpl - extract mantissa and exponent from a double precision number
+fscanf	stdio.h		fscanf, scanf, sscanf - convert formatted input
+fseek	stdio.h	CX	fseek, fseeko - reposition a file-position indicator in a stream
+fseeko	stdio.h	CX	fseek, fseeko - reposition a file-position indicator in a stream
+fsetpos	stdio.h		fsetpos - set current file position
+fstat	sys_stat.h		fstat - get file status
+fstatat	sys_stat.h		fstatat, lstat, stat - get file status
+fstatvfs	sys_statvfs.h		fstatvfs, statvfs - get file system information
+fsync	unistd.h	FSC	fsync - synchronize changes to a file
+ftell	stdio.h	CX	ftell, ftello - return a file offset in a stream
+ftello	stdio.h	CX	ftell, ftello - return a file offset in a stream
+ftok	sys_ipc.h	XSI	ftok - generate an IPC key
+ftruncate	unistd.h		ftruncate - truncate a file to a specified length
+ftrylockfile	stdio.h	CX	flockfile, ftrylockfile, funlockfile - stdio locking functions
+ftw	ftw.h	OB XSI	ftw - traverse (walk) a file tree
+funlockfile	stdio.h	CX	flockfile, ftrylockfile, funlockfile - stdio locking functions
+futimens	sys_stat.h sys_time.h	XSI	futimens, utimensat, utimes - set file access and modification times
+fwide	stdio.h wchar.h		fwide - set stream orientation
+fwprintf	stdio.h wchar.h		fwprintf, swprintf, wprintf - print formatted wide-character output
+fwrite	stdio.h		fwrite - binary output
+fwscanf	stdio.h wchar.h		fwscanf, swscanf, wscanf - convert formatted wide-character input
+gai_strerror	netdb.h		gai_strerror - address and name information error description
+getaddrinfo	sys_socket.h netdb.h		freeaddrinfo, getaddrinfo - get address information
+getc	stdio.h		getc - get a byte from a stream
+getc_unlocked	stdio.h	CX	getc_unlocked, getchar_unlocked, putc_unlocked, putchar_unlocked - stdio with explicit client locking
+getchar	stdio.h		getchar - get a byte from a .I stdin stream
+getchar_unlocked	stdio.h	CX	getc_unlocked, getchar_unlocked, putc_unlocked, putchar_unlocked - stdio with explicit client locking
+getcwd	unistd.h		getcwd - get the pathname of the current working directory
+getdate	time.h	XSI	getdate - convert user format date and time
+getdate_err	time.h	XSI	getdate - convert user format date and time
+getdelim	stdio.h	CX	getdelim, getline - read a delimited record from .I stream
+getegid	unistd.h		getegid - get the effective group ID
+getenv	stdlib.h		getenv - get value of an environment variable
+geteuid	unistd.h		geteuid - get the effective user ID
+getgid	unistd.h		getgid - get the real group ID
+getgrent	grp.h	XSI	endgrent, getgrent, setgrent - group database entry functions
+getgrgid	grp.h		getgrgid, getgrgid_r - get group database entry for a group ID
+getgrgid_r	grp.h		getgrgid, getgrgid_r - get group database entry for a group ID
+getgrnam	grp.h		getgrnam, getgrnam_r - search group database for a name
+getgrnam_r	grp.h		getgrnam, getgrnam_r - search group database for a name
+getgroups	unistd.h		getgroups - get supplementary group IDs
+gethostent	netdb.h		endhostent, gethostent, sethostent - network host database functions
+gethostid	unistd.h	XSI	gethostid - get an identifier for the current host
+gethostname	unistd.h		gethostname - get name of current host
+getitimer	sys_time.h	OB XSI	getitimer, setitimer - get and set value of interval timer
+getline	stdio.h	CX	getdelim, getline - read a delimited record from .I stream
+getlogin	unistd.h		getlogin, getlogin_r - get login name
+getlogin_r	unistd.h		getlogin, getlogin_r - get login name
+getmsg	stropts.h	OB XSR	getmsg, getpmsg - receive next message from a STREAMS file (<b>STREAMS</b>)
+getnameinfo	sys_socket.h netdb.h		getnameinfo - get name information
+getnetbyaddr	netdb.h		endnetent, getnetbyaddr, getnetbyname, getnetent, setnetent - network database functions
+getnetbyname	netdb.h		endnetent, getnetbyaddr, getnetbyname, getnetent, setnetent - network database functions
+getnetent	netdb.h		endnetent, getnetbyaddr, getnetbyname, getnetent, setnetent - network database functions
+getopt	unistd.h		getopt, optarg, opterr, optind, optopt - command option parsing
+getpeername	sys_socket.h		getpeername - get the name of the peer socket
+getpgid	unistd.h		getpgid - get the process group ID for a process
+getpgrp	unistd.h		getpgrp - get the process group ID of the calling process
+getpid	unistd.h		getpid - get the process ID
+getpmsg	stropts.h	OB XSR	getmsg, getpmsg - receive next message from a STREAMS file (<b>STREAMS</b>)
+getppid	unistd.h		getppid - get the parent process ID
+getpriority	sys_resource.h	XSI	getpriority, setpriority - get and set the nice value
+getprotobyname	netdb.h		endprotoent, getprotobyname, getprotobynumber, getprotoent, setprotoent - network protocol database functions
+getprotobynumber	netdb.h		endprotoent, getprotobyname, getprotobynumber, getprotoent, setprotoent - network protocol database functions
+getprotoent	netdb.h		endprotoent, getprotobyname, getprotobynumber, getprotoent, setprotoent - network protocol database functions
+getpwent	pwd.h	XSI	endpwent, getpwent, setpwent - user database functions
+getpwnam	pwd.h		getpwnam, getpwnam_r - search user database for a name
+getpwnam_r	pwd.h		getpwnam, getpwnam_r - search user database for a name
+getpwuid	pwd.h		getpwuid, getpwuid_r - search user database for a user ID
+getpwuid_r	pwd.h		getpwuid, getpwuid_r - search user database for a user ID
+getrlimit	sys_resource.h	XSI	getrlimit, setrlimit - control maximum resource consumption
+getrusage	sys_resource.h	XSI	getrusage - get information about resource utilization
+gets	stdio.h	OB	gets - get a string from a .I stdin stream
+getservbyname	netdb.h		endservent, getservbyname, getservbyport, getservent, setservent - network services database functions
+getservbyport	netdb.h		endservent, getservbyname, getservbyport, getservent, setservent - network services database functions
+getservent	netdb.h		endservent, getservbyname, getservbyport, getservent, setservent - network services database functions
+getsid	unistd.h		getsid - get the process group ID of a session leader
+getsockname	sys_socket.h		getsockname - get the socket name
+getsockopt	sys_socket.h		getsockopt - get the socket options
+getsubopt	stdlib.h		getsubopt - parse suboption arguments from a string
+gettimeofday	sys_time.h	OB XSI	gettimeofday - get the date and time
+getuid	unistd.h		getuid - get a real user ID
+getutxent	utmpx.h	XSI	endutxent, getutxent, getutxid, getutxline, pututxline, setutxent - user accounting database functions
+getutxid	utmpx.h	XSI	endutxent, getutxent, getutxid, getutxline, pututxline, setutxent - user accounting database functions
+getutxline	utmpx.h	XSI	endutxent, getutxent, getutxid, getutxline, pututxline, setutxent - user accounting database functions
+getwc	stdio.h wchar.h		getwc - get a wide character from a stream
+getwchar	wchar.h		getwchar - get a wide character from a .I stdin stream
+glob	glob.h		glob, globfree - generate pathnames matching a pattern
+globfree	glob.h		glob, globfree - generate pathnames matching a pattern
+gmtime	time.h	CX	gmtime, gmtime_r - convert a time value to a broken-down UTC time
+gmtime_r	time.h	CX	gmtime, gmtime_r - convert a time value to a broken-down UTC time
+grantpt	stdlib.h	XSI	grantpt - grant access to the slave pseudo-terminal device
+hcreate	search.h	XSI	hcreate, hdestroy, hsearch - manage hash search table
+hdestroy	search.h	XSI	hcreate, hdestroy, hsearch - manage hash search table
+hsearch	search.h	XSI	hcreate, hdestroy, hsearch - manage hash search table
+htonl	arpa_inet.h		htonl, htons, ntohl, ntohs - convert values between host and network byte order
+htons	arpa_inet.h		htonl, htons, ntohl, ntohs - convert values between host and network byte order
+hypot	math.h		hypot, hypotf, hypotl - Euclidean distance function
+hypotf	math.h		hypot, hypotf, hypotl - Euclidean distance function
+hypotl	math.h		hypot, hypotf, hypotl - Euclidean distance function
+iconv	iconv.h		iconv - codeset conversion function
+iconv_close	iconv.h		iconv_close - codeset conversion deallocation function
+iconv_open	iconv.h		iconv_open - codeset conversion allocation function
+if_freenameindex	net_if.h		if_freenameindex - free memory allocated by if_nameindex
+if_indextoname	net_if.h		if_indextoname - map a network interface index to its corresponding name
+if_nameindex	net_if.h		if_nameindex - return all network interface names and indexes
+if_nametoindex	net_if.h		if_nametoindex - map a network interface name to its corresponding index
+ilogb	math.h		ilogb, ilogbf, ilogbl - return an unbiased exponent
+ilogbf	math.h		ilogb, ilogbf, ilogbl - return an unbiased exponent
+ilogbl	math.h		ilogb, ilogbf, ilogbl - return an unbiased exponent
+imaxabs	inttypes.h		imaxabs - return absolute value
+imaxdiv	inttypes.h		imaxdiv - return quotient and remainder
+inet_addr	arpa_inet.h		inet_addr, inet_ntoa - IPv4 address manipulation
+inet_ntoa	arpa_inet.h		inet_addr, inet_ntoa - IPv4 address manipulation
+inet_ntop	arpa_inet.h		inet_ntop, inet_pton - convert IPv4 and IPv6 addresses between binary and text form
+inet_pton	arpa_inet.h		inet_ntop, inet_pton - convert IPv4 and IPv6 addresses between binary and text form
+initstate	stdlib.h	XSI	initstate, random, setstate, srandom - pseudo-random number functions
+insque	search.h	XSI	insque, remque - insert or remove an element in a queue
+ioctl	stropts.h	OB XSR	ioctl - control a STREAMS device (<b>STREAMS</b>)
+isalnum	ctype.h	CX	isalnum, isalnum_l - test for an alphanumeric character
+isalnum_l	ctype.h	CX	isalnum, isalnum_l - test for an alphanumeric character
+isalpha	ctype.h	CX	isalpha, isalpha_l - test for an alphabetic character
+isalpha_l	ctype.h	CX	isalpha, isalpha_l - test for an alphabetic character
+isascii	ctype.h	OB XSI	isascii - test for a 7-bit US-ASCII character
+isastream	stropts.h	OB XSR	isastream - test a file descriptor (<b>STREAMS</b>)
+isatty	unistd.h		isatty - test for a terminal device
+isblank	ctype.h	CX	isblank, isblank_l - test for a blank character
+isblank_l	ctype.h	CX	isblank, isblank_l - test for a blank character
+iscntrl	ctype.h	CX	iscntrl, iscntrl_l - test for a control character
+iscntrl_l	ctype.h	CX	iscntrl, iscntrl_l - test for a control character
+isdigit	ctype.h	CX	isdigit, isdigit_l - test for a decimal digit
+isdigit_l	ctype.h	CX	isdigit, isdigit_l - test for a decimal digit
+isfinite	math.h		isfinite - test for finite value
+isgraph	ctype.h	CX	isgraph, isgraph_l - test for a visible character
+isgraph_l	ctype.h	CX	isgraph, isgraph_l - test for a visible character
+isgreater	math.h		isgreater - test if x greater than y
+isgreaterequal	math.h		isgreaterequal - test if x is greater than or equal to y
+isinf	math.h		isinf - test for infinity
+isless	math.h		isless - test if x is less than y
+islessequal	math.h		islessequal - test if x is less than or equal to y
+islessgreater	math.h		islessgreater - test if x is less than or greater than y
+islower	ctype.h	CX	islower, islower_l - test for a lowercase letter
+islower_l	ctype.h	CX	islower, islower_l - test for a lowercase letter
+isnan	math.h		isnan - test for a NaN
+isnormal	math.h		isnormal - test for a normal value
+isprint	ctype.h	CX	isprint, isprint_l - test for a printable character
+isprint_l	ctype.h	CX	isprint, isprint_l - test for a printable character
+ispunct	ctype.h	CX	ispunct, ispunct_l - test for a punctuation character
+ispunct_l	ctype.h	CX	ispunct, ispunct_l - test for a punctuation character
+isspace	ctype.h	CX	isspace, isspace_l - test for a white-space character
+isspace_l	ctype.h	CX	isspace, isspace_l - test for a white-space character
+isunordered	math.h		isunordered - test if arguments are unordered
+isupper	ctype.h	CX	isupper, isupper_l - test for an uppercase letter
+isupper_l	ctype.h	CX	isupper, isupper_l - test for an uppercase letter
+iswalnum	wctype.h	CX	iswalnum, iswalnum_l - test for an alphanumeric wide-character code
+iswalnum_l	wctype.h	CX	iswalnum, iswalnum_l - test for an alphanumeric wide-character code
+iswalpha	wctype.h	CX	iswalpha, iswalpha_l - test for an alphabetic wide-character code
+iswalpha_l	wctype.h	CX	iswalpha, iswalpha_l - test for an alphabetic wide-character code
+iswblank	wctype.h	CX	iswblank, iswblank_l - test for a blank wide-character code
+iswblank_l	wctype.h	CX	iswblank, iswblank_l - test for a blank wide-character code
+iswcntrl	wctype.h	CX	iswcntrl, iswcntrl_l - test for a control wide-character code
+iswcntrl_l	wctype.h	CX	iswcntrl, iswcntrl_l - test for a control wide-character code
+iswctype	wctype.h	CX	iswctype, iswctype_l - test character for a specified class
+iswctype_l	wctype.h	CX	iswctype, iswctype_l - test character for a specified class
+iswdigit	wctype.h	CX	iswdigit, iswdigit_l - test for a decimal digit wide-character code
+iswdigit_l	wctype.h	CX	iswdigit, iswdigit_l - test for a decimal digit wide-character code
+iswgraph	wctype.h	CX	iswgraph, iswgraph_l - test for a visible wide-character code
+iswgraph_l	wctype.h	CX	iswgraph, iswgraph_l - test for a visible wide-character code
+iswlower	wctype.h	CX	iswlower, iswlower_l - test for a lowercase letter wide-character code
+iswlower_l	wctype.h	CX	iswlower, iswlower_l - test for a lowercase letter wide-character code
+iswprint	wctype.h	CX	iswprint, iswprint_l - test for a printable wide-character code
+iswprint_l	wctype.h	CX	iswprint, iswprint_l - test for a printable wide-character code
+iswpunct	wctype.h	CX	iswpunct, iswpunct_l - test for a punctuation wide-character code
+iswpunct_l	wctype.h	CX	iswpunct, iswpunct_l - test for a punctuation wide-character code
+iswspace	wctype.h	CX	iswspace, iswspace_l - test for a white-space wide-character code
+iswspace_l	wctype.h	CX	iswspace, iswspace_l - test for a white-space wide-character code
+iswupper	wctype.h	CX	iswupper, iswupper_l - test for an uppercase letter wide-character code
+iswupper_l	wctype.h	CX	iswupper, iswupper_l - test for an uppercase letter wide-character code
+iswxdigit	wctype.h	CX	iswxdigit, iswxdigit_l - test for a hexadecimal digit wide-character code
+iswxdigit_l	wctype.h	CX	iswxdigit, iswxdigit_l - test for a hexadecimal digit wide-character code
+isxdigit	ctype.h	CX	isxdigit, isxdigit_l - test for a hexadecimal digit
+isxdigit_l	ctype.h	CX	isxdigit, isxdigit_l - test for a hexadecimal digit
+j0	math.h	XSI	j0, j1, jn - Bessel functions of the first kind
+j1	math.h	XSI	j0, j1, jn - Bessel functions of the first kind
+jn	math.h	XSI	j0, j1, jn - Bessel functions of the first kind
+jrand48	stdlib.h	XSI	drand48, erand48, jrand48, lcong48, lrand48, mrand48, nrand48, seed48, srand48 - generate uniformly distributed pseudo-random numbers
+kill	signal.h	CX	kill - send a signal to a process or a group of processes
+killpg	signal.h	XSI	killpg - send a signal to a process group
+l64a	stdlib.h	XSI	a64l, l64a - convert between a 32-bit integer and a radix-64 ASCII string
+labs	stdlib.h		labs, llabs - return a long integer absolute value
+lchown	unistd.h		lchown - change the owner and group of a symbolic link
+lcong48	stdlib.h	XSI	drand48, erand48, jrand48, lcong48, lrand48, mrand48, nrand48, seed48, srand48 - generate uniformly distributed pseudo-random numbers
+ldexp	math.h		ldexp, ldexpf, ldexpl - load exponent of a floating-point number
+ldexpf	math.h		ldexp, ldexpf, ldexpl - load exponent of a floating-point number
+ldexpl	math.h		ldexp, ldexpf, ldexpl - load exponent of a floating-point number
+ldiv	stdlib.h		ldiv, lldiv - compute quotient and remainder of a long division
+lfind	search.h	XSI	lsearch, lfind - linear search and update
+lgamma	math.h	XSI	lgamma, lgammaf, lgammal, signgam - log gamma function
+lgammaf	math.h	XSI	lgamma, lgammaf, lgammal, signgam - log gamma function
+lgammal	math.h	XSI	lgamma, lgammaf, lgammal, signgam - log gamma function
+link	unistd.h		link, linkat - link one file to another file relative to two directory file descriptors
+linkat	unistd.h		link, linkat - link one file to another file relative to two directory file descriptors
+lio_listio	aio.h		lio_listio - list directed I/O
+listen	sys_socket.h		listen - listen for socket connections and limit the queue of incoming connections
+llabs	stdlib.h		labs, llabs - return a long integer absolute value
+lldiv	stdlib.h		ldiv, lldiv - compute quotient and remainder of a long division
+llrint	math.h		llrint, llrintf, llrintl - round to the nearest integer value using current rounding direction
+llrintf	math.h		llrint, llrintf, llrintl - round to the nearest integer value using current rounding direction
+llrintl	math.h		llrint, llrintf, llrintl - round to the nearest integer value using current rounding direction
+llround	math.h		llround, llroundf, llroundl - round to nearest integer value
+llroundf	math.h		llround, llroundf, llroundl - round to nearest integer value
+llroundl	math.h		llround, llroundf, llroundl - round to nearest integer value
+localeconv	locale.h		localeconv - return locale-specific information
+localtime	time.h	CX	localtime, localtime_r - convert a time value to a broken-down local time
+localtime_r	time.h	CX	localtime, localtime_r - convert a time value to a broken-down local time
+lockf	unistd.h	XSI	lockf - record locking on files
+log	math.h		log, logf, logl - natural logarithm function
+log10	math.h		log10, log10f, log10l - base 10 logarithm function
+log10f	math.h		log10, log10f, log10l - base 10 logarithm function
+log10l	math.h		log10, log10f, log10l - base 10 logarithm function
+log1p	math.h		log1p, log1pf, log1pl - compute a natural logarithm
+log1pf	math.h		log1p, log1pf, log1pl - compute a natural logarithm
+log1pl	math.h		log1p, log1pf, log1pl - compute a natural logarithm
+log2	math.h		log2, log2f, log2l - compute base 2 logarithm functions
+log2f	math.h		log2, log2f, log2l - compute base 2 logarithm functions
+log2l	math.h		log2, log2f, log2l - compute base 2 logarithm functions
+logb	math.h		logb, logbf, logbl - radix-independent exponent
+logbf	math.h		logb, logbf, logbl - radix-independent exponent
+logbl	math.h		logb, logbf, logbl - radix-independent exponent
+logf	math.h		log, logf, logl - natural logarithm function
+logl	math.h		log, logf, logl - natural logarithm function
+longjmp	setjmp.h		longjmp - non-local goto
+lrand48	stdlib.h	XSI	drand48, erand48, jrand48, lcong48, lrand48, mrand48, nrand48, seed48, srand48 - generate uniformly distributed pseudo-random numbers
+lrint	math.h		lrint, lrintf, lrintl - round to nearest integer value using current rounding direction
+lrintf	math.h		lrint, lrintf, lrintl - round to nearest integer value using current rounding direction
+lrintl	math.h		lrint, lrintf, lrintl - round to nearest integer value using current rounding direction
+lround	math.h		lround, lroundf, lroundl - round to nearest integer value
+lroundf	math.h		lround, lroundf, lroundl - round to nearest integer value
+lroundl	math.h		lround, lroundf, lroundl - round to nearest integer value
+lsearch	search.h	XSI	lsearch, lfind - linear search and update
+lseek	unistd.h		lseek - move the read/write file offset
+lstat	sys_stat.h		fstatat, lstat, stat - get file status
+malloc	stdlib.h		malloc - a memory allocator
+mblen	stdlib.h		mblen - get number of bytes in a character
+mbrlen	wchar.h		mbrlen - get number of bytes in a character (restartable)
+mbrtowc	wchar.h		mbrtowc - convert a character to a wide-character code (restartable)
+mbsinit	wchar.h		mbsinit - determine conversion object status
+mbsnrtowcs	wchar.h	CX	mbsnrtowcs, mbsrtowcs - convert a character string to a wide-character string (restartable)
+mbsrtowcs	wchar.h	CX	mbsnrtowcs, mbsrtowcs - convert a character string to a wide-character string (restartable)
+mbstowcs	stdlib.h		mbstowcs - convert a character string to a wide-character string
+mbtowc	stdlib.h		mbtowc - convert a character to a wide-character code
+memccpy	string.h	XSI	memccpy - copy bytes in memory
+memchr	string.h		memchr - find byte in memory
+memcmp	string.h		memcmp - compare bytes in memory
+memcpy	string.h		memcpy - copy bytes in memory
+memmove	string.h		memmove - copy bytes in memory with overlapping areas
+memset	string.h		memset - set bytes in memory
+mkdir	sys_stat.h		mkdir, mkdirat - make a directory relative to directory file descriptor
+mkdirat	sys_stat.h		mkdir, mkdirat - make a directory relative to directory file descriptor
+mkdtemp	stdlib.h	CX	mkdtemp, mkstemp - create a unique directory or file
+mkfifo	sys_stat.h		mkfifo, mkfifoat - make a FIFO special file relative to directory file descriptor
+mkfifoat	sys_stat.h		mkfifo, mkfifoat - make a FIFO special file relative to directory file descriptor
+mknod	sys_stat.h	XSI	mknod, mknodat - make directory, special file, or regular file
+mknodat	sys_stat.h	XSI	mknod, mknodat - make directory, special file, or regular file
+mkstemp	stdlib.h	CX	mkdtemp, mkstemp - create a unique directory or file
+mktime	time.h		mktime - convert broken-down time into time since the Epoch
+mlock	sys_mman.h	MLR	mlock, munlock - lock or unlock a range of process address space (<b>REALTIME</b>)
+mlockall	sys_mman.h	ML	mlockall, munlockall - lock/unlock the address space of a process (<b>REALTIME</b>)
+mmap	sys_mman.h		mmap - map pages of memory
+modf	math.h		modf, modff, modfl - decompose a floating-point number
+modff	math.h		modf, modff, modfl - decompose a floating-point number
+modfl	math.h		modf, modff, modfl - decompose a floating-point number
+mprotect	sys_mman.h		mprotect - set protection of memory mapping
+mq_close	mqueue.h	MSG	mq_close - close a message queue (<b>REALTIME</b>)
+mq_getattr	mqueue.h	MSG	mq_getattr - get message queue attributes (<b>REALTIME</b>)
+mq_notify	mqueue.h	MSG	mq_notify - notify process that a message is available (<b>REALTIME</b>)
+mq_open	mqueue.h	MSG	mq_open - open a message queue (<b>REALTIME</b>)
+mq_receive	mqueue.h mqueue.h time.h	MSG	mq_receive, mq_timedreceive - receive a message from a message queue (<b>REALTIME</b>)
+mq_send	mqueue.h mqueue.h time.h	MSG	mq_send, mq_timedsend - send a message to a message queue (<b>REALTIME</b>)
+mq_setattr	mqueue.h	MSG	mq_setattr - set message queue attributes (<b>REALTIME</b>)
+mq_timedreceive	mqueue.h mqueue.h time.h	MSG	mq_receive, mq_timedreceive - receive a message from a message queue (<b>REALTIME</b>)
+mq_timedsend	mqueue.h mqueue.h time.h	MSG	mq_send, mq_timedsend - send a message to a message queue (<b>REALTIME</b>)
+mq_unlink	mqueue.h	MSG	mq_unlink - remove a message queue (<b>REALTIME</b>)
+mrand48	stdlib.h	XSI	drand48, erand48, jrand48, lcong48, lrand48, mrand48, nrand48, seed48, srand48 - generate uniformly distributed pseudo-random numbers
+msgctl	sys_msg.h	XSI	msgctl - XSI message control operations
+msgget	sys_msg.h	XSI	msgget - get the XSI message queue identifier
+msgrcv	sys_msg.h	XSI	msgrcv - XSI message receive operation
+msgsnd	sys_msg.h	XSI	msgsnd - XSI message send operation
+msync	sys_mman.h	XSI	msync - synchronize memory with physical storage
+munlock	sys_mman.h	MLR	mlock, munlock - lock or unlock a range of process address space (<b>REALTIME</b>)
+munlockall	sys_mman.h	ML	mlockall, munlockall - lock/unlock the address space of a process (<b>REALTIME</b>)
+munmap	sys_mman.h		munmap - unmap pages of memory
+nan	math.h		nan, nanf, nanl - return quiet NaN
+nanf	math.h		nan, nanf, nanl - return quiet NaN
+nanl	math.h		nan, nanf, nanl - return quiet NaN
+nanosleep	time.h	CX	nanosleep - high resolution sleep
+nearbyint	math.h		nearbyint, nearbyintf, nearbyintl - floating-point rounding functions
+nearbyintf	math.h		nearbyint, nearbyintf, nearbyintl - floating-point rounding functions
+nearbyintl	math.h		nearbyint, nearbyintf, nearbyintl - floating-point rounding functions
+newlocale	locale.h	CX	newlocale - create or modify a locale object
+nextafter	math.h		nextafter, nextafterf, nextafterl, nexttoward, nexttowardf, nexttowardl - next representable floating-point number
+nextafterf	math.h		nextafter, nextafterf, nextafterl, nexttoward, nexttowardf, nexttowardl - next representable floating-point number
+nextafterl	math.h		nextafter, nextafterf, nextafterl, nexttoward, nexttowardf, nexttowardl - next representable floating-point number
+nexttoward	math.h		nextafter, nextafterf, nextafterl, nexttoward, nexttowardf, nexttowardl - next representable floating-point number
+nexttowardf	math.h		nextafter, nextafterf, nextafterl, nexttoward, nexttowardf, nexttowardl - next representable floating-point number
+nexttowardl	math.h		nextafter, nextafterf, nextafterl, nexttoward, nexttowardf, nexttowardl - next representable floating-point number
+nftw	ftw.h	XSI	nftw - walk a file tree
+nice	unistd.h	XSI	nice - change the nice value of a process
+nl_langinfo	langinfo.h		nl_langinfo, nl_langinfo_l - language information
+nl_langinfo_l	langinfo.h		nl_langinfo, nl_langinfo_l - language information
+nrand48	stdlib.h	XSI	drand48, erand48, jrand48, lcong48, lrand48, mrand48, nrand48, seed48, srand48 - generate uniformly distributed pseudo-random numbers
+ntohl	arpa_inet.h		htonl, htons, ntohl, ntohs - convert values between host and network byte order
+ntohs	arpa_inet.h		htonl, htons, ntohl, ntohs - convert values between host and network byte order
+open	sys/stat.h fcntl.h	OH	open, openat - open file relative to directory file descriptor
+open_memstream	stdio.h wchar.h	CX	open_memstream, open_wmemstream - open a dynamic memory buffer stream
+open_wmemstream	stdio.h wchar.h	CX	open_memstream, open_wmemstream - open a dynamic memory buffer stream
+openat	sys/stat.h fcntl.h	OH	open, openat - open file relative to directory file descriptor
+opendir	dirent.h		fdopendir, opendir - open directory associated with file descriptor
+openlog	syslog.h	XSI	closelog, openlog, setlogmask, syslog - control system log
+optarg	unistd.h		getopt, optarg, opterr, optind, optopt - command option parsing
+opterr	unistd.h		getopt, optarg, opterr, optind, optopt - command option parsing
+optind	unistd.h		getopt, optarg, opterr, optind, optopt - command option parsing
+optopt	unistd.h		getopt, optarg, opterr, optind, optopt - command option parsing
+pathconf	unistd.h		fpathconf, pathconf - get configurable pathname variables
+pause	unistd.h		pause - suspend the thread until a signal is received
+pclose	stdio.h	CX	pclose - close a pipe stream to or from a process
+perror	stdio.h		perror - write error messages to standard error
+pipe	unistd.h		pipe - create an interprocess channel
+poll	poll.h		poll - input/output multiplexing
+popen	stdio.h	CX	popen - initiate pipe streams to or from a process
+posix_fadvise	fcntl.h	ADV	posix_fadvise - file advisory information (<b>ADVANCED REALTIME</b>)
+posix_fallocate	fcntl.h	ADV	posix_fallocate - file space control (<b>ADVANCED REALTIME</b>)
+posix_madvise	sys_mman.h	ADV	posix_madvise - memory advisory information and alignment control (<b>ADVANCED REALTIME</b>)
+posix_mem_offset	sys_mman.h	TYM	posix_mem_offset - find offset and length of a mapped typed memory block (<b>ADVANCED REALTIME</b>)
+posix_memalign	stdlib.h	ADV	posix_memalign - aligned memory allocation (<b>ADVANCED REALTIME</b>)
+posix_openpt	stdlib.h fcntl.h	XSI	posix_openpt - open a pseudo-terminal device
+posix_spawn	spawn.h	SPN	posix_spawn, posix_spawnp - spawn a process (<b>ADVANCED REALTIME</b>)
+posix_spawn_file_actions_addclose	spawn.h	SPN	posix_spawn_file_actions_addclose, posix_spawn_file_actions_addopen - add close or open action to spawn file actions object (<b>ADVANCED REALTIME</b>)
+posix_spawn_file_actions_adddup2	spawn.h	SPN	posix_spawn_file_actions_adddup2 - add dup2 action to spawn file actions object (<b>ADVANCED REALTIME</b>)
+posix_spawn_file_actions_addopen	spawn.h	SPN	posix_spawn_file_actions_addclose, posix_spawn_file_actions_addopen - add close or open action to spawn file actions object (<b>ADVANCED REALTIME</b>)
+posix_spawn_file_actions_destroy	spawn.h	SPN	posix_spawn_file_actions_destroy, posix_spawn_file_actions_init - destroy and initialize spawn file actions object (<b>ADVANCED REALTIME</b>)
+posix_spawn_file_actions_init	spawn.h	SPN	posix_spawn_file_actions_destroy, posix_spawn_file_actions_init - destroy and initialize spawn file actions object (<b>ADVANCED REALTIME</b>)
+posix_spawnattr_destroy	spawn.h	SPN	posix_spawnattr_destroy, posix_spawnattr_init - destroy and initialize spawn attributes object (<b>ADVANCED REALTIME</b>)
+posix_spawnattr_getflags	spawn.h	SPN	posix_spawnattr_getflags, posix_spawnattr_setflags - get and set the spawn-flags attribute of a spawn attributes object (<b>ADVANCED REALTIME</b>)
+posix_spawnattr_getpgroup	spawn.h	SPN	posix_spawnattr_getpgroup, posix_spawnattr_setpgroup - get and set the spawn-pgroup attribute of a spawn attributes object (<b>ADVANCED REALTIME</b>)
+posix_spawnattr_getschedparam	spawn.h sched.h	SPN PS	posix_spawnattr_getschedparam, posix_spawnattr_setschedparam - get and set the spawn-schedparam attribute of a spawn attributes object (<b>ADVANCED REALTIME</b>)
+posix_spawnattr_getschedpolicy	spawn.h sched.h	SPN PS	posix_spawnattr_getschedpolicy, posix_spawnattr_setschedpolicy - get and set the spawn-schedpolicy attribute of a spawn attributes object (<b>ADVANCED REALTIME</b>)
+posix_spawnattr_getsigdefault	signal.h spawn.h	SPN	posix_spawnattr_getsigdefault, posix_spawnattr_setsigdefault - get and set the spawn-sigdefault attribute of a spawn attributes object (<b>ADVANCED REALTIME</b>)
+posix_spawnattr_getsigmask	signal.h spawn.h	SPN	posix_spawnattr_getsigmask, posix_spawnattr_setsigmask - get and set the spawn-sigmask attribute of a spawn attributes object (<b>ADVANCED REALTIME</b>)
+posix_spawnattr_init	spawn.h	SPN	posix_spawnattr_destroy, posix_spawnattr_init - destroy and initialize spawn attributes object (<b>ADVANCED REALTIME</b>)
+posix_spawnattr_setflags	spawn.h	SPN	posix_spawnattr_getflags, posix_spawnattr_setflags - get and set the spawn-flags attribute of a spawn attributes object (<b>ADVANCED REALTIME</b>)
+posix_spawnattr_setpgroup	spawn.h	SPN	posix_spawnattr_getpgroup, posix_spawnattr_setpgroup - get and set the spawn-pgroup attribute of a spawn attributes object (<b>ADVANCED REALTIME</b>)
+posix_spawnattr_setschedparam	spawn.h sched.h	SPN PS	posix_spawnattr_getschedparam, posix_spawnattr_setschedparam - get and set the spawn-schedparam attribute of a spawn attributes object (<b>ADVANCED REALTIME</b>)
+posix_spawnattr_setschedpolicy	spawn.h sched.h	SPN PS	posix_spawnattr_getschedpolicy, posix_spawnattr_setschedpolicy - get and set the spawn-schedpolicy attribute of a spawn attributes object (<b>ADVANCED REALTIME</b>)
+posix_spawnattr_setsigdefault	signal.h spawn.h	SPN	posix_spawnattr_getsigdefault, posix_spawnattr_setsigdefault - get and set the spawn-sigdefault attribute of a spawn attributes object (<b>ADVANCED REALTIME</b>)
+posix_spawnattr_setsigmask	signal.h spawn.h	SPN	posix_spawnattr_getsigmask, posix_spawnattr_setsigmask - get and set the spawn-sigmask attribute of a spawn attributes object (<b>ADVANCED REALTIME</b>)
+posix_spawnp	spawn.h	SPN	posix_spawn, posix_spawnp - spawn a process (<b>ADVANCED REALTIME</b>)
+posix_trace_attr_destroy	trace.h	OB TRC	posix_trace_attr_destroy, posix_trace_attr_init - destroy and initialize the trace stream attributes object (<b>TRACING</b>)
+posix_trace_attr_getclockres	time.h trace.h trace.h	OB TRC	posix_trace_attr_getclockres, posix_trace_attr_getcreatetime, posix_trace_attr_getgenversion, posix_trace_attr_getname, posix_trace_attr_setname - retrieve and set information about a trace stream (<b>TRACING</b>)
+posix_trace_attr_getcreatetime	time.h trace.h trace.h	OB TRC	posix_trace_attr_getclockres, posix_trace_attr_getcreatetime, posix_trace_attr_getgenversion, posix_trace_attr_getname, posix_trace_attr_setname - retrieve and set information about a trace stream (<b>TRACING</b>)
+posix_trace_attr_getgenversion	time.h trace.h trace.h	OB TRC	posix_trace_attr_getclockres, posix_trace_attr_getcreatetime, posix_trace_attr_getgenversion, posix_trace_attr_getname, posix_trace_attr_setname - retrieve and set information about a trace stream (<b>TRACING</b>)
+posix_trace_attr_getinherited	trace.h	OB TRC TRI TRL TRI TRL	posix_trace_attr_getinherited, posix_trace_attr_getlogfullpolicy, posix_trace_attr_getstreamfullpolicy, posix_trace_attr_setinherited, posix_trace_attr_setlogfullpolicy, posix_trace_attr_setstreamfullpolicy - retrieve and set the behavior of a trace stream (<b>TRACING</b>)
+posix_trace_attr_getlogfullpolicy	trace.h	OB TRC TRI TRL TRI TRL	posix_trace_attr_getinherited, posix_trace_attr_getlogfullpolicy, posix_trace_attr_getstreamfullpolicy, posix_trace_attr_setinherited, posix_trace_attr_setlogfullpolicy, posix_trace_attr_setstreamfullpolicy - retrieve and set the behavior of a trace stream (<b>TRACING</b>)
+posix_trace_attr_getlogsize	sys_types.h trace.h	OB TRC TRL TRL	posix_trace_attr_getlogsize, posix_trace_attr_getmaxdatasize, posix_trace_attr_getmaxsystemeventsize, posix_trace_attr_getmaxusereventsize, posix_trace_attr_getstreamsize, posix_trace_attr_setlogsize, posix_trace_attr_setmaxdatasize, posix_trace_attr_setstreamsize - retrieve and set trace stream size attributes (<b>TRACING</b>)
+posix_trace_attr_getmaxdatasize	sys_types.h trace.h	OB TRC TRL TRL	posix_trace_attr_getlogsize, posix_trace_attr_getmaxdatasize, posix_trace_attr_getmaxsystemeventsize, posix_trace_attr_getmaxusereventsize, posix_trace_attr_getstreamsize, posix_trace_attr_setlogsize, posix_trace_attr_setmaxdatasize, posix_trace_attr_setstreamsize - retrieve and set trace stream size attributes (<b>TRACING</b>)
+posix_trace_attr_getmaxsystemeventsize	sys_types.h trace.h	OB TRC TRL TRL	posix_trace_attr_getlogsize, posix_trace_attr_getmaxdatasize, posix_trace_attr_getmaxsystemeventsize, posix_trace_attr_getmaxusereventsize, posix_trace_attr_getstreamsize, posix_trace_attr_setlogsize, posix_trace_attr_setmaxdatasize, posix_trace_attr_setstreamsize - retrieve and set trace stream size attributes (<b>TRACING</b>)
+posix_trace_attr_getmaxusereventsize	sys_types.h trace.h	OB TRC TRL TRL	posix_trace_attr_getlogsize, posix_trace_attr_getmaxdatasize, posix_trace_attr_getmaxsystemeventsize, posix_trace_attr_getmaxusereventsize, posix_trace_attr_getstreamsize, posix_trace_attr_setlogsize, posix_trace_attr_setmaxdatasize, posix_trace_attr_setstreamsize - retrieve and set trace stream size attributes (<b>TRACING</b>)
+posix_trace_attr_getname	time.h trace.h trace.h	OB TRC	posix_trace_attr_getclockres, posix_trace_attr_getcreatetime, posix_trace_attr_getgenversion, posix_trace_attr_getname, posix_trace_attr_setname - retrieve and set information about a trace stream (<b>TRACING</b>)
+posix_trace_attr_getstreamfullpolicy	trace.h	OB TRC TRI TRL TRI TRL	posix_trace_attr_getinherited, posix_trace_attr_getlogfullpolicy, posix_trace_attr_getstreamfullpolicy, posix_trace_attr_setinherited, posix_trace_attr_setlogfullpolicy, posix_trace_attr_setstreamfullpolicy - retrieve and set the behavior of a trace stream (<b>TRACING</b>)
+posix_trace_attr_getstreamsize	sys_types.h trace.h	OB TRC TRL TRL	posix_trace_attr_getlogsize, posix_trace_attr_getmaxdatasize, posix_trace_attr_getmaxsystemeventsize, posix_trace_attr_getmaxusereventsize, posix_trace_attr_getstreamsize, posix_trace_attr_setlogsize, posix_trace_attr_setmaxdatasize, posix_trace_attr_setstreamsize - retrieve and set trace stream size attributes (<b>TRACING</b>)
+posix_trace_attr_init	trace.h	OB TRC	posix_trace_attr_destroy, posix_trace_attr_init - destroy and initialize the trace stream attributes object (<b>TRACING</b>)
+posix_trace_attr_setinherited	trace.h	OB TRC TRI TRL TRI TRL	posix_trace_attr_getinherited, posix_trace_attr_getlogfullpolicy, posix_trace_attr_getstreamfullpolicy, posix_trace_attr_setinherited, posix_trace_attr_setlogfullpolicy, posix_trace_attr_setstreamfullpolicy - retrieve and set the behavior of a trace stream (<b>TRACING</b>)
+posix_trace_attr_setlogfullpolicy	trace.h	OB TRC TRI TRL TRI TRL	posix_trace_attr_getinherited, posix_trace_attr_getlogfullpolicy, posix_trace_attr_getstreamfullpolicy, posix_trace_attr_setinherited, posix_trace_attr_setlogfullpolicy, posix_trace_attr_setstreamfullpolicy - retrieve and set the behavior of a trace stream (<b>TRACING</b>)
+posix_trace_attr_setlogsize	sys_types.h trace.h	OB TRC TRL TRL	posix_trace_attr_getlogsize, posix_trace_attr_getmaxdatasize, posix_trace_attr_getmaxsystemeventsize, posix_trace_attr_getmaxusereventsize, posix_trace_attr_getstreamsize, posix_trace_attr_setlogsize, posix_trace_attr_setmaxdatasize, posix_trace_attr_setstreamsize - retrieve and set trace stream size attributes (<b>TRACING</b>)
+posix_trace_attr_setmaxdatasize	sys_types.h trace.h	OB TRC TRL TRL	posix_trace_attr_getlogsize, posix_trace_attr_getmaxdatasize, posix_trace_attr_getmaxsystemeventsize, posix_trace_attr_getmaxusereventsize, posix_trace_attr_getstreamsize, posix_trace_attr_setlogsize, posix_trace_attr_setmaxdatasize, posix_trace_attr_setstreamsize - retrieve and set trace stream size attributes (<b>TRACING</b>)
+posix_trace_attr_setname	time.h trace.h trace.h	OB TRC	posix_trace_attr_getclockres, posix_trace_attr_getcreatetime, posix_trace_attr_getgenversion, posix_trace_attr_getname, posix_trace_attr_setname - retrieve and set information about a trace stream (<b>TRACING</b>)
+posix_trace_attr_setstreamfullpolicy	trace.h	OB TRC TRI TRL TRI TRL	posix_trace_attr_getinherited, posix_trace_attr_getlogfullpolicy, posix_trace_attr_getstreamfullpolicy, posix_trace_attr_setinherited, posix_trace_attr_setlogfullpolicy, posix_trace_attr_setstreamfullpolicy - retrieve and set the behavior of a trace stream (<b>TRACING</b>)
+posix_trace_attr_setstreamsize	sys_types.h trace.h	OB TRC TRL TRL	posix_trace_attr_getlogsize, posix_trace_attr_getmaxdatasize, posix_trace_attr_getmaxsystemeventsize, posix_trace_attr_getmaxusereventsize, posix_trace_attr_getstreamsize, posix_trace_attr_setlogsize, posix_trace_attr_setmaxdatasize, posix_trace_attr_setstreamsize - retrieve and set trace stream size attributes (<b>TRACING</b>)
+posix_trace_clear	sys_types.h trace.h	OB TRC	posix_trace_clear - clear trace stream and trace log (<b>TRACING</b>)
+posix_trace_close	trace.h	OB TRC TRL	posix_trace_close, posix_trace_open, posix_trace_rewind - trace log management (<b>TRACING</b>)
+posix_trace_create	sys_types.h trace.h	OB TRC TRL	posix_trace_create, posix_trace_create_withlog, posix_trace_flush, posix_trace_shutdown - trace stream initialization, flush, and shutdown from a process (<b>TRACING</b>)
+posix_trace_create_withlog	sys_types.h trace.h	OB TRC TRL	posix_trace_create, posix_trace_create_withlog, posix_trace_flush, posix_trace_shutdown - trace stream initialization, flush, and shutdown from a process (<b>TRACING</b>)
+posix_trace_event	sys_types.h trace.h	OB TRC	posix_trace_event, posix_trace_eventid_open - trace functions for instrumenting application code (<b>TRACING</b>)
+posix_trace_eventid_equal	trace.h	OB TRC TEF	posix_trace_eventid_equal, posix_trace_eventid_get_name, posix_trace_trid_eventid_open - manipulate the trace event type identifier (<b>TRACING</b>)
+posix_trace_eventid_get_name	trace.h	OB TRC TEF	posix_trace_eventid_equal, posix_trace_eventid_get_name, posix_trace_trid_eventid_open - manipulate the trace event type identifier (<b>TRACING</b>)
+posix_trace_eventid_open	sys_types.h trace.h	OB TRC	posix_trace_event, posix_trace_eventid_open - trace functions for instrumenting application code (<b>TRACING</b>)
+posix_trace_eventset_add	trace.h	OB TRC TEF	posix_trace_eventset_add, posix_trace_eventset_del, posix_trace_eventset_empty, posix_trace_eventset_fill, posix_trace_eventset_ismember - manipulate trace event type sets (<b>TRACING</b>)
+posix_trace_eventset_del	trace.h	OB TRC TEF	posix_trace_eventset_add, posix_trace_eventset_del, posix_trace_eventset_empty, posix_trace_eventset_fill, posix_trace_eventset_ismember - manipulate trace event type sets (<b>TRACING</b>)
+posix_trace_eventset_empty	trace.h	OB TRC TEF	posix_trace_eventset_add, posix_trace_eventset_del, posix_trace_eventset_empty, posix_trace_eventset_fill, posix_trace_eventset_ismember - manipulate trace event type sets (<b>TRACING</b>)
+posix_trace_eventset_fill	trace.h	OB TRC TEF	posix_trace_eventset_add, posix_trace_eventset_del, posix_trace_eventset_empty, posix_trace_eventset_fill, posix_trace_eventset_ismember - manipulate trace event type sets (<b>TRACING</b>)
+posix_trace_eventset_ismember	trace.h	OB TRC TEF	posix_trace_eventset_add, posix_trace_eventset_del, posix_trace_eventset_empty, posix_trace_eventset_fill, posix_trace_eventset_ismember - manipulate trace event type sets (<b>TRACING</b>)
+posix_trace_eventtypelist_getnext_id	trace.h	OB TRC	posix_trace_eventtypelist_getnext_id, posix_trace_eventtypelist_rewind - iterate over a mapping of trace event types (<b>TRACING</b>)
+posix_trace_eventtypelist_rewind	trace.h	OB TRC	posix_trace_eventtypelist_getnext_id, posix_trace_eventtypelist_rewind - iterate over a mapping of trace event types (<b>TRACING</b>)
+posix_trace_flush	sys_types.h trace.h	OB TRC TRL	posix_trace_create, posix_trace_create_withlog, posix_trace_flush, posix_trace_shutdown - trace stream initialization, flush, and shutdown from a process (<b>TRACING</b>)
+posix_trace_get_attr	trace.h	OB TRC	posix_trace_get_attr, posix_trace_get_status - retrieve the trace attributes or trace status (<b>TRACING</b>)
+posix_trace_get_filter	trace.h	OB TRC TEF	posix_trace_get_filter, posix_trace_set_filter - retrieve and set the filter of an initialized trace stream (<b>TRACING</b>)
+posix_trace_get_status	trace.h	OB TRC	posix_trace_get_attr, posix_trace_get_status - retrieve the trace attributes or trace status (<b>TRACING</b>)
+posix_trace_getnext_event	sys_types.h trace.h	OB TRC	posix_trace_getnext_event, posix_trace_timedgetnext_event, posix_trace_trygetnext_event - retrieve a trace event (<b>TRACING</b>)
+posix_trace_open	trace.h	OB TRC TRL	posix_trace_close, posix_trace_open, posix_trace_rewind - trace log management (<b>TRACING</b>)
+posix_trace_rewind	trace.h	OB TRC TRL	posix_trace_close, posix_trace_open, posix_trace_rewind - trace log management (<b>TRACING</b>)
+posix_trace_set_filter	trace.h	OB TRC TEF	posix_trace_get_filter, posix_trace_set_filter - retrieve and set the filter of an initialized trace stream (<b>TRACING</b>)
+posix_trace_shutdown	sys_types.h trace.h	OB TRC TRL	posix_trace_create, posix_trace_create_withlog, posix_trace_flush, posix_trace_shutdown - trace stream initialization, flush, and shutdown from a process (<b>TRACING</b>)
+posix_trace_start	trace.h	OB TRC	posix_trace_start, posix_trace_stop - trace start and stop (<b>TRACING</b>)
+posix_trace_stop	trace.h	OB TRC	posix_trace_start, posix_trace_stop - trace start and stop (<b>TRACING</b>)
+posix_trace_timedgetnext_event	sys_types.h trace.h	OB TRC	posix_trace_getnext_event, posix_trace_timedgetnext_event, posix_trace_trygetnext_event - retrieve a trace event (<b>TRACING</b>)
+posix_trace_trid_eventid_open	trace.h	OB TRC TEF	posix_trace_eventid_equal, posix_trace_eventid_get_name, posix_trace_trid_eventid_open - manipulate the trace event type identifier (<b>TRACING</b>)
+posix_trace_trygetnext_event	sys_types.h trace.h	OB TRC	posix_trace_getnext_event, posix_trace_timedgetnext_event, posix_trace_trygetnext_event - retrieve a trace event (<b>TRACING</b>)
+posix_typed_mem_get_info	sys_mman.h	TYM	posix_typed_mem_get_info - query typed memory information (<b>ADVANCED REALTIME</b>)
+posix_typed_mem_open	sys_mman.h	TYM	posix_typed_mem_open - open a typed memory object (<b>ADVANCED REALTIME</b>)
+pow	math.h		pow, powf, powl - power function
+powf	math.h		pow, powf, powl - power function
+powl	math.h		pow, powf, powl - power function
+pread	unistd.h		pread, read - read from a file
+printf	stdio.h	CX	dprintf, fprintf, printf, snprintf, sprintf - print formatted output
+pselect	sys_select.h		pselect, select - synchronous I/O multiplexing
+psiginfo	signal.h	CX	psiginfo, psignal - print signal information to standard error
+psignal	signal.h	CX	psiginfo, psignal - print signal information to standard error
+pthread_atfork	pthread.h		pthread_atfork - register fork handlers
+pthread_attr_destroy	pthread.h		pthread_attr_destroy, pthread_attr_init - destroy and initialize the thread attributes object
+pthread_attr_getdetachstate	pthread.h		pthread_attr_getdetachstate, pthread_attr_setdetachstate - get and set the detachstate attribute
+pthread_attr_getguardsize	pthread.h		pthread_attr_getguardsize, pthread_attr_setguardsize - get and set the thread guardsize attribute
+pthread_attr_getinheritsched	pthread.h	TPS	pthread_attr_getinheritsched, pthread_attr_setinheritsched - get and set the inheritsched attribute (<b>REALTIME THREADS</b>)
+pthread_attr_getschedparam	pthread.h		pthread_attr_getschedparam, pthread_attr_setschedparam - get and set the schedparam attribute
+pthread_attr_getschedpolicy	pthread.h	TPS	pthread_attr_getschedpolicy, pthread_attr_setschedpolicy - get and set the schedpolicy attribute (<b>REALTIME THREADS</b>)
+pthread_attr_getscope	pthread.h	TPS	pthread_attr_getscope, pthread_attr_setscope - get and set the contentionscope attribute (<b>REALTIME THREADS</b>)
+pthread_attr_getstack	pthread.h	TSA TSS	pthread_attr_getstack, pthread_attr_setstack - get and set stack attributes
+pthread_attr_getstacksize	pthread.h	TSS	pthread_attr_getstacksize, pthread_attr_setstacksize - get and set the stacksize attribute
+pthread_attr_init	pthread.h		pthread_attr_destroy, pthread_attr_init - destroy and initialize the thread attributes object
+pthread_attr_setdetachstate	pthread.h		pthread_attr_getdetachstate, pthread_attr_setdetachstate - get and set the detachstate attribute
+pthread_attr_setguardsize	pthread.h		pthread_attr_getguardsize, pthread_attr_setguardsize - get and set the thread guardsize attribute
+pthread_attr_setinheritsched	pthread.h	TPS	pthread_attr_getinheritsched, pthread_attr_setinheritsched - get and set the inheritsched attribute (<b>REALTIME THREADS</b>)
+pthread_attr_setschedparam	pthread.h		pthread_attr_getschedparam, pthread_attr_setschedparam - get and set the schedparam attribute
+pthread_attr_setschedpolicy	pthread.h	TPS	pthread_attr_getschedpolicy, pthread_attr_setschedpolicy - get and set the schedpolicy attribute (<b>REALTIME THREADS</b>)
+pthread_attr_setscope	pthread.h	TPS	pthread_attr_getscope, pthread_attr_setscope - get and set the contentionscope attribute (<b>REALTIME THREADS</b>)
+pthread_attr_setstack	pthread.h	TSA TSS	pthread_attr_getstack, pthread_attr_setstack - get and set stack attributes
+pthread_attr_setstacksize	pthread.h	TSS	pthread_attr_getstacksize, pthread_attr_setstacksize - get and set the stacksize attribute
+pthread_barrier_destroy	pthread.h		pthread_barrier_destroy, pthread_barrier_init - destroy and initialize a barrier object
+pthread_barrier_init	pthread.h		pthread_barrier_destroy, pthread_barrier_init - destroy and initialize a barrier object
+pthread_barrier_wait	pthread.h		pthread_barrier_wait - synchronize at a barrier
+pthread_barrierattr_destroy	pthread.h		pthread_barrierattr_destroy, pthread_barrierattr_init - destroy and initialize the barrier attributes object
+pthread_barrierattr_getpshared	pthread.h	TSH	pthread_barrierattr_getpshared, pthread_barrierattr_setpshared - get and set the process-shared attribute of the barrier attributes object
+pthread_barrierattr_init	pthread.h		pthread_barrierattr_destroy, pthread_barrierattr_init - destroy and initialize the barrier attributes object
+pthread_barrierattr_setpshared	pthread.h	TSH	pthread_barrierattr_getpshared, pthread_barrierattr_setpshared - get and set the process-shared attribute of the barrier attributes object
+pthread_cancel	pthread.h		pthread_cancel - cancel execution of a thread
+pthread_cleanup_pop	pthread.h		pthread_cleanup_pop, pthread_cleanup_push - establish cancellation handlers
+pthread_cleanup_push	pthread.h		pthread_cleanup_pop, pthread_cleanup_push - establish cancellation handlers
+pthread_cond_broadcast	pthread.h		pthread_cond_broadcast, pthread_cond_signal - broadcast or signal a condition
+pthread_cond_destroy	pthread.h		pthread_cond_destroy, pthread_cond_init - destroy and initialize condition variables
+pthread_cond_init	pthread.h		pthread_cond_destroy, pthread_cond_init - destroy and initialize condition variables
+pthread_cond_signal	pthread.h		pthread_cond_broadcast, pthread_cond_signal - broadcast or signal a condition
+pthread_cond_timedwait	pthread.h		pthread_cond_timedwait, pthread_cond_wait - wait on a condition
+pthread_cond_wait	pthread.h		pthread_cond_timedwait, pthread_cond_wait - wait on a condition
+pthread_condattr_destroy	pthread.h		pthread_condattr_destroy, pthread_condattr_init - destroy and initialize the condition variable attributes object
+pthread_condattr_getclock	pthread.h		pthread_condattr_getclock, pthread_condattr_setclock - get and set the clock selection condition variable attribute
+pthread_condattr_getpshared	pthread.h	TSH	pthread_condattr_getpshared, pthread_condattr_setpshared - get and set the process-shared condition variable attributes
+pthread_condattr_init	pthread.h		pthread_condattr_destroy, pthread_condattr_init - destroy and initialize the condition variable attributes object
+pthread_condattr_setclock	pthread.h		pthread_condattr_getclock, pthread_condattr_setclock - get and set the clock selection condition variable attribute
+pthread_condattr_setpshared	pthread.h	TSH	pthread_condattr_getpshared, pthread_condattr_setpshared - get and set the process-shared condition variable attributes
+pthread_create	pthread.h		pthread_create - thread creation
+pthread_detach	pthread.h		pthread_detach - detach a thread
+pthread_equal	pthread.h		pthread_equal - compare thread IDs
+pthread_exit	pthread.h		pthread_exit - thread termination
+pthread_getconcurrency	pthread.h	OB XSI	pthread_getconcurrency, pthread_setconcurrency - get and set the level of concurrency
+pthread_getcpuclockid	pthread.h time.h	TCT	pthread_getcpuclockid - access a thread CPU-time clock (<b>ADVANCED REALTIME THREADS</b>)
+pthread_getschedparam	pthread.h	TPS	pthread_getschedparam, pthread_setschedparam - dynamic thread scheduling parameters access (<b>REALTIME THREADS</b>)
+pthread_getspecific	pthread.h		pthread_getspecific, pthread_setspecific - thread-specific data management
+pthread_join	pthread.h		pthread_join - wait for thread termination
+pthread_key_create	pthread.h		pthread_key_create - thread-specific data key creation
+pthread_key_delete	pthread.h		pthread_key_delete - thread-specific data key deletion
+pthread_kill	signal.h	CX	pthread_kill - send a signal to a thread
+pthread_mutex_consistent	pthread.h		pthread_mutex_consistent - mark state protected by robust mutex as consistent
+pthread_mutex_destroy	pthread.h		pthread_mutex_destroy, pthread_mutex_init - destroy and initialize a mutex
+pthread_mutex_getprioceiling	pthread.h	RPP	pthread_mutex_getprioceiling, pthread_mutex_setprioceiling - get and set the priority ceiling of a mutex (<b>REALTIME THREADS</b>)
+pthread_mutex_init	pthread.h		pthread_mutex_destroy, pthread_mutex_init - destroy and initialize a mutex
+pthread_mutex_lock	pthread.h		pthread_mutex_lock, pthread_mutex_trylock, pthread_mutex_unlock - lock and unlock a mutex
+pthread_mutex_setprioceiling	pthread.h	RPP	pthread_mutex_getprioceiling, pthread_mutex_setprioceiling - get and set the priority ceiling of a mutex (<b>REALTIME THREADS</b>)
+pthread_mutex_timedlock	pthread.h time.h		pthread_mutex_timedlock - lock a mutex
+pthread_mutex_trylock	pthread.h		pthread_mutex_lock, pthread_mutex_trylock, pthread_mutex_unlock - lock and unlock a mutex
+pthread_mutex_unlock	pthread.h		pthread_mutex_lock, pthread_mutex_trylock, pthread_mutex_unlock - lock and unlock a mutex
+pthread_mutexattr_destroy	pthread.h		pthread_mutexattr_destroy, pthread_mutexattr_init - destroy and initialize the mutex attributes object
+pthread_mutexattr_getprioceiling	pthread.h	RPP	pthread_mutexattr_getprioceiling, pthread_mutexattr_setprioceiling - get and set the prioceiling attribute of the mutex attributes object (<b>REALTIME THREADS</b>)
+pthread_mutexattr_getprotocol	pthread.h	MC1	pthread_mutexattr_getprotocol, pthread_mutexattr_setprotocol - get and set the protocol attribute of the mutex attributes object (<b>REALTIME THREADS</b>)
+pthread_mutexattr_getpshared	pthread.h	TSH	pthread_mutexattr_getpshared, pthread_mutexattr_setpshared - get and set the process-shared attribute
+pthread_mutexattr_getrobust	pthread.h		pthread_mutexattr_getrobust, pthread_mutexattr_setrobust - get and set the mutex robust attribute
+pthread_mutexattr_gettype	pthread.h		pthread_mutexattr_gettype, pthread_mutexattr_settype - get and set the mutex type attribute
+pthread_mutexattr_init	pthread.h		pthread_mutexattr_destroy, pthread_mutexattr_init - destroy and initialize the mutex attributes object
+pthread_mutexattr_setprioceiling	pthread.h	RPP	pthread_mutexattr_getprioceiling, pthread_mutexattr_setprioceiling - get and set the prioceiling attribute of the mutex attributes object (<b>REALTIME THREADS</b>)
+pthread_mutexattr_setprotocol	pthread.h	MC1	pthread_mutexattr_getprotocol, pthread_mutexattr_setprotocol - get and set the protocol attribute of the mutex attributes object (<b>REALTIME THREADS</b>)
+pthread_mutexattr_setpshared	pthread.h	TSH	pthread_mutexattr_getpshared, pthread_mutexattr_setpshared - get and set the process-shared attribute
+pthread_mutexattr_setrobust	pthread.h		pthread_mutexattr_getrobust, pthread_mutexattr_setrobust - get and set the mutex robust attribute
+pthread_mutexattr_settype	pthread.h		pthread_mutexattr_gettype, pthread_mutexattr_settype - get and set the mutex type attribute
+pthread_once	pthread.h		pthread_once - dynamic package initialization
+pthread_rwlock_destroy	pthread.h		pthread_rwlock_destroy, pthread_rwlock_init - destroy and initialize a read-write lock object
+pthread_rwlock_init	pthread.h		pthread_rwlock_destroy, pthread_rwlock_init - destroy and initialize a read-write lock object
+pthread_rwlock_rdlock	pthread.h		pthread_rwlock_rdlock, pthread_rwlock_tryrdlock - lock a read-write lock object for reading
+pthread_rwlock_timedrdlock	pthread.h time.h		pthread_rwlock_timedrdlock - lock a read-write lock for reading
+pthread_rwlock_timedwrlock	pthread.h time.h		pthread_rwlock_timedwrlock - lock a read-write lock for writing
+pthread_rwlock_tryrdlock	pthread.h		pthread_rwlock_rdlock, pthread_rwlock_tryrdlock - lock a read-write lock object for reading
+pthread_rwlock_trywrlock	pthread.h		pthread_rwlock_trywrlock, pthread_rwlock_wrlock - lock a read-write lock object for writing
+pthread_rwlock_unlock	pthread.h		pthread_rwlock_unlock - unlock a read-write lock object
+pthread_rwlock_wrlock	pthread.h		pthread_rwlock_trywrlock, pthread_rwlock_wrlock - lock a read-write lock object for writing
+pthread_rwlockattr_destroy	pthread.h		pthread_rwlockattr_destroy, pthread_rwlockattr_init - destroy and initialize the read-write lock attributes object
+pthread_rwlockattr_getpshared	pthread.h	TSH	pthread_rwlockattr_getpshared, pthread_rwlockattr_setpshared - get and set the process-shared attribute of the read-write lock attributes object
+pthread_rwlockattr_init	pthread.h		pthread_rwlockattr_destroy, pthread_rwlockattr_init - destroy and initialize the read-write lock attributes object
+pthread_rwlockattr_setpshared	pthread.h	TSH	pthread_rwlockattr_getpshared, pthread_rwlockattr_setpshared - get and set the process-shared attribute of the read-write lock attributes object
+pthread_self	pthread.h		pthread_self - get the calling thread ID
+pthread_setcancelstate	pthread.h		pthread_setcancelstate, pthread_setcanceltype, pthread_testcancel - set cancelability state
+pthread_setcanceltype	pthread.h		pthread_setcancelstate, pthread_setcanceltype, pthread_testcancel - set cancelability state
+pthread_setconcurrency	pthread.h	OB XSI	pthread_getconcurrency, pthread_setconcurrency - get and set the level of concurrency
+pthread_setschedparam	pthread.h	TPS	pthread_getschedparam, pthread_setschedparam - dynamic thread scheduling parameters access (<b>REALTIME THREADS</b>)
+pthread_setschedprio	pthread.h	TPS	pthread_setschedprio - dynamic thread scheduling parameters access (<b>REALTIME THREADS</b>)
+pthread_setspecific	pthread.h		pthread_getspecific, pthread_setspecific - thread-specific data management
+pthread_sigmask	signal.h	CX	pthread_sigmask, sigprocmask - examine and change blocked signals
+pthread_spin_destroy	pthread.h		pthread_spin_destroy, pthread_spin_init - destroy or initialize a spin lock object
+pthread_spin_init	pthread.h		pthread_spin_destroy, pthread_spin_init - destroy or initialize a spin lock object
+pthread_spin_lock	pthread.h		pthread_spin_lock, pthread_spin_trylock - lock a spin lock object
+pthread_spin_trylock	pthread.h		pthread_spin_lock, pthread_spin_trylock - lock a spin lock object
+pthread_spin_unlock	pthread.h		pthread_spin_unlock - unlock a spin lock object
+pthread_testcancel	pthread.h		pthread_setcancelstate, pthread_setcanceltype, pthread_testcancel - set cancelability state
+ptsname	stdlib.h	XSI	ptsname - get name of the slave pseudo-terminal device
+putc	stdio.h		putc - put a byte on a stream
+putc_unlocked	stdio.h	CX	getc_unlocked, getchar_unlocked, putc_unlocked, putchar_unlocked - stdio with explicit client locking
+putchar	stdio.h		putchar - put a byte on a stdout stream
+putchar_unlocked	stdio.h	CX	getc_unlocked, getchar_unlocked, putc_unlocked, putchar_unlocked - stdio with explicit client locking
+putenv	stdlib.h	XSI	putenv - change or add a value to an environment
+putmsg	stropts.h	OB XSR	putmsg, putpmsg - send a message on a STREAM (<b>STREAMS</b>)
+putpmsg	stropts.h	OB XSR	putmsg, putpmsg - send a message on a STREAM (<b>STREAMS</b>)
+puts	stdio.h		puts - put a string on standard output
+pututxline	utmpx.h	XSI	endutxent, getutxent, getutxid, getutxline, pututxline, setutxent - user accounting database functions
+putwc	stdio.h wchar.h		putwc - put a wide character on a stream
+putwchar	wchar.h		putwchar - put a wide character on a stdout stream
+pwrite	unistd.h		pwrite, write - write on a file
+qsort	stdlib.h		qsort - sort a table of data
+raise	signal.h		raise - send a signal to the executing process
+rand	stdlib.h	OB CX	rand, rand_r, srand - pseudo-random number generator
+rand_r	stdlib.h	OB CX	rand, rand_r, srand - pseudo-random number generator
+random	stdlib.h	XSI	initstate, random, setstate, srandom - pseudo-random number functions
+read	unistd.h		pread, read - read from a file
+readdir	dirent.h		readdir, readdir_r - read a directory
+readdir_r	dirent.h		readdir, readdir_r - read a directory
+readlink	unistd.h		readlink, readlinkat - read the contents of a symbolic link relative to a directory file descriptor
+readlinkat	unistd.h		readlink, readlinkat - read the contents of a symbolic link relative to a directory file descriptor
+readv	sys_uio.h	XSI	readv - read a vector
+realloc	stdlib.h		realloc - memory reallocator
+realpath	stdlib.h	XSI	realpath - resolve a pathname
+recv	sys_socket.h		recv - receive a message from a connected socket
+recvfrom	sys_socket.h		recvfrom - receive a message from a socket
+recvmsg	sys_socket.h		recvmsg - receive a message from a socket
+regcomp	regex.h		regcomp, regerror, regexec, regfree - regular expression matching
+regerror	regex.h		regcomp, regerror, regexec, regfree - regular expression matching
+regexec	regex.h		regcomp, regerror, regexec, regfree - regular expression matching
+regfree	regex.h		regcomp, regerror, regexec, regfree - regular expression matching
+remainder	math.h		remainder, remainderf, remainderl - remainder function
+remainderf	math.h		remainder, remainderf, remainderl - remainder function
+remainderl	math.h		remainder, remainderf, remainderl - remainder function
+remove	stdio.h		remove - remove a file
+remque	search.h	XSI	insque, remque - insert or remove an element in a queue
+remquo	math.h		remquo, remquof, remquol - remainder functions
+remquof	math.h		remquo, remquof, remquol - remainder functions
+remquol	math.h		remquo, remquof, remquol - remainder functions
+rename	stdio.h	CX	rename, renameat - rename file relative to directory file descriptor
+renameat	stdio.h	CX	rename, renameat - rename file relative to directory file descriptor
+rewind	stdio.h		rewind - reset the file position indicator in a stream
+rewinddir	dirent.h		rewinddir - reset the position of a directory stream to the beginning of a directory
+rint	math.h		rint, rintf, rintl - round-to-nearest integral value
+rintf	math.h		rint, rintf, rintl - round-to-nearest integral value
+rintl	math.h		rint, rintf, rintl - round-to-nearest integral value
+rmdir	unistd.h		rmdir - remove a directory
+round	math.h		round, roundf, roundl - round to the nearest integer value in a floating-point format
+roundf	math.h		round, roundf, roundl - round to the nearest integer value in a floating-point format
+roundl	math.h		round, roundf, roundl - round to the nearest integer value in a floating-point format
+scalbln	math.h		scalbln, scalblnf, scalblnl, scalbn, scalbnf, scalbnl - compute exponent using FLT_RADIX
+scalblnf	math.h		scalbln, scalblnf, scalblnl, scalbn, scalbnf, scalbnl - compute exponent using FLT_RADIX
+scalblnl	math.h		scalbln, scalblnf, scalblnl, scalbn, scalbnf, scalbnl - compute exponent using FLT_RADIX
+scalbn	math.h		scalbln, scalblnf, scalblnl, scalbn, scalbnf, scalbnl - compute exponent using FLT_RADIX
+scalbnf	math.h		scalbln, scalblnf, scalblnl, scalbn, scalbnf, scalbnl - compute exponent using FLT_RADIX
+scalbnl	math.h		scalbln, scalblnf, scalblnl, scalbn, scalbnf, scalbnl - compute exponent using FLT_RADIX
+scandir	dirent.h		alphasort, scandir - scan a directory
+scanf	stdio.h		fscanf, scanf, sscanf - convert formatted input
+sched_get_priority_max	sched.h	PS	sched_get_priority_max, sched_get_priority_min - get priority limits (<b>REALTIME</b>)
+sched_get_priority_min	sched.h	PS	sched_get_priority_max, sched_get_priority_min - get priority limits (<b>REALTIME</b>)
+sched_getparam	sched.h	PS	sched_getparam - get scheduling parameters (<b>REALTIME</b>)
+sched_getscheduler	sched.h	PS	sched_getscheduler - get scheduling policy (<b>REALTIME</b>)
+sched_rr_get_interval	sched.h	PS	sched_rr_get_interval - get execution time limits (<b>REALTIME</b>)
+sched_setparam	sched.h	PS	sched_setparam - set scheduling parameters (<b>REALTIME</b>)
+sched_setscheduler	sched.h	PS	sched_setscheduler - set scheduling policy and parameters (<b>REALTIME</b>)
+sched_yield	sched.h		sched_yield - yield the processor
+seed48	stdlib.h	XSI	drand48, erand48, jrand48, lcong48, lrand48, mrand48, nrand48, seed48, srand48 - generate uniformly distributed pseudo-random numbers
+seekdir	dirent.h	XSI	seekdir - set the position of a directory stream
+select	sys_select.h		pselect, select - synchronous I/O multiplexing
+sem_close	semaphore.h		sem_close - close a named semaphore
+sem_destroy	semaphore.h		sem_destroy - destroy an unnamed semaphore
+sem_getvalue	semaphore.h		sem_getvalue - get the value of a semaphore
+sem_init	semaphore.h		sem_init - initialize an unnamed semaphore
+sem_open	semaphore.h		sem_open - initialize and open a named semaphore
+sem_post	semaphore.h		sem_post - unlock a semaphore
+sem_timedwait	semaphore.h time.h		sem_timedwait - lock a semaphore
+sem_trywait	semaphore.h		sem_trywait, sem_wait - lock a semaphore
+sem_unlink	semaphore.h		sem_unlink - remove a named semaphore
+sem_wait	semaphore.h		sem_trywait, sem_wait - lock a semaphore
+semctl	sys/sem.h	XSI	semctl - XSI semaphore control operations
+semget	sys_sem.h	XSI	semget - get set of XSI semaphores
+semop	sys_sem.h	XSI	semop - XSI semaphore operations
+send	sys_socket.h		send - send a message on a socket
+sendmsg	sys_socket.h		sendmsg - send a message on a socket using a message structure
+sendto	sys_socket.h		sendto - send a message on a socket
+setbuf	stdio.h		setbuf - assign buffering to a stream
+setegid	unistd.h		setegid - set the effective group ID
+setenv	stdlib.h	CX	setenv - add or change environment variable
+seteuid	unistd.h		seteuid - set effective user ID
+setgid	unistd.h		setgid - set-group-ID
+setgrent	grp.h	XSI	endgrent, getgrent, setgrent - group database entry functions
+sethostent	netdb.h		endhostent, gethostent, sethostent - network host database functions
+setitimer	sys_time.h	OB XSI	getitimer, setitimer - get and set value of interval timer
+setjmp	setjmp.h		setjmp - set jump point for a non-local goto
+setkey	stdlib.h	XSI	setkey - set encoding key (<b>CRYPT</b>)
+setlocale	locale.h		setlocale - set program locale
+setlogmask	syslog.h	XSI	closelog, openlog, setlogmask, syslog - control system log
+setnetent	netdb.h		endnetent, getnetbyaddr, getnetbyname, getnetent, setnetent - network database functions
+setpgid	unistd.h		setpgid - set process group ID for job control
+setpgrp	unistd.h	OB XSI	setpgrp - set the process group ID
+setpriority	sys_resource.h	XSI	getpriority, setpriority - get and set the nice value
+setprotoent	netdb.h		endprotoent, getprotobyname, getprotobynumber, getprotoent, setprotoent - network protocol database functions
+setpwent	pwd.h	XSI	endpwent, getpwent, setpwent - user database functions
+setregid	unistd.h	XSI	setregid - set real and effective group IDs
+setreuid	unistd.h	XSI	setreuid - set real and effective user IDs
+setrlimit	sys_resource.h	XSI	getrlimit, setrlimit - control maximum resource consumption
+setservent	netdb.h		endservent, getservbyname, getservbyport, getservent, setservent - network services database functions
+setsid	unistd.h		setsid - create session and set process group ID
+setsockopt	sys_socket.h		setsockopt - set the socket options
+setstate	stdlib.h	XSI	initstate, random, setstate, srandom - pseudo-random number functions
+setuid	unistd.h		setuid - set user ID
+setutxent	utmpx.h	XSI	endutxent, getutxent, getutxid, getutxline, pututxline, setutxent - user accounting database functions
+setvbuf	stdio.h		setvbuf - assign buffering to a stream
+shm_open	sys_mman.h	SHM	shm_open - open a shared memory object (<b>REALTIME</b>)
+shm_unlink	sys_mman.h	SHM	shm_unlink - remove a shared memory object (<b>REALTIME</b>)
+shmat	sys_shm.h	XSI	shmat - XSI shared memory attach operation
+shmctl	sys_shm.h	XSI	shmctl - XSI shared memory control operations
+shmdt	sys_shm.h	XSI	shmdt - XSI shared memory detach operation
+shmget	sys_shm.h	XSI	shmget - get an XSI shared memory segment
+shutdown	sys_socket.h		shutdown - shut down socket send and receive operations
+sigaction	signal.h	CX	sigaction - examine and change a signal action
+sigaddset	signal.h	CX	sigaddset - add a signal to a signal set
+sigaltstack	signal.h	XSI	sigaltstack - set and get signal alternate stack context
+sigdelset	signal.h	CX	sigdelset - delete a signal from a signal set
+sigemptyset	signal.h	CX	sigemptyset - initialize and empty a signal set
+sigfillset	signal.h	CX	sigfillset - initialize and fill a signal set
+sighold	signal.h	OB XSI	sighold, sigignore, sigpause, sigrelse, sigset - signal management
+sigignore	signal.h	OB XSI	sighold, sigignore, sigpause, sigrelse, sigset - signal management
+siginterrupt	signal.h	OB XSI	siginterrupt - allow signals to interrupt functions
+sigismember	signal.h	CX	sigismember - test for a signal in a signal set
+siglongjmp	setjmp.h	CX	siglongjmp - non-local goto with signal handling
+signal	signal.h		signal - signal management
+signbit	math.h		signbit - test sign
+signgam	math.h	XSI	lgamma, lgammaf, lgammal, signgam - log gamma function
+sigpause	signal.h	OB XSI	sighold, sigignore, sigpause, sigrelse, sigset - signal management
+sigpending	signal.h	CX	sigpending - examine pending signals
+sigprocmask	signal.h	CX	pthread_sigmask, sigprocmask - examine and change blocked signals
+sigqueue	signal.h	CX	sigqueue - queue a signal to a process
+sigrelse	signal.h	OB XSI	sighold, sigignore, sigpause, sigrelse, sigset - signal management
+sigset	signal.h	OB XSI	sighold, sigignore, sigpause, sigrelse, sigset - signal management
+sigsetjmp	setjmp.h	CX	sigsetjmp - set jump point for a non-local goto
+sigsuspend	signal.h	CX	sigsuspend - wait for a signal
+sigtimedwait	signal.h	CX	sigtimedwait, sigwaitinfo - wait for queued signals
+sigwait	signal.h	CX	sigwait - wait for queued signals
+sigwaitinfo	signal.h	CX	sigtimedwait, sigwaitinfo - wait for queued signals
+sin	math.h		sin, sinf, sinl - sine function
+sinf	math.h		sin, sinf, sinl - sine function
+sinh	math.h		sinh, sinhf, sinhl - hyperbolic sine functions
+sinhf	math.h		sinh, sinhf, sinhl - hyperbolic sine functions
+sinhl	math.h		sinh, sinhf, sinhl - hyperbolic sine functions
+sinl	math.h		sin, sinf, sinl - sine function
+sleep	unistd.h		sleep - suspend execution for an interval of time
+snprintf	stdio.h	CX	dprintf, fprintf, printf, snprintf, sprintf - print formatted output
+sockatmark	sys_socket.h		sockatmark - determine whether a socket is at the out-of-band mark
+socket	sys_socket.h		socket - create an endpoint for communication
+socketpair	sys_socket.h		socketpair - create a pair of connected sockets
+sprintf	stdio.h	CX	dprintf, fprintf, printf, snprintf, sprintf - print formatted output
+sqrt	math.h		sqrt, sqrtf, sqrtl - square root function
+sqrtf	math.h		sqrt, sqrtf, sqrtl - square root function
+sqrtl	math.h		sqrt, sqrtf, sqrtl - square root function
+srand	stdlib.h	OB CX	rand, rand_r, srand - pseudo-random number generator
+srand48	stdlib.h	XSI	drand48, erand48, jrand48, lcong48, lrand48, mrand48, nrand48, seed48, srand48 - generate uniformly distributed pseudo-random numbers
+srandom	stdlib.h	XSI	initstate, random, setstate, srandom - pseudo-random number functions
+sscanf	stdio.h		fscanf, scanf, sscanf - convert formatted input
+stat	sys_stat.h		fstatat, lstat, stat - get file status
+statvfs	sys_statvfs.h		fstatvfs, statvfs - get file system information
+stderr	stdio.h		stderr, stdin, stdout - standard I/O streams
+stdin	stdio.h		stderr, stdin, stdout - standard I/O streams
+stdout	stdio.h		stderr, stdin, stdout - standard I/O streams
+stpcpy	string.h	CX	stpcpy, strcpy - copy a string and return a pointer to the end of the result
+stpncpy	string.h	CX	stpncpy, strncpy - copy fixed length string, returning a pointer to the array end
+strcasecmp	strings.h		strcasecmp, strcasecmp_l, strncasecmp, strncasecmp_l - case-insensitive string comparisons
+strcasecmp_l	strings.h		strcasecmp, strcasecmp_l, strncasecmp, strncasecmp_l - case-insensitive string comparisons
+strcat	string.h		strcat - concatenate two strings
+strchr	string.h		strchr - string scanning operation
+strcmp	string.h		strcmp - compare two strings
+strcoll	string.h	CX	strcoll, strcoll_l - string comparison using collating information
+strcoll_l	string.h	CX	strcoll, strcoll_l - string comparison using collating information
+strcpy	string.h	CX	stpcpy, strcpy - copy a string and return a pointer to the end of the result
+strcspn	string.h		strcspn - get the length of a complementary substring
+strdup	string.h	CX	strdup, strndup - duplicate a specific number of bytes from a string
+strerror	string.h	CX	strerror, strerror_l, strerror_r - get error message string
+strerror_l	string.h	CX	strerror, strerror_l, strerror_r - get error message string
+strerror_r	string.h	CX	strerror, strerror_l, strerror_r - get error message string
+strfmon	monetary.h		strfmon, strfmon_l - convert monetary value to a string
+strfmon_l	monetary.h		strfmon, strfmon_l - convert monetary value to a string
+strftime	time.h	CX	strftime, strftime_l - convert date and time to a string
+strftime_l	time.h	CX	strftime, strftime_l - convert date and time to a string
+strlen	string.h	CX	strlen, strnlen - get length of fixed size string
+strncasecmp	strings.h		strcasecmp, strcasecmp_l, strncasecmp, strncasecmp_l - case-insensitive string comparisons
+strncasecmp_l	strings.h		strcasecmp, strcasecmp_l, strncasecmp, strncasecmp_l - case-insensitive string comparisons
+strncat	string.h		strncat - concatenate a string with part of another
+strncmp	string.h		strncmp - compare part of two strings
+strncpy	string.h	CX	stpncpy, strncpy - copy fixed length string, returning a pointer to the array end
+strndup	string.h	CX	strdup, strndup - duplicate a specific number of bytes from a string
+strnlen	string.h	CX	strlen, strnlen - get length of fixed size string
+strpbrk	string.h		strpbrk - scan a string for a byte
+strptime	time.h	XSI	strptime - date and time conversion
+strrchr	string.h		strrchr - string scanning operation
+strsignal	string.h	CX	strsignal - get name of signal
+strspn	string.h		strspn - get length of a substring
+strstr	string.h		strstr - find a substring
+strtod	stdlib.h		strtod, strtof, strtold - convert a string to a double-precision number
+strtof	stdlib.h		strtod, strtof, strtold - convert a string to a double-precision number
+strtoimax	inttypes.h		strtoimax, strtoumax - convert string to integer type
+strtok	string.h	CX	strtok, strtok_r - split string into tokens
+strtok_r	string.h	CX	strtok, strtok_r - split string into tokens
+strtol	stdlib.h		strtol, strtoll - convert a string to a long integer
+strtold	stdlib.h		strtod, strtof, strtold - convert a string to a double-precision number
+strtoll	stdlib.h		strtol, strtoll - convert a string to a long integer
+strtoul	stdlib.h		strtoul, strtoull - convert a string to an unsigned long
+strtoull	stdlib.h		strtoul, strtoull - convert a string to an unsigned long
+strtoumax	inttypes.h		strtoimax, strtoumax - convert string to integer type
+strxfrm	string.h	CX	strxfrm, strxfrm_l - string transformation
+strxfrm_l	string.h	CX	strxfrm, strxfrm_l - string transformation
+swab	unistd.h	XSI	swab - swap bytes
+swprintf	stdio.h wchar.h		fwprintf, swprintf, wprintf - print formatted wide-character output
+swscanf	stdio.h wchar.h		fwscanf, swscanf, wscanf - convert formatted wide-character input
+symlink	unistd.h		symlink, symlinkat - make a symbolic link relative to directory file descriptor
+symlinkat	unistd.h		symlink, symlinkat - make a symbolic link relative to directory file descriptor
+sync	unistd.h	XSI	sync - schedule file system updates
+sysconf	unistd.h		sysconf - get configurable system variables
+syslog	syslog.h	XSI	closelog, openlog, setlogmask, syslog - control system log
+system	stdlib.h		system - issue a command
+tan	math.h		tan, tanf, tanl - tangent function
+tanf	math.h		tan, tanf, tanl - tangent function
+tanh	math.h		tanh, tanhf, tanhl - hyperbolic tangent functions
+tanhf	math.h		tanh, tanhf, tanhl - hyperbolic tangent functions
+tanhl	math.h		tanh, tanhf, tanhl - hyperbolic tangent functions
+tanl	math.h		tan, tanf, tanl - tangent function
+tcdrain	termios.h		tcdrain - wait for transmission of output
+tcflow	termios.h		tcflow - suspend or restart the transmission or reception of data
+tcflush	termios.h		tcflush - flush non-transmitted output data, non-read input data, or both
+tcgetattr	termios.h		tcgetattr - get the parameters associated with the terminal
+tcgetpgrp	unistd.h		tcgetpgrp - get the foreground process group ID
+tcgetsid	termios.h		tcgetsid - get the process group ID for the session leader for the controlling terminal
+tcsendbreak	termios.h		tcsendbreak - send a break for a specific duration
+tcsetattr	termios.h		tcsetattr - set the parameters associated with the terminal
+tcsetpgrp	unistd.h		tcsetpgrp - set the foreground process group ID
+tdelete	search.h	XSI	tdelete, tfind, tsearch, twalk - manage a binary search tree
+telldir	dirent.h	XSI	telldir - current location of a named directory stream
+tempnam	stdio.h	OB XSI	tempnam - create a name for a temporary file
+tfind	search.h	XSI	tdelete, tfind, tsearch, twalk - manage a binary search tree
+tgamma	math.h		tgamma, tgammaf, tgammal - compute gamma() function
+tgammaf	math.h		tgamma, tgammaf, tgammal - compute gamma() function
+tgammal	math.h		tgamma, tgammaf, tgammal - compute gamma() function
+time	time.h		time - get time
+timer_create	signal.h time.h	CX	timer_create - create a per-process timer
+timer_delete	time.h	CX	timer_delete - delete a per-process timer
+timer_getoverrun	time.h	CX	timer_getoverrun, timer_gettime, timer_settime - per-process timers
+timer_gettime	time.h	CX	timer_getoverrun, timer_gettime, timer_settime - per-process timers
+timer_settime	time.h	CX	timer_getoverrun, timer_gettime, timer_settime - per-process timers
+times	sys_times.h		times - get process and waited-for child process times
+timezone	time.h	XSI CX	daylight, timezone, tzname, tzset - set timezone conversion information
+tmpfile	stdio.h		tmpfile - create a temporary file
+tmpnam	stdio.h	OB	tmpnam - create a name for a temporary file
+toascii	ctype.h	OB XSI	toascii - translate an integer to a 7-bit ASCII character
+tolower	ctype.h	CX	tolower, tolower_l - transliterate uppercase characters to lowercase
+tolower_l	ctype.h	CX	tolower, tolower_l - transliterate uppercase characters to lowercase
+toupper	ctype.h	CX	toupper, toupper_l - transliterate lowercase characters to uppercase
+toupper_l	ctype.h	CX	toupper, toupper_l - transliterate lowercase characters to uppercase
+towctrans	wctype.h	CX	towctrans, towctrans_l - wide-character transliteration
+towctrans_l	wctype.h	CX	towctrans, towctrans_l - wide-character transliteration
+towlower	wctype.h	CX	towlower, towlower_l - transliterate uppercase wide-character code to lowercase
+towlower_l	wctype.h	CX	towlower, towlower_l - transliterate uppercase wide-character code to lowercase
+towupper	wctype.h	CX	towupper, towupper_l - transliterate lowercase wide-character code to uppercase
+towupper_l	wctype.h	CX	towupper, towupper_l - transliterate lowercase wide-character code to uppercase
+trunc	math.h		trunc, truncf, truncl - round to truncated integer value
+truncate	unistd.h		truncate - truncate a file to a specified length
+truncf	math.h		trunc, truncf, truncl - round to truncated integer value
+truncl	math.h		trunc, truncf, truncl - round to truncated integer value
+tsearch	search.h	XSI	tdelete, tfind, tsearch, twalk - manage a binary search tree
+ttyname	unistd.h		ttyname, ttyname_r - find the pathname of a terminal
+ttyname_r	unistd.h		ttyname, ttyname_r - find the pathname of a terminal
+twalk	search.h	XSI	tdelete, tfind, tsearch, twalk - manage a binary search tree
+tzname	time.h	XSI CX	daylight, timezone, tzname, tzset - set timezone conversion information
+tzset	time.h	XSI CX	daylight, timezone, tzname, tzset - set timezone conversion information
+ulimit	ulimit.h	OB XSI	ulimit - get and set process limits
+umask	sys_stat.h		umask - set and get the file mode creation mask
+uname	sys_utsname.h		uname - get the name of the current system
+ungetc	stdio.h		ungetc - push byte back into input stream
+ungetwc	stdio.h wchar.h		ungetwc - push wide-character code back into the input stream
+unlink	unistd.h		unlink, unlinkat - remove a directory entry relative to directory file descriptor
+unlinkat	unistd.h		unlink, unlinkat - remove a directory entry relative to directory file descriptor
+unlockpt	stdlib.h	XSI	unlockpt - unlock a pseudo-terminal master/slave pair
+unsetenv	stdlib.h	CX	unsetenv - remove an environment variable
+uselocale	locale.h	CX	uselocale - use locale in current thread
+utime	utime.h	OB	utime - set file access and modification times
+utimensat	sys_stat.h sys_time.h	XSI	futimens, utimensat, utimes - set file access and modification times
+utimes	sys_stat.h sys_time.h	XSI	futimens, utimensat, utimes - set file access and modification times
+va_arg	stdarg.h		va_arg, va_copy, va_end, va_start - handle variable argument list
+va_copy	stdarg.h		va_arg, va_copy, va_end, va_start - handle variable argument list
+va_end	stdarg.h		va_arg, va_copy, va_end, va_start - handle variable argument list
+va_start	stdarg.h		va_arg, va_copy, va_end, va_start - handle variable argument list
+vdprintf	stdarg.h stdio.h	CX	vdprintf, vfprintf, vprintf, vsnprintf, vsprintf - format output of a stdarg argument list
+vfprintf	stdarg.h stdio.h	CX	vdprintf, vfprintf, vprintf, vsnprintf, vsprintf - format output of a stdarg argument list
+vfscanf	stdarg.h stdio.h		vfscanf, vscanf, vsscanf - format input of a stdarg argument list
+vfwprintf	stdarg.h stdio.h wchar.h		vfwprintf, vswprintf, vwprintf - wide-character formatted output of a stdarg argument list
+vfwscanf	stdarg.h stdio.h wchar.h		vfwscanf, vswscanf, vwscanf - wide-character formatted input of a stdarg argument list
+vprintf	stdarg.h stdio.h	CX	vdprintf, vfprintf, vprintf, vsnprintf, vsprintf - format output of a stdarg argument list
+vscanf	stdarg.h stdio.h		vfscanf, vscanf, vsscanf - format input of a stdarg argument list
+vsnprintf	stdarg.h stdio.h	CX	vdprintf, vfprintf, vprintf, vsnprintf, vsprintf - format output of a stdarg argument list
+vsprintf	stdarg.h stdio.h	CX	vdprintf, vfprintf, vprintf, vsnprintf, vsprintf - format output of a stdarg argument list
+vsscanf	stdarg.h stdio.h		vfscanf, vscanf, vsscanf - format input of a stdarg argument list
+vswprintf	stdarg.h stdio.h wchar.h		vfwprintf, vswprintf, vwprintf - wide-character formatted output of a stdarg argument list
+vswscanf	stdarg.h stdio.h wchar.h		vfwscanf, vswscanf, vwscanf - wide-character formatted input of a stdarg argument list
+vwprintf	stdarg.h stdio.h wchar.h		vfwprintf, vswprintf, vwprintf - wide-character formatted output of a stdarg argument list
+vwscanf	stdarg.h stdio.h wchar.h		vfwscanf, vswscanf, vwscanf - wide-character formatted input of a stdarg argument list
+wait	sys_wait.h		wait, waitpid - wait for a child process to stop or terminate
+waitid	sys_wait.h		waitid - wait for a child process to change state
+waitpid	sys_wait.h		wait, waitpid - wait for a child process to stop or terminate
+wcpcpy	wchar.h	CX	wcpcpy, wcscpy - copy a wide-character string, returning a pointer to its end
+wcpncpy	wchar.h	CX	wcpncpy, wcsncpy - copy a fixed-size wide-character string, returning a pointer to its end
+wcrtomb	stdio.h		wcrtomb - convert a wide-character code to a character (restartable)
+wcscasecmp	wchar.h	CX	wcscasecmp, wcscasecmp_l, wcsncasecmp, wcsncasecmp_l - case-insensitive wide-character string comparison
+wcscasecmp_l	wchar.h	CX	wcscasecmp, wcscasecmp_l, wcsncasecmp, wcsncasecmp_l - case-insensitive wide-character string comparison
+wcscat	wchar.h		wcscat - concatenate two wide-character strings
+wcschr	wchar.h		wcschr - wide-character string scanning operation
+wcscmp	wchar.h		wcscmp - compare two wide-character strings
+wcscoll	wchar.h	CX	wcscoll, wcscoll_l - wide-character string comparison using collating information
+wcscoll_l	wchar.h	CX	wcscoll, wcscoll_l - wide-character string comparison using collating information
+wcscpy	wchar.h	CX	wcpcpy, wcscpy - copy a wide-character string, returning a pointer to its end
+wcscspn	wchar.h		wcscspn - get the length of a complementary wide substring
+wcsdup	wchar.h	CX	wcsdup - duplicate a wide-character string
+wcsftime	wchar.h		wcsftime - convert date and time to a wide-character string
+wcslen	wchar.h	CX	wcslen, wcsnlen - get length of a fixed-sized wide-character string
+wcsncasecmp	wchar.h	CX	wcscasecmp, wcscasecmp_l, wcsncasecmp, wcsncasecmp_l - case-insensitive wide-character string comparison
+wcsncasecmp_l	wchar.h	CX	wcscasecmp, wcscasecmp_l, wcsncasecmp, wcsncasecmp_l - case-insensitive wide-character string comparison
+wcsncat	wchar.h		wcsncat - concatenate a wide-character string with part of another
+wcsncmp	wchar.h		wcsncmp - compare part of two wide-character strings
+wcsncpy	wchar.h	CX	wcpncpy, wcsncpy - copy a fixed-size wide-character string, returning a pointer to its end
+wcsnlen	wchar.h	CX	wcslen, wcsnlen - get length of a fixed-sized wide-character string
+wcsnrtombs	wchar.h	CX	wcsnrtombs, wcsrtombs - convert a wide-character string to a character string (restartable)
+wcspbrk	wchar.h		wcspbrk - scan a wide-character string for a wide-character code
+wcsrchr	wchar.h		wcsrchr - wide-character string scanning operation
+wcsrtombs	wchar.h	CX	wcsnrtombs, wcsrtombs - convert a wide-character string to a character string (restartable)
+wcsspn	wchar.h		wcsspn - get the length of a wide substring
+wcsstr	wchar.h		wcsstr - find a wide-character substring
+wcstod	wchar.h		wcstod, wcstof, wcstold - convert a wide-character string to a double-precision number
+wcstof	wchar.h		wcstod, wcstof, wcstold - convert a wide-character string to a double-precision number
+wcstoimax	stddef.h inttypes.h		wcstoimax, wcstoumax - convert a wide-character string to an integer type
+wcstok	wchar.h		wcstok - split a wide-character string into tokens
+wcstol	wchar.h		wcstol, wcstoll - convert a wide-character string to a long integer
+wcstold	wchar.h		wcstod, wcstof, wcstold - convert a wide-character string to a double-precision number
+wcstoll	wchar.h		wcstol, wcstoll - convert a wide-character string to a long integer
+wcstombs	stdlib.h		wcstombs - convert a wide-character string to a character string
+wcstoul	wchar.h		wcstoul, wcstoull - convert a wide-character string to an unsigned long
+wcstoull	wchar.h		wcstoul, wcstoull - convert a wide-character string to an unsigned long
+wcstoumax	stddef.h inttypes.h		wcstoimax, wcstoumax - convert a wide-character string to an integer type
+wcswidth	wchar.h	XSI	wcswidth - number of column positions of a wide-character string
+wcsxfrm	wchar.h	CX	wcsxfrm, wcsxfrm_l - wide-character string transformation
+wcsxfrm_l	wchar.h	CX	wcsxfrm, wcsxfrm_l - wide-character string transformation
+wctob	stdio.h wchar.h		wctob - wide-character to single-byte conversion
+wctomb	stdlib.h		wctomb - convert a wide-character code to a character
+wctrans	wctype.h	CX	wctrans, wctrans_l - define character mapping
+wctrans_l	wctype.h	CX	wctrans, wctrans_l - define character mapping
+wctype	wctype.h	CX	wctype, wctype_l - define character class
+wctype_l	wctype.h	CX	wctype, wctype_l - define character class
+wcwidth	wchar.h	XSI	wcwidth - number of column positions of a wide-character code
+wmemchr	wchar.h		wmemchr - find a wide character in memory
+wmemcmp	wchar.h		wmemcmp - compare wide characters in memory
+wmemcpy	wchar.h		wmemcpy - copy wide characters in memory
+wmemmove	wchar.h		wmemmove - copy wide characters in memory with overlapping areas
+wmemset	wchar.h		wmemset - set wide characters in memory
+wordexp	wordexp.h		wordexp, wordfree - perform word expansions
+wordfree	wordexp.h		wordexp, wordfree - perform word expansions
+wprintf	stdio.h wchar.h		fwprintf, swprintf, wprintf - print formatted wide-character output
+write	unistd.h		pwrite, write - write on a file
+writev	sys_uio.h	XSI	writev - write a vector
+wscanf	stdio.h wchar.h		fwscanf, swscanf, wscanf - convert formatted wide-character input
+y0	math.h	XSI	y0, y1, yn - Bessel functions of the second kind
+y1	math.h	XSI	y0, y1, yn - Bessel functions of the second kind
+yn	math.h	XSI	y0, y1, yn - Bessel functions of the second kind
