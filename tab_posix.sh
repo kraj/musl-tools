@@ -15,7 +15,7 @@ BEGIN {
 
 	FS = "\t"
 
-	posix = "data/posix2008"
+	posix = "data/posix2008.ok"
 	syms = "data/musl.syms"
 	tags = "data/musl.tags"
 
@@ -47,7 +47,7 @@ BEGIN {
 	legend = legend "<li>p - function prototype"
 	legend = legend "<li>x - external and forward variable declaration"
 	legend = legend "</ul></ul>"
-	legend = legend "<p>(any option mark found in the synopsis of a manual is listed in the option column, this is often wrong)"
+	legend = legend "<p>(any option mark found in the synopsis of a manual is listed in the option column, this is often wrong)<p>(STREAMS and posix_trace* api is excluded)"
 
 	print "<h3>musl vs posix api</h3>"
 	print commit
