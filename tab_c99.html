@@ -1,5 +1,5 @@
 <h3>musl vs c99 api</h3>
-<h4>commit</h4><p>commit <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=commit;h=ec05a0b08f0d93341c149a6f3235e4ee5711b2f8">ec05a0b08f0d93341c149a6f3235e4ee5711b2f8</a><br>Date:   Thu Jun 23 22:13:47 2011 -0400<br><br>    adapt build/install/gcc-wrapper systems for dynamic linking support
+<h4>commit</h4><p>commit <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=commit;h=febbd12d00883a716a9edca25011f8aa306b859b">febbd12d00883a716a9edca25011f8aa306b859b</a><br>Date:   Sat Jun 25 18:18:57 2011 -0400<br><br>    XSI search.h API implementation by Szabolcs Nagy
 <h4>legend</h4><ul><li>status: musl implementation status summary<ul><li>(empty) - implemented<li>nosym - prototype found in include files (see decl) but not in libc.a (see sym)<li>nodecl - symbol is in libc.a but not declared in a public header<li>missing - neither in include files (see decl) nor in libc.a (see sym)</ul><li>sym: external symbol kind as found by `nm libc.a` (symbol kind only reported once)<ul><li>C - symbol is common (uninitialized data)<li>D - symbol is in the initialized data section<li>R - symbol is in the read only data section<li>T - symbol is in the text section<li>V - weak object<li>W - weak symbol</ul><li>decl: kind of declaration as found by `ctags -R include` (every occurance is reported, arch specific definitions are not linked)<ul><li>d - macro definition<li>t - typedef<li>s - struct declaration<li>u - union declaration<li>p - function prototype<li>x - external and forward variable declaration</ul></ul>
 <h4>table</h4><table border=1><tr><th colspan=3>musl<th colspan=4>c99<tr><th>status<th>sym<th>decl<th>name<th>header<th>proto<th>section
 <tr><td>missing<td>&#160;<td>&#160;<td>NDEBUG<td>assert.h<td>&#160;<td>B.1 Diagnostics
@@ -223,22 +223,22 @@
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/iso646.h#l14">d</a> <td>or_eq<td>iso646.h<td>&#160;<td>B.8 Alternative spellings
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/limits.h#l10">d</a> <td>CHAR_BIT<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/limits.h#l15">d</a> <td>CHAR_MAX<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
-<tr><td>&#160;<td>&#160;<td>d <td>INT_MIN<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
-<tr><td>&#160;<td>&#160;<td>d <td>ULONG_MAX<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/limits.h#l19">d</a> <td>INT_MIN<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/limits.h#l23">d</a> <td>ULONG_MAX<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/limits.h#l11">d</a> <td>SCHAR_MIN<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
-<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/limits.h#l17">d</a> <td>MB_LEN_MAX<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
-<tr><td>&#160;<td>&#160;<td>d <td>INT_MAX<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
-<tr><td>&#160;<td>&#160;<td>d <td>LLONG_MIN<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/limits.h#l27">d</a> <td>MB_LEN_MAX<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/limits.h#l20">d</a> <td>INT_MAX<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/limits.h#l24">d</a> <td>LLONG_MIN<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/limits.h#l12">d</a> <td>SCHAR_MAX<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
-<tr><td>&#160;<td>&#160;<td>d <td>SHRT_MIN<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
-<tr><td>&#160;<td>&#160;<td>d <td>UINT_MAX<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/limits.h#l16">d</a> <td>SHRT_MIN<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/limits.h#l21">d</a> <td>UINT_MAX<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
 <tr><td>&#160;<td>&#160;<td>d <td>LLONG_MAX<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/limits.h#l13">d</a> <td>UCHAR_MAX<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
-<tr><td>&#160;<td>&#160;<td>d <td>SHRT_MAX<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
-<tr><td>&#160;<td>&#160;<td>d <td>LONG_MIN<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
-<tr><td>&#160;<td>&#160;<td>d <td>ULLONG_MAX<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/limits.h#l17">d</a> <td>SHRT_MAX<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/limits.h#l22">d</a> <td>LONG_MIN<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/limits.h#l25">d</a> <td>ULLONG_MAX<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/limits.h#l14">d</a> <td>CHAR_MIN<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
-<tr><td>&#160;<td>&#160;<td>d <td>USHRT_MAX<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/limits.h#l18">d</a> <td>USHRT_MAX<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
 <tr><td>&#160;<td>&#160;<td>d <td>LONG_MAX<td>limits.h<td>&#160;<td>B.9 Sizes of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/locale.h#l23">s</a> <td>struct lconv<td>locale.h<td>&#160;<td>B.10 Localization
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/locale.h#l21">d</a> <td>LC_ALL<td>locale.h<td>&#160;<td>B.10 Localization
