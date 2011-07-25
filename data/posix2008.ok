@@ -486,9 +486,9 @@ ldexpf	math.h		ldexp, ldexpf, ldexpl - load exponent of a floating-point number	
 ldexpl	math.h		ldexp, ldexpf, ldexpl - load exponent of a floating-point number	long double ldexpl(long double x, int exp);
 ldiv	stdlib.h		ldiv, lldiv - compute quotient and remainder of a long division	ldiv_t ldiv(long numer, long denom);
 lfind	search.h	XSI	lsearch, lfind - linear search and update	void *lfind(const void *key, const void *base, size_t *nelp, size_t width, int (*compar)(const void *, const void *));
-lgamma	math.h	XSI	lgamma, lgammaf, lgammal, signgam - log gamma function	double lgamma(double x);
-lgammaf	math.h	XSI	lgamma, lgammaf, lgammal, signgam - log gamma function	float lgammaf(float x);
-lgammal	math.h	XSI	lgamma, lgammaf, lgammal, signgam - log gamma function	long double lgammal(long double x);
+lgamma	math.h		lgamma, lgammaf, lgammal, signgam - log gamma function	double lgamma(double x);
+lgammaf	math.h		lgamma, lgammaf, lgammal, signgam - log gamma function	float lgammaf(float x);
+lgammal	math.h		lgamma, lgammaf, lgammal, signgam - log gamma function	long double lgammal(long double x);
 link	unistd.h		link, linkat - link one file to another file relative to two directory file descriptors	int link(const char *path1, const char *path2);
 linkat	unistd.h		link, linkat - link one file to another file relative to two directory file descriptors	int linkat(int fd1, const char *path1, int fd2, const char*path2, int flag);
 lio_listio	aio.h		lio_listio - list directed I/O	int lio_listio(int mode, struct aiocb *restrict const list[restrict], int nent, struct sigevent *restrict sig);
