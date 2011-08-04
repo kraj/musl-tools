@@ -1,6 +1,6 @@
 musl development tools:
 	api tables (posix and c99 api coverage)
-	sizeof varios declared types (glibc vs musl)
+	sizeof various declared types (glibc vs musl)
 
 download:
 	git clone git://repo.or.cz/musl-tools.git
