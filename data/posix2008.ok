@@ -396,7 +396,7 @@ iconv_close	iconv.h		iconv_close - codeset conversion deallocation function	int 
 iconv_open	iconv.h		iconv_open - codeset conversion allocation function	iconv_t iconv_open(const char *tocode, const char *fromcode);
 if_freenameindex	net_if.h		if_freenameindex - free memory allocated by if_nameindex	void if_freenameindex(struct if_nameindex *ptr);
 if_indextoname	net_if.h		if_indextoname - map a network interface index to its corresponding name	char *if_indextoname(unsigned ifindex, char *ifname);
-if_nameindex	net_if.h		if_nameindex - return all network interface names and indexes	
+if_nameindex	net_if.h		if_nameindex - return all network interface names and indexes	struct if_nameindex *if_nameindex(void);
 if_nametoindex	net_if.h		if_nametoindex - map a network interface name to its corresponding index	unsigned if_nametoindex(const char *ifname);
 ilogb	math.h		ilogb, ilogbf, ilogbl - return an unbiased exponent	int ilogb(double x);
 ilogbf	math.h		ilogb, ilogbf, ilogbl - return an unbiased exponent	int ilogbf(float x);
