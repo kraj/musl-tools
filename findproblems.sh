@@ -8,16 +8,22 @@ export LC_ALL=C
 	awk -F'\t' '{print $2}' data/musl.syms
 } |sort |uniq |awk -F'\t' '
 BEGIN {
-	posix = "data/posix2008.ok.proto"
 	syms = "data/musl.syms"
 	tags = "data/musl.tags.proto"
+	posix = "data/posix2008.ok.proto"
 
 	while (getline < syms == 1)
 		sym[$2] = $1
 
 	# todo: same tag may be defined in several headers
-	while (getline < tags == 1)
-		tag[$1] = $2 "\t" $3 "\t" $5 "\t" $6
+	while (getline < tags == 1) {
+		if ($5 ~ /^#undef/)
+			continue
+		if ($1 in tag)
+			tag[$1] = tag[$1] "@" $2 "\t" $3 "\t" $5 "\t" $6
+		else
+			tag[$1] = $2 "\t" $3 "\t" $5 "\t" $6
+	}
 
 	while (getline < posix == 1)
 		pos[$1] = $2 "\t" $5 "\t" $6
@@ -31,7 +37,13 @@ BEGIN {
 	if (pos[$1])
 		s = s " posix"
 
-	print $1 "\t" substr(s,2) "\t" sym[$1] "\t" tag[$1] "\t" pos[$1]
+	n = split(tag[$1],a,"@")
+	if (n==0) {
+		n=1
+		a[1]=""
+	}
+	for (i = 1; i <= n; i++)
+		print $1 "\t" substr(s,2) "\t" sym[$1] "\t" a[i] "\t" pos[$1]
 }' >data/musl.all
 
 awk -F'\t' '
@@ -40,9 +52,18 @@ $2 == "obj" || $2 == "obj posix" {
 	if ($1 !~ /^_/)
 		print "nodecl\t" $1 "\t" $3
 }
+$2 ~ /inc/ && $5 == "p" {
+	# check for different declarations of the same symbol
+	if ($1 in proto) {
+		if (proto[$1] != $6)
+			print "proto\t" $1 "\t" $4 "\t" head[$1] "\t" $6 "\t" proto[$1]
+	} else {
+		proto[$1] = $6
+		head[$1] = $4
+	}
+}
 $2 ~ /inc posix/ && $4 != $8 {
 	# different header
-
 	n = split($8, a, " ")
 	for (i = 1; i <= n; i++)
 		if ($4 == a[i])

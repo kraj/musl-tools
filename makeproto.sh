@@ -3,7 +3,7 @@
 export LC_ALL=C
 MUSL=${MUSL:-../musl}
 
-awk -F'\t' '{print $5}' data/musl.tags |./type.sh >/tmp/tags.type
+awk -F'\t' '{if($3=="p")print $5; else print ""}' data/musl.tags |./type.sh >/tmp/tags.type
 awk -F'\t' '{print $5}' data/posix2008.ok |./type.sh >/tmp/posix2008.type
 
 join() {
