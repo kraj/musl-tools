@@ -67,6 +67,7 @@ $2 ~ /inc/ && $5 == "p" {
 }
 $2 ~ /inc posix/ && $4 == $8 {
 	head[$1] = $4
+	herr = ""
 }
 $2 ~ /inc posix/ && head[$1] != $8 && $4 !~ /^bits\// {
 	# different header

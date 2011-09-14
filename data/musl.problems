@@ -18,27 +18,9 @@ nodecl	fread_unlocked	W
 nodecl	fwrite_unlocked	W
 nodecl	getdents	W
 nodecl	getdomainname	T
-header	getopt	getopt.h	unistd.h
 nodecl	getw	T
 nodecl	getwc_unlocked	W
 nodecl	getwchar_unlocked	W
-header	iswalnum	wchar.h	wctype.h
-header	iswalpha	wchar.h	wctype.h
-header	iswblank	wchar.h	wctype.h
-header	iswcntrl	wchar.h	wctype.h
-header	iswctype	wchar.h	wctype.h
-header	iswdigit	wchar.h	wctype.h
-header	iswgraph	wchar.h	wctype.h
-header	iswlower	wchar.h	wctype.h
-header	iswprint	wchar.h	wctype.h
-header	iswpunct	wchar.h	wctype.h
-header	iswspace	wchar.h	wctype.h
-header	iswupper	wchar.h	wctype.h
-header	iswxdigit	wchar.h	wctype.h
-header	optarg	getopt.h	unistd.h
-header	opterr	getopt.h	unistd.h
-header	optind	getopt.h	unistd.h
-header	optopt	getopt.h	unistd.h
 nodecl	pivot_root	T
 proto	poll	poll.h	int(struct pollfd*,nfds_t,int)	int(struct pollfd[],nfds_t,int)	int poll (struct pollfd *, nfds_t, int);	int poll(struct pollfd fds[], nfds_t nfds, int timeout);
 nodecl	putw	T
@@ -49,9 +31,4 @@ proto	setgroups	unistd.h	grp.h	int setgroups(size_t, const gid_t []);	int setgro
 nodecl	sincos	T
 nodecl	start	T
 nodecl	stime	T
-header	strcasecmp	string.h	strings.h
-header	strncasecmp	string.h	strings.h
-header	towlower	wchar.h	wctype.h
-header	towupper	wchar.h	wctype.h
 header	wcrtomb	wchar.h	stdio.h
-header	wctype	wchar.h	wctype.h
