@@ -5,25 +5,23 @@ export LC_ALL=C
 # drop names from a declaration (hack to make prototypes comparable)
 awk '
 BEGIN {
-	# type is not typedefed so next unknown id is probably a variable name
-	split("void char short int long float double signed unsigned _Bool _Complex bool complex", a)
+	# builtin type specifiers/qualifiers..
+	s = "void char short int long float double signed unsigned _Bool _Complex bool complex"
+	s = s " static extern auto register inline const volatile restrict"
+	# typedef names in posix without _t
+	s = s " FILE DIR VISIT ENTRY ACTION DBM datum fd_set jmp_buf sigjmp_buf va_list nl_item nl_catd"
+	s = s " scalar real-floating" # used in macros
+	split(s, a)
 	for (i in a)
-		tok[a[i]] = "type"
+		tok[a[i]] = "builtin"
 
-	# next token is an id, type is not typedefed
+	# next token is an id
 	split("struct union enum", a)
 	for (i in a)
 		tok[a[i]] = "struct"
 
-	# decoratoin that can be skipped
-	split("static extern auto register inline const volatile restrict", a)
-	for (i in a)
-		tok[a[i]] = "decor"
-
-	# punctuators
-	split("( ) [ ] , ... *", a)
-	for (i in a)
-		tok[a[i]] = "punct"
+	# todo: drop restrict for now
+	tok["restrict"] = ""
 }
 
 function put(tok) {
@@ -44,38 +42,17 @@ function put(tok) {
 	gsub(/[^a-zA-Z0-9_.-]/," & ")
 	gsub(/\.\.\./, " & ")
 
-	state = "type"
 	sep = ""
 	s = ""
 	for (i = 1; i <= NF; i++) {
 		if ($i == ";")
 			break
-		# drop restrict
-		if ($i == "restrict")
+		if ($i ~ /[a-zA-Z_][a-zA-Z0-9_]*/ && !tok[$i] && $i !~ /_t$/)
 			continue
-		if (state == "type") {
+		put($i)
+		if (tok[$i] == "struct") {
+			i++
 			put($i)
-			if (!tok[$i] || tok[$i] == "type")
-				state = "id"
-			if (tok[$i] == "struct") {
-				i++
-				put($i)
-				state = "id"
-			}
-		} else if (state == "id") {
-			if (!tok[$i]) {
-				state = "idfound"
-				continue
-			}
-			put($i)
-			if ($i == ")")
-				state = "idfound"
-			if ($i == ",")
-				state = "type"
-		} else if (state == "idfound") {
-			put($i)
-			if ($i == "(" || $i == ",")
-				state = "type"
 		}
 	}
 
