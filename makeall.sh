@@ -40,6 +40,10 @@ $2 == "obj" || $2 == "obj posix" {
 }
 $2 ~ /inc posix/ && $4 != $8 {
 	# different header
+
+	# todo..
+	gsub(/_/, "/", $8)
+
 	n = split($8, a, " ")
 	for (i = 1; i <= n; i++)
 		if ($4 == a[i])
@@ -53,7 +57,7 @@ $2 ~ /inc posix/ && $7 != $10 && $5 == "p" {
 	# todo: move to type.sh
 	gsub(/restrict const/, "const", $10)
 	gsub(/restrict/, "", $10)
-#	gsub(/\[[0-9]+\]/, "[]", $10)
+	gsub(/\[[0-9]+\]/, "[]", $10)
 	gsub(/unsigned int/, "unsigned", $7)
 	gsub(/long int/, "long", $7)
 
