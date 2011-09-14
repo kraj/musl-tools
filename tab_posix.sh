@@ -80,8 +80,11 @@ BEGIN {
 		s = s "<td><a href=\"http://pubs.opengroup.org/onlinepubs/9699919799/functions/" $1 ".html\">" $1 "</a>"
 		n = split($2, x, " ")
 		s = s "<td>"
-		for (i = 1; i <= n; i++)
-			s = s " <a href=\"http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/" x[i] ".html\">" x[i] "</a>"
+		for (i = 1; i <= n; i++) {
+			h = x[i]
+			gsub(/\//, "_", h)
+			s = s " <a href=\"http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/" h ".html\">" x[i] "</a>"
+		}
 		n = split($3, x, " ")
 		s = s "<td>"
 		for (i = 1; i <= n; i++)

@@ -41,9 +41,6 @@ $2 == "obj" || $2 == "obj posix" {
 $2 ~ /inc posix/ && $4 != $8 {
 	# different header
 
-	# todo..
-	gsub(/_/, "/", $8)
-
 	n = split($8, a, " ")
 	for (i = 1; i <= n; i++)
 		if ($4 == a[i])
