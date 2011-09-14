@@ -2,8 +2,7 @@
 
 export LC_ALL=C
 
-[ -f data/musl.tags.proto -a -f data/posix2008.ok.proto ] || ./makeproto.sh
-
+./makeproto.sh
 {
 	awk -F'\t' '{print $1}' data/musl.tags data/posix2008.ok # data/c99
 	awk -F'\t' '{print $2}' data/musl.syms
@@ -15,8 +14,11 @@ BEGIN {
 
 	while (getline < syms == 1)
 		sym[$2] = $1
+
+	# todo: same tag may be defined in several headers
 	while (getline < tags == 1)
 		tag[$1] = $2 "\t" $3 "\t" $5 "\t" $6
+
 	while (getline < posix == 1)
 		pos[$1] = $2 "\t" $5 "\t" $6
 }
