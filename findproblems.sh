@@ -15,7 +15,6 @@ BEGIN {
 	while (getline < syms == 1)
 		sym[$2] = $1
 
-	# todo: same tag may be defined in several headers
 	while (getline < tags == 1) {
 		if ($5 ~ /^#undef/)
 			continue
