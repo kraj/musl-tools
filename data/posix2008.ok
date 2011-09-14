@@ -2,8 +2,8 @@ FD_CLR	sys/select.h		pselect, select - synchronous I/O multiplexing	void FD_CLR(
 FD_ISSET	sys/select.h		pselect, select - synchronous I/O multiplexing	int FD_ISSET(int fd, fd_set *fdset);
 FD_SET	sys/select.h		pselect, select - synchronous I/O multiplexing	void FD_SET(int fd, fd_set *fdset);
 FD_ZERO	sys/select.h		pselect, select - synchronous I/O multiplexing	void FD_ZERO(fd_set *fdset);
-_Exit	stdlib.h unistd.h		_Exit, _exit - terminate a process	void _Exit(int status);
-_exit	stdlib.h unistd.h		_Exit, _exit - terminate a process	void _exit(int status);
+_Exit	stdlib.h		_Exit, _exit - terminate a process	void _Exit(int status);
+_exit	unistd.h		_Exit, _exit - terminate a process	void _exit(int status);
 _longjmp	setjmp.h	OB XSI	_longjmp, _setjmp - non-local goto	void _longjmp(jmp_buf env, int val);
 _setjmp	setjmp.h	OB XSI	_longjmp, _setjmp - non-local goto	int _setjmp(jmp_buf env);
 _tolower	ctype.h	OB XSI	_tolower - transliterate uppercase characters to lowercase	int _tolower(int c);
@@ -310,7 +310,7 @@ ftruncate	unistd.h		ftruncate - truncate a file to a specified length	int ftrunc
 ftrylockfile	stdio.h	CX	flockfile, ftrylockfile, funlockfile - stdio locking functions	int ftrylockfile(FILE *file);
 ftw	ftw.h	OB XSI	ftw - traverse (walk) a file tree	int ftw(const char *path, int (*fn)(const char *, const struct stat *ptr, int flag), int ndirs);
 funlockfile	stdio.h	CX	flockfile, ftrylockfile, funlockfile - stdio locking functions	void funlockfile(FILE *file);
-futimens	sys/stat.h sys/time.h		futimens, utimensat, utimes - set file access and modification times	int futimens(int fd, const struct timespec times[2]);
+futimens	sys/stat.h		futimens, utimensat, utimes - set file access and modification times	int futimens(int fd, const struct timespec times[2]);
 fwide	stdio.h wchar.h		fwide - set stream orientation	int fwide(FILE *stream, int mode);
 fwprintf	stdio.h wchar.h		fwprintf, swprintf, wprintf - print formatted wide-character output	int fwprintf(FILE *restrict stream, const wchar_t *restrict format, ...);
 fwrite	stdio.h		fwrite - binary output	size_t fwrite(const void *restrict ptr, size_t size, size_t nitems, FILE *restrict stream);
@@ -566,11 +566,11 @@ mq_close	mqueue.h	MSG	mq_close - close a message queue (<b>REALTIME</b>)	int mq_
 mq_getattr	mqueue.h	MSG	mq_getattr - get message queue attributes (<b>REALTIME</b>)	int mq_getattr(mqd_t mqdes, struct mq_attr *mqstat);
 mq_notify	mqueue.h	MSG	mq_notify - notify process that a message is available (<b>REALTIME</b>)	int mq_notify(mqd_t mqdes, const struct sigevent *notification);
 mq_open	mqueue.h	MSG	mq_open - open a message queue (<b>REALTIME</b>)	mqd_t mq_open(const char *name, int oflag, ...);
-mq_receive	mqueue.h mqueue.h time.h	MSG	mq_receive, mq_timedreceive - receive a message from a message queue (<b>REALTIME</b>)	ssize_t mq_receive(mqd_t mqdes, char *msg_ptr, size_t msg_len, unsigned *msg_prio);
-mq_send	mqueue.h mqueue.h time.h	MSG	mq_send, mq_timedsend - send a message to a message queue (<b>REALTIME</b>)	int mq_send(mqd_t mqdes, const char *msg_ptr, size_t msg_len, unsigned msg_prio);
+mq_receive	mqueue.h	MSG	mq_receive, mq_timedreceive - receive a message from a message queue (<b>REALTIME</b>)	ssize_t mq_receive(mqd_t mqdes, char *msg_ptr, size_t msg_len, unsigned *msg_prio);
+mq_send	mqueue.h	MSG	mq_send, mq_timedsend - send a message to a message queue (<b>REALTIME</b>)	int mq_send(mqd_t mqdes, const char *msg_ptr, size_t msg_len, unsigned msg_prio);
 mq_setattr	mqueue.h	MSG	mq_setattr - set message queue attributes (<b>REALTIME</b>)	int mq_setattr(mqd_t mqdes, const struct mq_attr *restrict mqstat, struct mq_attr *restrict omqstat);
-mq_timedreceive	mqueue.h mqueue.h time.h	MSG	mq_receive, mq_timedreceive - receive a message from a message queue (<b>REALTIME</b>)	ssize_t mq_timedreceive(mqd_t mqdes, char *restrict msg_ptr, size_t msg_len, unsigned *restrict msg_prio, const struct timespec *restrict abstime);
-mq_timedsend	mqueue.h mqueue.h time.h	MSG	mq_send, mq_timedsend - send a message to a message queue (<b>REALTIME</b>)	int mq_timedsend(mqd_t mqdes, const char *msg_ptr, size_t msg_len, unsigned msg_prio, const struct timespec *abstime);
+mq_timedreceive	mqueue.h time.h	MSG	mq_receive, mq_timedreceive - receive a message from a message queue (<b>REALTIME</b>)	ssize_t mq_timedreceive(mqd_t mqdes, char *restrict msg_ptr, size_t msg_len, unsigned *restrict msg_prio, const struct timespec *restrict abstime);
+mq_timedsend	mqueue.h time.h	MSG	mq_send, mq_timedsend - send a message to a message queue (<b>REALTIME</b>)	int mq_timedsend(mqd_t mqdes, const char *msg_ptr, size_t msg_len, unsigned msg_prio, const struct timespec *abstime);
 mq_unlink	mqueue.h	MSG	mq_unlink - remove a message queue (<b>REALTIME</b>)	int mq_unlink(const char *name);
 mrand48	stdlib.h	XSI	drand48, erand48, jrand48, lcong48, lrand48, mrand48, nrand48, seed48, srand48 - generate uniformly distributed pseudo-random numbers	long mrand48(void);
 msgctl	sys/msg.h	XSI	msgctl - XSI message control operations	int msgctl(int msqid, int cmd, struct msqid_ds *buf);
@@ -603,8 +603,8 @@ nrand48	stdlib.h	XSI	drand48, erand48, jrand48, lcong48, lrand48, mrand48, nrand
 ntohl	arpa/inet.h		htonl, htons, ntohl, ntohs - convert values between host and network byte order	uint32_t ntohl(uint32_t netlong);
 ntohs	arpa/inet.h		htonl, htons, ntohl, ntohs - convert values between host and network byte order	uint16_t ntohs(uint16_t netshort);
 open	sys/stat.h fcntl.h	OH	open, openat - open file relative to directory file descriptor	int open(const char *path, int oflag, ...);
-open_memstream	stdio.h wchar.h	CX	open_memstream, open_wmemstream - open a dynamic memory buffer stream	FILE *open_memstream(char **bufp, size_t *sizep);
-open_wmemstream	stdio.h wchar.h	CX	open_memstream, open_wmemstream - open a dynamic memory buffer stream	FILE *open_wmemstream(wchar_t **bufp, size_t *sizep);
+open_memstream	stdio.h	CX	open_memstream, open_wmemstream - open a dynamic memory buffer stream	FILE *open_memstream(char **bufp, size_t *sizep);
+open_wmemstream	wchar.h	CX	open_memstream, open_wmemstream - open a dynamic memory buffer stream	FILE *open_wmemstream(wchar_t **bufp, size_t *sizep);
 openat	sys/stat.h fcntl.h	OH	open, openat - open file relative to directory file descriptor	int openat(int fd, const char *path, int oflag, ...);
 opendir	dirent.h		fdopendir, opendir - open directory associated with file descriptor	DIR *opendir(const char *dirname);
 openlog	syslog.h	XSI	closelog, openlog, setlogmask, syslog - control system log	void openlog(const char *ident, int logopt, int facility);
@@ -1046,8 +1046,8 @@ unlockpt	stdlib.h	XSI	unlockpt - unlock a pseudo-terminal master/slave pair	int 
 unsetenv	stdlib.h	CX	unsetenv - remove an environment variable	int unsetenv(const char *name);
 uselocale	locale.h	CX	uselocale - use locale in current thread	locale_t uselocale(locale_t newloc);
 utime	utime.h	OB	utime - set file access and modification times	int utime(const char *path, const struct utimbuf *times);
-utimensat	sys/stat.h sys/time.h		futimens, utimensat, utimes - set file access and modification times	int utimensat(int fd, const char *path, const struct timespec times[2], int flag);
-utimes	sys/stat.h sys/time.h	XSI	futimens, utimensat, utimes - set file access and modification times	int utimes(const char *path, const struct timeval times[2]);
+utimensat	sys/stat.h		futimens, utimensat, utimes - set file access and modification times	int utimensat(int fd, const char *path, const struct timespec times[2], int flag);
+utimes	sys/time.h	XSI	futimens, utimensat, utimes - set file access and modification times	int utimes(const char *path, const struct timeval times[2]);
 va_arg	stdarg.h		va_arg, va_copy, va_end, va_start - handle variable argument list	type va_arg(va_list ap, type);
 va_copy	stdarg.h		va_arg, va_copy, va_end, va_start - handle variable argument list	void va_copy(va_list dest, va_list src);
 va_end	stdarg.h		va_arg, va_copy, va_end, va_start - handle variable argument list	void va_end(va_list ap);
