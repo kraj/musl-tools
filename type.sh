@@ -75,6 +75,14 @@ function put(tok) {
 				state = "type"
 		}
 	}
+
+	# fixes
+	gsub(/restrict const/, "const", s)
+	gsub(/restrict/, "", s)
+	gsub(/\[[0-9]+\]/, "[]", s)
+	gsub(/unsigned int/, "unsigned", s)
+	gsub(/long int/, "long", s)
+
 	print s
 }
 '

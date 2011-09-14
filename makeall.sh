@@ -50,16 +50,7 @@ $2 ~ /inc posix/ && $4 != $8 {
 }
 $2 ~ /inc posix/ && $7 != $10 && $5 == "p" {
 	# different prototype
-
-	# todo: move to type.sh
-	gsub(/restrict const/, "const", $10)
-	gsub(/restrict/, "", $10)
-	gsub(/\[[0-9]+\]/, "[]", $10)
-	gsub(/unsigned int/, "unsigned", $7)
-	gsub(/long int/, "long", $7)
-
-	if ($7 != $10)
-		print "proto\t" $1 "\t" $4 "\t" $7 "\t" $10 "\t" $6 "\t" $9
+	print "proto\t" $1 "\t" $4 "\t" $7 "\t" $10 "\t" $6 "\t" $9
 }
 ' data/musl.all >data/musl.problems
 

@@ -1,5 +1,3 @@
-proto	aio_read	aio.h	ssize_t(struct aiocb*)	int(struct aiocb*)	ssize_t aio_read(struct aiocb *);	int aio_read(struct aiocb *aiocbp);
-proto	aio_write	aio.h	ssize_t(struct aiocb*)	int(struct aiocb*)	ssize_t aio_write(struct aiocb *);	int aio_write(struct aiocb *aiocbp);
 nodecl	cfmakeraw	T
 nodecl	cfsetspeed	W
 nodecl	clearerr_unlocked	W
