@@ -606,13 +606,13 @@ open	sys/stat.h fcntl.h	OH	open, openat - open file relative to directory file d
 open_memstream	stdio.h wchar.h	CX	open_memstream, open_wmemstream - open a dynamic memory buffer stream	FILE *open_memstream(char **bufp, size_t *sizep);
 open_wmemstream	stdio.h wchar.h	CX	open_memstream, open_wmemstream - open a dynamic memory buffer stream	FILE *open_wmemstream(wchar_t **bufp, size_t *sizep);
 openat	sys/stat.h fcntl.h	OH	open, openat - open file relative to directory file descriptor	int openat(int fd, const char *path, int oflag, ...);
-opendir	dirent.h		fdopendir, opendir - open directory associated with file descriptor	DIR *fdopendir(int fd);
+opendir	dirent.h		fdopendir, opendir - open directory associated with file descriptor	DIR *opendir(const char *dirname);
 openlog	syslog.h	XSI	closelog, openlog, setlogmask, syslog - control system log	void openlog(const char *ident, int logopt, int facility);
 optarg	unistd.h		getopt, optarg, opterr, optind, optopt - command option parsing	
 opterr	unistd.h		getopt, optarg, opterr, optind, optopt - command option parsing	
 optind	unistd.h		getopt, optarg, opterr, optind, optopt - command option parsing	
 optopt	unistd.h		getopt, optarg, opterr, optind, optopt - command option parsing	
-pathconf	unistd.h		fpathconf, pathconf - get configurable pathname variables	long fpathconf(int fildes, int name);
+pathconf	unistd.h		fpathconf, pathconf - get configurable pathname variables	long pathconf(const char *path, int name);
 pause	unistd.h		pause - suspend the thread until a signal is received	int pause(void);
 pclose	stdio.h	CX	pclose - close a pipe stream to or from a process	int pclose(FILE *stream);
 perror	stdio.h		perror - write error messages to standard error	void perror(const char *s);
@@ -652,7 +652,7 @@ pow	math.h		pow, powf, powl - power function	double pow(double x, double y);
 powf	math.h		pow, powf, powl - power function	float powf(float x, float y);
 powl	math.h		pow, powf, powl - power function	long double powl(long double x, long double y);
 pread	unistd.h		pread, read - read from a file	ssize_t pread(int fildes, void *buf, size_t nbyte, off_t offset);
-printf	stdio.h		dprintf, fprintf, printf, snprintf, sprintf - print formatted output	int dprintf(int fildes, const char *restrict format, ...);
+printf	stdio.h		dprintf, fprintf, printf, snprintf, sprintf - print formatted output	int printf(const char *restrict format, ...);
 pselect	sys_select.h		pselect, select - synchronous I/O multiplexing	int pselect(int nfds, fd_set *restrict readfds, fd_set *restrict writefds, fd_set *restrict errorfds, const struct timespec *restrict timeout, const sigset_t *restrict sigmask);
 psiginfo	signal.h	CX	psiginfo, psignal - print signal information to standard error	void psiginfo(const siginfo_t *pinfo, const char *message);
 psignal	signal.h	CX	psiginfo, psignal - print signal information to standard error	void psignal(int signum, const char *message);
@@ -774,7 +774,7 @@ raise	signal.h		raise - send a signal to the executing process	int raise(int sig
 rand	stdlib.h		rand, rand_r, srand - pseudo-random number generator	int rand(void);
 rand_r	stdlib.h	OB CX	rand, rand_r, srand - pseudo-random number generator	int rand_r(unsigned *seed);
 random	stdlib.h	XSI	initstate, random, setstate, srandom - pseudo-random number functions	long random(void);
-read	unistd.h		pread, read - read from a file	ssize_t pread(int fildes, void *buf, size_t nbyte, off_t offset);
+read	unistd.h		pread, read - read from a file	ssize_t read(int fildes, void *buf, size_t nbyte);
 readdir	dirent.h		readdir, readdir_r - read a directory	struct dirent *readdir(DIR *dirp);
 readdir_r	dirent.h		readdir, readdir_r - read a directory	int readdir_r(DIR *restrict dirp, struct dirent *restrict entry, struct dirent **restrict result);
 readlink	unistd.h		readlink, readlinkat - read the contents of a symbolic link relative to a directory file descriptor	ssize_t readlink(const char *restrict path, char *restrict buf, size_t bufsize);
@@ -815,7 +815,7 @@ scalbn	math.h		scalbln, scalblnf, scalblnl, scalbn, scalbnf, scalbnl - compute e
 scalbnf	math.h		scalbln, scalblnf, scalblnl, scalbn, scalbnf, scalbnl - compute exponent using FLT_RADIX	float scalbnf(float x, int n);
 scalbnl	math.h		scalbln, scalblnf, scalblnl, scalbn, scalbnf, scalbnl - compute exponent using FLT_RADIX	long double scalbnl(long double x, int n);
 scandir	dirent.h		alphasort, scandir - scan a directory	int scandir(const char *dir, struct dirent ***namelist, int (*sel)(const struct dirent *), int (*compar)(const struct dirent **, const struct dirent **));
-scanf	stdio.h		fscanf, scanf, sscanf - convert formatted input	int fscanf(FILE *restrict stream, const char *restrict format, ...);
+scanf	stdio.h		fscanf, scanf, sscanf - convert formatted input	int scanf(const char *restrict format, ...);
 sched_get_priority_max	sched.h	PS	sched_get_priority_max, sched_get_priority_min - get priority limits (<b>REALTIME</b>)	int sched_get_priority_max(int policy);
 sched_get_priority_min	sched.h	PS	sched_get_priority_max, sched_get_priority_min - get priority limits (<b>REALTIME</b>)	int sched_get_priority_min(int policy);
 sched_getparam	sched.h	PS	sched_getparam - get scheduling parameters (<b>REALTIME</b>)	int sched_getparam(pid_t pid, struct sched_param *param);
@@ -826,7 +826,7 @@ sched_setscheduler	sched.h	PS	sched_setscheduler - set scheduling policy and par
 sched_yield	sched.h		sched_yield - yield the processor	int sched_yield(void);
 seed48	stdlib.h	XSI	drand48, erand48, jrand48, lcong48, lrand48, mrand48, nrand48, seed48, srand48 - generate uniformly distributed pseudo-random numbers	unsigned short *seed48(unsigned short seed16v[3]);
 seekdir	dirent.h	XSI	seekdir - set the position of a directory stream	void seekdir(DIR *dirp, long loc);
-select	sys_select.h		pselect, select - synchronous I/O multiplexing	int pselect(int nfds, fd_set *restrict readfds, fd_set *restrict writefds, fd_set *restrict errorfds, const struct timespec *restrict timeout, const sigset_t *restrict sigmask);
+select	sys_select.h		pselect, select - synchronous I/O multiplexing	int select(int nfds, fd_set *restrict readfds, fd_set *restrict writefds, fd_set *restrict errorfds, struct timeval *restrict timeout);
 sem_close	semaphore.h		sem_close - close a named semaphore	int sem_close(sem_t *sem);
 sem_destroy	semaphore.h		sem_destroy - destroy an unnamed semaphore	int sem_destroy(sem_t *sem);
 sem_getvalue	semaphore.h		sem_getvalue - get the value of a semaphore	int sem_getvalue(sem_t *restrict sem, int *restrict sval);
@@ -922,8 +922,8 @@ srand	stdlib.h		rand, rand_r, srand - pseudo-random number generator	void srand(
 srand48	stdlib.h	XSI	drand48, erand48, jrand48, lcong48, lrand48, mrand48, nrand48, seed48, srand48 - generate uniformly distributed pseudo-random numbers	void srand48(long seedval);
 srandom	stdlib.h	XSI	initstate, random, setstate, srandom - pseudo-random number functions	void srandom(unsigned seed);
 sscanf	stdio.h		fscanf, scanf, sscanf - convert formatted input	int sscanf(const char *restrict s, const char *restrict format, ...);
-stat	sys_stat.h		fstatat, lstat, stat - get file status	int lstat(const char *restrict path, struct stat *restrict buf);
-statvfs	sys_statvfs.h		fstatvfs, statvfs - get file system information	int fstatvfs(int fildes, struct statvfs *buf);
+stat	sys_stat.h		fstatat, lstat, stat - get file status	int stat(const char *restrict path, struct stat *restrict buf);
+statvfs	sys_statvfs.h		fstatvfs, statvfs - get file system information	int statvfs(const char *restrict path, struct statvfs *restrict buf);
 stderr	stdio.h		stderr, stdin, stdout - standard I/O streams	
 stdin	stdio.h		stderr, stdin, stdout - standard I/O streams	
 stdout	stdio.h		stderr, stdin, stdout - standard I/O streams	
@@ -1124,10 +1124,10 @@ wmemmove	wchar.h		wmemmove - copy wide characters in memory with overlapping are
 wmemset	wchar.h		wmemset - set wide characters in memory	wchar_t *wmemset(wchar_t *ws, wchar_t wc, size_t n);
 wordexp	wordexp.h		wordexp, wordfree - perform word expansions	int wordexp(const char *restrict words, wordexp_t *restrict pwordexp, int flags);
 wordfree	wordexp.h		wordexp, wordfree - perform word expansions	void wordfree(wordexp_t *pwordexp);
-wprintf	stdio.h wchar.h		fwprintf, swprintf, wprintf - print formatted wide-character output	int fwprintf(FILE *restrict stream, const wchar_t *restrict format, ...);
-write	unistd.h		pwrite, write - write on a file	ssize_t pwrite(int fildes, const void *buf, size_t nbyte, off_t offset);
+wprintf	stdio.h wchar.h		fwprintf, swprintf, wprintf - print formatted wide-character output	int wprintf(const wchar_t *restrict format, ...);
+write	unistd.h		pwrite, write - write on a file	ssize_t write(int fildes, const void *buf, size_t nbyte);
 writev	sys_uio.h	XSI	writev - write a vector	ssize_t writev(int fildes, const struct iovec *iov, int iovcnt);
-wscanf	stdio.h wchar.h		fwscanf, swscanf, wscanf - convert formatted wide-character input	int fwscanf(FILE *restrict stream, const wchar_t *restrict format, ...);
+wscanf	stdio.h wchar.h		fwscanf, swscanf, wscanf - convert formatted wide-character input	int wscanf(const wchar_t *restrict format, ...);
 y0	math.h	XSI	y0, y1, yn - Bessel functions of the second kind	double y0(double x);
 y1	math.h	XSI	y0, y1, yn - Bessel functions of the second kind	double y1(double x);
 yn	math.h	XSI	y0, y1, yn - Bessel functions of the second kind	double yn(int n, double x);
