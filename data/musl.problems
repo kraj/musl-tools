@@ -2,7 +2,6 @@ nodecl	cfmakeraw	T
 nodecl	cfsetspeed	W
 nodecl	clearerr_unlocked	W
 nodecl	crypt_r	W
-header	ctermid	unistd.h	stdio.h
 nodecl	daemon	T
 nodecl	dst_offset	V
 proto	encrypt	unistd.h	void(char*,int)	void(char[],int)	void encrypt(char *, int);	void encrypt(char block[64], int edflag);
@@ -23,14 +22,11 @@ header	getopt	getopt.h	unistd.h
 nodecl	getw	T
 nodecl	getwc_unlocked	W
 nodecl	getwchar_unlocked	W
-header	htonl	netinet/in.h	arpa/inet.h
-header	htons	netinet/in.h	arpa/inet.h
 header	iswalnum	wchar.h	wctype.h
 header	iswalpha	wchar.h	wctype.h
 header	iswblank	wchar.h	wctype.h
 header	iswcntrl	wchar.h	wctype.h
 header	iswctype	wchar.h	wctype.h
-header	iswdigit	wchar.h	wctype.h
 header	iswdigit	wchar.h	wctype.h
 header	iswgraph	wchar.h	wctype.h
 header	iswlower	wchar.h	wctype.h
@@ -39,8 +35,6 @@ header	iswpunct	wchar.h	wctype.h
 header	iswspace	wchar.h	wctype.h
 header	iswupper	wchar.h	wctype.h
 header	iswxdigit	wchar.h	wctype.h
-header	ntohl	netinet/in.h	arpa/inet.h
-header	ntohs	netinet/in.h	arpa/inet.h
 header	optarg	getopt.h	unistd.h
 header	opterr	getopt.h	unistd.h
 header	optind	getopt.h	unistd.h
@@ -59,9 +53,5 @@ header	strcasecmp	string.h	strings.h
 header	strncasecmp	string.h	strings.h
 header	towlower	wchar.h	wctype.h
 header	towupper	wchar.h	wctype.h
-header	va_arg	bits/stdarg.h	stdarg.h
-header	va_copy	bits/stdarg.h	stdarg.h
-header	va_end	bits/stdarg.h	stdarg.h
-header	va_start	bits/stdarg.h	stdarg.h
 header	wcrtomb	wchar.h	stdio.h
 header	wctype	wchar.h	wctype.h

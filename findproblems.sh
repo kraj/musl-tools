@@ -46,6 +46,10 @@ BEGIN {
 }' >data/musl.all
 
 awk -F'\t' '
+herr && lastid != $1 {
+	print herr
+	herr = ""
+}
 $2 == "obj" || $2 == "obj posix" {
 	# not declared
 	if ($1 !~ /^_/)
@@ -61,18 +65,29 @@ $2 ~ /inc/ && $5 == "p" {
 		head[$1] = $4
 	}
 }
-$2 ~ /inc posix/ && $4 != $8 {
+$2 ~ /inc posix/ && $4 == $8 {
+	head[$1] = $4
+}
+$2 ~ /inc posix/ && head[$1] != $8 && $4 !~ /^bits\// {
 	# different header
 	n = split($8, a, " ")
 	for (i = 1; i <= n; i++)
 		if ($4 == a[i])
 			break
 	if (i > n)
-		print "header\t" $1 "\t" $4 "\t" $8
+		# delay error msg
+		herr = "header\t" $1 "\t" $4 "\t" $8
 }
 $2 ~ /inc posix/ && $7 != $10 && $5 == "p" {
 	# different prototype
 	print "proto\t" $1 "\t" $4 "\t" $7 "\t" $10 "\t" $6 "\t" $9
+}
+{
+	lastid = $1
+}
+END{
+	if(herr)
+		print herr
 }
 ' data/musl.all >data/musl.problems
 
