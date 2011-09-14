@@ -6,7 +6,7 @@ export LC_ALL=C
 awk '
 BEGIN {
 	# type is not typedefed so next unknown id is probably a variable name
-	split("void char short int long float double signed unsigned _Bool _Complex", a)
+	split("void char short int long float double signed unsigned _Bool _Complex bool complex", a)
 	for (i in a)
 		tok[a[i]] = "type"
 
@@ -41,7 +41,7 @@ function put(tok) {
 	gsub(/\/\*[^/]*\*\//, "")
 	gsub(/\/\/.*/, "")
 
-	gsub(/[^a-zA-Z0-9_.]/," & ")
+	gsub(/[^a-zA-Z0-9_.-]/," & ")
 	gsub(/\.\.\./, " & ")
 
 	state = "type"
@@ -50,6 +50,9 @@ function put(tok) {
 	for (i = 1; i <= NF; i++) {
 		if ($i == ";")
 			break
+		# drop restrict
+		if ($i == "restrict")
+			continue
 		if (state == "type") {
 			put($i)
 			if (!tok[$i] || tok[$i] == "type")
@@ -77,8 +80,6 @@ function put(tok) {
 	}
 
 	# fixes
-	gsub(/restrict const/, "const", s)
-	gsub(/restrict/, "", s)
 	gsub(/\[[0-9]+\]/, "[]", s)
 	gsub(/unsigned int/, "unsigned", s)
 	gsub(/long int/, "long", s)
