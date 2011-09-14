@@ -81,7 +81,7 @@ catanhf	complex.h		catanh, catanhf, catanhl - complex arc hyperbolic tangent fun
 catanhl	complex.h		catanh, catanhf, catanhl - complex arc hyperbolic tangent functions	long double complex catanhl(long double complex z);
 catanl	complex.h		catan, catanf, catanl - complex arc tangent functions	long double complex catanl(long double complex z);
 catclose	nl_types.h		catclose - close a message catalog descriptor	int catclose(nl_catd catd);
-catgets	nl_types.h		catgets - read a program message	char *catgets(nl_catd catd, int set_id, int msg_id, const char*s);
+catgets	nl_types.h		catgets - read a program message	char *catgets(nl_catd catd, int set_id, int msg_id, const char *s);
 catopen	nl_types.h		catopen - open a message catalog	nl_catd catopen(const char *name, int oflag);
 cbrt	math.h		cbrt, cbrtf, cbrtl - cube root functions	double cbrt(double x);
 cbrtf	math.h		cbrt, cbrtf, cbrtl - cube root functions	float cbrtf(float x);
@@ -173,7 +173,7 @@ dbm_fetch	ndbm.h	XSI	dbm_clearerr, dbm_close, dbm_delete, dbm_error, dbm_fetch, 
 dbm_firstkey	ndbm.h	XSI	dbm_clearerr, dbm_close, dbm_delete, dbm_error, dbm_fetch, dbm_firstkey, dbm_nextkey, dbm_open, dbm_store - database functions	datum dbm_firstkey(DBM *db);
 dbm_nextkey	ndbm.h	XSI	dbm_clearerr, dbm_close, dbm_delete, dbm_error, dbm_fetch, dbm_firstkey, dbm_nextkey, dbm_open, dbm_store - database functions	datum dbm_nextkey(DBM *db);
 dbm_open	ndbm.h	XSI	dbm_clearerr, dbm_close, dbm_delete, dbm_error, dbm_fetch, dbm_firstkey, dbm_nextkey, dbm_open, dbm_store - database functions	DBM *dbm_open(const char *file, int open_flags, mode_t file_mode);
-dbm_store	ndbm.h	XSI	dbm_clearerr, dbm_close, dbm_delete, dbm_error, dbm_fetch, dbm_firstkey, dbm_nextkey, dbm_open, dbm_store - database functions	int dbm_store(DBM *db, datum key, datum content, intstore_mode);
+dbm_store	ndbm.h	XSI	dbm_clearerr, dbm_close, dbm_delete, dbm_error, dbm_fetch, dbm_firstkey, dbm_nextkey, dbm_open, dbm_store - database functions	int dbm_store(DBM *db, datum key, datum content, int store_mode);
 difftime	time.h		difftime - compute the difference between two calendar time values	double difftime(time_t time1, time_t time0);
 dirfd	dirent.h		dirfd - extract the file descriptor used by a DIR stream	int dirfd(DIR *dirp);
 dirname	libgen.h	XSI	dirname - report the parent directory name of a file pathname	char *dirname(char *path);
@@ -229,7 +229,7 @@ fchdir	unistd.h		fchdir - change working directory	int fchdir(int fildes);
 fchmod	sys_stat.h		fchmod - change mode of a file	int fchmod(int fildes, mode_t mode);
 fchmodat	sys_stat.h		chmod, fchmodat - change mode of a file relative to directory file descriptor	int fchmodat(int fd, const char *path, mode_t mode, int flag);
 fchown	unistd.h		fchown - change owner and group of a file	int fchown(int fildes, uid_t owner, gid_t group);
-fchownat	unistd.h		chown, fchownat - change owner and group of a file relative to directory file descriptor	int fchownat(int fd, const char *path, uid_t owner, gid_tgroup, int flag);
+fchownat	unistd.h		chown, fchownat - change owner and group of a file relative to directory file descriptor	int fchownat(int fd, const char *path, uid_t owner, gid_t group, int flag);
 fclose	stdio.h		fclose - close a stream	int fclose(FILE *stream);
 fcntl	fcntl.h		fcntl - file control	int fcntl(int fildes, int cmd, ...);
 fdatasync	unistd.h	SIO	fdatasync - synchronize the data of a file (<b>REALTIME</b>)	int fdatasync(int fildes);
@@ -278,7 +278,7 @@ fminl	math.h		fmin, fminf, fminl - determine minimum numeric value of two floati
 fmod	math.h		fmod, fmodf, fmodl - floating-point remainder value function	double fmod(double x, double y);
 fmodf	math.h		fmod, fmodf, fmodl - floating-point remainder value function	float fmodf(float x, float y);
 fmodl	math.h		fmod, fmodf, fmodl - floating-point remainder value function	long double fmodl(long double x, long double y);
-fmtmsg	fmtmsg.h	XSI	fmtmsg - display a message in the specified format on standard error and/or a system console	int fmtmsg(long classification, const char *label, int severity, const char *text, const char *action, const char*tag);
+fmtmsg	fmtmsg.h	XSI	fmtmsg - display a message in the specified format on standard error and/or a system console	int fmtmsg(long classification, const char *label, int severity, const char *text, const char *action, const char *tag);
 fnmatch	fnmatch.h		fnmatch - match a filename or a pathname	int fnmatch(const char *pattern, const char *string, int flags);
 fopen	stdio.h		fopen - open a stream	FILE *fopen(const char *restrict filename, const char *restrict mode);
 fork	unistd.h		fork - create a new process	pid_t fork(void);
@@ -310,7 +310,7 @@ ftello	stdio.h	CX	ftell, ftello - return a file offset in a stream	off_t ftello(
 ftok	sys_ipc.h	XSI	ftok - generate an IPC key	key_t ftok(const char *path, int id);
 ftruncate	unistd.h		ftruncate - truncate a file to a specified length	int ftruncate(int fildes, off_t length);
 ftrylockfile	stdio.h	CX	flockfile, ftrylockfile, funlockfile - stdio locking functions	int ftrylockfile(FILE *file);
-ftw	ftw.h	OB XSI	ftw - traverse (walk) a file tree	int ftw(const char *path, int (*fn)(const char *, const struct stat *ptr, int flag), intndirs);
+ftw	ftw.h	OB XSI	ftw - traverse (walk) a file tree	int ftw(const char *path, int (*fn)(const char *, const struct stat *ptr, int flag), int ndirs);
 funlockfile	stdio.h	CX	flockfile, ftrylockfile, funlockfile - stdio locking functions	void funlockfile(FILE *file);
 futimens	sys_stat.h sys_time.h	XSI	futimens, utimensat, utimes - set file access and modification times	int futimens(int fd, const struct timespec times[2]);
 fwide	stdio.h wchar.h		fwide - set stream orientation	int fwide(FILE *stream, int mode);
@@ -345,7 +345,7 @@ getline	stdio.h	CX	getdelim, getline - read a delimited record from .I stream	ss
 getlogin	unistd.h		getlogin, getlogin_r - get login name	char *getlogin(void);
 getlogin_r	unistd.h		getlogin, getlogin_r - get login name	int getlogin_r(char *name, size_t namesize);
 getmsg	stropts.h	OB XSR	getmsg, getpmsg - receive next message from a STREAMS file (<b>STREAMS</b>)	int getmsg(int fildes, struct strbuf *restrict ctlptr, struct strbuf *restrict dataptr, int *restrict flagsp);
-getnameinfo	sys_socket.h netdb.h		getnameinfo - get name information	int getnameinfo(const struct sockaddr *restrict sa, socklen_t salen, char *restrict node, socklen_t nodelen, char *restrictservice, socklen_t servicelen, int flags);
+getnameinfo	sys_socket.h netdb.h		getnameinfo - get name information	int getnameinfo(const struct sockaddr *restrict sa, socklen_t salen, char *restrict node, socklen_t nodelen, char *restrict service, socklen_t servicelen, int flags);
 getnetbyaddr	netdb.h		endnetent, getnetbyaddr, getnetbyname, getnetent, setnetent - network database functions	struct netent *getnetbyaddr(uint32_t net, int type);
 getnetbyname	netdb.h		endnetent, getnetbyaddr, getnetbyname, getnetent, setnetent - network database functions	struct netent *getnetbyname(const char *name);
 getnetent	netdb.h		endnetent, getnetbyaddr, getnetbyname, getnetent, setnetent - network database functions	struct netent *getnetent(void);
@@ -373,7 +373,7 @@ getservbyport	netdb.h		endservent, getservbyname, getservbyport, getservent, set
 getservent	netdb.h		endservent, getservbyname, getservbyport, getservent, setservent - network services database functions	struct servent *getservent(void);
 getsid	unistd.h		getsid - get the process group ID of a session leader	pid_t getsid(pid_t pid);
 getsockname	sys_socket.h		getsockname - get the socket name	int getsockname(int socket, struct sockaddr *restrict address, socklen_t *restrict address_len);
-getsockopt	sys_socket.h		getsockopt - get the socket options	int getsockopt(int socket, int level, int option_name, void *restrict option_value, socklen_t *restrictoption_len);
+getsockopt	sys_socket.h		getsockopt - get the socket options	int getsockopt(int socket, int level, int option_name, void *restrict option_value, socklen_t *restrict option_len);
 getsubopt	stdlib.h		getsubopt - parse suboption arguments from a string	int getsubopt(char **optionp, char * const *keylistp, char **valuep);
 gettimeofday	sys_time.h	OB XSI	gettimeofday - get the date and time	int gettimeofday(struct timeval *restrict tp, void *restrict tzp);
 getuid	unistd.h		getuid - get a real user ID	uid_t getuid(void);
@@ -382,7 +382,7 @@ getutxid	utmpx.h	XSI	endutxent, getutxent, getutxid, getutxline, pututxline, set
 getutxline	utmpx.h	XSI	endutxent, getutxent, getutxid, getutxline, pututxline, setutxent - user accounting database functions	struct utmpx *getutxline(const struct utmpx *line);
 getwc	stdio.h wchar.h		getwc - get a wide character from a stream	wint_t getwc(FILE *stream);
 getwchar	wchar.h		getwchar - get a wide character from a .I stdin stream	wint_t getwchar(void);
-glob	glob.h		glob, globfree - generate pathnames matching a pattern	int glob(const char *restrict pattern, int flags, int(*errfunc)(const char *epath, inteerrno), glob_t *restrict pglob);
+glob	glob.h		glob, globfree - generate pathnames matching a pattern	int glob(const char *restrict pattern, int flags, int(*errfunc)(const char *epath, int eerrno), glob_t *restrict pglob);
 globfree	glob.h		glob, globfree - generate pathnames matching a pattern	void globfree(glob_t *pglob);
 gmtime	time.h	CX	gmtime, gmtime_r - convert a time value to a broken-down UTC time	struct tm *gmtime(const time_t *timer);
 gmtime_r	time.h	CX	gmtime, gmtime_r - convert a time value to a broken-down UTC time	struct tm *gmtime_r(const time_t *restrict timer, struct tm *restrict result);
@@ -496,7 +496,7 @@ lgamma	math.h	XSI	lgamma, lgammaf, lgammal, signgam - log gamma function	double 
 lgammaf	math.h	XSI	lgamma, lgammaf, lgammal, signgam - log gamma function	float lgammaf(float x);
 lgammal	math.h	XSI	lgamma, lgammaf, lgammal, signgam - log gamma function	long double lgammal(long double x);
 link	unistd.h		link, linkat - link one file to another file relative to two directory file descriptors	int link(const char *path1, const char *path2);
-linkat	unistd.h		link, linkat - link one file to another file relative to two directory file descriptors	int linkat(int fd1, const char *path1, int fd2, const char*path2, int flag);
+linkat	unistd.h		link, linkat - link one file to another file relative to two directory file descriptors	int linkat(int fd1, const char *path1, int fd2, const char *path2, int flag);
 lio_listio	aio.h		lio_listio - list directed I/O	int lio_listio(int mode, struct aiocb *restrict const list[restrict], int nent, struct sigevent *restrict sig);
 listen	sys_socket.h		listen - listen for socket connections and limit the queue of incoming connections	int listen(int socket, int backlog);
 llabs	stdlib.h		labs, llabs - return a long integer absolute value	long long llabs(long long i);
@@ -534,7 +534,7 @@ lrintl	math.h		lrint, lrintf, lrintl - round to nearest integer value using curr
 lround	math.h		lround, lroundf, lroundl - round to nearest integer value	long lround(double x);
 lroundf	math.h		lround, lroundf, lroundl - round to nearest integer value	long lroundf(float x);
 lroundl	math.h		lround, lroundf, lroundl - round to nearest integer value	long lroundl(long double x);
-lsearch	search.h	XSI	lsearch, lfind - linear search and update	void *lsearch(const void *key, void *base, size_t *nelp, size_twidth, int (*compar)(const void *, const void *));
+lsearch	search.h	XSI	lsearch, lfind - linear search and update	void *lsearch(const void *key, void *base, size_t *nelp, size_t width, int (*compar)(const void *, const void *));
 lseek	unistd.h		lseek - move the read/write file offset	off_t lseek(int fildes, off_t offset, int whence);
 lstat	sys_stat.h		fstatat, lstat, stat - get file status	int lstat(const char *restrict path, struct stat *restrict buf);
 malloc	stdlib.h		malloc - a memory allocator	void *malloc(size_t size);
@@ -542,7 +542,7 @@ mblen	stdlib.h		mblen - get number of bytes in a character	int mblen(const char 
 mbrlen	wchar.h		mbrlen - get number of bytes in a character (restartable)	size_t mbrlen(const char *restrict s, size_t n, mbstate_t *restrict ps);
 mbrtowc	wchar.h		mbrtowc - convert a character to a wide-character code (restartable)	size_t mbrtowc(wchar_t *restrict pwc, const char *restrict s, size_t n, mbstate_t *restrict ps);
 mbsinit	wchar.h		mbsinit - determine conversion object status	int mbsinit(const mbstate_t *ps);
-mbsnrtowcs	wchar.h	CX	mbsnrtowcs, mbsrtowcs - convert a character string to a wide-character string (restartable)	size_t mbsnrtowcs(wchar_t *restrict dst, const char **restrictsrc, size_t nmc, size_t len, mbstate_t *restrictps);
+mbsnrtowcs	wchar.h	CX	mbsnrtowcs, mbsrtowcs - convert a character string to a wide-character string (restartable)	size_t mbsnrtowcs(wchar_t *restrict dst, const char **restrict src, size_t nmc, size_t len, mbstate_t *restrict ps);
 mbsrtowcs	wchar.h	CX	mbsnrtowcs, mbsrtowcs - convert a character string to a wide-character string (restartable)	size_t mbsrtowcs(wchar_t *restrict dst, const char **restrict src, size_t len, mbstate_t *restrict ps);
 mbstowcs	stdlib.h		mbstowcs - convert a character string to a wide-character string	size_t mbstowcs(wchar_t *restrict pwcs, const char *restrict s, size_t n);
 mbtowc	stdlib.h		mbtowc - convert a character to a wide-character code	int mbtowc(wchar_t *restrict pwc, const char *restrict s, size_t n);
@@ -581,7 +581,7 @@ mq_unlink	mqueue.h	MSG	mq_unlink - remove a message queue (<b>REALTIME</b>)	int 
 mrand48	stdlib.h	XSI	drand48, erand48, jrand48, lcong48, lrand48, mrand48, nrand48, seed48, srand48 - generate uniformly distributed pseudo-random numbers	long mrand48(void);
 msgctl	sys_msg.h	XSI	msgctl - XSI message control operations	int msgctl(int msqid, int cmd, struct msqid_ds *buf);
 msgget	sys_msg.h	XSI	msgget - get the XSI message queue identifier	int msgget(key_t key, int msgflg);
-msgrcv	sys_msg.h	XSI	msgrcv - XSI message receive operation	ssize_t msgrcv(int msqid, void *msgp, size_t msgsz, longmsgtyp, int msgflg);
+msgrcv	sys_msg.h	XSI	msgrcv - XSI message receive operation	ssize_t msgrcv(int msqid, void *msgp, size_t msgsz, long msgtyp, int msgflg);
 msgsnd	sys_msg.h	XSI	msgsnd - XSI message send operation	int msgsnd(int msqid, const void *msgp, size_t msgsz, int msgflg);
 msync	sys_mman.h	XSI	msync - synchronize memory with physical storage	int msync(void *addr, size_t len, int flags);
 munlock	sys_mman.h	MLR	mlock, munlock - lock or unlock a range of process address space (<b>REALTIME</b>)	int munlock(const void *addr, size_t len);
@@ -601,7 +601,7 @@ nextafterl	math.h		nextafter, nextafterf, nextafterl, nexttoward, nexttowardf, n
 nexttoward	math.h		nextafter, nextafterf, nextafterl, nexttoward, nexttowardf, nexttowardl - next representable floating-point number	double nexttoward(double x, long double y);
 nexttowardf	math.h		nextafter, nextafterf, nextafterl, nexttoward, nexttowardf, nexttowardl - next representable floating-point number	float nexttowardf(float x, long double y);
 nexttowardl	math.h		nextafter, nextafterf, nextafterl, nexttoward, nexttowardf, nexttowardl - next representable floating-point number	long double nexttowardl(long double x, long double y);
-nftw	ftw.h	XSI	nftw - walk a file tree	int nftw(const char *path, int (*fn)(const char *, const struct stat *, int, struct FTW *), int fd_limit, intflags);
+nftw	ftw.h	XSI	nftw - walk a file tree	int nftw(const char *path, int (*fn)(const char *, const struct stat *, int, struct FTW *), int fd_limit, int flags);
 nice	unistd.h	XSI	nice - change the nice value of a process	int nice(int incr);
 nl_langinfo	langinfo.h		nl_langinfo, nl_langinfo_l - language information	char *nl_langinfo(nl_item item);
 nl_langinfo_l	langinfo.h		nl_langinfo, nl_langinfo_l - language information	char *nl_langinfo_l(nl_item item, locale_t locale);
@@ -634,7 +634,7 @@ posix_openpt	stdlib.h fcntl.h	XSI	posix_openpt - open a pseudo-terminal device	i
 posix_spawn	spawn.h	SPN	posix_spawn, posix_spawnp - spawn a process (<b>ADVANCED REALTIME</b>)	int posix_spawn(pid_t *restrict pid, const char *restrict path, const posix_spawn_file_actions_t *file_actions, const posix_spawnattr_t *restrict attrp, char *const argv[restrict], char *const envp[restrict]);
 posix_spawn_file_actions_addclose	spawn.h	SPN	posix_spawn_file_actions_addclose, posix_spawn_file_actions_addopen - add close or open action to spawn file actions object (<b>ADVANCED REALTIME</b>)	int posix_spawn_file_actions_addclose(posix_spawn_file_actions_t *file_actions, int fildes);
 posix_spawn_file_actions_adddup2	spawn.h	SPN	posix_spawn_file_actions_adddup2 - add dup2 action to spawn file actions object (<b>ADVANCED REALTIME</b>)	int posix_spawn_file_actions_adddup2(posix_spawn_file_actions_t *file_actions, int fildes, int newfildes);
-posix_spawn_file_actions_addopen	spawn.h	SPN	posix_spawn_file_actions_addclose, posix_spawn_file_actions_addopen - add close or open action to spawn file actions object (<b>ADVANCED REALTIME</b>)	int posix_spawn_file_actions_addopen(posix_spawn_file_actions_t *restrict file_actions, int fildes, const char *restrict path, int oflag, mode_tmode);
+posix_spawn_file_actions_addopen	spawn.h	SPN	posix_spawn_file_actions_addclose, posix_spawn_file_actions_addopen - add close or open action to spawn file actions object (<b>ADVANCED REALTIME</b>)	int posix_spawn_file_actions_addopen(posix_spawn_file_actions_t *restrict file_actions, int fildes, const char *restrict path, int oflag, mode_t mode);
 posix_spawn_file_actions_destroy	spawn.h	SPN	posix_spawn_file_actions_destroy, posix_spawn_file_actions_init - destroy and initialize spawn file actions object (<b>ADVANCED REALTIME</b>)	int posix_spawn_file_actions_destroy(posix_spawn_file_actions_t *file_actions);
 posix_spawn_file_actions_init	spawn.h	SPN	posix_spawn_file_actions_destroy, posix_spawn_file_actions_init - destroy and initialize spawn file actions object (<b>ADVANCED REALTIME</b>)	int posix_spawn_file_actions_init(posix_spawn_file_actions_t *file_actions);
 posix_spawnattr_destroy	spawn.h	SPN	posix_spawnattr_destroy, posix_spawnattr_init - destroy and initialize spawn attributes object (<b>ADVANCED REALTIME</b>)	int posix_spawnattr_destroy(posix_spawnattr_t *attr);
@@ -685,12 +685,12 @@ posix_trace_eventset_add	trace.h	OB TRC TEF	posix_trace_eventset_add, posix_trac
 posix_trace_eventset_del	trace.h	OB TRC TEF	posix_trace_eventset_add, posix_trace_eventset_del, posix_trace_eventset_empty, posix_trace_eventset_fill, posix_trace_eventset_ismember - manipulate trace event type sets (<b>TRACING</b>)	int posix_trace_eventset_del(trace_event_id_t event_id, trace_event_set_t *set);
 posix_trace_eventset_empty	trace.h	OB TRC TEF	posix_trace_eventset_add, posix_trace_eventset_del, posix_trace_eventset_empty, posix_trace_eventset_fill, posix_trace_eventset_ismember - manipulate trace event type sets (<b>TRACING</b>)	int posix_trace_eventset_empty(trace_event_set_t *set);
 posix_trace_eventset_fill	trace.h	OB TRC TEF	posix_trace_eventset_add, posix_trace_eventset_del, posix_trace_eventset_empty, posix_trace_eventset_fill, posix_trace_eventset_ismember - manipulate trace event type sets (<b>TRACING</b>)	int posix_trace_eventset_fill(trace_event_set_t *set, int what);
-posix_trace_eventset_ismember	trace.h	OB TRC TEF	posix_trace_eventset_add, posix_trace_eventset_del, posix_trace_eventset_empty, posix_trace_eventset_fill, posix_trace_eventset_ismember - manipulate trace event type sets (<b>TRACING</b>)	int posix_trace_eventset_ismember(trace_event_id_t event_id, const trace_event_set_t *restrict set, int *restrictismember);
-posix_trace_eventtypelist_getnext_id	trace.h	OB TRC	posix_trace_eventtypelist_getnext_id, posix_trace_eventtypelist_rewind - iterate over a mapping of trace event types (<b>TRACING</b>)	int posix_trace_eventtypelist_getnext_id(trace_id_t trid, trace_event_id_t *restrict event, int *restrictunavailable);
+posix_trace_eventset_ismember	trace.h	OB TRC TEF	posix_trace_eventset_add, posix_trace_eventset_del, posix_trace_eventset_empty, posix_trace_eventset_fill, posix_trace_eventset_ismember - manipulate trace event type sets (<b>TRACING</b>)	int posix_trace_eventset_ismember(trace_event_id_t event_id, const trace_event_set_t *restrict set, int *restrict ismember);
+posix_trace_eventtypelist_getnext_id	trace.h	OB TRC	posix_trace_eventtypelist_getnext_id, posix_trace_eventtypelist_rewind - iterate over a mapping of trace event types (<b>TRACING</b>)	int posix_trace_eventtypelist_getnext_id(trace_id_t trid, trace_event_id_t *restrict event, int *restrict unavailable);
 posix_trace_eventtypelist_rewind	trace.h	OB TRC	posix_trace_eventtypelist_getnext_id, posix_trace_eventtypelist_rewind - iterate over a mapping of trace event types (<b>TRACING</b>)	int posix_trace_eventtypelist_rewind(trace_id_t trid);
 posix_trace_flush	sys_types.h trace.h	OB TRC TRL	posix_trace_create, posix_trace_create_withlog, posix_trace_flush, posix_trace_shutdown - trace stream initialization, flush, and shutdown from a process (<b>TRACING</b>)	int posix_trace_flush(trace_id_t trid);
 posix_trace_get_attr	trace.h	OB TRC	posix_trace_get_attr, posix_trace_get_status - retrieve the trace attributes or trace status (<b>TRACING</b>)	int posix_trace_get_attr(trace_id_t trid, trace_attr_t *attr);
-posix_trace_get_filter	trace.h	OB TRC TEF	posix_trace_get_filter, posix_trace_set_filter - retrieve and set the filter of an initialized trace stream (<b>TRACING</b>)	int posix_trace_get_filter(trace_id_t trid, trace_event_set_t*set);
+posix_trace_get_filter	trace.h	OB TRC TEF	posix_trace_get_filter, posix_trace_set_filter - retrieve and set the filter of an initialized trace stream (<b>TRACING</b>)	int posix_trace_get_filter(trace_id_t trid, trace_event_set_t *set);
 posix_trace_get_status	trace.h	OB TRC	posix_trace_get_attr, posix_trace_get_status - retrieve the trace attributes or trace status (<b>TRACING</b>)	int posix_trace_get_status(trace_id_t trid, struct posix_trace_status_info *statusinfo);
 posix_trace_getnext_event	sys_types.h trace.h	OB TRC	posix_trace_getnext_event, posix_trace_timedgetnext_event, posix_trace_trygetnext_event - retrieve a trace event (<b>TRACING</b>)	int posix_trace_getnext_event(trace_id_t trid, struct posix_trace_event_info *restrict event, void *restrict data, size_t num_bytes, size_t *restrict data_len, int *restrict unavailable);
 posix_trace_open	trace.h	OB TRC TRL	posix_trace_close, posix_trace_open, posix_trace_rewind - trace log management (<b>TRACING</b>)	int posix_trace_open(int file_desc, trace_id_t *trid);
@@ -707,7 +707,7 @@ posix_typed_mem_open	sys_mman.h	TYM	posix_typed_mem_open - open a typed memory o
 pow	math.h		pow, powf, powl - power function	double pow(double x, double y);
 powf	math.h		pow, powf, powl - power function	float powf(float x, float y);
 powl	math.h		pow, powf, powl - power function	long double powl(long double x, long double y);
-pread	unistd.h		pread, read - read from a file	ssize_t pread(int fildes, void *buf, size_t nbyte, off_toffset);
+pread	unistd.h		pread, read - read from a file	ssize_t pread(int fildes, void *buf, size_t nbyte, off_t offset);
 printf	stdio.h	CX	dprintf, fprintf, printf, snprintf, sprintf - print formatted output	int dprintf(int fildes, const char *restrict format, ...);
 pselect	sys_select.h		pselect, select - synchronous I/O multiplexing	int pselect(int nfds, fd_set *restrict readfds, fd_set *restrict writefds, fd_set *restrict errorfds, const struct timespec *restrict timeout, const sigset_t *restrict sigmask);
 psiginfo	signal.h	CX	psiginfo, psignal - print signal information to standard error	void psiginfo(const siginfo_t *pinfo, const char *message);
@@ -732,7 +732,7 @@ pthread_attr_setscope	pthread.h	TPS	pthread_attr_getscope, pthread_attr_setscope
 pthread_attr_setstack	pthread.h	TSA TSS	pthread_attr_getstack, pthread_attr_setstack - get and set stack attributes	int pthread_attr_setstack(pthread_attr_t *attr, void *stackaddr, size_t stacksize);
 pthread_attr_setstacksize	pthread.h	TSS	pthread_attr_getstacksize, pthread_attr_setstacksize - get and set the stacksize attribute	int pthread_attr_setstacksize(pthread_attr_t *attr, size_t stacksize);
 pthread_barrier_destroy	pthread.h		pthread_barrier_destroy, pthread_barrier_init - destroy and initialize a barrier object	int pthread_barrier_destroy(pthread_barrier_t *barrier);
-pthread_barrier_init	pthread.h		pthread_barrier_destroy, pthread_barrier_init - destroy and initialize a barrier object	int pthread_barrier_init(pthread_barrier_t *restrict barrier, const pthread_barrierattr_t *restrict attr, unsignedcount);
+pthread_barrier_init	pthread.h		pthread_barrier_destroy, pthread_barrier_init - destroy and initialize a barrier object	int pthread_barrier_init(pthread_barrier_t *restrict barrier, const pthread_barrierattr_t *restrict attr, unsigned count);
 pthread_barrier_wait	pthread.h		pthread_barrier_wait - synchronize at a barrier	int pthread_barrier_wait(pthread_barrier_t *barrier);
 pthread_barrierattr_destroy	pthread.h		pthread_barrierattr_destroy, pthread_barrierattr_init - destroy and initialize the barrier attributes object	int pthread_barrierattr_destroy(pthread_barrierattr_t *attr);
 pthread_barrierattr_getpshared	pthread.h	TSH	pthread_barrierattr_getpshared, pthread_barrierattr_setpshared - get and set the process-shared attribute of the barrier attributes object	int pthread_barrierattr_getpshared(const pthread_barrierattr_t *restrict attr, int *restrict pshared);
@@ -821,7 +821,7 @@ putchar	stdio.h		putchar - put a byte on a stdout stream	int putchar(int c);
 putchar_unlocked	stdio.h	CX	getc_unlocked, getchar_unlocked, putc_unlocked, putchar_unlocked - stdio with explicit client locking	int putchar_unlocked(int c);
 putenv	stdlib.h	XSI	putenv - change or add a value to an environment	int putenv(char *string);
 putmsg	stropts.h	OB XSR	putmsg, putpmsg - send a message on a STREAM (<b>STREAMS</b>)	int putmsg(int fildes, const struct strbuf *ctlptr, const struct strbuf *dataptr, int flags);
-putpmsg	stropts.h	OB XSR	putmsg, putpmsg - send a message on a STREAM (<b>STREAMS</b>)	int putpmsg(int fildes, const struct strbuf *ctlptr, const struct strbuf *dataptr, int band, intflags);
+putpmsg	stropts.h	OB XSR	putmsg, putpmsg - send a message on a STREAM (<b>STREAMS</b>)	int putpmsg(int fildes, const struct strbuf *ctlptr, const struct strbuf *dataptr, int band, int flags);
 puts	stdio.h		puts - put a string on standard output	int puts(const char *s);
 pututxline	utmpx.h	XSI	endutxent, getutxent, getutxid, getutxline, pututxline, setutxent - user accounting database functions	struct utmpx *pututxline(const struct utmpx *utmpx);
 putwc	stdio.h wchar.h		putwc - put a wide character on a stream	wint_t putwc(wchar_t wc, FILE *stream);
@@ -832,7 +832,7 @@ raise	signal.h		raise - send a signal to the executing process	int raise(int sig
 rand	stdlib.h	OB CX	rand, rand_r, srand - pseudo-random number generator	int rand(void);
 rand_r	stdlib.h	OB CX	rand, rand_r, srand - pseudo-random number generator	int rand_r(unsigned *seed);
 random	stdlib.h	XSI	initstate, random, setstate, srandom - pseudo-random number functions	long random(void);
-read	unistd.h		pread, read - read from a file	ssize_t pread(int fildes, void *buf, size_t nbyte, off_toffset);
+read	unistd.h		pread, read - read from a file	ssize_t pread(int fildes, void *buf, size_t nbyte, off_t offset);
 readdir	dirent.h		readdir, readdir_r - read a directory	struct dirent *readdir(DIR *dirp);
 readdir_r	dirent.h		readdir, readdir_r - read a directory	int readdir_r(DIR *restrict dirp, struct dirent *restrict entry, struct dirent **restrict result);
 readlink	unistd.h		readlink, readlinkat - read the contents of a symbolic link relative to a directory file descriptor	ssize_t readlink(const char *restrict path, char *restrict buf, size_t bufsize);
@@ -840,12 +840,12 @@ readlinkat	unistd.h		readlink, readlinkat - read the contents of a symbolic link
 readv	sys_uio.h	XSI	readv - read a vector	ssize_t readv(int fildes, const struct iovec *iov, int iovcnt);
 realloc	stdlib.h		realloc - memory reallocator	void *realloc(void *ptr, size_t size);
 realpath	stdlib.h	XSI	realpath - resolve a pathname	char *realpath(const char *restrict file_name, char *restrict resolved_name);
-recv	sys_socket.h		recv - receive a message from a connected socket	ssize_t recv(int socket, void *buffer, size_t length, intflags);
+recv	sys_socket.h		recv - receive a message from a connected socket	ssize_t recv(int socket, void *buffer, size_t length, int flags);
 recvfrom	sys_socket.h		recvfrom - receive a message from a socket	ssize_t recvfrom(int socket, void *restrict buffer, size_t length, int flags, struct sockaddr *restrict address, socklen_t *restrict address_len);
 recvmsg	sys_socket.h		recvmsg - receive a message from a socket	ssize_t recvmsg(int socket, struct msghdr *message, int flags);
 regcomp	regex.h		regcomp, regerror, regexec, regfree - regular expression matching	int regcomp(regex_t *restrict preg, const char *restrict pattern, int cflags);
 regerror	regex.h		regcomp, regerror, regexec, regfree - regular expression matching	size_t regerror(int errcode, const regex_t *restrict preg, char *restrict errbuf, size_t errbuf_size);
-regexec	regex.h		regcomp, regerror, regexec, regfree - regular expression matching	int regexec(const regex_t *restrict preg, const char *restrict string, size_t nmatch, regmatch_t pmatch[restrict], inteflags);
+regexec	regex.h		regcomp, regerror, regexec, regfree - regular expression matching	int regexec(const regex_t *restrict preg, const char *restrict string, size_t nmatch, regmatch_t pmatch[restrict], int eflags);
 regfree	regex.h		regcomp, regerror, regexec, regfree - regular expression matching	void regfree(regex_t *preg);
 remainder	math.h		remainder, remainderf, remainderl - remainder function	double remainder(double x, double y);
 remainderf	math.h		remainder, remainderf, remainderl - remainder function	float remainderf(float x, float y);
@@ -856,7 +856,7 @@ remquo	math.h		remquo, remquof, remquol - remainder functions	double remquo(doub
 remquof	math.h		remquo, remquof, remquol - remainder functions	float remquof(float x, float y, int *quo);
 remquol	math.h		remquo, remquof, remquol - remainder functions	long double remquol(long double x, long double y, int *quo);
 rename	stdio.h	CX	rename, renameat - rename file relative to directory file descriptor	int rename(const char *old, const char *new);
-renameat	stdio.h	CX	rename, renameat - rename file relative to directory file descriptor	int renameat(int oldfd, const char *old, intnewfd, const char *new);
+renameat	stdio.h	CX	rename, renameat - rename file relative to directory file descriptor	int renameat(int oldfd, const char *old, int newfd, const char *new);
 rewind	stdio.h		rewind - reset the file position indicator in a stream	void rewind(FILE *stream);
 rewinddir	dirent.h		rewinddir - reset the position of a directory stream to the beginning of a directory	void rewinddir(DIR *dirp);
 rint	math.h		rint, rintf, rintl - round-to-nearest integral value	double rint(double x);
@@ -898,7 +898,7 @@ sem_wait	semaphore.h		sem_trywait, sem_wait - lock a semaphore	int sem_wait(sem_
 semctl	sys/sem.h	XSI	semctl - XSI semaphore control operations	int semctl(int semid, int semnum, int cmd, ...);
 semget	sys_sem.h	XSI	semget - get set of XSI semaphores	int semget(key_t key, int nsems, int semflg);
 semop	sys_sem.h	XSI	semop - XSI semaphore operations	int semop(int semid, struct sembuf *sops, size_t nsops);
-send	sys_socket.h		send - send a message on a socket	ssize_t send(int socket, const void *buffer, size_t length, intflags);
+send	sys_socket.h		send - send a message on a socket	ssize_t send(int socket, const void *buffer, size_t length, int flags);
 sendmsg	sys_socket.h		sendmsg - send a message on a socket using a message structure	ssize_t sendmsg(int socket, const struct msghdr *message, int flags);
 sendto	sys_socket.h		sendto - send a message on a socket	ssize_t sendto(int socket, const void *message, size_t length, int flags, const struct sockaddr *dest_addr, socklen_t dest_len);
 setbuf	stdio.h		setbuf - assign buffering to a stream	void setbuf(FILE *restrict stream, char *restrict buf);
@@ -986,7 +986,7 @@ stderr	stdio.h		stderr, stdin, stdout - standard I/O streams
 stdin	stdio.h		stderr, stdin, stdout - standard I/O streams	
 stdout	stdio.h		stderr, stdin, stdout - standard I/O streams	
 stpcpy	string.h	CX	stpcpy, strcpy - copy a string and return a pointer to the end of the result	char *stpcpy(char *restrict s1, const char *restrict s2);
-stpncpy	string.h	CX	stpncpy, strncpy - copy fixed length string, returning a pointer to the array end	char *stpncpy(char *restrict s1, const char *restrict s2, size_tn);
+stpncpy	string.h	CX	stpncpy, strncpy - copy fixed length string, returning a pointer to the array end	char *stpncpy(char *restrict s1, const char *restrict s2, size_t n);
 strcasecmp	strings.h		strcasecmp, strcasecmp_l, strncasecmp, strncasecmp_l - case-insensitive string comparisons	int strcasecmp(const char *s1, const char *s2);
 strcasecmp_l	strings.h		strcasecmp, strcasecmp_l, strncasecmp, strncasecmp_l - case-insensitive string comparisons	int strcasecmp_l(const char *s1, const char *s2, locale_t locale);
 strcat	string.h		strcat - concatenate two strings	char *strcat(char *restrict s1, const char *restrict s2);
@@ -1002,8 +1002,8 @@ strerror_l	string.h	CX	strerror, strerror_l, strerror_r - get error message stri
 strerror_r	string.h	CX	strerror, strerror_l, strerror_r - get error message string	int strerror_r(int errnum, char *strerrbuf, size_t buflen);
 strfmon	monetary.h		strfmon, strfmon_l - convert monetary value to a string	ssize_t strfmon(char *restrict s, size_t maxsize, const char *restrict format, ...);
 strfmon_l	monetary.h		strfmon, strfmon_l - convert monetary value to a string	ssize_t strfmon_l(char *restrict s, size_t maxsize, locale_t locale, const char *restrict format, ...);
-strftime	time.h	CX	strftime, strftime_l - convert date and time to a string	size_t strftime(char *restrict s, size_t maxsize, const char *restrict format, const struct tm *restricttimeptr);
-strftime_l	time.h	CX	strftime, strftime_l - convert date and time to a string	size_t strftime_l(char *restrict s, size_t maxsize, const char *restrict format, const struct tm *restricttimeptr, locale_t locale);
+strftime	time.h	CX	strftime, strftime_l - convert date and time to a string	size_t strftime(char *restrict s, size_t maxsize, const char *restrict format, const struct tm *restrict timeptr);
+strftime_l	time.h	CX	strftime, strftime_l - convert date and time to a string	size_t strftime_l(char *restrict s, size_t maxsize, const char *restrict format, const struct tm *restrict timeptr, locale_t locale);
 strlen	string.h	CX	strlen, strnlen - get length of fixed size string	size_t strlen(const char *s);
 strncasecmp	strings.h		strcasecmp, strcasecmp_l, strncasecmp, strncasecmp_l - case-insensitive string comparisons	int strncasecmp(const char *s1, const char *s2, size_t n);
 strncasecmp_l	strings.h		strcasecmp, strcasecmp_l, strncasecmp, strncasecmp_l - case-insensitive string comparisons	int strncasecmp_l(const char *s1, const char *s2, size_t n, locale_t locale);
@@ -1110,7 +1110,7 @@ va_arg	stdarg.h		va_arg, va_copy, va_end, va_start - handle variable argument li
 va_copy	stdarg.h		va_arg, va_copy, va_end, va_start - handle variable argument list	void va_copy(va_list dest, va_list src);
 va_end	stdarg.h		va_arg, va_copy, va_end, va_start - handle variable argument list	void va_end(va_list ap);
 va_start	stdarg.h		va_arg, va_copy, va_end, va_start - handle variable argument list	void va_start(va_list ap, argN);
-vdprintf	stdarg.h stdio.h	CX	vdprintf, vfprintf, vprintf, vsnprintf, vsprintf - format output of a stdarg argument list	int vdprintf(int fildes, const char *restrict format, va_listap);
+vdprintf	stdarg.h stdio.h	CX	vdprintf, vfprintf, vprintf, vsnprintf, vsprintf - format output of a stdarg argument list	int vdprintf(int fildes, const char *restrict format, va_list ap);
 vfprintf	stdarg.h stdio.h	CX	vdprintf, vfprintf, vprintf, vsnprintf, vsprintf - format output of a stdarg argument list	int vfprintf(FILE *restrict stream, const char *restrict format, va_list ap);
 vfscanf	stdarg.h stdio.h		vfscanf, vscanf, vsscanf - format input of a stdarg argument list	int vfscanf(FILE *restrict stream, const char *restrict format, va_list arg);
 vfwprintf	stdarg.h stdio.h wchar.h		vfwprintf, vswprintf, vwprintf - wide-character formatted output of a stdarg argument list	int vfwprintf(FILE *restrict stream, const wchar_t *restrict format, va_list arg);
@@ -1125,10 +1125,10 @@ vswscanf	stdarg.h stdio.h wchar.h		vfwscanf, vswscanf, vwscanf - wide-character 
 vwprintf	stdarg.h stdio.h wchar.h		vfwprintf, vswprintf, vwprintf - wide-character formatted output of a stdarg argument list	int vwprintf(const wchar_t *restrict format, va_list arg);
 vwscanf	stdarg.h stdio.h wchar.h		vfwscanf, vswscanf, vwscanf - wide-character formatted input of a stdarg argument list	int vwscanf(const wchar_t *restrict format, va_list arg);
 wait	sys_wait.h		wait, waitpid - wait for a child process to stop or terminate	pid_t wait(int *stat_loc);
-waitid	sys_wait.h		waitid - wait for a child process to change state	int waitid(idtype_t idtype, id_t id, siginfo_t *infop, intoptions);
+waitid	sys_wait.h		waitid - wait for a child process to change state	int waitid(idtype_t idtype, id_t id, siginfo_t *infop, int options);
 waitpid	sys_wait.h		wait, waitpid - wait for a child process to stop or terminate	pid_t waitpid(pid_t pid, int *stat_loc, int options);
 wcpcpy	wchar.h	CX	wcpcpy, wcscpy - copy a wide-character string, returning a pointer to its end	wchar_t *wcpcpy(wchar_t *restrict ws1, const wchar_t *restrict ws2);
-wcpncpy	wchar.h	CX	wcpncpy, wcsncpy - copy a fixed-size wide-character string, returning a pointer to its end	wchar_t *wcpncpy(wchar_t restrict *ws1, const wchar_t *restrictws2, size_t n);
+wcpncpy	wchar.h	CX	wcpncpy, wcsncpy - copy a fixed-size wide-character string, returning a pointer to its end	wchar_t *wcpncpy(wchar_t restrict *ws1, const wchar_t *restrict ws2, size_t n);
 wcrtomb	stdio.h		wcrtomb - convert a wide-character code to a character (restartable)	size_t wcrtomb(char *restrict s, wchar_t wc, mbstate_t *restrict ps);
 wcscasecmp	wchar.h	CX	wcscasecmp, wcscasecmp_l, wcsncasecmp, wcsncasecmp_l - case-insensitive wide-character string comparison	int wcscasecmp(const wchar_t *ws1, const wchar_t *ws2);
 wcscasecmp_l	wchar.h	CX	wcscasecmp, wcscasecmp_l, wcsncasecmp, wcsncasecmp_l - case-insensitive wide-character string comparison	int wcscasecmp_l(const wchar_t *ws1, const wchar_t *ws2, locale_t locale);
@@ -1140,7 +1140,7 @@ wcscoll_l	wchar.h	CX	wcscoll, wcscoll_l - wide-character string comparison using
 wcscpy	wchar.h	CX	wcpcpy, wcscpy - copy a wide-character string, returning a pointer to its end	wchar_t *wcscpy(wchar_t *restrict ws1, const wchar_t *restrict ws2);
 wcscspn	wchar.h		wcscspn - get the length of a complementary wide substring	size_t wcscspn(const wchar_t *ws1, const wchar_t *ws2);
 wcsdup	wchar.h	CX	wcsdup - duplicate a wide-character string	wchar_t *wcsdup(const wchar_t *string);
-wcsftime	wchar.h		wcsftime - convert date and time to a wide-character string	size_t wcsftime(wchar_t *restrict wcs, size_t maxsize, const wchar_t *restrict format, const struct tm *restricttimeptr);
+wcsftime	wchar.h		wcsftime - convert date and time to a wide-character string	size_t wcsftime(wchar_t *restrict wcs, size_t maxsize, const wchar_t *restrict format, const struct tm *restrict timeptr);
 wcslen	wchar.h	CX	wcslen, wcsnlen - get length of a fixed-sized wide-character string	size_t wcslen(const wchar_t *ws);
 wcsncasecmp	wchar.h	CX	wcscasecmp, wcscasecmp_l, wcsncasecmp, wcsncasecmp_l - case-insensitive wide-character string comparison	int wcsncasecmp(const wchar_t *ws1, const wchar_t *ws2, size_t n);
 wcsncasecmp_l	wchar.h	CX	wcscasecmp, wcscasecmp_l, wcsncasecmp, wcsncasecmp_l - case-insensitive wide-character string comparison	int wcsncasecmp_l(const wchar_t *ws1, const wchar_t *ws2, size_t n, locale_t locale);
@@ -1148,7 +1148,7 @@ wcsncat	wchar.h		wcsncat - concatenate a wide-character string with part of anot
 wcsncmp	wchar.h		wcsncmp - compare part of two wide-character strings	int wcsncmp(const wchar_t *ws1, const wchar_t *ws2, size_t n);
 wcsncpy	wchar.h	CX	wcpncpy, wcsncpy - copy a fixed-size wide-character string, returning a pointer to its end	wchar_t *wcsncpy(wchar_t *restrict ws1, const wchar_t *restrict ws2, size_t n);
 wcsnlen	wchar.h	CX	wcslen, wcsnlen - get length of a fixed-sized wide-character string	size_t wcsnlen(const wchar_t *ws, size_t maxlen);
-wcsnrtombs	wchar.h	CX	wcsnrtombs, wcsrtombs - convert a wide-character string to a character string (restartable)	size_t wcsnrtombs(char *restrict dst, const wchar_t **restrictsrc, size_t nwc, size_t len, mbstate_t *restrictps);
+wcsnrtombs	wchar.h	CX	wcsnrtombs, wcsrtombs - convert a wide-character string to a character string (restartable)	size_t wcsnrtombs(char *restrict dst, const wchar_t **restrict src, size_t nwc, size_t len, mbstate_t *restrict ps);
 wcspbrk	wchar.h		wcspbrk - scan a wide-character string for a wide-character code	wchar_t *wcspbrk(const wchar_t *ws1, const wchar_t *ws2);
 wcsrchr	wchar.h		wcsrchr - wide-character string scanning operation	wchar_t *wcsrchr(const wchar_t *ws, wchar_t wc);
 wcsrtombs	wchar.h	CX	wcsnrtombs, wcsrtombs - convert a wide-character string to a character string (restartable)	size_t wcsrtombs(char *restrict dst, const wchar_t **restrict src, size_t len, mbstate_t *restrict ps);
@@ -1167,7 +1167,7 @@ wcstoull	wchar.h		wcstoul, wcstoull - convert a wide-character string to an unsi
 wcstoumax	stddef.h inttypes.h		wcstoimax, wcstoumax - convert a wide-character string to an integer type	uintmax_t wcstoumax(const wchar_t *restrict nptr, wchar_t **restrict endptr, int base);
 wcswidth	wchar.h	XSI	wcswidth - number of column positions of a wide-character string	int wcswidth(const wchar_t *pwcs, size_t n);
 wcsxfrm	wchar.h	CX	wcsxfrm, wcsxfrm_l - wide-character string transformation	size_t wcsxfrm(wchar_t *restrict ws1, const wchar_t *restrict ws2, size_t n);
-wcsxfrm_l	wchar.h	CX	wcsxfrm, wcsxfrm_l - wide-character string transformation	size_t wcsxfrm_l(wchar_t *restrict ws1, const wchar_t *restrictws2, size_t n, locale_t locale);
+wcsxfrm_l	wchar.h	CX	wcsxfrm, wcsxfrm_l - wide-character string transformation	size_t wcsxfrm_l(wchar_t *restrict ws1, const wchar_t *restrict ws2, size_t n, locale_t locale);
 wctob	stdio.h wchar.h		wctob - wide-character to single-byte conversion	int wctob(wint_t c);
 wctomb	stdlib.h		wctomb - convert a wide-character code to a character	int wctomb(char *s, wchar_t wchar);
 wctrans	wctype.h	CX	wctrans, wctrans_l - define character mapping	wctrans_t wctrans(const char *charclass);
