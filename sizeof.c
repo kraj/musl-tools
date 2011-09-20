@@ -1,51 +1,48 @@
 #define _GNU_SOURCE 1
-#define _LARGEFILE64_SOURCE 1 
-#define _FILE_OFFSET_BITS 64 
-
+#define _LARGEFILE64_SOURCE 1
+#define _FILE_OFFSET_BITS 64
 #include <stddef.h>
-#include <stdint.h>
 #include <sys/types.h>
 
+#include <aio.h>
+#include <alloca.h>
+#include <arpa/inet.h>
 #include <arpa/nameser.h>
-//#include <bits/alltypes.h>
-//#include <bits/fenv.h>
-#include <fenv.h>
-//#include <bits/in.h>
-#include <netinet/in.h>
-//#include <bits/ioctl.h>
-#include <sys/ioctl.h>
-//#include <bits/ipc.h>
-#include <sys/ipc.h>
-//#include <bits/msg.h>
-#include <sys/msg.h>
-//#include <bits/pthread.h>
-#include <pthread.h>
-//#include <bits/setjmp.h>
-//#include <bits/shm.h>
-#include <sys/shm.h>
-//#include <bits/signal.h>
-//#include <bits/socket.h>
-//#include <bits/stat.h>
-#include <sys/stat.h>
-//#include <bits/statfs.h>
-#include <sys/statfs.h>
-//#include <bits/termios.h>
-//#include <bits/user.h>
-#include <sys/user.h>
+#include <arpa/telnet.h>
+#include <assert.h>
+#include <byteswap.h>
+#include <cpio.h>
+#include <ctype.h>
 #include <dirent.h>
+#include <dlfcn.h>
 #include <elf.h>
+#include <endian.h>
+#include <err.h>
+#include <errno.h>
 #include <fcntl.h>
+//#include <features.h>
+#include <fenv.h>
+#include <float.h>
+#include <fnmatch.h>
 #include <ftw.h>
 #include <getopt.h>
 #include <glob.h>
 #include <grp.h>
 #include <iconv.h>
 #include <inttypes.h>
+#include <iso646.h>
+#include <langinfo.h>
+#include <libgen.h>
+#include <libintl.h>
+#include <limits.h>
 #include <linux/fb.h>
 #include <linux/kd.h>
 #include <linux/loop.h>
+#include <linux/version.h>
 #include <linux/vt.h>
 #include <locale.h>
+#include <malloc.h>
+#include <math.h>
 #include <mntent.h>
 #include <mqueue.h>
 #include <net/ethernet.h>
@@ -59,53 +56,102 @@
 #include <netinet/ip.h>
 #include <netinet/ip6.h>
 #include <netinet/ip_icmp.h>
+#include <netinet/tcp.h>
 #include <netinet/udp.h>
 #include <netpacket/packet.h>
 #include <nl_types.h>
+#include <paths.h>
 #include <poll.h>
+#include <pthread.h>
+#include <pty.h>
 #include <pwd.h>
 #include <regex.h>
 #include <resolv.h>
 #include <sched.h>
+#include <search.h>
 #include <semaphore.h>
 #include <setjmp.h>
 #include <shadow.h>
 #include <signal.h>
 #include <spawn.h>
+#include <stdarg.h>
 #include <stdbool.h>
+#include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <stdio_ext.h>
 #include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <stropts.h>
 #include <sys/epoll.h>
 #include <sys/eventfd.h>
+#include <sys/file.h>
 #include <sys/inotify.h>
+#include <sys/ioctl.h>
+#include <sys/ipc.h>
+#include <sys/kd.h>
+#include <sys/klog.h>
+#include <sys/mman.h>
+#include <sys/mount.h>
 #include <sys/msg.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/prctl.h>
 #include <sys/procfs.h>
+#include <sys/ptrace.h>
+#include <sys/reboot.h>
+#include <sys/reg.h>
 #include <sys/resource.h>
 #include <sys/select.h>
 #include <sys/sem.h>
+#include <sys/sendfile.h>
 #include <sys/shm.h>
 #include <sys/signalfd.h>
 #include <sys/socket.h>
+#include <sys/soundcard.h>
+#include <sys/stat.h>
+#include <sys/statfs.h>
+#include <sys/statvfs.h>
+#include <sys/stropts.h>
+#include <sys/swap.h>
+#include <sys/syscall.h>
+#include <sys/sysctl.h>
 #include <sys/sysinfo.h>
+#include <sys/syslog.h>
+#include <sys/sysmacros.h>
 #include <sys/time.h>
 #include <sys/times.h>
 #include <sys/timex.h>
 #include <sys/types.h>
+#include <sys/ucontext.h>
+#include <sys/uio.h>
 #include <sys/un.h>
+#include <sys/user.h>
 #include <sys/utsname.h>
+#include <sys/vfs.h>
+#include <sys/vt.h>
 #include <sys/wait.h>
+#include <sysexits.h>
 #include <syslog.h>
+#include <tar.h>
 #include <termios.h>
 #include <time.h>
+#include <ucontext.h>
+#include <ulimit.h>
+#include <unistd.h>
 #include <utime.h>
+#include <utmp.h>
 #include <utmpx.h>
 #include <wchar.h>
+#include <wctype.h>
 #include <wordexp.h>
 #define p(x) printf("%s\t%u\n", #x, sizeof(x));
 int main(){
+p(ACTION)
 //p(CODE)
 //p(DIR)
+p(ENTRY)
 p(Elf32_Addr)
 p(Elf32_Conflict)
 p(Elf32_Dyn)
@@ -163,6 +209,7 @@ p(Elf_Options)
 p(Elf_Options_Hw)
 //p(FILE)
 p(HEADER)
+p(VISIT)
 p(__uint16_t)
 p(__uint32_t)
 p(__uint64_t)
@@ -176,7 +223,8 @@ p(clockid_t)
 p(dev_t)
 p(div_t)
 p(elf_fpregset_t)
-//p(elf_fpxregset_t)
+p(elf_fpregset_t)
+p(elf_fpxregset_t)
 p(elf_greg_t)
 p(elf_gregset_t)
 p(epoll_data_t)
@@ -188,6 +236,7 @@ p(fexcept_t)
 p(fpos_t)
 p(fsblkcnt_t)
 p(fsfilcnt_t)
+p(fsid_t)
 p(gid_t)
 p(glob_t)
 p(iconv_t)
@@ -272,7 +321,7 @@ p(res_state)
 p(rlim_t)
 p(sa_family_t)
 p(scrnmap_t)
-//p(sem_t)
+p(sem_t)
 p(sig_atomic_t)
 p(sighandler_t)
 p(siginfo_t)
@@ -294,10 +343,12 @@ p(struct __res_state)
 //p(struct __ucontext)
 p(struct _ns_flagdata)
 p(struct addrinfo)
+p(struct aiocb)
 p(struct arpd_request)
 p(struct arphdr)
 p(struct arpreq)
 p(struct arpreq_old)
+p(struct bandinfo)
 p(struct cmsghdr)
 p(struct console_font_op)
 p(struct consolefontdesc)
@@ -432,7 +483,15 @@ p(struct sockaddr_storage)
 p(struct sockaddr_un)
 p(struct spwd)
 p(struct stat)
-//p(struct statvfs)
+p(struct statfs)
+p(struct statvfs)
+p(struct str_list)
+p(struct str_mlist)
+p(struct strbuf)
+p(struct strfdinsert)
+p(struct strioctl)
+p(struct strpeek)
+p(struct strrecvfd)
 p(struct sysinfo)
 p(struct termios)
 p(struct timespec)
@@ -449,7 +508,7 @@ p(struct unimapinit)
 p(struct unipair)
 p(struct user)
 p(struct user_fpregs_struct)
-//p(struct user_fpxregs_struct)
+p(struct user_fpxregs_struct)
 p(struct user_regs_struct)
 p(struct utimbuf)
 p(struct utmpx)
@@ -494,9 +553,10 @@ p(union epoll_data)
 p(union sigval)
 p(ushort)
 p(va_list)
-p(wchar_t)
-//p(wctrans_t)
-//p(wctype_t)
+p(va_list)
+p(wctrans_t)
+p(wctype_t)
 p(wint_t)
 p(wordexp_t)
+p(wchar_t)
 return 0;}
