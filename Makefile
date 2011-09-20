@@ -11,7 +11,7 @@ tables:
 sizeof: sizeof-glibc sizeof-musl
 	./sizeof-glibc >data/glibc.sizeof
 	./sizeof-musl >data/musl.sizeof
-	diff -u data/glibc.sizeof data/musl.sizeof >sizeof.diff || true
+	diff -u data/glibc.sizeof data/musl.sizeof >data/sizeof.diff || true
 
 LIBGCC=`gcc -print-file-name=libgcc.a |sed 's,/libgcc.a$$,,'`
 # when compiling with pcc
