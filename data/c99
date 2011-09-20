@@ -145,59 +145,158 @@ DBL_MAX_10_EXP		float.h	B.6 Characteristics of floating types
 FLT_MIN_EXP		float.h	B.6 Characteristics of floating types
 LDBL_MAX_10_EXP		float.h	B.6 Characteristics of floating types
 imaxdiv_t		inttypes.h	B.7 Format conversion of integer types
-PRIdN		inttypes.h	B.7 Format conversion of integer types
-PRIdLEASTN		inttypes.h	B.7 Format conversion of integer types
-PRIdFASTN		inttypes.h	B.7 Format conversion of integer types
+PRId8		inttypes.h	B.7 Format conversion of integer types
+PRId16		inttypes.h	B.7 Format conversion of integer types
+PRId32		inttypes.h	B.7 Format conversion of integer types
+PRId64		inttypes.h	B.7 Format conversion of integer types
+PRIdLEAST8		inttypes.h	B.7 Format conversion of integer types
+PRIdLEAST16		inttypes.h	B.7 Format conversion of integer types
+PRIdLEAST32		inttypes.h	B.7 Format conversion of integer types
+PRIdLEAST64		inttypes.h	B.7 Format conversion of integer types
+PRIdFAST8		inttypes.h	B.7 Format conversion of integer types
+PRIdFAST16		inttypes.h	B.7 Format conversion of integer types
+PRIdFAST32		inttypes.h	B.7 Format conversion of integer types
+PRIdFAST64		inttypes.h	B.7 Format conversion of integer types
 PRIdMAX		inttypes.h	B.7 Format conversion of integer types
 PRIdPTR		inttypes.h	B.7 Format conversion of integer types
-PRIiN		inttypes.h	B.7 Format conversion of integer types
-PRIiLEASTN		inttypes.h	B.7 Format conversion of integer types
-PRIiFASTN		inttypes.h	B.7 Format conversion of integer types
+PRIi8		inttypes.h	B.7 Format conversion of integer types
+PRIi16		inttypes.h	B.7 Format conversion of integer types
+PRIi32		inttypes.h	B.7 Format conversion of integer types
+PRIi64		inttypes.h	B.7 Format conversion of integer types
+PRIiLEAST8		inttypes.h	B.7 Format conversion of integer types
+PRIiLEAST16		inttypes.h	B.7 Format conversion of integer types
+PRIiLEAST32		inttypes.h	B.7 Format conversion of integer types
+PRIiLEAST64		inttypes.h	B.7 Format conversion of integer types
+PRIiFAST8		inttypes.h	B.7 Format conversion of integer types
+PRIiFAST16		inttypes.h	B.7 Format conversion of integer types
+PRIiFAST32		inttypes.h	B.7 Format conversion of integer types
+PRIiFAST64		inttypes.h	B.7 Format conversion of integer types
 PRIiMAX		inttypes.h	B.7 Format conversion of integer types
 PRIiPTR		inttypes.h	B.7 Format conversion of integer types
-PRIoN		inttypes.h	B.7 Format conversion of integer types
-PRIoLEASTN		inttypes.h	B.7 Format conversion of integer types
-PRIoFASTN		inttypes.h	B.7 Format conversion of integer types
+PRIo8		inttypes.h	B.7 Format conversion of integer types
+PRIo16		inttypes.h	B.7 Format conversion of integer types
+PRIo32		inttypes.h	B.7 Format conversion of integer types
+PRIo64		inttypes.h	B.7 Format conversion of integer types
+PRIoLEAST8		inttypes.h	B.7 Format conversion of integer types
+PRIoLEAST16		inttypes.h	B.7 Format conversion of integer types
+PRIoLEAST32		inttypes.h	B.7 Format conversion of integer types
+PRIoLEAST64		inttypes.h	B.7 Format conversion of integer types
+PRIoFAST8		inttypes.h	B.7 Format conversion of integer types
+PRIoFAST16		inttypes.h	B.7 Format conversion of integer types
+PRIoFAST32		inttypes.h	B.7 Format conversion of integer types
+PRIoFAST64		inttypes.h	B.7 Format conversion of integer types
 PRIoMAX		inttypes.h	B.7 Format conversion of integer types
 PRIoPTR		inttypes.h	B.7 Format conversion of integer types
-PRIuN		inttypes.h	B.7 Format conversion of integer types
-PRIuLEASTN		inttypes.h	B.7 Format conversion of integer types
-PRIuFASTN		inttypes.h	B.7 Format conversion of integer types
+PRIu8		inttypes.h	B.7 Format conversion of integer types
+PRIu16		inttypes.h	B.7 Format conversion of integer types
+PRIu32		inttypes.h	B.7 Format conversion of integer types
+PRIu64		inttypes.h	B.7 Format conversion of integer types
+PRIuLEAST8		inttypes.h	B.7 Format conversion of integer types
+PRIuLEAST16		inttypes.h	B.7 Format conversion of integer types
+PRIuLEAST32		inttypes.h	B.7 Format conversion of integer types
+PRIuLEAST64		inttypes.h	B.7 Format conversion of integer types
+PRIuFAST8		inttypes.h	B.7 Format conversion of integer types
+PRIuFAST16		inttypes.h	B.7 Format conversion of integer types
+PRIuFAST32		inttypes.h	B.7 Format conversion of integer types
+PRIuFAST64		inttypes.h	B.7 Format conversion of integer types
 PRIuMAX		inttypes.h	B.7 Format conversion of integer types
 PRIuPTR		inttypes.h	B.7 Format conversion of integer types
-PRIxN		inttypes.h	B.7 Format conversion of integer types
-PRIxLEASTN		inttypes.h	B.7 Format conversion of integer types
-PRIxFASTN		inttypes.h	B.7 Format conversion of integer types
+PRIx8		inttypes.h	B.7 Format conversion of integer types
+PRIx16		inttypes.h	B.7 Format conversion of integer types
+PRIx32		inttypes.h	B.7 Format conversion of integer types
+PRIx64		inttypes.h	B.7 Format conversion of integer types
+PRIxLEAST8		inttypes.h	B.7 Format conversion of integer types
+PRIxLEAST16		inttypes.h	B.7 Format conversion of integer types
+PRIxLEAST32		inttypes.h	B.7 Format conversion of integer types
+PRIxLEAST64		inttypes.h	B.7 Format conversion of integer types
+PRIxFAST8		inttypes.h	B.7 Format conversion of integer types
+PRIxFAST16		inttypes.h	B.7 Format conversion of integer types
+PRIxFAST32		inttypes.h	B.7 Format conversion of integer types
+PRIxFAST64		inttypes.h	B.7 Format conversion of integer types
 PRIxMAX		inttypes.h	B.7 Format conversion of integer types
 PRIxPTR		inttypes.h	B.7 Format conversion of integer types
-PRIXN		inttypes.h	B.7 Format conversion of integer types
-PRIXLEASTN		inttypes.h	B.7 Format conversion of integer types
-PRIXFASTN		inttypes.h	B.7 Format conversion of integer types
+PRIX8		inttypes.h	B.7 Format conversion of integer types
+PRIX16		inttypes.h	B.7 Format conversion of integer types
+PRIX32		inttypes.h	B.7 Format conversion of integer types
+PRIX64		inttypes.h	B.7 Format conversion of integer types
+PRIXLEAST8		inttypes.h	B.7 Format conversion of integer types
+PRIXLEAST16		inttypes.h	B.7 Format conversion of integer types
+PRIXLEAST32		inttypes.h	B.7 Format conversion of integer types
+PRIXLEAST64		inttypes.h	B.7 Format conversion of integer types
+PRIXFAST8		inttypes.h	B.7 Format conversion of integer types
+PRIXFAST16		inttypes.h	B.7 Format conversion of integer types
+PRIXFAST32		inttypes.h	B.7 Format conversion of integer types
+PRIXFAST64		inttypes.h	B.7 Format conversion of integer types
 PRIXMAX		inttypes.h	B.7 Format conversion of integer types
 PRIXPTR		inttypes.h	B.7 Format conversion of integer types
-SCNdN		inttypes.h	B.7 Format conversion of integer types
-SCNdLEASTN		inttypes.h	B.7 Format conversion of integer types
-SCNdFASTN		inttypes.h	B.7 Format conversion of integer types
+SCNd8		inttypes.h	B.7 Format conversion of integer types
+SCNd16		inttypes.h	B.7 Format conversion of integer types
+SCNd32		inttypes.h	B.7 Format conversion of integer types
+SCNd64		inttypes.h	B.7 Format conversion of integer types
+SCNdLEAST8		inttypes.h	B.7 Format conversion of integer types
+SCNdLEAST16		inttypes.h	B.7 Format conversion of integer types
+SCNdLEAST32		inttypes.h	B.7 Format conversion of integer types
+SCNdLEAST64		inttypes.h	B.7 Format conversion of integer types
+SCNdFAST8		inttypes.h	B.7 Format conversion of integer types
+SCNdFAST16		inttypes.h	B.7 Format conversion of integer types
+SCNdFAST32		inttypes.h	B.7 Format conversion of integer types
+SCNdFAST64		inttypes.h	B.7 Format conversion of integer types
 SCNdMAX		inttypes.h	B.7 Format conversion of integer types
 SCNdPTR		inttypes.h	B.7 Format conversion of integer types
-SCNiN		inttypes.h	B.7 Format conversion of integer types
-SCNiLEASTN		inttypes.h	B.7 Format conversion of integer types
-SCNiFASTN		inttypes.h	B.7 Format conversion of integer types
+SCNi8		inttypes.h	B.7 Format conversion of integer types
+SCNi16		inttypes.h	B.7 Format conversion of integer types
+SCNi32		inttypes.h	B.7 Format conversion of integer types
+SCNi64		inttypes.h	B.7 Format conversion of integer types
+SCNiLEAST8		inttypes.h	B.7 Format conversion of integer types
+SCNiLEAST16		inttypes.h	B.7 Format conversion of integer types
+SCNiLEAST32		inttypes.h	B.7 Format conversion of integer types
+SCNiLEAST64		inttypes.h	B.7 Format conversion of integer types
+SCNiFAST8		inttypes.h	B.7 Format conversion of integer types
+SCNiFAST16		inttypes.h	B.7 Format conversion of integer types
+SCNiFAST32		inttypes.h	B.7 Format conversion of integer types
+SCNiFAST64		inttypes.h	B.7 Format conversion of integer types
 SCNiMAX		inttypes.h	B.7 Format conversion of integer types
 SCNiPTR		inttypes.h	B.7 Format conversion of integer types
-SCNoN		inttypes.h	B.7 Format conversion of integer types
-SCNoLEASTN		inttypes.h	B.7 Format conversion of integer types
-SCNoFASTN		inttypes.h	B.7 Format conversion of integer types
+SCNo8		inttypes.h	B.7 Format conversion of integer types
+SCNo16		inttypes.h	B.7 Format conversion of integer types
+SCNo32		inttypes.h	B.7 Format conversion of integer types
+SCNo64		inttypes.h	B.7 Format conversion of integer types
+SCNoLEAST8		inttypes.h	B.7 Format conversion of integer types
+SCNoLEAST16		inttypes.h	B.7 Format conversion of integer types
+SCNoLEAST32		inttypes.h	B.7 Format conversion of integer types
+SCNoLEAST64		inttypes.h	B.7 Format conversion of integer types
+SCNoFAST8		inttypes.h	B.7 Format conversion of integer types
+SCNoFAST16		inttypes.h	B.7 Format conversion of integer types
+SCNoFAST32		inttypes.h	B.7 Format conversion of integer types
+SCNoFAST64		inttypes.h	B.7 Format conversion of integer types
 SCNoMAX		inttypes.h	B.7 Format conversion of integer types
 SCNoPTR		inttypes.h	B.7 Format conversion of integer types
-SCNuN		inttypes.h	B.7 Format conversion of integer types
-SCNuLEASTN		inttypes.h	B.7 Format conversion of integer types
-SCNuFASTN		inttypes.h	B.7 Format conversion of integer types
+SCNu8		inttypes.h	B.7 Format conversion of integer types
+SCNu16		inttypes.h	B.7 Format conversion of integer types
+SCNu32		inttypes.h	B.7 Format conversion of integer types
+SCNu64		inttypes.h	B.7 Format conversion of integer types
+SCNuLEAST8		inttypes.h	B.7 Format conversion of integer types
+SCNuLEAST16		inttypes.h	B.7 Format conversion of integer types
+SCNuLEAST32		inttypes.h	B.7 Format conversion of integer types
+SCNuLEAST64		inttypes.h	B.7 Format conversion of integer types
+SCNuFAST8		inttypes.h	B.7 Format conversion of integer types
+SCNuFAST16		inttypes.h	B.7 Format conversion of integer types
+SCNuFAST32		inttypes.h	B.7 Format conversion of integer types
+SCNuFAST64		inttypes.h	B.7 Format conversion of integer types
 SCNuMAX		inttypes.h	B.7 Format conversion of integer types
 SCNuPTR		inttypes.h	B.7 Format conversion of integer types
-SCNxN		inttypes.h	B.7 Format conversion of integer types
-SCNxLEASTN		inttypes.h	B.7 Format conversion of integer types
-SCNxFASTN		inttypes.h	B.7 Format conversion of integer types
+SCNx8		inttypes.h	B.7 Format conversion of integer types
+SCNx16		inttypes.h	B.7 Format conversion of integer types
+SCNx32		inttypes.h	B.7 Format conversion of integer types
+SCNx64		inttypes.h	B.7 Format conversion of integer types
+SCNxLEAST8		inttypes.h	B.7 Format conversion of integer types
+SCNxLEAST16		inttypes.h	B.7 Format conversion of integer types
+SCNxLEAST32		inttypes.h	B.7 Format conversion of integer types
+SCNxLEAST64		inttypes.h	B.7 Format conversion of integer types
+SCNxFAST8		inttypes.h	B.7 Format conversion of integer types
+SCNxFAST16		inttypes.h	B.7 Format conversion of integer types
+SCNxFAST32		inttypes.h	B.7 Format conversion of integer types
+SCNxFAST64		inttypes.h	B.7 Format conversion of integer types
 SCNxMAX		inttypes.h	B.7 Format conversion of integer types
 SCNxPTR		inttypes.h	B.7 Format conversion of integer types
 imaxabs	intmax_t imaxabs(intmax_t j);	inttypes.h	B.7 Format conversion of integer types
@@ -478,23 +577,59 @@ size_t		stddef.h	B.16 Common definitions
 wchar_t		stddef.h	B.16 Common definitions
 NULL		stddef.h	B.16 Common definitions
 offsetof	offsetof(type, member-designator)	stddef.h	B.16 Common definitions
-intN_t		stdint.h	B.17 Integer types
-INT_LEASTN_MIN		stdint.h	B.17 Integer types
+int8_t		stdint.h	B.17 Integer types
+int16_t		stdint.h	B.17 Integer types
+int32_t		stdint.h	B.17 Integer types
+int64_t		stdint.h	B.17 Integer types
+INT_LEAST8_MIN		stdint.h	B.17 Integer types
+INT_LEAST16_MIN		stdint.h	B.17 Integer types
+INT_LEAST32_MIN		stdint.h	B.17 Integer types
+INT_LEAST64_MIN		stdint.h	B.17 Integer types
 PTRDIFF_MAX		stdint.h	B.17 Integer types
-uintN_t		stdint.h	B.17 Integer types
-INT_LEASTN_MAX		stdint.h	B.17 Integer types
+uint8_t		stdint.h	B.17 Integer types
+uint16_t		stdint.h	B.17 Integer types
+uint32_t		stdint.h	B.17 Integer types
+uint64_t		stdint.h	B.17 Integer types
+INT_LEAST8_MAX		stdint.h	B.17 Integer types
+INT_LEAST16_MAX		stdint.h	B.17 Integer types
+INT_LEAST32_MAX		stdint.h	B.17 Integer types
+INT_LEAST64_MAX		stdint.h	B.17 Integer types
 SIG_ATOMIC_MIN		stdint.h	B.17 Integer types
-int_leastN_t		stdint.h	B.17 Integer types
-UINT_LEASTN_MAX		stdint.h	B.17 Integer types
+int_least8_t		stdint.h	B.17 Integer types
+int_least16_t		stdint.h	B.17 Integer types
+int_least32_t		stdint.h	B.17 Integer types
+int_least64_t		stdint.h	B.17 Integer types
+UINT_LEAST8_MAX		stdint.h	B.17 Integer types
+UINT_LEAST16_MAX		stdint.h	B.17 Integer types
+UINT_LEAST32_MAX		stdint.h	B.17 Integer types
+UINT_LEAST64_MAX		stdint.h	B.17 Integer types
 SIG_ATOMIC_MAX		stdint.h	B.17 Integer types
-uint_leastN_t		stdint.h	B.17 Integer types
-INT_FASTN_MIN		stdint.h	B.17 Integer types
+uint_least8_t		stdint.h	B.17 Integer types
+uint_least16_t		stdint.h	B.17 Integer types
+uint_least32_t		stdint.h	B.17 Integer types
+uint_least64_t		stdint.h	B.17 Integer types
+INT_FAST8_MIN		stdint.h	B.17 Integer types
+INT_FAST16_MIN		stdint.h	B.17 Integer types
+INT_FAST32_MIN		stdint.h	B.17 Integer types
+INT_FAST64_MIN		stdint.h	B.17 Integer types
 SIZE_MAX		stdint.h	B.17 Integer types
-int_fastN_t		stdint.h	B.17 Integer types
-INT_FASTN_MAX		stdint.h	B.17 Integer types
+int_fast8_t		stdint.h	B.17 Integer types
+int_fast16_t		stdint.h	B.17 Integer types
+int_fast32_t		stdint.h	B.17 Integer types
+int_fast64_t		stdint.h	B.17 Integer types
+INT_FAST8_MAX		stdint.h	B.17 Integer types
+INT_FAST16_MAX		stdint.h	B.17 Integer types
+INT_FAST32_MAX		stdint.h	B.17 Integer types
+INT_FAST64_MAX		stdint.h	B.17 Integer types
 WCHAR_MIN		stdint.h	B.17 Integer types
-uint_fastN_t		stdint.h	B.17 Integer types
-UINT_FASTN_MAX		stdint.h	B.17 Integer types
+uint_fast8_t		stdint.h	B.17 Integer types
+uint_fast16_t		stdint.h	B.17 Integer types
+uint_fast32_t		stdint.h	B.17 Integer types
+uint_fast64_t		stdint.h	B.17 Integer types
+UINT_FAST8_MAX		stdint.h	B.17 Integer types
+UINT_FAST16_MAX		stdint.h	B.17 Integer types
+UINT_FAST32_MAX		stdint.h	B.17 Integer types
+UINT_FAST64_MAX		stdint.h	B.17 Integer types
 WCHAR_MAX		stdint.h	B.17 Integer types
 intptr_t		stdint.h	B.17 Integer types
 INTPTR_MIN		stdint.h	B.17 Integer types
@@ -504,17 +639,32 @@ INTPTR_MAX		stdint.h	B.17 Integer types
 WINT_MAX		stdint.h	B.17 Integer types
 intmax_t		stdint.h	B.17 Integer types
 UINTPTR_MAX		stdint.h	B.17 Integer types
-INTN_C	INTN_C(value)	stdint.h	B.17 Integer types
+INT8_C	INT8_C(value)	stdint.h	B.17 Integer types
+INT16_C	INT16_C(value)	stdint.h	B.17 Integer types
+INT32_C	INT32_C(value)	stdint.h	B.17 Integer types
+INT64_C	INT64_C(value)	stdint.h	B.17 Integer types
 uintmax_t		stdint.h	B.17 Integer types
 INTMAX_MIN		stdint.h	B.17 Integer types
-UINTN_C	UINTN_C(value)	stdint.h	B.17 Integer types
-INTN_MIN		stdint.h	B.17 Integer types
+UINT8_C	UINT8_C(value)	stdint.h	B.17 Integer types
+UINT16_C	UINT16_C(value)	stdint.h	B.17 Integer types
+UINT32_C	UINT32_C(value)	stdint.h	B.17 Integer types
+UINT64_C	UINT64_C(value)	stdint.h	B.17 Integer types
+INT8_MIN		stdint.h	B.17 Integer types
+INT16_MIN		stdint.h	B.17 Integer types
+INT32_MIN		stdint.h	B.17 Integer types
+INT64_MIN		stdint.h	B.17 Integer types
 INTMAX_MAX		stdint.h	B.17 Integer types
 INTMAX_C	INTMAX_C(value)	stdint.h	B.17 Integer types
-INTN_MAX		stdint.h	B.17 Integer types
+INT8_MAX		stdint.h	B.17 Integer types
+INT16_MAX		stdint.h	B.17 Integer types
+INT32_MAX		stdint.h	B.17 Integer types
+INT64_MAX		stdint.h	B.17 Integer types
 UINTMAX_MAX		stdint.h	B.17 Integer types
 UINTMAX_C	UINTMAX_C(value)	stdint.h	B.17 Integer types
-UINTN_MAX		stdint.h	B.17 Integer types
+UINT8_MAX		stdint.h	B.17 Integer types
+UINT16_MAX		stdint.h	B.17 Integer types
+UINT32_MAX		stdint.h	B.17 Integer types
+UINT64_MAX		stdint.h	B.17 Integer types
 PTRDIFF_MIN		stdint.h	B.17 Integer types
 size_t		stdio.h	B.18 Input/output
 _IOLBF		stdio.h	B.18 Input/output

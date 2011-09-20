@@ -1,5 +1,5 @@
 <h3>musl vs c99 api</h3>
-<h4>commit</h4><p>commit <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=commit;h=2318207adcad74283881ffcefbad92797a2495aa">2318207adcad74283881ffcefbad92797a2495aa</a><br>Date:   Tue Sep 20 12:14:06 2011 -0400<br><br>    fix incorrect include guard in mqueue.h
+<h4>commit</h4><p>commit <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=commit;h=d23a543d8acfedb7c0284888d72c4aa347b8c46e">d23a543d8acfedb7c0284888d72c4aa347b8c46e</a><br>Date:   Tue Sep 20 14:51:56 2011 -0400<br><br>    make stdbool.h conform to c99
 <h4>legend</h4><ul><li>status: musl implementation status summary<ul><li>(empty) - implemented<li>nosym - prototype found in include files (see decl) but not in libc.a (see sym)<li>nodecl - symbol is in libc.a but not declared in a public header<li>missing - neither in include files (see decl) nor in libc.a (see sym)</ul><li>sym: external symbol kind as found by `nm libc.a` (symbol kind only reported once)<ul><li>C - symbol is common (uninitialized data)<li>D - symbol is in the initialized data section<li>R - symbol is in the read only data section<li>T - symbol is in the text section<li>V - weak object<li>W - weak symbol</ul><li>decl: kind of declaration as found by `ctags -R include` (every occurance is reported, arch specific definitions are not linked)<ul><li>d - macro definition<li>t - typedef<li>s - struct declaration<li>u - union declaration<li>p - function prototype<li>x - external and forward variable declaration</ul></ul>
 <h4>table</h4><table border=1><tr><th colspan=3>musl<th colspan=4>c99<tr><th>status<th>sym<th>decl<th>name<th>header<th>proto<th>section
 <tr><td>missing<td>&#160;<td>&#160;<td>NDEBUG<td>assert.h<td>&#160;<td>B.1 Diagnostics
@@ -149,59 +149,158 @@
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/float.h#l11">d</a> <td>FLT_MIN_EXP<td>float.h<td>&#160;<td>B.6 Characteristics of floating types
 <tr><td>&#160;<td>&#160;<td>d <td>LDBL_MAX_10_EXP<td>float.h<td>&#160;<td>B.6 Characteristics of floating types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l13">t</a> <td>imaxdiv_t<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>PRIdN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>PRIdLEASTN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>PRIdFASTN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l29">d</a> <td>PRId8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l30">d</a> <td>PRId16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l31">d</a> <td>PRId32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l32">d</a> <td>PRId64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l34">d</a> <td>PRIdLEAST8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l35">d</a> <td>PRIdLEAST16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l36">d</a> <td>PRIdLEAST32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l37">d</a> <td>PRIdLEAST64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l39">d</a> <td>PRIdFAST8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l40">d</a> <td>PRIdFAST16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l41">d</a> <td>PRIdFAST32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l42">d</a> <td>PRIdFAST64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l119">d</a> <td>PRIdMAX<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l126">d</a> <td>PRIdPTR<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>PRIiN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>PRIiLEASTN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>PRIiFASTN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l44">d</a> <td>PRIi8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l45">d</a> <td>PRIi16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l46">d</a> <td>PRIi32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l47">d</a> <td>PRIi64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l49">d</a> <td>PRIiLEAST8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l50">d</a> <td>PRIiLEAST16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l51">d</a> <td>PRIiLEAST32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l52">d</a> <td>PRIiLEAST64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l54">d</a> <td>PRIiFAST8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l55">d</a> <td>PRIiFAST16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l56">d</a> <td>PRIiFAST32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l57">d</a> <td>PRIiFAST64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l120">d</a> <td>PRIiMAX<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l127">d</a> <td>PRIiPTR<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>PRIoN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>PRIoLEASTN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>PRIoFASTN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l59">d</a> <td>PRIo8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l60">d</a> <td>PRIo16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l61">d</a> <td>PRIo32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l62">d</a> <td>PRIo64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l64">d</a> <td>PRIoLEAST8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l65">d</a> <td>PRIoLEAST16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l66">d</a> <td>PRIoLEAST32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l67">d</a> <td>PRIoLEAST64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l69">d</a> <td>PRIoFAST8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l70">d</a> <td>PRIoFAST16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l71">d</a> <td>PRIoFAST32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l72">d</a> <td>PRIoFAST64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l121">d</a> <td>PRIoMAX<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l128">d</a> <td>PRIoPTR<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>PRIuN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>PRIuLEASTN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>PRIuFASTN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l74">d</a> <td>PRIu8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l75">d</a> <td>PRIu16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l76">d</a> <td>PRIu32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l77">d</a> <td>PRIu64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l79">d</a> <td>PRIuLEAST8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l80">d</a> <td>PRIuLEAST16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l81">d</a> <td>PRIuLEAST32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l82">d</a> <td>PRIuLEAST64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l84">d</a> <td>PRIuFAST8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l85">d</a> <td>PRIuFAST16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l86">d</a> <td>PRIuFAST32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l87">d</a> <td>PRIuFAST64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l122">d</a> <td>PRIuMAX<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l129">d</a> <td>PRIuPTR<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>PRIxN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>PRIxLEASTN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>PRIxFASTN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l89">d</a> <td>PRIx8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l90">d</a> <td>PRIx16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l91">d</a> <td>PRIx32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l92">d</a> <td>PRIx64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l94">d</a> <td>PRIxLEAST8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l95">d</a> <td>PRIxLEAST16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l96">d</a> <td>PRIxLEAST32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l97">d</a> <td>PRIxLEAST64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l99">d</a> <td>PRIxFAST8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l100">d</a> <td>PRIxFAST16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l101">d</a> <td>PRIxFAST32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l102">d</a> <td>PRIxFAST64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l123">d</a> <td>PRIxMAX<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l130">d</a> <td>PRIxPTR<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>PRIXN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>PRIXLEASTN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>PRIXFASTN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l104">d</a> <td>PRIX8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l105">d</a> <td>PRIX16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l106">d</a> <td>PRIX32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l107">d</a> <td>PRIX64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l109">d</a> <td>PRIXLEAST8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l110">d</a> <td>PRIXLEAST16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l111">d</a> <td>PRIXLEAST32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l112">d</a> <td>PRIXLEAST64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l114">d</a> <td>PRIXFAST8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l115">d</a> <td>PRIXFAST16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l116">d</a> <td>PRIXFAST32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l117">d</a> <td>PRIXFAST64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l124">d</a> <td>PRIXMAX<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l131">d</a> <td>PRIXPTR<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>SCNdN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>SCNdLEASTN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>SCNdFASTN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l133">d</a> <td>SCNd8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l134">d</a> <td>SCNd16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l135">d</a> <td>SCNd32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l136">d</a> <td>SCNd64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l138">d</a> <td>SCNdLEAST8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l139">d</a> <td>SCNdLEAST16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l140">d</a> <td>SCNdLEAST32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l141">d</a> <td>SCNdLEAST64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l143">d</a> <td>SCNdFAST8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l144">d</a> <td>SCNdFAST16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l145">d</a> <td>SCNdFAST32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l146">d</a> <td>SCNdFAST64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l208">d</a> <td>SCNdMAX<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l214">d</a> <td>SCNdPTR<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>SCNiN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>SCNiLEASTN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>SCNiFASTN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l148">d</a> <td>SCNi8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l149">d</a> <td>SCNi16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l150">d</a> <td>SCNi32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l151">d</a> <td>SCNi64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l153">d</a> <td>SCNiLEAST8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l154">d</a> <td>SCNiLEAST16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l155">d</a> <td>SCNiLEAST32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l156">d</a> <td>SCNiLEAST64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l158">d</a> <td>SCNiFAST8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l159">d</a> <td>SCNiFAST16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l160">d</a> <td>SCNiFAST32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l161">d</a> <td>SCNiFAST64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l209">d</a> <td>SCNiMAX<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l215">d</a> <td>SCNiPTR<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>SCNoN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>SCNoLEASTN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>SCNoFASTN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l178">d</a> <td>SCNo8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l179">d</a> <td>SCNo16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l180">d</a> <td>SCNo32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l181">d</a> <td>SCNo64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l183">d</a> <td>SCNoLEAST8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l184">d</a> <td>SCNoLEAST16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l185">d</a> <td>SCNoLEAST32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l186">d</a> <td>SCNoLEAST64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l188">d</a> <td>SCNoFAST8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l189">d</a> <td>SCNoFAST16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l190">d</a> <td>SCNoFAST32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l191">d</a> <td>SCNoFAST64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l210">d</a> <td>SCNoMAX<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l216">d</a> <td>SCNoPTR<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>SCNuN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>SCNuLEASTN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>SCNuFASTN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l163">d</a> <td>SCNu8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l164">d</a> <td>SCNu16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l165">d</a> <td>SCNu32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l166">d</a> <td>SCNu64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l168">d</a> <td>SCNuLEAST8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l169">d</a> <td>SCNuLEAST16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l170">d</a> <td>SCNuLEAST32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l171">d</a> <td>SCNuLEAST64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l173">d</a> <td>SCNuFAST8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l174">d</a> <td>SCNuFAST16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l175">d</a> <td>SCNuFAST32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l176">d</a> <td>SCNuFAST64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l211">d</a> <td>SCNuMAX<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l217">d</a> <td>SCNuPTR<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>SCNxN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>SCNxLEASTN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>SCNxFASTN<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l193">d</a> <td>SCNx8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l194">d</a> <td>SCNx16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l195">d</a> <td>SCNx32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l196">d</a> <td>SCNx64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l198">d</a> <td>SCNxLEAST8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l199">d</a> <td>SCNxLEAST16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l200">d</a> <td>SCNxLEAST32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l201">d</a> <td>SCNxLEAST64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l203">d</a> <td>SCNxFAST8<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l204">d</a> <td>SCNxFAST16<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l205">d</a> <td>SCNxFAST32<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l206">d</a> <td>SCNxFAST64<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l212">d</a> <td>SCNxMAX<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l218">d</a> <td>SCNxPTR<td>inttypes.h<td>&#160;<td>B.7 Format conversion of integer types
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/inttypes.h#l15">p</a> <td>imaxabs<td>inttypes.h<td>intmax_t imaxabs(intmax_t j);<td>B.7 Format conversion of integer types
@@ -482,23 +581,59 @@
 <tr><td>missing<td>&#160;<td>&#160;<td>wchar_t<td>stddef.h<td>&#160;<td>B.16 Common definitions
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/locale.h#l10">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/locale.h#l12">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/locale.h#l8">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stddef.h#l4">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stddef.h#l6">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stddef.h#l8">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdio.h#l20">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdio.h#l22">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdio.h#l24">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdlib.h#l10">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdlib.h#l12">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdlib.h#l8">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/string.h#l10">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/string.h#l12">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/string.h#l8">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/time.h#l10">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/time.h#l12">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/time.h#l8">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/unistd.h#l19">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/unistd.h#l21">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/unistd.h#l23">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/wchar.h#l22">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/wchar.h#l24">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/wchar.h#l26">d</a> <td>NULL<td>stddef.h<td>&#160;<td>B.16 Common definitions
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stddef.h#l17">d</a> <td>offsetof<td>stddef.h<td>offsetof(type, member-designator)<td>B.16 Common definitions
-<tr><td>missing<td>&#160;<td>&#160;<td>intN_t<td>stdint.h<td>&#160;<td>B.17 Integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>INT_LEASTN_MIN<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>t <td>int8_t<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>t <td>int16_t<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>t <td>int32_t<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>t <td>int64_t<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l59">d</a> <td>INT_LEAST8_MIN<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l60">d</a> <td>INT_LEAST16_MIN<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l61">d</a> <td>INT_LEAST32_MIN<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l62">d</a> <td>INT_LEAST64_MIN<td>stdint.h<td>&#160;<td>B.17 Integer types
 <tr><td>&#160;<td>&#160;<td>d <td>PTRDIFF_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>uintN_t<td>stdint.h<td>&#160;<td>B.17 Integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>INT_LEASTN_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>t <td>uint8_t<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>t <td>uint16_t<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>t <td>uint32_t<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>t <td>uint64_t<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l64">d</a> <td>INT_LEAST8_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l65">d</a> <td>INT_LEAST16_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l66">d</a> <td>INT_LEAST32_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l67">d</a> <td>INT_LEAST64_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
 <tr><td>&#160;<td>&#160;<td>d <td>SIG_ATOMIC_MIN<td>stdint.h<td>&#160;<td>B.17 Integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>int_leastN_t<td>stdint.h<td>&#160;<td>B.17 Integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>UINT_LEASTN_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l29">t</a> <td>int_least8_t<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l30">t</a> <td>int_least16_t<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l31">t</a> <td>int_least32_t<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l32">t</a> <td>int_least64_t<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l69">d</a> <td>UINT_LEAST8_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l70">d</a> <td>UINT_LEAST16_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l71">d</a> <td>UINT_LEAST32_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l72">d</a> <td>UINT_LEAST64_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
 <tr><td>&#160;<td>&#160;<td>d <td>SIG_ATOMIC_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>uint_leastN_t<td>stdint.h<td>&#160;<td>B.17 Integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>INT_FASTN_MIN<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l34">t</a> <td>uint_least8_t<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l35">t</a> <td>uint_least16_t<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l36">t</a> <td>uint_least32_t<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l37">t</a> <td>uint_least64_t<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>d <td>INT_FAST8_MIN<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>d <td>INT_FAST16_MIN<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>d <td>INT_FAST32_MIN<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>d <td>INT_FAST64_MIN<td>stdint.h<td>&#160;<td>B.17 Integer types
 <tr><td>&#160;<td>&#160;<td>d <td>SIZE_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>int_fastN_t<td>stdint.h<td>&#160;<td>B.17 Integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>INT_FASTN_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>t <td>int_fast8_t<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>t <td>int_fast16_t<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>t <td>int_fast32_t<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>t <td>int_fast64_t<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>d <td>INT_FAST8_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>d <td>INT_FAST16_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>d <td>INT_FAST32_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>d <td>INT_FAST64_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
 <tr><td>&#160;<td>&#160;<td>d <td>WCHAR_MIN<td>stdint.h<td>&#160;<td>B.17 Integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>uint_fastN_t<td>stdint.h<td>&#160;<td>B.17 Integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>UINT_FASTN_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>t <td>uint_fast8_t<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>t <td>uint_fast16_t<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>t <td>uint_fast32_t<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>t <td>uint_fast64_t<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>d <td>UINT_FAST8_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>d <td>UINT_FAST16_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>d <td>UINT_FAST32_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td>d <td>UINT_FAST64_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
 <tr><td>&#160;<td>&#160;<td>d <td>WCHAR_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
 <tr><td>&#160;<td>&#160;<td>t <td>intptr_t<td>stdint.h<td>&#160;<td>B.17 Integer types
 <tr><td>&#160;<td>&#160;<td>d <td>INTPTR_MIN<td>stdint.h<td>&#160;<td>B.17 Integer types
@@ -508,17 +643,32 @@
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l79">d</a> <td>WINT_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l39">t</a> <td>intmax_t<td>stdint.h<td>&#160;<td>B.17 Integer types
 <tr><td>&#160;<td>&#160;<td>d <td>UINTPTR_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>INTN_C<td>stdint.h<td>INTN_C(value)<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l88">d</a> <td>INT8_C<td>stdint.h<td>INT8_C(value)<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l89">d</a> <td>INT16_C<td>stdint.h<td>INT16_C(value)<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l90">d</a> <td>INT32_C<td>stdint.h<td>INT32_C(value)<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l91">d</a> <td>INT64_C<td>stdint.h<td>INT64_C(value)<td>B.17 Integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l40">t</a> <td>uintmax_t<td>stdint.h<td>&#160;<td>B.17 Integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l74">d</a> <td>INTMAX_MIN<td>stdint.h<td>&#160;<td>B.17 Integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>UINTN_C<td>stdint.h<td>UINTN_C(value)<td>B.17 Integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>INTN_MIN<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l93">d</a> <td>UINT8_C<td>stdint.h<td>UINT8_C(value)<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l94">d</a> <td>UINT16_C<td>stdint.h<td>UINT16_C(value)<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l95">d</a> <td>UINT32_C<td>stdint.h<td>UINT32_C(value)<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l96">d</a> <td>UINT64_C<td>stdint.h<td>UINT64_C(value)<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l44">d</a> <td>INT8_MIN<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l45">d</a> <td>INT16_MIN<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l46">d</a> <td>INT32_MIN<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l47">d</a> <td>INT64_MIN<td>stdint.h<td>&#160;<td>B.17 Integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l75">d</a> <td>INTMAX_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l98">d</a> <td>INTMAX_C<td>stdint.h<td>INTMAX_C(value)<td>B.17 Integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>INTN_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l49">d</a> <td>INT8_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l50">d</a> <td>INT16_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l51">d</a> <td>INT32_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l52">d</a> <td>INT64_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l76">d</a> <td>UINTMAX_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l99">d</a> <td>UINTMAX_C<td>stdint.h<td>UINTMAX_C(value)<td>B.17 Integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>UINTN_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l54">d</a> <td>UINT8_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l55">d</a> <td>UINT16_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l56">d</a> <td>UINT32_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdint.h#l57">d</a> <td>UINT64_MAX<td>stdint.h<td>&#160;<td>B.17 Integer types
 <tr><td>&#160;<td>&#160;<td>d <td>PTRDIFF_MIN<td>stdint.h<td>&#160;<td>B.17 Integer types
 <tr><td>&#160;<td>&#160;<td>t <td>size_t<td>stdio.h<td>&#160;<td>B.18 Input/output
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdio.h#l38">d</a> <td>_IOLBF<td>stdio.h<td>&#160;<td>B.18 Input/output
@@ -821,4 +971,4 @@
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/wctype.h#l32">p</a> <td>towctrans<td>wctype.h<td>wint_t towctrans(wint_t wc, wctrans_t desc);<td>B.24 Wide character classification and mapping utilities
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/wctype.h#l35">p</a> <td>wctrans<td>wctype.h<td>wctrans_t wctrans(const char *property);<td>B.24 Wide character classification and mapping utilities
 </table>
-<h4>stats</h4><ul><li>missing: 138<li>nosym: 100<li>nodecl: 0</ul>
+<h4>stats</h4><ul><li>missing: 88<li>nosym: 100<li>nodecl: 0</ul>
