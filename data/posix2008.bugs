@@ -1,0 +1,11 @@
+wcrtomb should be declared in <wchar.h> not in <stdio.h>
+see
+http://pubs.opengroup.org/onlinepubs/9699919799/functions/wcrtomb.html
+vs
+http://repo.or.cz/w/c-standard.git/blob_plain/HEAD:/n1256.html#7.24.6.3.3
+
+
+pthread_kill(invalid_value, sig); required to return ESRCH which is not possible
+http://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_kill.html
+
+

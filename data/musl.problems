@@ -38,4 +38,3 @@ proto	setpgid	unistd/setpgid.c	unistd.h	pid_t(pid_t,pid_t)	int(pid_t,pid_t)
 nodecl	sincos	T
 nodecl	start	T
 nodecl	stime	T
-header	wcrtomb	wchar.h	stdio.h
