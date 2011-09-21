@@ -1,49 +1,29 @@
---- data/glibc.sizeof	2011-09-20 18:22:17.000000000 +0200
-+++ data/musl.sizeof	2011-09-20 18:22:17.000000000 +0200
-@@ -78,7 +78,7 @@
- eventfd_t	8
- fd_mask	4
+--- data/glibc.sizeof	2011-09-21 13:50:37.000000000 +0200
++++ data/musl.sizeof	2011-09-21 13:50:37.000000000 +0200
+@@ -82,3 +82,3 @@
  fd_set	128
 -fenv_t	28
 +fenv_t	32
  fexcept_t	2
- fpos_t	16
- fsblkcnt_t	8
-@@ -160,7 +160,7 @@
- pthread_t	4
- ptrdiff_t	4
+@@ -169,3 +169,3 @@
  quad_t	8
 -regex_t	32
 +regex_t	28
  register_t	4
- regmatch_t	8
- regoff_t	4
-@@ -302,8 +302,8 @@
- struct rr_pco_use	32
- struct rr_result	24
+@@ -314,4 +314,4 @@
  struct rtentry	84
 -struct rusage	72
 -struct sched_param	4
 +struct rusage	136
 +struct sched_param	28
  struct sembuf	6
- struct semid_ds	64
- struct seminfo	40
-@@ -319,7 +319,7 @@
- struct sockaddr_in	16
- struct sockaddr_in6	28
+@@ -331,3 +331,3 @@
  struct sockaddr_ll	20
 -struct sockaddr_storage	128
 +struct sockaddr_storage	132
  struct sockaddr_un	110
- struct spwd	36
- struct stat	96
-@@ -332,7 +332,7 @@
- struct strioctl	16
- struct strpeek	28
+@@ -344,3 +344,3 @@
  struct strrecvfd	20
 -struct sysinfo	64
 +struct sysinfo	348
  struct termios	60
- struct timespec	8
- struct timestamp	40

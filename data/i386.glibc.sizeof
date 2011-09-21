@@ -1,4 +1,5 @@
 ACTION	4
+CODE	8
 ENTRY	8
 Elf32_Addr	4
 Elf32_Conflict	4
@@ -57,18 +58,19 @@ Elf_Options	8
 Elf_Options_Hw	8
 HEADER	12
 VISIT	4
+_Bool	1
 __uint16_t	2
 __uint32_t	4
 __uint64_t	8
 blkcnt_t	8
 blksize_t	4
-bool	1
 caddr_t	4
 cc_t	1
 clock_t	4
 clockid_t	4
 dev_t	8
 div_t	8
+double	8
 elf_fpregset_t	108
 elf_fpregset_t	108
 elf_fpxregset_t	512
@@ -80,6 +82,7 @@ fd_mask	4
 fd_set	128
 fenv_t	28
 fexcept_t	2
+float	4
 fpos_t	16
 fsblkcnt_t	8
 fsfilcnt_t	8
@@ -93,6 +96,7 @@ imaxdiv_t	16
 in_addr_t	4
 in_port_t	2
 ino_t	8
+int	4
 int16_t	2
 int32_t	4
 int64_t	8
@@ -112,6 +116,9 @@ key_t	4
 ldiv_t	8
 lldiv_t	16
 locale_t	4
+long	4
+long double	12
+long long	8
 lwpid_t	4
 mbstate_t	8
 mcontext_t	88
@@ -169,6 +176,7 @@ rlim_t	8
 sa_family_t	2
 scrnmap_t	1
 sem_t	16
+short	2
 sig_atomic_t	4
 sighandler_t	4
 siginfo_t	128
@@ -245,6 +253,7 @@ struct ip6_frag	8
 struct ip6_hbh	2
 struct ip6_hdr	40
 struct ip6_hdrctl	8
+struct ip6_mtuinfo	32
 struct ip6_opt	2
 struct ip6_opt_jumbo	6
 struct ip6_opt_nsap	4
@@ -291,6 +300,7 @@ struct nd_router_solicit	8
 struct netent	16
 struct ns_tcp_tsig_state	528
 struct ns_tsig_key	2060
+struct ntptimeval	16
 struct option	16
 struct packet_mreq	16
 struct passwd	28
@@ -394,8 +404,9 @@ union sigval	4
 ushort	2
 va_list	4
 va_list	4
+void*	4
+wchar_t	4
 wctrans_t	4
 wctype_t	4
 wint_t	4
 wordexp_t	12
-wchar_t	4
