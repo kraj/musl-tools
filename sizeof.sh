@@ -35,8 +35,8 @@ sort /tmp/m.header |uniq |awk '
 	{ print "#include <" $0 ">" }' >>sizeof.c
 echo '#define p(x) printf("%s\\t%u\\n", #x, sizeof(x));' >>sizeof.c
 echo 'int main(){' >>sizeof.c
-sort /tmp/m.type |awk '
+sort /tmp/m.type |uniq |awk '
 	/^struct __(CODE|fpstate|ptcb|siginfo|ucontext)$/ ||
-	/^(DIR|FILE)$/ { printf "//" }
+	/^(DIR|FILE|elf_fpxregset_t)$/ { printf "//" }
 	{ print "p(" $0 ")" }' >>sizeof.c
 echo 'return 0;}' >>sizeof.c
