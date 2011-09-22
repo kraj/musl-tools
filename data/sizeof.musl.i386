@@ -72,8 +72,6 @@ dev_t	8
 div_t	8
 double	8
 elf_fpregset_t	108
-elf_fpregset_t	108
-elf_fpxregset_t	512
 elf_greg_t	4
 elf_gregset_t	68
 epoll_data_t	8
@@ -306,6 +304,7 @@ struct packet_mreq	16
 struct passwd	28
 struct pollfd	8
 struct protoent	12
+struct qelem	12
 struct res_sym	12
 struct rlimit	16
 struct rr_pco_match	24
@@ -402,7 +401,6 @@ ulong	4
 union epoll_data	8
 union sigval	4
 ushort	2
-va_list	4
 va_list	4
 void*	4
 wchar_t	4

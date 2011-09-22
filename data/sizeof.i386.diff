@@ -1,28 +1,28 @@
---- data/glibc.sizeof	2011-09-21 13:50:37.000000000 +0200
-+++ data/musl.sizeof	2011-09-21 13:50:37.000000000 +0200
-@@ -82,3 +82,3 @@
+--- sizeof.glibc.i386	2011-09-22 20:07:14.000000000 +0200
++++ sizeof.musl.i386	2011-09-22 20:07:14.000000000 +0200
+@@ -80,3 +80,3 @@
  fd_set	128
 -fenv_t	28
 +fenv_t	32
  fexcept_t	2
-@@ -169,3 +169,3 @@
+@@ -167,3 +167,3 @@
  quad_t	8
 -regex_t	32
 +regex_t	28
  register_t	4
-@@ -314,4 +314,4 @@
+@@ -313,4 +313,4 @@
  struct rtentry	84
 -struct rusage	72
 -struct sched_param	4
 +struct rusage	136
 +struct sched_param	28
  struct sembuf	6
-@@ -331,3 +331,3 @@
+@@ -330,3 +330,3 @@
  struct sockaddr_ll	20
 -struct sockaddr_storage	128
 +struct sockaddr_storage	132
  struct sockaddr_un	110
-@@ -344,3 +344,3 @@
+@@ -343,3 +343,3 @@
  struct strrecvfd	20
 -struct sysinfo	64
 +struct sysinfo	348
