@@ -1,4 +1,3 @@
-proto	__syscall_ret	internal/syscall_ret.c	sys/syscall.h	long(unsigned long)	long(long)
 nodecl	cfmakeraw	T
 nodecl	cfsetspeed	W
 nodecl	clearerr_unlocked	W
@@ -29,12 +28,10 @@ nodecl	putw	T
 nodecl	putwc_unlocked	W
 nodecl	putwchar_unlocked	W
 proto	qsort	stdlib/qsort.c	stdlib.h	void(void*,size_t,size_t,)	void(void*,size_t,size_t,int(*)(const void*,const void*))
-proto	sbrk	linux/sbrk.c	unistd.h	void*(ptrdiff_t)	void*(intptr_t)
 nodecl	scalbf	T
 proto	seed48	prng/seed48.c	stdlib.h	unsigned short*(unsigned short*)	unsigned short*(unsigned short[])
 proto	setgroups	unistd.h	grp.h	int setgroups(size_t, const gid_t []);	int setgroups(size_t, const gid_t *);
 proto	setgroups	linux/setgroups.c	grp.h	int(size_t,const gid_t[])	int(size_t,const gid_t*)
-proto	setpgid	unistd/setpgid.c	unistd.h	pid_t(pid_t,pid_t)	int(pid_t,pid_t)
 nodecl	sincos	T
 nodecl	start	T
 nodecl	stime	T
