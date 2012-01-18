@@ -1,5 +1,5 @@
 <h3>musl vs c99 api</h3>
-<h4>commit</h4><p>commit <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=commit;h=7e14ed1360c65b78c3ad1fc4fafea13e30067478">7e14ed1360c65b78c3ad1fc4fafea13e30067478</a><br>Date:   Mon Sep 26 18:56:56 2011 -0400<br><br>    fix ctype macros to cast argument to (unsigned) first<br>    <br>    issue reported by nsz, but it's actually not just pedantic. the<br>    functions can take input of any arithmetic type, including floating<br>    point, and the behavior needs to be as if the conversion implicit in<br>    the function call took place.
+<h4>commit</h4><p>commit <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=commit;h=2adf2fb372745a406544188029d3f769f71a9f2c">2adf2fb372745a406544188029d3f769f71a9f2c</a><br>Date:   Tue Jan 17 00:34:58 2012 -0500<br><br>    fix char signedness bug in dynlinker hash function<br>    <br>    this only affects non-ascii symbol names, which are probably not in<br>    use anyway..
 <h4>legend</h4><ul><li>status: musl implementation status summary<ul><li>(empty) - implemented<li>nosym - prototype found in include files (see decl) but not in libc.a (see sym)<li>nodecl - symbol is in libc.a but not declared in a public header<li>missing - neither in include files (see decl) nor in libc.a (see sym)</ul><li>sym: external symbol kind as found by `nm libc.a` (symbol kind only reported once)<ul><li>C - symbol is common (uninitialized data)<li>D - symbol is in the initialized data section<li>R - symbol is in the read only data section<li>T - symbol is in the text section<li>V - weak object<li>W - weak symbol</ul><li>decl: kind of declaration as found by `ctags -R include` (every occurance is reported, arch specific definitions are not linked)<ul><li>d - macro definition<li>t - typedef<li>s - struct declaration<li>u - union declaration<li>p - function prototype<li>x - external and forward variable declaration</ul></ul>
 <h4>table</h4><table border=1><tr><th colspan=3>musl<th colspan=4>c99<tr><th>status<th>sym<th>decl<th>name<th>header<th>proto<th>section
 <tr><td>missing<td>&#160;<td>&#160;<td>NDEBUG<td>assert.h<td>&#160;<td>B.1 Diagnostics
@@ -75,20 +75,20 @@
 <tr><td>missing<td>&#160;<td>&#160;<td>creal<td>complex.h<td>double creal(double complex z);<td>B.2 Complex
 <tr><td>missing<td>&#160;<td>&#160;<td>crealf<td>complex.h<td>float crealf(float complex z);<td>B.2 Complex
 <tr><td>missing<td>&#160;<td>&#160;<td>creall<td>complex.h<td>long double creall(long double complex z);<td>B.2 Complex
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l4">p</a> <td>isalnum<td>ctype.h<td>int isalnum(int c);<td>B.3 Character handling
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l19">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l5">p</a> <td>isalpha<td>ctype.h<td>int isalpha(int c);<td>B.3 Character handling
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l6">p</a> <td>isblank<td>ctype.h<td>int isblank(int c);<td>B.3 Character handling
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l7">p</a> <td>iscntrl<td>ctype.h<td>int iscntrl(int c);<td>B.3 Character handling
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l20">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l8">p</a> <td>isdigit<td>ctype.h<td>int isdigit(int c);<td>B.3 Character handling
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l24">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l9">p</a> <td>isgraph<td>ctype.h<td>int isgraph(int c);<td>B.3 Character handling
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l21">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l10">p</a> <td>islower<td>ctype.h<td>int islower(int c);<td>B.3 Character handling
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l23">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l11">p</a> <td>isprint<td>ctype.h<td>int isprint(int c);<td>B.3 Character handling
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l12">p</a> <td>ispunct<td>ctype.h<td>int ispunct(int c);<td>B.3 Character handling
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l13">p</a> <td>isspace<td>ctype.h<td>int isspace(int c);<td>B.3 Character handling
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l22">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l14">p</a> <td>isupper<td>ctype.h<td>int isupper(int c);<td>B.3 Character handling
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l15">p</a> <td>isxdigit<td>ctype.h<td>int isxdigit(int c);<td>B.3 Character handling
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l16">p</a> <td>tolower<td>ctype.h<td>int tolower(int c);<td>B.3 Character handling
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l17">p</a> <td>toupper<td>ctype.h<td>int toupper(int c);<td>B.3 Character handling
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l8">p</a> <td>isalnum<td>ctype.h<td>int isalnum(int c);<td>B.3 Character handling
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l23">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l9">p</a> <td>isalpha<td>ctype.h<td>int isalpha(int c);<td>B.3 Character handling
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l10">p</a> <td>isblank<td>ctype.h<td>int isblank(int c);<td>B.3 Character handling
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l11">p</a> <td>iscntrl<td>ctype.h<td>int iscntrl(int c);<td>B.3 Character handling
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l24">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l12">p</a> <td>isdigit<td>ctype.h<td>int isdigit(int c);<td>B.3 Character handling
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l28">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l13">p</a> <td>isgraph<td>ctype.h<td>int isgraph(int c);<td>B.3 Character handling
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l25">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l14">p</a> <td>islower<td>ctype.h<td>int islower(int c);<td>B.3 Character handling
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l27">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l15">p</a> <td>isprint<td>ctype.h<td>int isprint(int c);<td>B.3 Character handling
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l16">p</a> <td>ispunct<td>ctype.h<td>int ispunct(int c);<td>B.3 Character handling
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l17">p</a> <td>isspace<td>ctype.h<td>int isspace(int c);<td>B.3 Character handling
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l26">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l18">p</a> <td>isupper<td>ctype.h<td>int isupper(int c);<td>B.3 Character handling
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l19">p</a> <td>isxdigit<td>ctype.h<td>int isxdigit(int c);<td>B.3 Character handling
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l20">p</a> <td>tolower<td>ctype.h<td>int tolower(int c);<td>B.3 Character handling
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/ctype.h#l21">p</a> <td>toupper<td>ctype.h<td>int toupper(int c);<td>B.3 Character handling
 <tr><td>&#160;<td>&#160;<td>d <td>EDOM<td>errno.h<td>&#160;<td>B.4 Errors
 <tr><td>&#160;<td>&#160;<td>d <td>EILSEQ<td>errno.h<td>&#160;<td>B.4 Errors
 <tr><td>&#160;<td>&#160;<td>d <td>ERANGE<td>errno.h<td>&#160;<td>B.4 Errors
@@ -350,208 +350,208 @@
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/locale.h#l52">p</a> <td>setlocale<td>locale.h<td>char *setlocale(int category, const char *locale);<td>B.10 Localization
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/locale.h#l53">p</a> <td>localeconv<td>locale.h<td>struct lconv *localeconv(void);<td>B.10 Localization
 <tr><td>missing<td>&#160;<td>&#160;<td>float_t<td>math.h<td>&#160;<td>B.11 Mathematics
-<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l28">d</a> <td>FP_INFINITE<td>math.h<td>&#160;<td>B.11 Mathematics
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l32">d</a> <td>FP_INFINITE<td>math.h<td>&#160;<td>B.11 Mathematics
 <tr><td>missing<td>&#160;<td>&#160;<td>FP_FAST_FMAL<td>math.h<td>&#160;<td>B.11 Mathematics
 <tr><td>missing<td>&#160;<td>&#160;<td>double_t<td>math.h<td>&#160;<td>B.11 Mathematics
-<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l27">d</a> <td>FP_NAN<td>math.h<td>&#160;<td>B.11 Mathematics
-<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l25">d</a> <td>FP_ILOGB0<td>math.h<td>&#160;<td>B.11 Mathematics
-<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l15">d</a> <td>HUGE_VAL<td>math.h<td>&#160;<td>B.11 Mathematics
-<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l31">d</a> <td>FP_NORMAL<td>math.h<td>&#160;<td>B.11 Mathematics
-<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l24">d</a> <td>FP_ILOGBNAN<td>math.h<td>&#160;<td>B.11 Mathematics
-<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l14">d</a> <td>HUGE_VALF<td>math.h<td>&#160;<td>B.11 Mathematics
-<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l30">d</a> <td>FP_SUBNORMAL<td>math.h<td>&#160;<td>B.11 Mathematics
-<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l20">d</a> <td>MATH_ERRNO<td>math.h<td>&#160;<td>B.11 Mathematics
-<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l16">d</a> <td>HUGE_VALL<td>math.h<td>&#160;<td>B.11 Mathematics
-<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l29">d</a> <td>FP_ZERO<td>math.h<td>&#160;<td>B.11 Mathematics
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l31">d</a> <td>FP_NAN<td>math.h<td>&#160;<td>B.11 Mathematics
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l29">d</a> <td>FP_ILOGB0<td>math.h<td>&#160;<td>B.11 Mathematics
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l19">d</a> <td>HUGE_VAL<td>math.h<td>&#160;<td>B.11 Mathematics
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l35">d</a> <td>FP_NORMAL<td>math.h<td>&#160;<td>B.11 Mathematics
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l28">d</a> <td>FP_ILOGBNAN<td>math.h<td>&#160;<td>B.11 Mathematics
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l18">d</a> <td>HUGE_VALF<td>math.h<td>&#160;<td>B.11 Mathematics
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l34">d</a> <td>FP_SUBNORMAL<td>math.h<td>&#160;<td>B.11 Mathematics
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l24">d</a> <td>MATH_ERRNO<td>math.h<td>&#160;<td>B.11 Mathematics
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l20">d</a> <td>HUGE_VALL<td>math.h<td>&#160;<td>B.11 Mathematics
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l33">d</a> <td>FP_ZERO<td>math.h<td>&#160;<td>B.11 Mathematics
 <tr><td>missing<td>&#160;<td>&#160;<td>MATH_ERREXCEPT<td>math.h<td>&#160;<td>B.11 Mathematics
-<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l12">d</a> <td>INFINITY<td>math.h<td>&#160;<td>B.11 Mathematics
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l16">d</a> <td>INFINITY<td>math.h<td>&#160;<td>B.11 Mathematics
 <tr><td>missing<td>&#160;<td>&#160;<td>FP_FAST_FMA<td>math.h<td>&#160;<td>B.11 Mathematics
-<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l22">d</a> <td>math_errhandling<td>math.h<td>&#160;<td>B.11 Mathematics
-<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l11">d</a> <td>NAN<td>math.h<td>&#160;<td>B.11 Mathematics
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l26">d</a> <td>math_errhandling<td>math.h<td>&#160;<td>B.11 Mathematics
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l15">d</a> <td>NAN<td>math.h<td>&#160;<td>B.11 Mathematics
 <tr><td>missing<td>&#160;<td>&#160;<td>FP_FAST_FMAF<td>math.h<td>&#160;<td>B.11 Mathematics
-<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l37">d</a> <td>fpclassify<td>math.h<td>int fpclassify(real-floating x);<td>B.11 Mathematics
-<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l45">d</a> <td>isfinite<td>math.h<td>int isfinite(real-floating x);<td>B.11 Mathematics
-<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l42">d</a> <td>isinf<td>math.h<td>int isinf(real-floating x);<td>B.11 Mathematics
-<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l43">d</a> <td>isnan<td>math.h<td>int isnan(real-floating x);<td>B.11 Mathematics
-<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l44">d</a> <td>isnormal<td>math.h<td>int isnormal(real-floating x);<td>B.11 Mathematics
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l41">d</a> <td>fpclassify<td>math.h<td>int fpclassify(real-floating x);<td>B.11 Mathematics
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l49">d</a> <td>isfinite<td>math.h<td>int isfinite(real-floating x);<td>B.11 Mathematics
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l46">d</a> <td>isinf<td>math.h<td>int isinf(real-floating x);<td>B.11 Mathematics
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l47">d</a> <td>isnan<td>math.h<td>int isnan(real-floating x);<td>B.11 Mathematics
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l48">d</a> <td>isnormal<td>math.h<td>int isnormal(real-floating x);<td>B.11 Mathematics
 <tr><td>missing<td>&#160;<td>&#160;<td>signbit<td>math.h<td>int signbit(real-floating x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l65">p</a> <td>acos<td>math.h<td>double acos(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l66">p</a> <td>acosf<td>math.h<td>float acosf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l67">p</a> <td>acosl<td>math.h<td>long double acosl(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l73">p</a> <td>asin<td>math.h<td>double asin(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l74">p</a> <td>asinf<td>math.h<td>float asinf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l75">p</a> <td>asinl<td>math.h<td>long double asinl(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l81">p</a> <td>atan<td>math.h<td>double atan(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l82">p</a> <td>atanf<td>math.h<td>float atanf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l83">p</a> <td>atanl<td>math.h<td>long double atanl(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l85">p</a> <td>atan2<td>math.h<td>double atan2(double y, double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l86">p</a> <td>atan2f<td>math.h<td>float atan2f(float y, float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l87">p</a> <td>atan2l<td>math.h<td>long double atan2l(long double y, long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l105">p</a> <td>cos<td>math.h<td>double cos(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l106">p</a> <td>cosf<td>math.h<td>float cosf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l107">p</a> <td>cosl<td>math.h<td>long double cosl(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l265">p</a> <td>sin<td>math.h<td>double sin(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l266">p</a> <td>sinf<td>math.h<td>float sinf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l267">p</a> <td>sinl<td>math.h<td>long double sinl(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l277">p</a> <td>tan<td>math.h<td>double tan(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l278">p</a> <td>tanf<td>math.h<td>float tanf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l279">p</a> <td>tanl<td>math.h<td>long double tanl(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l69">p</a> <td>acosh<td>math.h<td>double acosh(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l70">p</a> <td>acoshf<td>math.h<td>float acoshf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l71">p</a> <td>acoshl<td>math.h<td>long double acoshl(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l77">p</a> <td>asinh<td>math.h<td>double asinh(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l78">p</a> <td>asinhf<td>math.h<td>float asinhf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l79">p</a> <td>asinhl<td>math.h<td>long double asinhl(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l89">p</a> <td>atanh<td>math.h<td>double atanh(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l90">p</a> <td>atanhf<td>math.h<td>float atanhf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l91">p</a> <td>atanhl<td>math.h<td>long double atanhl(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l109">p</a> <td>cosh<td>math.h<td>double cosh(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l110">p</a> <td>coshf<td>math.h<td>float coshf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l111">p</a> <td>coshl<td>math.h<td>long double coshl(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l269">p</a> <td>sinh<td>math.h<td>double sinh(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l270">p</a> <td>sinhf<td>math.h<td>float sinhf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l271">p</a> <td>sinhl<td>math.h<td>long double sinhl(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l281">p</a> <td>tanh<td>math.h<td>double tanh(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l282">p</a> <td>tanhf<td>math.h<td>float tanhf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l283">p</a> <td>tanhl<td>math.h<td>long double tanhl(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l121">p</a> <td>exp<td>math.h<td>double exp(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l122">p</a> <td>expf<td>math.h<td>float expf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l123">p</a> <td>expl<td>math.h<td>long double expl(long double x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l125">p</a> <td>exp2<td>math.h<td>double exp2(double x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l126">p</a> <td>exp2f<td>math.h<td>float exp2f(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l127">p</a> <td>exp2l<td>math.h<td>long double exp2l(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l129">p</a> <td>expm1<td>math.h<td>double expm1(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l130">p</a> <td>expm1f<td>math.h<td>float expm1f(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l131">p</a> <td>expm1l<td>math.h<td>long double expm1l(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l161">p</a> <td>frexp<td>math.h<td>double frexp(double value, int *exp);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l162">p</a> <td>frexpf<td>math.h<td>float frexpf(float value, int *exp);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l163">p</a> <td>frexpl<td>math.h<td>long double frexpl(long double value, int *exp);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l169">p</a> <td>ilogb<td>math.h<td>int ilogb(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l170">p</a> <td>ilogbf<td>math.h<td>int ilogbf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l171">p</a> <td>ilogbl<td>math.h<td>int ilogbl(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l173">p</a> <td>ldexp<td>math.h<td>double ldexp(double x, int exp);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l174">p</a> <td>ldexpf<td>math.h<td>float ldexpf(float x, int exp);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l175">p</a> <td>ldexpl<td>math.h<td>long double ldexpl(long double x, int exp);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l189">p</a> <td>log<td>math.h<td>double log(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l190">p</a> <td>logf<td>math.h<td>float logf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l191">p</a> <td>logl<td>math.h<td>long double logl(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l193">p</a> <td>log10<td>math.h<td>double log10(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l194">p</a> <td>log10f<td>math.h<td>float log10f(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l195">p</a> <td>log10l<td>math.h<td>long double log10l(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l197">p</a> <td>log1p<td>math.h<td>double log1p(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l198">p</a> <td>log1pf<td>math.h<td>float log1pf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l199">p</a> <td>log1pl<td>math.h<td>long double log1pl(long double x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l201">p</a> <td>log2<td>math.h<td>double log2(double x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l202">p</a> <td>log2f<td>math.h<td>float log2f(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l203">p</a> <td>log2l<td>math.h<td>long double log2l(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l205">p</a> <td>logb<td>math.h<td>double logb(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l206">p</a> <td>logbf<td>math.h<td>float logbf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l207">p</a> <td>logbl<td>math.h<td>long double logbl(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l217">p</a> <td>modf<td>math.h<td>double modf(double value, double *iptr);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l218">p</a> <td>modff<td>math.h<td>float modff(float value, float *iptr);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l219">p</a> <td>modfl<td>math.h<td>long double modfl(long double value, long double *iptr);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l261">p</a> <td>scalbn<td>math.h<td>double scalbn(double x, int n);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l262">p</a> <td>scalbnf<td>math.h<td>float scalbnf(float x, int n);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l263">p</a> <td>scalbnl<td>math.h<td>long double scalbnl(long double x, int n);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l257">p</a> <td>scalbln<td>math.h<td>double scalbln(double x, long int n);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l258">p</a> <td>scalblnf<td>math.h<td>float scalblnf(float x, long int n);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l259">p</a> <td>scalblnl<td>math.h<td>long double scalblnl(long double x, long int n);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l93">p</a> <td>cbrt<td>math.h<td>double cbrt(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l94">p</a> <td>cbrtf<td>math.h<td>float cbrtf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l95">p</a> <td>cbrtl<td>math.h<td>long double cbrtl(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l133">p</a> <td>fabs<td>math.h<td>double fabs(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l134">p</a> <td>fabsf<td>math.h<td>float fabsf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l135">p</a> <td>fabsl<td>math.h<td>long double fabsl(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l165">p</a> <td>hypot<td>math.h<td>double hypot(double x, double y);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l166">p</a> <td>hypotf<td>math.h<td>float hypotf(float x, float y);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l167">p</a> <td>hypotl<td>math.h<td>long double hypotl(long double x, long double y);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l237">p</a> <td>pow<td>math.h<td>double pow(double x, double y);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l238">p</a> <td>powf<td>math.h<td>float powf(float x, float y);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l239">p</a> <td>powl<td>math.h<td>long double powl(long double x, long double y);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l273">p</a> <td>sqrt<td>math.h<td>double sqrt(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l274">p</a> <td>sqrtf<td>math.h<td>float sqrtf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l275">p</a> <td>sqrtl<td>math.h<td>long double sqrtl(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l113">p</a> <td>erf<td>math.h<td>double erf(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l114">p</a> <td>erff<td>math.h<td>float erff(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l115">p</a> <td>erfl<td>math.h<td>long double erfl(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l117">p</a> <td>erfc<td>math.h<td>double erfc(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l118">p</a> <td>erfcf<td>math.h<td>float erfcf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l119">p</a> <td>erfcl<td>math.h<td>long double erfcl(long double x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l177">p</a> <td>lgamma<td>math.h<td>double lgamma(double x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l178">p</a> <td>lgammaf<td>math.h<td>float lgammaf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l179">p</a> <td>lgammal<td>math.h<td>long double lgammal(long double x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l285">p</a> <td>tgamma<td>math.h<td>double tgamma(double x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l286">p</a> <td>tgammaf<td>math.h<td>float tgammaf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l287">p</a> <td>tgammal<td>math.h<td>long double tgammal(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l97">p</a> <td>ceil<td>math.h<td>double ceil(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l98">p</a> <td>ceilf<td>math.h<td>float ceilf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l99">p</a> <td>ceill<td>math.h<td>long double ceill(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l141">p</a> <td>floor<td>math.h<td>double floor(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l142">p</a> <td>floorf<td>math.h<td>float floorf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l143">p</a> <td>floorl<td>math.h<td>long double floorl(long double x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l225">p</a> <td>nearbyint<td>math.h<td>double nearbyint(double x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l226">p</a> <td>nearbyintf<td>math.h<td>float nearbyintf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l227">p</a> <td>nearbyintl<td>math.h<td>long double nearbyintl(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l249">p</a> <td>rint<td>math.h<td>double rint(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l250">p</a> <td>rintf<td>math.h<td>float rintf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l251">p</a> <td>rintl<td>math.h<td>long double rintl(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l209">p</a> <td>lrint<td>math.h<td>long int lrint(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l210">p</a> <td>lrintf<td>math.h<td>long int lrintf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l211">p</a> <td>lrintl<td>math.h<td>long int lrintl(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l181">p</a> <td>llrint<td>math.h<td>long long int llrint(double x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l182">p</a> <td>llrintf<td>math.h<td>long long int llrintf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l183">p</a> <td>llrintl<td>math.h<td>long long int llrintl(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l253">p</a> <td>round<td>math.h<td>double round(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l254">p</a> <td>roundf<td>math.h<td>float roundf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l255">p</a> <td>roundl<td>math.h<td>long double roundl(long double x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l213">p</a> <td>lround<td>math.h<td>long int lround(double x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l214">p</a> <td>lroundf<td>math.h<td>long int lroundf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l215">p</a> <td>lroundl<td>math.h<td>long int lroundl(long double x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l185">p</a> <td>llround<td>math.h<td>long long int llround(double x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l186">p</a> <td>llroundf<td>math.h<td>long long int llroundf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l187">p</a> <td>llroundl<td>math.h<td>long long int llroundl(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l289">p</a> <td>trunc<td>math.h<td>double trunc(double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l290">p</a> <td>truncf<td>math.h<td>float truncf(float x);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l291">p</a> <td>truncl<td>math.h<td>long double truncl(long double x);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l157">p</a> <td>fmod<td>math.h<td>double fmod(double x, double y);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l158">p</a> <td>fmodf<td>math.h<td>float fmodf(float x, float y);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l159">p</a> <td>fmodl<td>math.h<td>long double fmodl(long double x, long double y);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l241">p</a> <td>remainder<td>math.h<td>double remainder(double x, double y);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l242">p</a> <td>remainderf<td>math.h<td>float remainderf(float x, float y);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l243">p</a> <td>remainderl<td>math.h<td>long double remainderl(long double x, long double y);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l245">p</a> <td>remquo<td>math.h<td>double remquo(double x, double y, int *quo);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l246">p</a> <td>remquof<td>math.h<td>float remquof(float x, float y, int *quo);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l247">p</a> <td>remquol<td>math.h<td>long double remquol(long double x, long double y, int *quo);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l101">p</a> <td>copysign<td>math.h<td>double copysign(double x, double y);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l102">p</a> <td>copysignf<td>math.h<td>float copysignf(float x, float y);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l103">p</a> <td>copysignl<td>math.h<td>long double copysignl(long double x, long double y);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l221">p</a> <td>nan<td>math.h<td>double nan(const char *tagp);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l222">p</a> <td>nanf<td>math.h<td>float nanf(const char *tagp);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l223">p</a> <td>nanl<td>math.h<td>long double nanl(const char *tagp);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l229">p</a> <td>nextafter<td>math.h<td>double nextafter(double x, double y);<td>B.11 Mathematics
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l230">p</a> <td>nextafterf<td>math.h<td>float nextafterf(float x, float y);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l231">p</a> <td>nextafterl<td>math.h<td>long double nextafterl(long double x, long double y);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l233">p</a> <td>nexttoward<td>math.h<td>double nexttoward(double x, long double y);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l234">p</a> <td>nexttowardf<td>math.h<td>float nexttowardf(float x, long double y);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l235">p</a> <td>nexttowardl<td>math.h<td>long double nexttowardl(long double x, long double y);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l137">p</a> <td>fdim<td>math.h<td>double fdim(double x, double y);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l138">p</a> <td>fdimf<td>math.h<td>float fdimf(float x, float y);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l139">p</a> <td>fdiml<td>math.h<td>long double fdiml(long double x, long double y);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l149">p</a> <td>fmax<td>math.h<td>double fmax(double x, double y);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l150">p</a> <td>fmaxf<td>math.h<td>float fmaxf(float x, float y);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l151">p</a> <td>fmaxl<td>math.h<td>long double fmaxl(long double x, long double y);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l153">p</a> <td>fmin<td>math.h<td>double fmin(double x, double y);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l154">p</a> <td>fminf<td>math.h<td>float fminf(float x, float y);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l155">p</a> <td>fminl<td>math.h<td>long double fminl(long double x, long double y);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l145">p</a> <td>fma<td>math.h<td>double fma(double x, double y, double z);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l146">p</a> <td>fmaf<td>math.h<td>float fmaf(float x, float y, float z);<td>B.11 Mathematics
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l147">p</a> <td>fmal<td>math.h<td>long double fmal(long double x, long double y, long double z);<td>B.11 Mathematics
-<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l63">d</a> <td>isgreater<td>math.h<td>int isgreater(real-floating x, real-floating y);<td>B.11 Mathematics
-<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l62">d</a> <td>isgreaterequal<td>math.h<td>int isgreaterequal(real-floating x, real-floating y);<td>B.11 Mathematics
-<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l59">d</a> <td>isless<td>math.h<td>int isless(real-floating x, real-floating y);<td>B.11 Mathematics
-<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l60">d</a> <td>islessequal<td>math.h<td>int islessequal(real-floating x, real-floating y);<td>B.11 Mathematics
-<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l61">d</a> <td>islessgreater<td>math.h<td>int islessgreater(real-floating x, real-floating y);<td>B.11 Mathematics
-<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l47">d</a> <td>isunordered<td>math.h<td>int isunordered(real-floating x, real-floating y);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l69">p</a> <td>acos<td>math.h<td>double acos(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l70">p</a> <td>acosf<td>math.h<td>float acosf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l71">p</a> <td>acosl<td>math.h<td>long double acosl(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l77">p</a> <td>asin<td>math.h<td>double asin(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l78">p</a> <td>asinf<td>math.h<td>float asinf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l79">p</a> <td>asinl<td>math.h<td>long double asinl(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l85">p</a> <td>atan<td>math.h<td>double atan(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l86">p</a> <td>atanf<td>math.h<td>float atanf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l87">p</a> <td>atanl<td>math.h<td>long double atanl(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l89">p</a> <td>atan2<td>math.h<td>double atan2(double y, double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l90">p</a> <td>atan2f<td>math.h<td>float atan2f(float y, float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l91">p</a> <td>atan2l<td>math.h<td>long double atan2l(long double y, long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l109">p</a> <td>cos<td>math.h<td>double cos(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l110">p</a> <td>cosf<td>math.h<td>float cosf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l111">p</a> <td>cosl<td>math.h<td>long double cosl(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l269">p</a> <td>sin<td>math.h<td>double sin(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l270">p</a> <td>sinf<td>math.h<td>float sinf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l271">p</a> <td>sinl<td>math.h<td>long double sinl(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l281">p</a> <td>tan<td>math.h<td>double tan(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l282">p</a> <td>tanf<td>math.h<td>float tanf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l283">p</a> <td>tanl<td>math.h<td>long double tanl(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l73">p</a> <td>acosh<td>math.h<td>double acosh(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l74">p</a> <td>acoshf<td>math.h<td>float acoshf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l75">p</a> <td>acoshl<td>math.h<td>long double acoshl(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l81">p</a> <td>asinh<td>math.h<td>double asinh(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l82">p</a> <td>asinhf<td>math.h<td>float asinhf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l83">p</a> <td>asinhl<td>math.h<td>long double asinhl(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l93">p</a> <td>atanh<td>math.h<td>double atanh(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l94">p</a> <td>atanhf<td>math.h<td>float atanhf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l95">p</a> <td>atanhl<td>math.h<td>long double atanhl(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l113">p</a> <td>cosh<td>math.h<td>double cosh(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l114">p</a> <td>coshf<td>math.h<td>float coshf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l115">p</a> <td>coshl<td>math.h<td>long double coshl(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l273">p</a> <td>sinh<td>math.h<td>double sinh(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l274">p</a> <td>sinhf<td>math.h<td>float sinhf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l275">p</a> <td>sinhl<td>math.h<td>long double sinhl(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l285">p</a> <td>tanh<td>math.h<td>double tanh(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l286">p</a> <td>tanhf<td>math.h<td>float tanhf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l287">p</a> <td>tanhl<td>math.h<td>long double tanhl(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l125">p</a> <td>exp<td>math.h<td>double exp(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l126">p</a> <td>expf<td>math.h<td>float expf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l127">p</a> <td>expl<td>math.h<td>long double expl(long double x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l129">p</a> <td>exp2<td>math.h<td>double exp2(double x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l130">p</a> <td>exp2f<td>math.h<td>float exp2f(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l131">p</a> <td>exp2l<td>math.h<td>long double exp2l(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l133">p</a> <td>expm1<td>math.h<td>double expm1(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l134">p</a> <td>expm1f<td>math.h<td>float expm1f(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l135">p</a> <td>expm1l<td>math.h<td>long double expm1l(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l165">p</a> <td>frexp<td>math.h<td>double frexp(double value, int *exp);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l166">p</a> <td>frexpf<td>math.h<td>float frexpf(float value, int *exp);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l167">p</a> <td>frexpl<td>math.h<td>long double frexpl(long double value, int *exp);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l173">p</a> <td>ilogb<td>math.h<td>int ilogb(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l174">p</a> <td>ilogbf<td>math.h<td>int ilogbf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l175">p</a> <td>ilogbl<td>math.h<td>int ilogbl(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l177">p</a> <td>ldexp<td>math.h<td>double ldexp(double x, int exp);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l178">p</a> <td>ldexpf<td>math.h<td>float ldexpf(float x, int exp);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l179">p</a> <td>ldexpl<td>math.h<td>long double ldexpl(long double x, int exp);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l193">p</a> <td>log<td>math.h<td>double log(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l194">p</a> <td>logf<td>math.h<td>float logf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l195">p</a> <td>logl<td>math.h<td>long double logl(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l197">p</a> <td>log10<td>math.h<td>double log10(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l198">p</a> <td>log10f<td>math.h<td>float log10f(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l199">p</a> <td>log10l<td>math.h<td>long double log10l(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l201">p</a> <td>log1p<td>math.h<td>double log1p(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l202">p</a> <td>log1pf<td>math.h<td>float log1pf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l203">p</a> <td>log1pl<td>math.h<td>long double log1pl(long double x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l205">p</a> <td>log2<td>math.h<td>double log2(double x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l206">p</a> <td>log2f<td>math.h<td>float log2f(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l207">p</a> <td>log2l<td>math.h<td>long double log2l(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l209">p</a> <td>logb<td>math.h<td>double logb(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l210">p</a> <td>logbf<td>math.h<td>float logbf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l211">p</a> <td>logbl<td>math.h<td>long double logbl(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l221">p</a> <td>modf<td>math.h<td>double modf(double value, double *iptr);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l222">p</a> <td>modff<td>math.h<td>float modff(float value, float *iptr);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l223">p</a> <td>modfl<td>math.h<td>long double modfl(long double value, long double *iptr);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l265">p</a> <td>scalbn<td>math.h<td>double scalbn(double x, int n);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l266">p</a> <td>scalbnf<td>math.h<td>float scalbnf(float x, int n);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l267">p</a> <td>scalbnl<td>math.h<td>long double scalbnl(long double x, int n);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l261">p</a> <td>scalbln<td>math.h<td>double scalbln(double x, long int n);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l262">p</a> <td>scalblnf<td>math.h<td>float scalblnf(float x, long int n);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l263">p</a> <td>scalblnl<td>math.h<td>long double scalblnl(long double x, long int n);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l97">p</a> <td>cbrt<td>math.h<td>double cbrt(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l98">p</a> <td>cbrtf<td>math.h<td>float cbrtf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l99">p</a> <td>cbrtl<td>math.h<td>long double cbrtl(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l137">p</a> <td>fabs<td>math.h<td>double fabs(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l138">p</a> <td>fabsf<td>math.h<td>float fabsf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l139">p</a> <td>fabsl<td>math.h<td>long double fabsl(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l169">p</a> <td>hypot<td>math.h<td>double hypot(double x, double y);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l170">p</a> <td>hypotf<td>math.h<td>float hypotf(float x, float y);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l171">p</a> <td>hypotl<td>math.h<td>long double hypotl(long double x, long double y);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l241">p</a> <td>pow<td>math.h<td>double pow(double x, double y);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l242">p</a> <td>powf<td>math.h<td>float powf(float x, float y);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l243">p</a> <td>powl<td>math.h<td>long double powl(long double x, long double y);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l277">p</a> <td>sqrt<td>math.h<td>double sqrt(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l278">p</a> <td>sqrtf<td>math.h<td>float sqrtf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l279">p</a> <td>sqrtl<td>math.h<td>long double sqrtl(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l117">p</a> <td>erf<td>math.h<td>double erf(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l118">p</a> <td>erff<td>math.h<td>float erff(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l119">p</a> <td>erfl<td>math.h<td>long double erfl(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l121">p</a> <td>erfc<td>math.h<td>double erfc(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l122">p</a> <td>erfcf<td>math.h<td>float erfcf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l123">p</a> <td>erfcl<td>math.h<td>long double erfcl(long double x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l181">p</a> <td>lgamma<td>math.h<td>double lgamma(double x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l182">p</a> <td>lgammaf<td>math.h<td>float lgammaf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l183">p</a> <td>lgammal<td>math.h<td>long double lgammal(long double x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l289">p</a> <td>tgamma<td>math.h<td>double tgamma(double x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l290">p</a> <td>tgammaf<td>math.h<td>float tgammaf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l291">p</a> <td>tgammal<td>math.h<td>long double tgammal(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l101">p</a> <td>ceil<td>math.h<td>double ceil(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l102">p</a> <td>ceilf<td>math.h<td>float ceilf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l103">p</a> <td>ceill<td>math.h<td>long double ceill(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l145">p</a> <td>floor<td>math.h<td>double floor(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l146">p</a> <td>floorf<td>math.h<td>float floorf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l147">p</a> <td>floorl<td>math.h<td>long double floorl(long double x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l229">p</a> <td>nearbyint<td>math.h<td>double nearbyint(double x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l230">p</a> <td>nearbyintf<td>math.h<td>float nearbyintf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l231">p</a> <td>nearbyintl<td>math.h<td>long double nearbyintl(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l253">p</a> <td>rint<td>math.h<td>double rint(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l254">p</a> <td>rintf<td>math.h<td>float rintf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l255">p</a> <td>rintl<td>math.h<td>long double rintl(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l213">p</a> <td>lrint<td>math.h<td>long int lrint(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l214">p</a> <td>lrintf<td>math.h<td>long int lrintf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l215">p</a> <td>lrintl<td>math.h<td>long int lrintl(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l185">p</a> <td>llrint<td>math.h<td>long long int llrint(double x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l186">p</a> <td>llrintf<td>math.h<td>long long int llrintf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l187">p</a> <td>llrintl<td>math.h<td>long long int llrintl(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l257">p</a> <td>round<td>math.h<td>double round(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l258">p</a> <td>roundf<td>math.h<td>float roundf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l259">p</a> <td>roundl<td>math.h<td>long double roundl(long double x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l217">p</a> <td>lround<td>math.h<td>long int lround(double x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l218">p</a> <td>lroundf<td>math.h<td>long int lroundf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l219">p</a> <td>lroundl<td>math.h<td>long int lroundl(long double x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l189">p</a> <td>llround<td>math.h<td>long long int llround(double x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l190">p</a> <td>llroundf<td>math.h<td>long long int llroundf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l191">p</a> <td>llroundl<td>math.h<td>long long int llroundl(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l293">p</a> <td>trunc<td>math.h<td>double trunc(double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l294">p</a> <td>truncf<td>math.h<td>float truncf(float x);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l295">p</a> <td>truncl<td>math.h<td>long double truncl(long double x);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l161">p</a> <td>fmod<td>math.h<td>double fmod(double x, double y);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l162">p</a> <td>fmodf<td>math.h<td>float fmodf(float x, float y);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l163">p</a> <td>fmodl<td>math.h<td>long double fmodl(long double x, long double y);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l245">p</a> <td>remainder<td>math.h<td>double remainder(double x, double y);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l246">p</a> <td>remainderf<td>math.h<td>float remainderf(float x, float y);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l247">p</a> <td>remainderl<td>math.h<td>long double remainderl(long double x, long double y);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l249">p</a> <td>remquo<td>math.h<td>double remquo(double x, double y, int *quo);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l250">p</a> <td>remquof<td>math.h<td>float remquof(float x, float y, int *quo);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l251">p</a> <td>remquol<td>math.h<td>long double remquol(long double x, long double y, int *quo);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l105">p</a> <td>copysign<td>math.h<td>double copysign(double x, double y);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l106">p</a> <td>copysignf<td>math.h<td>float copysignf(float x, float y);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l107">p</a> <td>copysignl<td>math.h<td>long double copysignl(long double x, long double y);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l225">p</a> <td>nan<td>math.h<td>double nan(const char *tagp);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l226">p</a> <td>nanf<td>math.h<td>float nanf(const char *tagp);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l227">p</a> <td>nanl<td>math.h<td>long double nanl(const char *tagp);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l233">p</a> <td>nextafter<td>math.h<td>double nextafter(double x, double y);<td>B.11 Mathematics
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l234">p</a> <td>nextafterf<td>math.h<td>float nextafterf(float x, float y);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l235">p</a> <td>nextafterl<td>math.h<td>long double nextafterl(long double x, long double y);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l237">p</a> <td>nexttoward<td>math.h<td>double nexttoward(double x, long double y);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l238">p</a> <td>nexttowardf<td>math.h<td>float nexttowardf(float x, long double y);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l239">p</a> <td>nexttowardl<td>math.h<td>long double nexttowardl(long double x, long double y);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l141">p</a> <td>fdim<td>math.h<td>double fdim(double x, double y);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l142">p</a> <td>fdimf<td>math.h<td>float fdimf(float x, float y);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l143">p</a> <td>fdiml<td>math.h<td>long double fdiml(long double x, long double y);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l153">p</a> <td>fmax<td>math.h<td>double fmax(double x, double y);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l154">p</a> <td>fmaxf<td>math.h<td>float fmaxf(float x, float y);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l155">p</a> <td>fmaxl<td>math.h<td>long double fmaxl(long double x, long double y);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l157">p</a> <td>fmin<td>math.h<td>double fmin(double x, double y);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l158">p</a> <td>fminf<td>math.h<td>float fminf(float x, float y);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l159">p</a> <td>fminl<td>math.h<td>long double fminl(long double x, long double y);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l149">p</a> <td>fma<td>math.h<td>double fma(double x, double y, double z);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l150">p</a> <td>fmaf<td>math.h<td>float fmaf(float x, float y, float z);<td>B.11 Mathematics
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l151">p</a> <td>fmal<td>math.h<td>long double fmal(long double x, long double y, long double z);<td>B.11 Mathematics
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l67">d</a> <td>isgreater<td>math.h<td>int isgreater(real-floating x, real-floating y);<td>B.11 Mathematics
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l66">d</a> <td>isgreaterequal<td>math.h<td>int isgreaterequal(real-floating x, real-floating y);<td>B.11 Mathematics
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l63">d</a> <td>isless<td>math.h<td>int isless(real-floating x, real-floating y);<td>B.11 Mathematics
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l64">d</a> <td>islessequal<td>math.h<td>int islessequal(real-floating x, real-floating y);<td>B.11 Mathematics
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l65">d</a> <td>islessgreater<td>math.h<td>int islessgreater(real-floating x, real-floating y);<td>B.11 Mathematics
+<tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l51">d</a> <td>isunordered<td>math.h<td>int isunordered(real-floating x, real-floating y);<td>B.11 Mathematics
 <tr><td>&#160;<td>&#160;<td>t <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/setjmp.h#l15">d</a> <td>jmp_buf<td>setjmp.h<td>&#160;<td>B.12 Nonlocal jumps
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/setjmp.h#l31">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/setjmp.h#l28">p</a> <td>setjmp<td>setjmp.h<td>int setjmp(jmp_buf env);<td>B.12 Nonlocal jumps
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/setjmp.h#l32">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/setjmp.h#l29">p</a> <td>longjmp<td>setjmp.h<td>void longjmp(jmp_buf env, int val);<td>B.12 Nonlocal jumps
@@ -805,65 +805,65 @@
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/string.h#l20">p</a> <td>memset<td>string.h<td>void *memset(void *s, int c, size_t n);<td>B.20 String handling
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/string.h#l47">p</a> <td>strerror<td>string.h<td>char *strerror(int errnum);<td>B.20 String handling
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/string.h#l45">p</a> <td>strlen<td>string.h<td>size_t strlen(const char *s);<td>B.20 String handling
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l65">p</a> <td>acos<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l273">p</a> <td>sqrt<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l157">p</a> <td>fmod<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l229">p</a> <td>nextafter<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l73">p</a> <td>asin<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l133">p</a> <td>fabs<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l161">p</a> <td>frexp<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l233">p</a> <td>nexttoward<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l81">p</a> <td>atan<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l85">p</a> <td>atan2<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l165">p</a> <td>hypot<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l241">p</a> <td>remainder<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l69">p</a> <td>acosh<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l93">p</a> <td>cbrt<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l169">p</a> <td>ilogb<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l245">p</a> <td>remquo<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l77">p</a> <td>asinh<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l97">p</a> <td>ceil<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l173">p</a> <td>ldexp<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l249">p</a> <td>rint<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l89">p</a> <td>atanh<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l101">p</a> <td>copysign<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l177">p</a> <td>lgamma<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l253">p</a> <td>round<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l105">p</a> <td>cos<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l113">p</a> <td>erf<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l181">p</a> <td>llrint<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l261">p</a> <td>scalbn<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l265">p</a> <td>sin<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l117">p</a> <td>erfc<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l185">p</a> <td>llround<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l257">p</a> <td>scalbln<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l277">p</a> <td>tan<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l125">p</a> <td>exp2<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l193">p</a> <td>log10<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l285">p</a> <td>tgamma<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l109">p</a> <td>cosh<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l129">p</a> <td>expm1<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l197">p</a> <td>log1p<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l289">p</a> <td>trunc<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l269">p</a> <td>sinh<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l137">p</a> <td>fdim<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l201">p</a> <td>log2<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l69">p</a> <td>acos<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l277">p</a> <td>sqrt<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l161">p</a> <td>fmod<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l233">p</a> <td>nextafter<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l77">p</a> <td>asin<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l137">p</a> <td>fabs<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l165">p</a> <td>frexp<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l237">p</a> <td>nexttoward<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l85">p</a> <td>atan<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l89">p</a> <td>atan2<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l169">p</a> <td>hypot<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l245">p</a> <td>remainder<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l73">p</a> <td>acosh<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l97">p</a> <td>cbrt<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l173">p</a> <td>ilogb<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l249">p</a> <td>remquo<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l81">p</a> <td>asinh<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l101">p</a> <td>ceil<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l177">p</a> <td>ldexp<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l253">p</a> <td>rint<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l93">p</a> <td>atanh<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l105">p</a> <td>copysign<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l181">p</a> <td>lgamma<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l257">p</a> <td>round<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l109">p</a> <td>cos<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l117">p</a> <td>erf<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l185">p</a> <td>llrint<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l265">p</a> <td>scalbn<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l269">p</a> <td>sin<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l121">p</a> <td>erfc<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l189">p</a> <td>llround<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l261">p</a> <td>scalbln<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l281">p</a> <td>tan<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l129">p</a> <td>exp2<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l197">p</a> <td>log10<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l289">p</a> <td>tgamma<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l113">p</a> <td>cosh<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l133">p</a> <td>expm1<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l201">p</a> <td>log1p<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l293">p</a> <td>trunc<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l273">p</a> <td>sinh<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l141">p</a> <td>fdim<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l205">p</a> <td>log2<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
 <tr><td>missing<td>&#160;<td>&#160;<td>carg<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l281">p</a> <td>tanh<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l141">p</a> <td>floor<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l205">p</a> <td>logb<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l285">p</a> <td>tanh<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l145">p</a> <td>floor<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l209">p</a> <td>logb<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
 <tr><td>missing<td>&#160;<td>&#160;<td>cimag<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l121">p</a> <td>exp<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l145">p</a> <td>fma<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l209">p</a> <td>lrint<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l125">p</a> <td>exp<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l149">p</a> <td>fma<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l213">p</a> <td>lrint<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
 <tr><td>missing<td>&#160;<td>&#160;<td>conj<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l189">p</a> <td>log<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l149">p</a> <td>fmax<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l213">p</a> <td>lround<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l193">p</a> <td>log<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l153">p</a> <td>fmax<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l217">p</a> <td>lround<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
 <tr><td>missing<td>&#160;<td>&#160;<td>cproj<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l237">p</a> <td>pow<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l153">p</a> <td>fmin<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
-<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l225">p</a> <td>nearbyint<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l241">p</a> <td>pow<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l157">p</a> <td>fmin<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
+<tr><td>nosym<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/math.h#l229">p</a> <td>nearbyint<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
 <tr><td>missing<td>&#160;<td>&#160;<td>creal<td>tgmath.h<td>&#160;<td>B.21 Type-generic math
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/locale.h#l10">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/locale.h#l12">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/locale.h#l8">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stddef.h#l4">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stddef.h#l6">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stddef.h#l8">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdio.h#l20">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdio.h#l22">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdio.h#l24">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdlib.h#l10">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdlib.h#l12">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/stdlib.h#l8">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/string.h#l10">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/string.h#l12">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/string.h#l8">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/time.h#l10">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/time.h#l12">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/time.h#l8">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/unistd.h#l19">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/unistd.h#l21">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/unistd.h#l23">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/wchar.h#l22">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/wchar.h#l24">d</a> <a href="http://git.etalabs.net/cgi-bin/gitweb.cgi?p=musl;a=blob;f=include/wchar.h#l26">d</a> <td>NULL<td>time.h<td>&#160;<td>B.22 Date and time
 <tr><td>&#160;<td>&#160;<td>t <td>size_t<td>time.h<td>&#160;<td>B.22 Date and time
