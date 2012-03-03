@@ -1,3 +1,5 @@
+proto	basename	string.h	libgen.h	char *basename();	char *basename(char *);
+proto	basename	string.h	char*()	char*(char*)	char *basename();	char *basename(char *path);
 nodecl	cfmakeraw	T
 nodecl	cfsetspeed	W
 nodecl	clearerr_unlocked	W
