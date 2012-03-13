@@ -2,6 +2,9 @@ proto	basename	string.h	libgen.h	char *basename();	char *basename(char *);
 proto	basename	string.h	char*()	char*(char*)	char *basename();	char *basename(char *path);
 nodecl	cfmakeraw	T
 nodecl	cfsetspeed	W
+proto	cimag	complex/cimag.c	complex.h	double()(double complex)	double(double complex)
+proto	cimagf	complex/cimagf.c	complex.h	float()(float complex)	float(float complex)
+proto	cimagl	complex/cimagl.c	complex.h	long double()(long double complex)	long double(long double complex)
 nodecl	clearerr_unlocked	W
 nodecl	crypt_r	W
 nodecl	daemon	T
@@ -30,7 +33,6 @@ nodecl	putw	T
 nodecl	putwc_unlocked	W
 nodecl	putwchar_unlocked	W
 proto	qsort	stdlib/qsort.c	stdlib.h	void(void*,size_t,size_t,)	void(void*,size_t,size_t,int(*)(const void*,const void*))
-nodecl	scalbf	T
 proto	seed48	prng/seed48.c	stdlib.h	unsigned short*(unsigned short*)	unsigned short*(unsigned short[])
 proto	setgroups	unistd.h	grp.h	int setgroups(size_t, const gid_t []);	int setgroups(size_t, const gid_t *);
 proto	setgroups	linux/setgroups.c	grp.h	int(size_t,const gid_t[])	int(size_t,const gid_t*)
