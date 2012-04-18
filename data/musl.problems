@@ -1,4 +1,3 @@
-nodecl	acos2	T
 proto	basename	string.h	libgen.h	char *basename();	char *basename(char *);
 proto	basename	string.h	char*()	char*(char*)	char *basename();	char *basename(char *path);
 nodecl	cfmakeraw	T
@@ -42,4 +41,3 @@ proto	setgroups	unistd.h	grp.h	int setgroups(size_t, const gid_t []);	int setgro
 proto	setgroups	linux/setgroups.c	grp.h	int(size_t,const gid_t[])	int(size_t,const gid_t*)
 nodecl	start	T
 nodecl	stime	T
-nodecl	trunc2	T
