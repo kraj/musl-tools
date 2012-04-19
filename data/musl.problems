@@ -1,7 +1,5 @@
 proto	basename	string.h	libgen.h	char *basename();	char *basename(char *);
 proto	basename	string.h	char*()	char*(char*)	char *basename();	char *basename(char *path);
-nodecl	cfmakeraw	T
-nodecl	cfsetspeed	W
 proto	cimag	complex/cimag.c	complex.h	double()(double complex)	double(double complex)
 proto	cimagf	complex/cimagf.c	complex.h	float()(float complex)	float(float complex)
 proto	cimagl	complex/cimagl.c	complex.h	long double()(long double complex)	long double(long double complex)
@@ -10,7 +8,6 @@ proto	creal	complex/creal.c	complex.h	double()(double complex)	double(double com
 proto	crealf	complex/crealf.c	complex.h	float()(float complex)	float(float complex)
 proto	creall	complex/creall.c	complex.h	long double()(long double complex)	long double(long double complex)
 nodecl	crypt_r	W
-nodecl	daemon	T
 proto	encrypt	unistd.h	void(char*,int)	void(char[],int)	void encrypt(char *, int);	void encrypt(char block[64], int edflag);
 nodecl	environ	V
 nodecl	feof_unlocked	W
@@ -24,7 +21,6 @@ nodecl	fputws_unlocked	W
 nodecl	fread_unlocked	W
 nodecl	fwrite_unlocked	W
 nodecl	getdents	W
-nodecl	getdomainname	T
 proto	gethostent	network/ent.c	netdb.h	void*()	struct hostent*(void)
 nodecl	getw	T
 nodecl	getwc_unlocked	W
@@ -40,4 +36,3 @@ proto	seed48	prng/seed48.c	stdlib.h	unsigned short*(unsigned short*)	unsigned sh
 proto	setgroups	unistd.h	grp.h	int setgroups(size_t, const gid_t []);	int setgroups(size_t, const gid_t *);
 proto	setgroups	linux/setgroups.c	grp.h	int(size_t,const gid_t[])	int(size_t,const gid_t*)
 nodecl	start	T
-nodecl	stime	T
