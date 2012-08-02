@@ -1,38 +1,35 @@
 proto	basename	string.h	libgen.h	char *basename();	char *basename(char *);
 proto	basename	string.h	char*()	char*(char*)	char *basename();	char *basename(char *path);
+nodecl	capget	T
+nodecl	capset	T
 proto	cimag	complex/cimag.c	complex.h	double()(double complex)	double(double complex)
 proto	cimagf	complex/cimagf.c	complex.h	float()(float complex)	float(float complex)
 proto	cimagl	complex/cimagl.c	complex.h	long double()(long double complex)	long double(long double complex)
-nodecl	clearerr_unlocked	W
 proto	creal	complex/creal.c	complex.h	double()(double complex)	double(double complex)
 proto	crealf	complex/crealf.c	complex.h	float()(float complex)	float(float complex)
 proto	creall	complex/creall.c	complex.h	long double()(long double complex)	long double(long double complex)
-nodecl	crypt_r	W
+nodecl	delete_module	T
 proto	encrypt	unistd.h	void(char*,int)	void(char[],int)	void encrypt(char *, int);	void encrypt(char block[64], int edflag);
-nodecl	environ	V
-nodecl	feof_unlocked	W
-nodecl	ferror_unlocked	W
-nodecl	fflush_unlocked	W
 nodecl	fgetwc_unlocked	W
 nodecl	fgetws_unlocked	W
-nodecl	fileno_unlocked	W
+nodecl	fpurge	W
 nodecl	fputwc_unlocked	W
 nodecl	fputws_unlocked	W
-nodecl	fread_unlocked	W
-nodecl	fwrite_unlocked	W
 nodecl	getdents	W
+nodecl	getdents64	W
 proto	gethostent	network/ent.c	netdb.h	void*()	struct hostent*(void)
-nodecl	getw	T
 nodecl	getwc_unlocked	W
 nodecl	getwchar_unlocked	W
+nodecl	init_module	T
+proto	ioctl	sys/ioctl.h	stropts.h	int ioctl (int, int, ...);	int ioctl(int, int, ...);
+nodecl	linesize	C
 nodecl	pivot_root	T
 proto	poll	poll.h	int(struct pollfd*,nfds_t,int)	int(struct pollfd[],nfds_t,int)	int poll (struct pollfd *, nfds_t, int);	int poll(struct pollfd fds[], nfds_t nfds, int timeout);
 proto	pthread_equal	thread/pthread_equal.c	pthread.h	int()(pthread_t,pthread_t)	int(pthread_t,pthread_t)
-nodecl	putw	T
 nodecl	putwc_unlocked	W
 nodecl	putwchar_unlocked	W
 proto	qsort	stdlib/qsort.c	stdlib.h	void(void*,size_t,size_t,)	void(void*,size_t,size_t,int(*)(const void*,const void*))
 proto	seed48	prng/seed48.c	stdlib.h	unsigned short*(unsigned short*)	unsigned short*(unsigned short[])
 proto	setgroups	unistd.h	grp.h	int setgroups(size_t, const gid_t []);	int setgroups(size_t, const gid_t *);
 proto	setgroups	linux/setgroups.c	grp.h	int(size_t,const gid_t[])	int(size_t,const gid_t*)
-nodecl	start	T
+proto	wcwidth	ctype/wcwidth.c	wchar.h	int(wint_t)	int(wchar_t)
