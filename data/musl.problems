@@ -22,7 +22,6 @@ nodecl	getwc_unlocked	W
 nodecl	getwchar_unlocked	W
 nodecl	init_module	T
 proto	ioctl	sys/ioctl.h	stropts.h	int ioctl (int, int, ...);	int ioctl(int, int, ...);
-nodecl	linesize	C
 nodecl	pivot_root	T
 proto	poll	poll.h	int(struct pollfd*,nfds_t,int)	int(struct pollfd[],nfds_t,int)	int poll (struct pollfd *, nfds_t, int);	int poll(struct pollfd fds[], nfds_t nfds, int timeout);
 proto	pthread_equal	thread/pthread_equal.c	pthread.h	int()(pthread_t,pthread_t)	int(pthread_t,pthread_t)
@@ -32,4 +31,3 @@ proto	qsort	stdlib/qsort.c	stdlib.h	void(void*,size_t,size_t,)	void(void*,size_t
 proto	seed48	prng/seed48.c	stdlib.h	unsigned short*(unsigned short*)	unsigned short*(unsigned short[])
 proto	setgroups	unistd.h	grp.h	int setgroups(size_t, const gid_t []);	int setgroups(size_t, const gid_t *);
 proto	setgroups	linux/setgroups.c	grp.h	int(size_t,const gid_t[])	int(size_t,const gid_t*)
-proto	wcwidth	ctype/wcwidth.c	wchar.h	int(wint_t)	int(wchar_t)
