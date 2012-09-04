@@ -926,7 +926,7 @@ wcsxfrm	size_t wcsxfrm(wchar_t * restrict s1, const wchar_t * restrict s2, size_
 wmemcmp	int wmemcmp(const wchar_t *s1, const wchar_t *s2, size_t n);	wchar.h	B.23 Extended multibyte/wide character utilities
 wcschr	wchar_t *wcschr(const wchar_t *s, wchar_t c);	wchar.h	B.23 Extended multibyte/wide character utilities
 wcscspn	size_t wcscspn(const wchar_t *s1, const wchar_t *s2);	wchar.h	B.23 Extended multibyte/wide character utilities
-wcspbrk	wchar_t *wcspbrk(const wchar_t *s1, const wchar_t *s2); 	wchar.h	B.23 Extended multibyte/wide character utilities
+wcspbrk	wchar_t *wcspbrk(const wchar_t *s1, const wchar_t *s2);	wchar.h	B.23 Extended multibyte/wide character utilities
 wcsrchr	wchar_t *wcsrchr(const wchar_t *s, wchar_t c);	wchar.h	B.23 Extended multibyte/wide character utilities
 wcsspn	size_t wcsspn(const wchar_t *s1, const wchar_t *s2);	wchar.h	B.23 Extended multibyte/wide character utilities
 wcsstr	wchar_t *wcsstr(const wchar_t *s1, const wchar_t *s2);	wchar.h	B.23 Extended multibyte/wide character utilities
