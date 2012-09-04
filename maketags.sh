@@ -6,6 +6,9 @@ MUSL=${MUSL:-../musl}
 (
 	cd $MUSL/include
 	ctags -f /tmp/musl.tags -R -n -u --language-force=c --c-kinds=pxdstuv --fields=k --exclude='*.sh' .
+
+	# fix wchar_t bug of ctags
+	awk '/typedef.* wchar_t/{print "wchar_t\tbits/alltypes.h\t" NR ";\"\tt"}' bits/alltypes.h >>/tmp/musl.tags
 )
 
 awk -v inc=$MUSL/include/ '

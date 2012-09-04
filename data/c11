@@ -1,0 +1,1202 @@
+static_assert		assert.h	B.1 Diagnostics
+assert	void assert(scalar expression);	assert.h	B.1 Diagnostics
+imaginary		complex.h	B.2 Complex
+complex		complex.h	B.2 Complex
+_Imaginary_I		complex.h	B.2 Complex
+_Complex_I		complex.h	B.2 Complex
+I		complex.h	B.2 Complex
+cacos	double complex cacos(double complex z);	complex.h	B.2 Complex
+cacosf	float complex cacosf(float complex z);	complex.h	B.2 Complex
+cacosl	long double complex cacosl(long double complex z);	complex.h	B.2 Complex
+casin	double complex casin(double complex z);	complex.h	B.2 Complex
+casinf	float complex casinf(float complex z);	complex.h	B.2 Complex
+casinl	long double complex casinl(long double complex z);	complex.h	B.2 Complex
+catan	double complex catan(double complex z);	complex.h	B.2 Complex
+catanf	float complex catanf(float complex z);	complex.h	B.2 Complex
+catanl	long double complex catanl(long double complex z);	complex.h	B.2 Complex
+ccos	double complex ccos(double complex z);	complex.h	B.2 Complex
+ccosf	float complex ccosf(float complex z);	complex.h	B.2 Complex
+ccosl	long double complex ccosl(long double complex z);	complex.h	B.2 Complex
+csin	double complex csin(double complex z);	complex.h	B.2 Complex
+csinf	float complex csinf(float complex z);	complex.h	B.2 Complex
+csinl	long double complex csinl(long double complex z);	complex.h	B.2 Complex
+ctan	double complex ctan(double complex z);	complex.h	B.2 Complex
+ctanf	float complex ctanf(float complex z);	complex.h	B.2 Complex
+ctanl	long double complex ctanl(long double complex z);	complex.h	B.2 Complex
+cacosh	double complex cacosh(double complex z);	complex.h	B.2 Complex
+cacoshf	float complex cacoshf(float complex z);	complex.h	B.2 Complex
+cacoshl	long double complex cacoshl(long double complex z);	complex.h	B.2 Complex
+casinh	double complex casinh(double complex z);	complex.h	B.2 Complex
+casinhf	float complex casinhf(float complex z);	complex.h	B.2 Complex
+casinhl	long double complex casinhl(long double complex z);	complex.h	B.2 Complex
+catanh	double complex catanh(double complex z);	complex.h	B.2 Complex
+catanhf	float complex catanhf(float complex z);	complex.h	B.2 Complex
+catanhl	long double complex catanhl(long double complex z);	complex.h	B.2 Complex
+ccosh	double complex ccosh(double complex z);	complex.h	B.2 Complex
+ccoshf	float complex ccoshf(float complex z);	complex.h	B.2 Complex
+ccoshl	long double complex ccoshl(long double complex z);	complex.h	B.2 Complex
+csinh	double complex csinh(double complex z);	complex.h	B.2 Complex
+csinhf	float complex csinhf(float complex z);	complex.h	B.2 Complex
+csinhl	long double complex csinhl(long double complex z);	complex.h	B.2 Complex
+ctanh	double complex ctanh(double complex z);	complex.h	B.2 Complex
+ctanhf	float complex ctanhf(float complex z);	complex.h	B.2 Complex
+ctanhl	long double complex ctanhl(long double complex z);	complex.h	B.2 Complex
+cexp	double complex cexp(double complex z);	complex.h	B.2 Complex
+cexpf	float complex cexpf(float complex z);	complex.h	B.2 Complex
+cexpl	long double complex cexpl(long double complex z);	complex.h	B.2 Complex
+clog	double complex clog(double complex z);	complex.h	B.2 Complex
+clogf	float complex clogf(float complex z);	complex.h	B.2 Complex
+clogl	long double complex clogl(long double complex z);	complex.h	B.2 Complex
+cabs	double cabs(double complex z);	complex.h	B.2 Complex
+cabsf	float cabsf(float complex z);	complex.h	B.2 Complex
+cabsl	long double cabsl(long double complex z);	complex.h	B.2 Complex
+cpow	double complex cpow(double complex x, double complex y);	complex.h	B.2 Complex
+cpowf	float complex cpowf(float complex x, float complex y);	complex.h	B.2 Complex
+cpowl	long double complex cpowl(long double complex x, long double complex y);	complex.h	B.2 Complex
+csqrt	double complex csqrt(double complex z);	complex.h	B.2 Complex
+csqrtf	float complex csqrtf(float complex z);	complex.h	B.2 Complex
+csqrtl	long double complex csqrtl(long double complex z);	complex.h	B.2 Complex
+carg	double carg(double complex z);	complex.h	B.2 Complex
+cargf	float cargf(float complex z);	complex.h	B.2 Complex
+cargl	long double cargl(long double complex z);	complex.h	B.2 Complex
+cimag	double cimag(double complex z);	complex.h	B.2 Complex
+cimagf	float cimagf(float complex z);	complex.h	B.2 Complex
+cimagl	long double cimagl(long double complex z);	complex.h	B.2 Complex
+CMPLX	double complex CMPLX(double x, double y);	complex.h	B.2 Complex
+CMPLXF	float complex CMPLXF(float x, float y);	complex.h	B.2 Complex
+CMPLXL	long double complex CMPLXL(long double x, long double y);	complex.h	B.2 Complex
+conj	double complex conj(double complex z);	complex.h	B.2 Complex
+conjf	float complex conjf(float complex z);	complex.h	B.2 Complex
+conjl	long double complex conjl(long double complex z);	complex.h	B.2 Complex
+cproj	double complex cproj(double complex z);	complex.h	B.2 Complex
+cprojf	float complex cprojf(float complex z);	complex.h	B.2 Complex
+cprojl	long double complex cprojl(long double complex z);	complex.h	B.2 Complex
+creal	double creal(double complex z);	complex.h	B.2 Complex
+crealf	float crealf(float complex z);	complex.h	B.2 Complex
+creall	long double creall(long double complex z);	complex.h	B.2 Complex
+isalnum	int isalnum(int c);	ctype.h	B.3 Character handling
+isalpha	int isalpha(int c);	ctype.h	B.3 Character handling
+isblank	int isblank(int c);	ctype.h	B.3 Character handling
+iscntrl	int iscntrl(int c);	ctype.h	B.3 Character handling
+isdigit	int isdigit(int c);	ctype.h	B.3 Character handling
+isgraph	int isgraph(int c);	ctype.h	B.3 Character handling
+islower	int islower(int c);	ctype.h	B.3 Character handling
+isprint	int isprint(int c);	ctype.h	B.3 Character handling
+ispunct	int ispunct(int c);	ctype.h	B.3 Character handling
+isspace	int isspace(int c);	ctype.h	B.3 Character handling
+isupper	int isupper(int c);	ctype.h	B.3 Character handling
+isxdigit	int isxdigit(int c);	ctype.h	B.3 Character handling
+tolower	int tolower(int c);	ctype.h	B.3 Character handling
+toupper	int toupper(int c);	ctype.h	B.3 Character handling
+EDOM		errno.h	B.4 Errors
+EILSEQ		errno.h	B.4 Errors
+ERANGE		errno.h	B.4 Errors
+errno		errno.h	B.4 Errors
+errno_t		errno.h	B.4 Errors
+fenv_t		fenv.h	B.5 Floating-point environment
+FE_OVERFLOW		fenv.h	B.5 Floating-point environment
+FE_TOWARDZERO		fenv.h	B.5 Floating-point environment
+fexcept_t		fenv.h	B.5 Floating-point environment
+FE_UNDERFLOW		fenv.h	B.5 Floating-point environment
+FE_UPWARD		fenv.h	B.5 Floating-point environment
+FE_DIVBYZERO		fenv.h	B.5 Floating-point environment
+FE_ALL_EXCEPT		fenv.h	B.5 Floating-point environment
+FE_DFL_ENV		fenv.h	B.5 Floating-point environment
+FE_INEXACT		fenv.h	B.5 Floating-point environment
+FE_DOWNWARD		fenv.h	B.5 Floating-point environment
+FE_INVALID		fenv.h	B.5 Floating-point environment
+FE_TONEAREST		fenv.h	B.5 Floating-point environment
+feclearexcept	int feclearexcept(int excepts);	fenv.h	B.5 Floating-point environment
+fegetexceptflag	int fegetexceptflag(fexcept_t *flagp, int excepts);	fenv.h	B.5 Floating-point environment
+feraiseexcept	int feraiseexcept(int excepts);	fenv.h	B.5 Floating-point environment
+fesetexceptflag	int fesetexceptflag(const fexcept_t *flagp, int excepts);	fenv.h	B.5 Floating-point environment
+fetestexcept	int fetestexcept(int excepts);	fenv.h	B.5 Floating-point environment
+fegetround	int fegetround(void);	fenv.h	B.5 Floating-point environment
+fesetround	int fesetround(int round);	fenv.h	B.5 Floating-point environment
+fegetenv	int fegetenv(fenv_t *envp);	fenv.h	B.5 Floating-point environment
+feholdexcept	int feholdexcept(fenv_t *envp);	fenv.h	B.5 Floating-point environment
+fesetenv	int fesetenv(const fenv_t *envp);	fenv.h	B.5 Floating-point environment
+feupdateenv	int feupdateenv(const fenv_t *envp);	fenv.h	B.5 Floating-point environment
+FLT_ROUNDS		float.h	B.6 Characteristics of floating types
+DBL_DIG		float.h	B.6 Characteristics of floating types
+FLT_MAX		float.h	B.6 Characteristics of floating types
+FLT_EVAL_METHOD		float.h	B.6 Characteristics of floating types
+LDBL_DIG		float.h	B.6 Characteristics of floating types
+DBL_MAX		float.h	B.6 Characteristics of floating types
+FLT_HAS_SUBNORM		float.h	B.6 Characteristics of floating types
+FLT_MIN_EXP		float.h	B.6 Characteristics of floating types
+LDBL_MAX		float.h	B.6 Characteristics of floating types
+DBL_HAS_SUBNORM		float.h	B.6 Characteristics of floating types
+DBL_MIN_EXP		float.h	B.6 Characteristics of floating types
+FLT_EPSILON		float.h	B.6 Characteristics of floating types
+LDBL_HAS_SUBNORM		float.h	B.6 Characteristics of floating types
+LDBL_MIN_EXP		float.h	B.6 Characteristics of floating types
+DBL_EPSILON		float.h	B.6 Characteristics of floating types
+FLT_RADIX		float.h	B.6 Characteristics of floating types
+FLT_MIN_10_EXP		float.h	B.6 Characteristics of floating types
+LDBL_EPSILON		float.h	B.6 Characteristics of floating types
+FLT_MANT_DIG		float.h	B.6 Characteristics of floating types
+DBL_MIN_10_EXP		float.h	B.6 Characteristics of floating types
+FLT_MIN		float.h	B.6 Characteristics of floating types
+DBL_MANT_DIG		float.h	B.6 Characteristics of floating types
+LDBL_MIN_10_EXP		float.h	B.6 Characteristics of floating types
+DBL_MIN		float.h	B.6 Characteristics of floating types
+LDBL_MANT_DIG		float.h	B.6 Characteristics of floating types
+FLT_MAX_EXP		float.h	B.6 Characteristics of floating types
+LDBL_MIN		float.h	B.6 Characteristics of floating types
+FLT_DECIMAL_DIG		float.h	B.6 Characteristics of floating types
+DBL_MAX_EXP		float.h	B.6 Characteristics of floating types
+FLT_TRUE_MIN		float.h	B.6 Characteristics of floating types
+DBL_DECIMAL_DIG		float.h	B.6 Characteristics of floating types
+LDBL_MAX_EXP		float.h	B.6 Characteristics of floating types
+DBL_TRUE_MIN		float.h	B.6 Characteristics of floating types
+LDBL_DECIMAL_DIG		float.h	B.6 Characteristics of floating types
+FLT_MAX_10_EXP		float.h	B.6 Characteristics of floating types
+LDBL_TRUE_MIN		float.h	B.6 Characteristics of floating types
+DECIMAL_DIG		float.h	B.6 Characteristics of floating types
+DBL_MAX_10_EXP		float.h	B.6 Characteristics of floating types
+FLT_DIG		float.h	B.6 Characteristics of floating types
+LDBL_MAX_10_EXP		float.h	B.6 Characteristics of floating types
+imaxdiv_t		inttypes.h	B.7 Format conversion of integer types
+PRId8		inttypes.h	B.7 Format conversion of integer types
+PRId16		inttypes.h	B.7 Format conversion of integer types
+PRId32		inttypes.h	B.7 Format conversion of integer types
+PRId64		inttypes.h	B.7 Format conversion of integer types
+PRIdLEAST8		inttypes.h	B.7 Format conversion of integer types
+PRIdLEAST16		inttypes.h	B.7 Format conversion of integer types
+PRIdLEAST32		inttypes.h	B.7 Format conversion of integer types
+PRIdLEAST64		inttypes.h	B.7 Format conversion of integer types
+PRIdFAST8		inttypes.h	B.7 Format conversion of integer types
+PRIdFAST16		inttypes.h	B.7 Format conversion of integer types
+PRIdFAST32		inttypes.h	B.7 Format conversion of integer types
+PRIdFAST64		inttypes.h	B.7 Format conversion of integer types
+PRIdMAX		inttypes.h	B.7 Format conversion of integer types
+PRIdPTR		inttypes.h	B.7 Format conversion of integer types
+PRIi8		inttypes.h	B.7 Format conversion of integer types
+PRIi16		inttypes.h	B.7 Format conversion of integer types
+PRIi32		inttypes.h	B.7 Format conversion of integer types
+PRIi64		inttypes.h	B.7 Format conversion of integer types
+PRIiLEAST8		inttypes.h	B.7 Format conversion of integer types
+PRIiLEAST16		inttypes.h	B.7 Format conversion of integer types
+PRIiLEAST32		inttypes.h	B.7 Format conversion of integer types
+PRIiLEAST64		inttypes.h	B.7 Format conversion of integer types
+PRIiFAST8		inttypes.h	B.7 Format conversion of integer types
+PRIiFAST16		inttypes.h	B.7 Format conversion of integer types
+PRIiFAST32		inttypes.h	B.7 Format conversion of integer types
+PRIiFAST64		inttypes.h	B.7 Format conversion of integer types
+PRIiMAX		inttypes.h	B.7 Format conversion of integer types
+PRIiPTR		inttypes.h	B.7 Format conversion of integer types
+PRIo8		inttypes.h	B.7 Format conversion of integer types
+PRIo16		inttypes.h	B.7 Format conversion of integer types
+PRIo32		inttypes.h	B.7 Format conversion of integer types
+PRIo64		inttypes.h	B.7 Format conversion of integer types
+PRIoLEAST8		inttypes.h	B.7 Format conversion of integer types
+PRIoLEAST16		inttypes.h	B.7 Format conversion of integer types
+PRIoLEAST32		inttypes.h	B.7 Format conversion of integer types
+PRIoLEAST64		inttypes.h	B.7 Format conversion of integer types
+PRIoFAST8		inttypes.h	B.7 Format conversion of integer types
+PRIoFAST16		inttypes.h	B.7 Format conversion of integer types
+PRIoFAST32		inttypes.h	B.7 Format conversion of integer types
+PRIoFAST64		inttypes.h	B.7 Format conversion of integer types
+PRIoMAX		inttypes.h	B.7 Format conversion of integer types
+PRIoPTR		inttypes.h	B.7 Format conversion of integer types
+PRIu8		inttypes.h	B.7 Format conversion of integer types
+PRIu16		inttypes.h	B.7 Format conversion of integer types
+PRIu32		inttypes.h	B.7 Format conversion of integer types
+PRIu64		inttypes.h	B.7 Format conversion of integer types
+PRIuLEAST8		inttypes.h	B.7 Format conversion of integer types
+PRIuLEAST16		inttypes.h	B.7 Format conversion of integer types
+PRIuLEAST32		inttypes.h	B.7 Format conversion of integer types
+PRIuLEAST64		inttypes.h	B.7 Format conversion of integer types
+PRIuFAST8		inttypes.h	B.7 Format conversion of integer types
+PRIuFAST16		inttypes.h	B.7 Format conversion of integer types
+PRIuFAST32		inttypes.h	B.7 Format conversion of integer types
+PRIuFAST64		inttypes.h	B.7 Format conversion of integer types
+PRIuMAX		inttypes.h	B.7 Format conversion of integer types
+PRIuPTR		inttypes.h	B.7 Format conversion of integer types
+PRIx8		inttypes.h	B.7 Format conversion of integer types
+PRIx16		inttypes.h	B.7 Format conversion of integer types
+PRIx32		inttypes.h	B.7 Format conversion of integer types
+PRIx64		inttypes.h	B.7 Format conversion of integer types
+PRIxLEAST8		inttypes.h	B.7 Format conversion of integer types
+PRIxLEAST16		inttypes.h	B.7 Format conversion of integer types
+PRIxLEAST32		inttypes.h	B.7 Format conversion of integer types
+PRIxLEAST64		inttypes.h	B.7 Format conversion of integer types
+PRIxFAST8		inttypes.h	B.7 Format conversion of integer types
+PRIxFAST16		inttypes.h	B.7 Format conversion of integer types
+PRIxFAST32		inttypes.h	B.7 Format conversion of integer types
+PRIxFAST64		inttypes.h	B.7 Format conversion of integer types
+PRIxMAX		inttypes.h	B.7 Format conversion of integer types
+PRIxPTR		inttypes.h	B.7 Format conversion of integer types
+PRIX8		inttypes.h	B.7 Format conversion of integer types
+PRIX16		inttypes.h	B.7 Format conversion of integer types
+PRIX32		inttypes.h	B.7 Format conversion of integer types
+PRIX64		inttypes.h	B.7 Format conversion of integer types
+PRIXLEAST8		inttypes.h	B.7 Format conversion of integer types
+PRIXLEAST16		inttypes.h	B.7 Format conversion of integer types
+PRIXLEAST32		inttypes.h	B.7 Format conversion of integer types
+PRIXLEAST64		inttypes.h	B.7 Format conversion of integer types
+PRIXFAST8		inttypes.h	B.7 Format conversion of integer types
+PRIXFAST16		inttypes.h	B.7 Format conversion of integer types
+PRIXFAST32		inttypes.h	B.7 Format conversion of integer types
+PRIXFAST64		inttypes.h	B.7 Format conversion of integer types
+PRIXMAX		inttypes.h	B.7 Format conversion of integer types
+PRIXPTR		inttypes.h	B.7 Format conversion of integer types
+SCNd8		inttypes.h	B.7 Format conversion of integer types
+SCNd16		inttypes.h	B.7 Format conversion of integer types
+SCNd32		inttypes.h	B.7 Format conversion of integer types
+SCNd64		inttypes.h	B.7 Format conversion of integer types
+SCNdLEAST8		inttypes.h	B.7 Format conversion of integer types
+SCNdLEAST16		inttypes.h	B.7 Format conversion of integer types
+SCNdLEAST32		inttypes.h	B.7 Format conversion of integer types
+SCNdLEAST64		inttypes.h	B.7 Format conversion of integer types
+SCNdFAST8		inttypes.h	B.7 Format conversion of integer types
+SCNdFAST16		inttypes.h	B.7 Format conversion of integer types
+SCNdFAST32		inttypes.h	B.7 Format conversion of integer types
+SCNdFAST64		inttypes.h	B.7 Format conversion of integer types
+SCNdMAX		inttypes.h	B.7 Format conversion of integer types
+SCNdPTR		inttypes.h	B.7 Format conversion of integer types
+SCNi8		inttypes.h	B.7 Format conversion of integer types
+SCNi16		inttypes.h	B.7 Format conversion of integer types
+SCNi32		inttypes.h	B.7 Format conversion of integer types
+SCNi64		inttypes.h	B.7 Format conversion of integer types
+SCNiLEAST8		inttypes.h	B.7 Format conversion of integer types
+SCNiLEAST16		inttypes.h	B.7 Format conversion of integer types
+SCNiLEAST32		inttypes.h	B.7 Format conversion of integer types
+SCNiLEAST64		inttypes.h	B.7 Format conversion of integer types
+SCNiFAST8		inttypes.h	B.7 Format conversion of integer types
+SCNiFAST16		inttypes.h	B.7 Format conversion of integer types
+SCNiFAST32		inttypes.h	B.7 Format conversion of integer types
+SCNiFAST64		inttypes.h	B.7 Format conversion of integer types
+SCNiMAX		inttypes.h	B.7 Format conversion of integer types
+SCNiPTR		inttypes.h	B.7 Format conversion of integer types
+SCNo8		inttypes.h	B.7 Format conversion of integer types
+SCNo16		inttypes.h	B.7 Format conversion of integer types
+SCNo32		inttypes.h	B.7 Format conversion of integer types
+SCNo64		inttypes.h	B.7 Format conversion of integer types
+SCNoLEAST8		inttypes.h	B.7 Format conversion of integer types
+SCNoLEAST16		inttypes.h	B.7 Format conversion of integer types
+SCNoLEAST32		inttypes.h	B.7 Format conversion of integer types
+SCNoLEAST64		inttypes.h	B.7 Format conversion of integer types
+SCNoFAST8		inttypes.h	B.7 Format conversion of integer types
+SCNoFAST16		inttypes.h	B.7 Format conversion of integer types
+SCNoFAST32		inttypes.h	B.7 Format conversion of integer types
+SCNoFAST64		inttypes.h	B.7 Format conversion of integer types
+SCNoMAX		inttypes.h	B.7 Format conversion of integer types
+SCNoPTR		inttypes.h	B.7 Format conversion of integer types
+SCNu8		inttypes.h	B.7 Format conversion of integer types
+SCNu16		inttypes.h	B.7 Format conversion of integer types
+SCNu32		inttypes.h	B.7 Format conversion of integer types
+SCNu64		inttypes.h	B.7 Format conversion of integer types
+SCNuLEAST8		inttypes.h	B.7 Format conversion of integer types
+SCNuLEAST16		inttypes.h	B.7 Format conversion of integer types
+SCNuLEAST32		inttypes.h	B.7 Format conversion of integer types
+SCNuLEAST64		inttypes.h	B.7 Format conversion of integer types
+SCNuFAST8		inttypes.h	B.7 Format conversion of integer types
+SCNuFAST16		inttypes.h	B.7 Format conversion of integer types
+SCNuFAST32		inttypes.h	B.7 Format conversion of integer types
+SCNuFAST64		inttypes.h	B.7 Format conversion of integer types
+SCNuMAX		inttypes.h	B.7 Format conversion of integer types
+SCNuPTR		inttypes.h	B.7 Format conversion of integer types
+SCNx8		inttypes.h	B.7 Format conversion of integer types
+SCNx16		inttypes.h	B.7 Format conversion of integer types
+SCNx32		inttypes.h	B.7 Format conversion of integer types
+SCNx64		inttypes.h	B.7 Format conversion of integer types
+SCNxLEAST8		inttypes.h	B.7 Format conversion of integer types
+SCNxLEAST16		inttypes.h	B.7 Format conversion of integer types
+SCNxLEAST32		inttypes.h	B.7 Format conversion of integer types
+SCNxLEAST64		inttypes.h	B.7 Format conversion of integer types
+SCNxFAST8		inttypes.h	B.7 Format conversion of integer types
+SCNxFAST16		inttypes.h	B.7 Format conversion of integer types
+SCNxFAST32		inttypes.h	B.7 Format conversion of integer types
+SCNxFAST64		inttypes.h	B.7 Format conversion of integer types
+SCNxMAX		inttypes.h	B.7 Format conversion of integer types
+SCNxPTR		inttypes.h	B.7 Format conversion of integer types
+imaxabs	intmax_t imaxabs(intmax_t j);	inttypes.h	B.7 Format conversion of integer types
+imaxdiv	imaxdiv_t imaxdiv(intmax_t numer, intmax_t denom);	inttypes.h	B.7 Format conversion of integer types
+strtoimax	intmax_t strtoimax(const char * restrict nptr, char ** restrict endptr, int base);	inttypes.h	B.7 Format conversion of integer types
+strtoumax	uintmax_t strtoumax(const char * restrict nptr, char ** restrict endptr, int base);	inttypes.h	B.7 Format conversion of integer types
+wcstoimax	intmax_t wcstoimax(const wchar_t * restrict nptr, wchar_t ** restrict endptr, int base);	inttypes.h	B.7 Format conversion of integer types
+wcstoumax	uintmax_t wcstoumax(const wchar_t * restrict nptr, wchar_t ** restrict endptr, int base);	inttypes.h	B.7 Format conversion of integer types
+and		iso646.h	B.8 Alternative spellings
+bitor		iso646.h	B.8 Alternative spellings
+not_eq		iso646.h	B.8 Alternative spellings
+xor		iso646.h	B.8 Alternative spellings
+and_eq		iso646.h	B.8 Alternative spellings
+compl		iso646.h	B.8 Alternative spellings
+or		iso646.h	B.8 Alternative spellings
+xor_eq		iso646.h	B.8 Alternative spellings
+bitand		iso646.h	B.8 Alternative spellings
+not		iso646.h	B.8 Alternative spellings
+or_eq		iso646.h	B.8 Alternative spellings
+CHAR_BIT		limits.h	B.9 Sizes of integer types
+CHAR_MAX		limits.h	B.9 Sizes of integer types
+INT_MIN		limits.h	B.9 Sizes of integer types
+ULONG_MAX		limits.h	B.9 Sizes of integer types
+SCHAR_MIN		limits.h	B.9 Sizes of integer types
+MB_LEN_MAX		limits.h	B.9 Sizes of integer types
+INT_MAX		limits.h	B.9 Sizes of integer types
+LLONG_MIN		limits.h	B.9 Sizes of integer types
+SCHAR_MAX		limits.h	B.9 Sizes of integer types
+SHRT_MIN		limits.h	B.9 Sizes of integer types
+UINT_MAX		limits.h	B.9 Sizes of integer types
+LLONG_MAX		limits.h	B.9 Sizes of integer types
+UCHAR_MAX		limits.h	B.9 Sizes of integer types
+SHRT_MAX		limits.h	B.9 Sizes of integer types
+LONG_MIN		limits.h	B.9 Sizes of integer types
+ULLONG_MAX		limits.h	B.9 Sizes of integer types
+CHAR_MIN		limits.h	B.9 Sizes of integer types
+USHRT_MAX		limits.h	B.9 Sizes of integer types
+LONG_MAX		limits.h	B.9 Sizes of integer types
+struct lconv		locale.h	B.10 Localization
+LC_ALL		locale.h	B.10 Localization
+LC_CTYPE		locale.h	B.10 Localization
+LC_NUMERIC		locale.h	B.10 Localization
+NULL		locale.h	B.10 Localization
+LC_COLLATE		locale.h	B.10 Localization
+LC_MONETARY		locale.h	B.10 Localization
+LC_TIME		locale.h	B.10 Localization
+setlocale	char *setlocale(int category, const char *locale);	locale.h	B.10 Localization
+localeconv	struct lconv *localeconv(void);	locale.h	B.10 Localization
+float_t		math.h	B.11 Mathematics
+FP_INFINITE		math.h	B.11 Mathematics
+FP_FAST_FMAL		math.h	B.11 Mathematics
+double_t		math.h	B.11 Mathematics
+FP_NAN		math.h	B.11 Mathematics
+FP_ILOGB0		math.h	B.11 Mathematics
+HUGE_VAL		math.h	B.11 Mathematics
+FP_NORMAL		math.h	B.11 Mathematics
+FP_ILOGBNAN		math.h	B.11 Mathematics
+HUGE_VALF		math.h	B.11 Mathematics
+FP_SUBNORMAL		math.h	B.11 Mathematics
+MATH_ERRNO		math.h	B.11 Mathematics
+HUGE_VALL		math.h	B.11 Mathematics
+FP_ZERO		math.h	B.11 Mathematics
+MATH_ERREXCEPT		math.h	B.11 Mathematics
+INFINITY		math.h	B.11 Mathematics
+FP_FAST_FMA		math.h	B.11 Mathematics
+math_errhandling		math.h	B.11 Mathematics
+NAN		math.h	B.11 Mathematics
+FP_FAST_FMAF		math.h	B.11 Mathematics
+fpclassify	int fpclassify(real-floating x);	math.h	B.11 Mathematics
+isfinite	int isfinite(real-floating x);	math.h	B.11 Mathematics
+isinf	int isinf(real-floating x);	math.h	B.11 Mathematics
+isnan	int isnan(real-floating x);	math.h	B.11 Mathematics
+isnormal	int isnormal(real-floating x);	math.h	B.11 Mathematics
+signbit	int signbit(real-floating x);	math.h	B.11 Mathematics
+acos	double acos(double x);	math.h	B.11 Mathematics
+acosf	float acosf(float x);	math.h	B.11 Mathematics
+acosl	long double acosl(long double x);	math.h	B.11 Mathematics
+asin	double asin(double x);	math.h	B.11 Mathematics
+asinf	float asinf(float x);	math.h	B.11 Mathematics
+asinl	long double asinl(long double x);	math.h	B.11 Mathematics
+atan	double atan(double x);	math.h	B.11 Mathematics
+atanf	float atanf(float x);	math.h	B.11 Mathematics
+atanl	long double atanl(long double x);	math.h	B.11 Mathematics
+atan2	double atan2(double y, double x);	math.h	B.11 Mathematics
+atan2f	float atan2f(float y, float x);	math.h	B.11 Mathematics
+atan2l	long double atan2l(long double y, long double x);	math.h	B.11 Mathematics
+cos	double cos(double x);	math.h	B.11 Mathematics
+cosf	float cosf(float x);	math.h	B.11 Mathematics
+cosl	long double cosl(long double x);	math.h	B.11 Mathematics
+sin	double sin(double x);	math.h	B.11 Mathematics
+sinf	float sinf(float x);	math.h	B.11 Mathematics
+sinl	long double sinl(long double x);	math.h	B.11 Mathematics
+tan	double tan(double x);	math.h	B.11 Mathematics
+tanf	float tanf(float x);	math.h	B.11 Mathematics
+tanl	long double tanl(long double x);	math.h	B.11 Mathematics
+acosh	double acosh(double x);	math.h	B.11 Mathematics
+acoshf	float acoshf(float x);	math.h	B.11 Mathematics
+acoshl	long double acoshl(long double x);	math.h	B.11 Mathematics
+asinh	double asinh(double x);	math.h	B.11 Mathematics
+asinhf	float asinhf(float x);	math.h	B.11 Mathematics
+asinhl	long double asinhl(long double x);	math.h	B.11 Mathematics
+atanh	double atanh(double x);	math.h	B.11 Mathematics
+atanhf	float atanhf(float x);	math.h	B.11 Mathematics
+atanhl	long double atanhl(long double x);	math.h	B.11 Mathematics
+cosh	double cosh(double x);	math.h	B.11 Mathematics
+coshf	float coshf(float x);	math.h	B.11 Mathematics
+coshl	long double coshl(long double x);	math.h	B.11 Mathematics
+sinh	double sinh(double x);	math.h	B.11 Mathematics
+sinhf	float sinhf(float x);	math.h	B.11 Mathematics
+sinhl	long double sinhl(long double x);	math.h	B.11 Mathematics
+tanh	double tanh(double x);	math.h	B.11 Mathematics
+tanhf	float tanhf(float x);	math.h	B.11 Mathematics
+tanhl	long double tanhl(long double x);	math.h	B.11 Mathematics
+exp	double exp(double x);	math.h	B.11 Mathematics
+expf	float expf(float x);	math.h	B.11 Mathematics
+expl	long double expl(long double x);	math.h	B.11 Mathematics
+exp2	double exp2(double x);	math.h	B.11 Mathematics
+exp2f	float exp2f(float x);	math.h	B.11 Mathematics
+exp2l	long double exp2l(long double x);	math.h	B.11 Mathematics
+expm1	double expm1(double x);	math.h	B.11 Mathematics
+expm1f	float expm1f(float x);	math.h	B.11 Mathematics
+expm1l	long double expm1l(long double x);	math.h	B.11 Mathematics
+frexp	double frexp(double value, int *exp);	math.h	B.11 Mathematics
+frexpf	float frexpf(float value, int *exp);	math.h	B.11 Mathematics
+frexpl	long double frexpl(long double value, int *exp);	math.h	B.11 Mathematics
+ilogb	int ilogb(double x);	math.h	B.11 Mathematics
+ilogbf	int ilogbf(float x);	math.h	B.11 Mathematics
+ilogbl	int ilogbl(long double x);	math.h	B.11 Mathematics
+ldexp	double ldexp(double x, int exp);	math.h	B.11 Mathematics
+ldexpf	float ldexpf(float x, int exp);	math.h	B.11 Mathematics
+ldexpl	long double ldexpl(long double x, int exp);	math.h	B.11 Mathematics
+log	double log(double x);	math.h	B.11 Mathematics
+logf	float logf(float x);	math.h	B.11 Mathematics
+logl	long double logl(long double x);	math.h	B.11 Mathematics
+log10	double log10(double x);	math.h	B.11 Mathematics
+log10f	float log10f(float x);	math.h	B.11 Mathematics
+log10l	long double log10l(long double x);	math.h	B.11 Mathematics
+log1p	double log1p(double x);	math.h	B.11 Mathematics
+log1pf	float log1pf(float x);	math.h	B.11 Mathematics
+log1pl	long double log1pl(long double x);	math.h	B.11 Mathematics
+log2	double log2(double x);	math.h	B.11 Mathematics
+log2f	float log2f(float x);	math.h	B.11 Mathematics
+log2l	long double log2l(long double x);	math.h	B.11 Mathematics
+logb	double logb(double x);	math.h	B.11 Mathematics
+logbf	float logbf(float x);	math.h	B.11 Mathematics
+logbl	long double logbl(long double x);	math.h	B.11 Mathematics
+modf	double modf(double value, double *iptr);	math.h	B.11 Mathematics
+modff	float modff(float value, float *iptr);	math.h	B.11 Mathematics
+modfl	long double modfl(long double value, long double *iptr);	math.h	B.11 Mathematics
+scalbn	double scalbn(double x, int n);	math.h	B.11 Mathematics
+scalbnf	float scalbnf(float x, int n);	math.h	B.11 Mathematics
+scalbnl	long double scalbnl(long double x, int n);	math.h	B.11 Mathematics
+scalbln	double scalbln(double x, long int n);	math.h	B.11 Mathematics
+scalblnf	float scalblnf(float x, long int n);	math.h	B.11 Mathematics
+scalblnl	long double scalblnl(long double x, long int n);	math.h	B.11 Mathematics
+cbrt	double cbrt(double x);	math.h	B.11 Mathematics
+cbrtf	float cbrtf(float x);	math.h	B.11 Mathematics
+cbrtl	long double cbrtl(long double x);	math.h	B.11 Mathematics
+fabs	double fabs(double x);	math.h	B.11 Mathematics
+fabsf	float fabsf(float x);	math.h	B.11 Mathematics
+fabsl	long double fabsl(long double x);	math.h	B.11 Mathematics
+hypot	double hypot(double x, double y);	math.h	B.11 Mathematics
+hypotf	float hypotf(float x, float y);	math.h	B.11 Mathematics
+hypotl	long double hypotl(long double x, long double y);	math.h	B.11 Mathematics
+pow	double pow(double x, double y);	math.h	B.11 Mathematics
+powf	float powf(float x, float y);	math.h	B.11 Mathematics
+powl	long double powl(long double x, long double y);	math.h	B.11 Mathematics
+sqrt	double sqrt(double x);	math.h	B.11 Mathematics
+sqrtf	float sqrtf(float x);	math.h	B.11 Mathematics
+sqrtl	long double sqrtl(long double x);	math.h	B.11 Mathematics
+erf	double erf(double x);	math.h	B.11 Mathematics
+erff	float erff(float x);	math.h	B.11 Mathematics
+erfl	long double erfl(long double x);	math.h	B.11 Mathematics
+erfc	double erfc(double x);	math.h	B.11 Mathematics
+erfcf	float erfcf(float x);	math.h	B.11 Mathematics
+erfcl	long double erfcl(long double x);	math.h	B.11 Mathematics
+lgamma	double lgamma(double x);	math.h	B.11 Mathematics
+lgammaf	float lgammaf(float x);	math.h	B.11 Mathematics
+lgammal	long double lgammal(long double x);	math.h	B.11 Mathematics
+tgamma	double tgamma(double x);	math.h	B.11 Mathematics
+tgammaf	float tgammaf(float x);	math.h	B.11 Mathematics
+tgammal	long double tgammal(long double x);	math.h	B.11 Mathematics
+ceil	double ceil(double x);	math.h	B.11 Mathematics
+ceilf	float ceilf(float x);	math.h	B.11 Mathematics
+ceill	long double ceill(long double x);	math.h	B.11 Mathematics
+floor	double floor(double x);	math.h	B.11 Mathematics
+floorf	float floorf(float x);	math.h	B.11 Mathematics
+floorl	long double floorl(long double x);	math.h	B.11 Mathematics
+nearbyint	double nearbyint(double x);	math.h	B.11 Mathematics
+nearbyintf	float nearbyintf(float x);	math.h	B.11 Mathematics
+nearbyintl	long double nearbyintl(long double x);	math.h	B.11 Mathematics
+rint	double rint(double x);	math.h	B.11 Mathematics
+rintf	float rintf(float x);	math.h	B.11 Mathematics
+rintl	long double rintl(long double x);	math.h	B.11 Mathematics
+lrint	long int lrint(double x);	math.h	B.11 Mathematics
+lrintf	long int lrintf(float x);	math.h	B.11 Mathematics
+lrintl	long int lrintl(long double x);	math.h	B.11 Mathematics
+llrint	long long int llrint(double x);	math.h	B.11 Mathematics
+llrintf	long long int llrintf(float x);	math.h	B.11 Mathematics
+llrintl	long long int llrintl(long double x);	math.h	B.11 Mathematics
+round	double round(double x);	math.h	B.11 Mathematics
+roundf	float roundf(float x);	math.h	B.11 Mathematics
+roundl	long double roundl(long double x);	math.h	B.11 Mathematics
+lround	long int lround(double x);	math.h	B.11 Mathematics
+lroundf	long int lroundf(float x);	math.h	B.11 Mathematics
+lroundl	long int lroundl(long double x);	math.h	B.11 Mathematics
+llround	long long int llround(double x);	math.h	B.11 Mathematics
+llroundf	long long int llroundf(float x);	math.h	B.11 Mathematics
+llroundl	long long int llroundl(long double x);	math.h	B.11 Mathematics
+trunc	double trunc(double x);	math.h	B.11 Mathematics
+truncf	float truncf(float x);	math.h	B.11 Mathematics
+truncl	long double truncl(long double x);	math.h	B.11 Mathematics
+fmod	double fmod(double x, double y);	math.h	B.11 Mathematics
+fmodf	float fmodf(float x, float y);	math.h	B.11 Mathematics
+fmodl	long double fmodl(long double x, long double y);	math.h	B.11 Mathematics
+remainder	double remainder(double x, double y);	math.h	B.11 Mathematics
+remainderf	float remainderf(float x, float y);	math.h	B.11 Mathematics
+remainderl	long double remainderl(long double x, long double y);	math.h	B.11 Mathematics
+remquo	double remquo(double x, double y, int *quo);	math.h	B.11 Mathematics
+remquof	float remquof(float x, float y, int *quo);	math.h	B.11 Mathematics
+remquol	long double remquol(long double x, long double y, int *quo);	math.h	B.11 Mathematics
+copysign	double copysign(double x, double y);	math.h	B.11 Mathematics
+copysignf	float copysignf(float x, float y);	math.h	B.11 Mathematics
+copysignl	long double copysignl(long double x, long double y);	math.h	B.11 Mathematics
+nan	double nan(const char *tagp);	math.h	B.11 Mathematics
+nanf	float nanf(const char *tagp);	math.h	B.11 Mathematics
+nanl	long double nanl(const char *tagp);	math.h	B.11 Mathematics
+nextafter	double nextafter(double x, double y);	math.h	B.11 Mathematics
+nextafterf	float nextafterf(float x, float y);	math.h	B.11 Mathematics
+nextafterl	long double nextafterl(long double x, long double y);	math.h	B.11 Mathematics
+nexttoward	double nexttoward(double x, long double y);	math.h	B.11 Mathematics
+nexttowardf	float nexttowardf(float x, long double y);	math.h	B.11 Mathematics
+nexttowardl	long double nexttowardl(long double x, long double y);	math.h	B.11 Mathematics
+fdim	double fdim(double x, double y);	math.h	B.11 Mathematics
+fdimf	float fdimf(float x, float y);	math.h	B.11 Mathematics
+fdiml	long double fdiml(long double x, long double y);	math.h	B.11 Mathematics
+fmax	double fmax(double x, double y);	math.h	B.11 Mathematics
+fmaxf	float fmaxf(float x, float y);	math.h	B.11 Mathematics
+fmaxl	long double fmaxl(long double x, long double y);	math.h	B.11 Mathematics
+fmin	double fmin(double x, double y);	math.h	B.11 Mathematics
+fminf	float fminf(float x, float y);	math.h	B.11 Mathematics
+fminl	long double fminl(long double x, long double y);	math.h	B.11 Mathematics
+fma	double fma(double x, double y, double z);	math.h	B.11 Mathematics
+fmaf	float fmaf(float x, float y, float z);	math.h	B.11 Mathematics
+fmal	long double fmal(long double x, long double y, long double z);	math.h	B.11 Mathematics
+isgreater	int isgreater(real-floating x, real-floating y);	math.h	B.11 Mathematics
+isgreaterequal	int isgreaterequal(real-floating x, real-floating y);	math.h	B.11 Mathematics
+isless	int isless(real-floating x, real-floating y);	math.h	B.11 Mathematics
+islessequal	int islessequal(real-floating x, real-floating y);	math.h	B.11 Mathematics
+islessgreater	int islessgreater(real-floating x, real-floating y);	math.h	B.11 Mathematics
+isunordered	int isunordered(real-floating x, real-floating y);	math.h	B.11 Mathematics
+jmp_buf		setjmp.h	B.12 Nonlocal jumps
+setjmp	int setjmp(jmp_buf env);	setjmp.h	B.12 Nonlocal jumps
+longjmp	_Noreturn void longjmp(jmp_buf env, int val);	setjmp.h	B.12 Nonlocal jumps
+sig_atomic_t		signal.h	B.13 Signal handling
+SIG_IGN		signal.h	B.13 Signal handling
+SIGILL		signal.h	B.13 Signal handling
+SIGTERM		signal.h	B.13 Signal handling
+SIG_DFL		signal.h	B.13 Signal handling
+SIGABRT		signal.h	B.13 Signal handling
+SIGINT		signal.h	B.13 Signal handling
+SIG_ERR		signal.h	B.13 Signal handling
+SIGFPE		signal.h	B.13 Signal handling
+SIGSEGV		signal.h	B.13 Signal handling
+signal	void (*signal(int sig, void (*func)(int)))(int);	signal.h	B.13 Signal handling
+raise	int raise(int sig);	signal.h	B.13 Signal handling
+alignas		stdalign.h	B.14 Alignment
+__alignas_is_defined		stdalign.h	B.14 Alignment
+va_list		stdarg.h	B.15 Variable arguments
+va_arg	type va_arg(va_list ap, type);	stdarg.h	B.15 Variable arguments
+va_copy	void va_copy(va_list dest, va_list src);	stdarg.h	B.15 Variable arguments
+va_end	void va_end(va_list ap);	stdarg.h	B.15 Variable arguments
+va_start	void va_start(va_list ap, parmN);	stdarg.h	B.15 Variable arguments
+ATOMIC_BOOL_LOCK_FREE		stdatomic.h	B.16 Atomics
+atomic_uint		stdatomic.h	B.16 Atomics
+ATOMIC_CHAR_LOCK_FREE		stdatomic.h	B.16 Atomics
+atomic_long		stdatomic.h	B.16 Atomics
+ATOMIC_CHAR16_T_LOCK_FREE		stdatomic.h	B.16 Atomics
+atomic_ulong		stdatomic.h	B.16 Atomics
+ATOMIC_CHAR32_T_LOCK_FREE		stdatomic.h	B.16 Atomics
+atomic_llong		stdatomic.h	B.16 Atomics
+ATOMIC_WCHAR_T_LOCK_FREE		stdatomic.h	B.16 Atomics
+atomic_ullong		stdatomic.h	B.16 Atomics
+ATOMIC_SHORT_LOCK_FREE		stdatomic.h	B.16 Atomics
+atomic_char16_t		stdatomic.h	B.16 Atomics
+ATOMIC_INT_LOCK_FREE		stdatomic.h	B.16 Atomics
+atomic_char32_t		stdatomic.h	B.16 Atomics
+ATOMIC_LONG_LOCK_FREE		stdatomic.h	B.16 Atomics
+atomic_wchar_t		stdatomic.h	B.16 Atomics
+ATOMIC_LLONG_LOCK_FREE		stdatomic.h	B.16 Atomics
+atomic_int_least8_t		stdatomic.h	B.16 Atomics
+ATOMIC_POINTER_LOCK_FREE		stdatomic.h	B.16 Atomics
+atomic_uint_least8_t		stdatomic.h	B.16 Atomics
+ATOMIC_FLAG_INIT		stdatomic.h	B.16 Atomics
+atomic_int_least16_t		stdatomic.h	B.16 Atomics
+memory_order		stdatomic.h	B.16 Atomics
+atomic_uint_least16_t		stdatomic.h	B.16 Atomics
+atomic_flag		stdatomic.h	B.16 Atomics
+atomic_int_least32_t		stdatomic.h	B.16 Atomics
+memory_order_relaxed		stdatomic.h	B.16 Atomics
+atomic_uint_least32_t		stdatomic.h	B.16 Atomics
+memory_order_consume		stdatomic.h	B.16 Atomics
+atomic_int_least64_t		stdatomic.h	B.16 Atomics
+memory_order_acquire		stdatomic.h	B.16 Atomics
+atomic_uint_least64_t		stdatomic.h	B.16 Atomics
+memory_order_release		stdatomic.h	B.16 Atomics
+atomic_int_fast8_t		stdatomic.h	B.16 Atomics
+memory_order_acq_rel		stdatomic.h	B.16 Atomics
+atomic_uint_fast8_t		stdatomic.h	B.16 Atomics
+memory_order_seq_cst		stdatomic.h	B.16 Atomics
+atomic_int_fast16_t		stdatomic.h	B.16 Atomics
+atomic_bool		stdatomic.h	B.16 Atomics
+atomic_uint_fast16_t		stdatomic.h	B.16 Atomics
+atomic_char		stdatomic.h	B.16 Atomics
+atomic_int_fast32_t		stdatomic.h	B.16 Atomics
+atomic_schar		stdatomic.h	B.16 Atomics
+atomic_uint_fast32_t		stdatomic.h	B.16 Atomics
+atomic_uchar		stdatomic.h	B.16 Atomics
+atomic_int_fast64_t		stdatomic.h	B.16 Atomics
+atomic_short		stdatomic.h	B.16 Atomics
+atomic_uint_fast64_t		stdatomic.h	B.16 Atomics
+atomic_ushort		stdatomic.h	B.16 Atomics
+atomic_intptr_t		stdatomic.h	B.16 Atomics
+atomic_int		stdatomic.h	B.16 Atomics
+atomic_uintptr_t		stdatomic.h	B.16 Atomics
+atomic_size_t		stdatomic.h	B.16 Atomics
+atomic_intmax_t		stdatomic.h	B.16 Atomics
+atomic_ptrdiff_t		stdatomic.h	B.16 Atomics
+atomic_uintmax_t		stdatomic.h	B.16 Atomics
+ATOMIC_VAR_INIT	ATOMIC_VAR_INIT(C value)	stdatomic.h	B.16 Atomics
+atomic_init	void atomic_init(volatile A *obj, C value);	stdatomic.h	B.16 Atomics
+kill_dependency	type kill_dependency(type y);	stdatomic.h	B.16 Atomics
+atomic_thread_fence	void atomic_thread_fence(memory_order order);	stdatomic.h	B.16 Atomics
+atomic_signal_fence	void atomic_signal_fence(memory_order order);	stdatomic.h	B.16 Atomics
+atomic_is_lock_free	_Bool atomic_is_lock_free(const volatile A *obj);	stdatomic.h	B.16 Atomics
+atomic_store	void atomic_store(volatile A *object, C desired);	stdatomic.h	B.16 Atomics
+atomic_store_explicit	void atomic_store_explicit(volatile A *object, C desired, memory_order order);	stdatomic.h	B.16 Atomics
+atomic_load	C atomic_load(volatile A *object);	stdatomic.h	B.16 Atomics
+atomic_load_explicit	C atomic_load_explicit(volatile A *object, memory_order order);	stdatomic.h	B.16 Atomics
+atomic_exchange	C atomic_exchange(volatile A *object, C desired);	stdatomic.h	B.16 Atomics
+atomic_exchange_explicit	C atomic_exchange_explicit(volatile A *object, C desired, memory_order order);	stdatomic.h	B.16 Atomics
+atomic_compare_exchange_strong	_Bool atomic_compare_exchange_strong(volatile A *object, C *expected, C desired);	stdatomic.h	B.16 Atomics
+atomic_compare_exchange_strong_explicit	_Bool atomic_compare_exchange_strong_explicit(volatile A *object, C *expected, C desired, memory_order success, memory_order failure);	stdatomic.h	B.16 Atomics
+atomic_compare_exchange_weak	_Bool atomic_compare_exchange_weak(volatile A *object, C *expected, C desired);	stdatomic.h	B.16 Atomics
+atomic_compare_exchange_weak_explicit	_Bool atomic_compare_exchange_weak_explicit(volatile A *object, C *expected, C desired, memory_order success, memory_order failure);	stdatomic.h	B.16 Atomics
+atomic_fetch_key	C atomic_fetch_key(volatile A *object, M operand);	stdatomic.h	B.16 Atomics
+atomic_fetch_key_explicit	C atomic_fetch_key_explicit(volatile A *object, M operand, memory_order order);	stdatomic.h	B.16 Atomics
+atomic_flag_test_and_set	_Bool atomic_flag_test_and_set(volatile atomic_flag *object);	stdatomic.h	B.16 Atomics
+atomic_flag_test_and_set_explicit	_Bool atomic_flag_test_and_set_explicit(volatile atomic_flag *object, memory_order order);	stdatomic.h	B.16 Atomics
+atomic_flag_clear	void atomic_flag_clear(volatile atomic_flag *object);	stdatomic.h	B.16 Atomics
+atomic_flag_clear_explicit	void atomic_flag_clear_explicit(volatile atomic_flag *object, memory_order order);	stdatomic.h	B.16 Atomics
+bool		stdbool.h	B.17 Boolean type and values
+true		stdbool.h	B.17 Boolean type and values
+false		stdbool.h	B.17 Boolean type and values
+__bool_true_false_are_defined		stdbool.h	B.17 Boolean type and values
+ptrdiff_t		stddef.h	B.18 Common definitions
+max_align_t		stddef.h	B.18 Common definitions
+NULL		stddef.h	B.18 Common definitions
+size_t		stddef.h	B.18 Common definitions
+wchar_t		stddef.h	B.18 Common definitions
+offsetof	offsetof(type, member-designator)	stddef.h	B.18 Common definitions
+rsize_t		stddef.h	B.18 Common definitions
+int8_t		stdint.h	B.19 Integer types
+int16_t		stdint.h	B.19 Integer types
+int32_t		stdint.h	B.19 Integer types
+int64_t		stdint.h	B.19 Integer types
+INT_LEAST8_MIN		stdint.h	B.19 Integer types
+INT_LEAST16_MIN		stdint.h	B.19 Integer types
+INT_LEAST32_MIN		stdint.h	B.19 Integer types
+INT_LEAST64_MIN		stdint.h	B.19 Integer types
+PTRDIFF_MAX		stdint.h	B.19 Integer types
+uint8_t		stdint.h	B.19 Integer types
+uint16_t		stdint.h	B.19 Integer types
+uint32_t		stdint.h	B.19 Integer types
+uint64_t		stdint.h	B.19 Integer types
+INT_LEAST8_MAX		stdint.h	B.19 Integer types
+INT_LEAST16_MAX		stdint.h	B.19 Integer types
+INT_LEAST32_MAX		stdint.h	B.19 Integer types
+INT_LEAST64_MAX		stdint.h	B.19 Integer types
+SIG_ATOMIC_MIN		stdint.h	B.19 Integer types
+int_least8_t		stdint.h	B.19 Integer types
+int_least16_t		stdint.h	B.19 Integer types
+int_least32_t		stdint.h	B.19 Integer types
+int_least64_t		stdint.h	B.19 Integer types
+UINT_LEAST8_MAX		stdint.h	B.19 Integer types
+UINT_LEAST16_MAX		stdint.h	B.19 Integer types
+UINT_LEAST32_MAX		stdint.h	B.19 Integer types
+UINT_LEAST64_MAX		stdint.h	B.19 Integer types
+SIG_ATOMIC_MAX		stdint.h	B.19 Integer types
+uint_least8_t		stdint.h	B.19 Integer types
+uint_least16_t		stdint.h	B.19 Integer types
+uint_least32_t		stdint.h	B.19 Integer types
+uint_least64_t		stdint.h	B.19 Integer types
+INT_FAST8_MIN		stdint.h	B.19 Integer types
+INT_FAST16_MIN		stdint.h	B.19 Integer types
+INT_FAST32_MIN		stdint.h	B.19 Integer types
+INT_FAST64_MIN		stdint.h	B.19 Integer types
+SIZE_MAX		stdint.h	B.19 Integer types
+int_fast8_t		stdint.h	B.19 Integer types
+int_fast16_t		stdint.h	B.19 Integer types
+int_fast32_t		stdint.h	B.19 Integer types
+int_fast64_t		stdint.h	B.19 Integer types
+INT_FAST8_MAX		stdint.h	B.19 Integer types
+INT_FAST16_MAX		stdint.h	B.19 Integer types
+INT_FAST32_MAX		stdint.h	B.19 Integer types
+INT_FAST64_MAX		stdint.h	B.19 Integer types
+WCHAR_MIN		stdint.h	B.19 Integer types
+uint_fast8_t		stdint.h	B.19 Integer types
+uint_fast16_t		stdint.h	B.19 Integer types
+uint_fast32_t		stdint.h	B.19 Integer types
+uint_fast64_t		stdint.h	B.19 Integer types
+UINT_FAST8_MAX		stdint.h	B.19 Integer types
+UINT_FAST16_MAX		stdint.h	B.19 Integer types
+UINT_FAST32_MAX		stdint.h	B.19 Integer types
+UINT_FAST64_MAX		stdint.h	B.19 Integer types
+WCHAR_MAX		stdint.h	B.19 Integer types
+intptr_t		stdint.h	B.19 Integer types
+INTPTR_MIN		stdint.h	B.19 Integer types
+WINT_MIN		stdint.h	B.19 Integer types
+uintptr_t		stdint.h	B.19 Integer types
+INTPTR_MAX		stdint.h	B.19 Integer types
+WINT_MAX		stdint.h	B.19 Integer types
+intmax_t		stdint.h	B.19 Integer types
+UINTPTR_MAX		stdint.h	B.19 Integer types
+INT8_C	INT8_C(value)	stdint.h	B.19 Integer types
+INT16_C	INT16_C(value)	stdint.h	B.19 Integer types
+INT32_C	INT32_C(value)	stdint.h	B.19 Integer types
+INT64_C	INT64_C(value)	stdint.h	B.19 Integer types
+uintmax_t		stdint.h	B.19 Integer types
+INTMAX_MIN		stdint.h	B.19 Integer types
+UINT8_C	UINT8_C(value)	stdint.h	B.19 Integer types
+UINT16_C	UINT16_C(value)	stdint.h	B.19 Integer types
+UINT32_C	UINT32_C(value)	stdint.h	B.19 Integer types
+UINT64_C	UINT64_C(value)	stdint.h	B.19 Integer types
+INT8_MIN		stdint.h	B.19 Integer types
+INT16_MIN		stdint.h	B.19 Integer types
+INT32_MIN		stdint.h	B.19 Integer types
+INT64_MIN		stdint.h	B.19 Integer types
+INTMAX_MAX		stdint.h	B.19 Integer types
+INTMAX_C	INTMAX_C(value)	stdint.h	B.19 Integer types
+INT8_MAX		stdint.h	B.19 Integer types
+INT16_MAX		stdint.h	B.19 Integer types
+INT32_MAX		stdint.h	B.19 Integer types
+INT64_MAX		stdint.h	B.19 Integer types
+UINTMAX_MAX		stdint.h	B.19 Integer types
+UINTMAX_C	UINTMAX_C(value)	stdint.h	B.19 Integer types
+UINT8_MAX		stdint.h	B.19 Integer types
+UINT16_MAX		stdint.h	B.19 Integer types
+UINT32_MAX		stdint.h	B.19 Integer types
+UINT64_MAX		stdint.h	B.19 Integer types
+PTRDIFF_MIN		stdint.h	B.19 Integer types
+RSIZE_MAX		stdint.h	B.19 Integer types
+size_t		stdio.h	B.20 Input/output
+_IOLBF		stdio.h	B.20 Input/output
+FILENAME_MAX		stdio.h	B.20 Input/output
+TMP_MAX		stdio.h	B.20 Input/output
+FILE		stdio.h	B.20 Input/output
+_IONBF		stdio.h	B.20 Input/output
+L_tmpnam		stdio.h	B.20 Input/output
+stderr		stdio.h	B.20 Input/output
+fpos_t		stdio.h	B.20 Input/output
+BUFSIZ		stdio.h	B.20 Input/output
+SEEK_CUR		stdio.h	B.20 Input/output
+stdin		stdio.h	B.20 Input/output
+NULL		stdio.h	B.20 Input/output
+EOF		stdio.h	B.20 Input/output
+SEEK_END		stdio.h	B.20 Input/output
+stdout		stdio.h	B.20 Input/output
+_IOFBF		stdio.h	B.20 Input/output
+FOPEN_MAX		stdio.h	B.20 Input/output
+SEEK_SET		stdio.h	B.20 Input/output
+remove	int remove(const char *filename);	stdio.h	B.20 Input/output
+rename	int rename(const char *old, const char *new);	stdio.h	B.20 Input/output
+tmpfile	FILE *tmpfile(void);	stdio.h	B.20 Input/output
+tmpnam	char *tmpnam(char *s);	stdio.h	B.20 Input/output
+fclose	int fclose(FILE *stream);	stdio.h	B.20 Input/output
+fflush	int fflush(FILE *stream);	stdio.h	B.20 Input/output
+fopen	FILE *fopen(const char * restrict filename, const char * restrict mode);	stdio.h	B.20 Input/output
+freopen	FILE *freopen(const char * restrict filename, const char * restrict mode, FILE * restrict stream);	stdio.h	B.20 Input/output
+setbuf	void setbuf(FILE * restrict stream, char * restrict buf);	stdio.h	B.20 Input/output
+setvbuf	int setvbuf(FILE * restrict stream, char * restrict buf, int mode, size_t size);	stdio.h	B.20 Input/output
+fprintf	int fprintf(FILE * restrict stream, const char * restrict format, ...);	stdio.h	B.20 Input/output
+fscanf	int fscanf(FILE * restrict stream, const char * restrict format, ...);	stdio.h	B.20 Input/output
+printf	int printf(const char * restrict format, ...);	stdio.h	B.20 Input/output
+scanf	int scanf(const char * restrict format, ...);	stdio.h	B.20 Input/output
+snprintf	int snprintf(char * restrict s, size_t n, const char * restrict format, ...);	stdio.h	B.20 Input/output
+sprintf	int sprintf(char * restrict s, const char * restrict format, ...);	stdio.h	B.20 Input/output
+sscanf	int sscanf(const char * restrict s, const char * restrict format, ...);	stdio.h	B.20 Input/output
+vfprintf	int vfprintf(FILE * restrict stream, const char * restrict format, va_list arg);	stdio.h	B.20 Input/output
+vfscanf	int vfscanf(FILE * restrict stream, const char * restrict format, va_list arg);	stdio.h	B.20 Input/output
+vprintf	int vprintf(const char * restrict format, va_list arg);	stdio.h	B.20 Input/output
+vscanf	int vscanf(const char * restrict format, va_list arg);	stdio.h	B.20 Input/output
+vsnprintf	int vsnprintf(char * restrict s, size_t n, const char * restrict format, va_list arg);	stdio.h	B.20 Input/output
+vsprintf	int vsprintf(char * restrict s, const char * restrict format, va_list arg);	stdio.h	B.20 Input/output
+vsscanf	int vsscanf(const char * restrict s, const char * restrict format, va_list arg);	stdio.h	B.20 Input/output
+fgetc	int fgetc(FILE *stream);	stdio.h	B.20 Input/output
+fgets	char *fgets(char * restrict s, int n, FILE * restrict stream);	stdio.h	B.20 Input/output
+fputc	int fputc(int c, FILE *stream);	stdio.h	B.20 Input/output
+fputs	int fputs(const char * restrict s, FILE * restrict stream);	stdio.h	B.20 Input/output
+getc	int getc(FILE *stream);	stdio.h	B.20 Input/output
+getchar	int getchar(void);	stdio.h	B.20 Input/output
+putc	int putc(int c, FILE *stream);	stdio.h	B.20 Input/output
+putchar	int putchar(int c);	stdio.h	B.20 Input/output
+puts	int puts(const char *s);	stdio.h	B.20 Input/output
+ungetc	int ungetc(int c, FILE *stream);	stdio.h	B.20 Input/output
+fread	size_t fread(void * restrict ptr, size_t size, size_t nmemb, FILE * restrict stream);	stdio.h	B.20 Input/output
+fwrite	size_t fwrite(const void * restrict ptr, size_t size, size_t nmemb, FILE * restrict stream);	stdio.h	B.20 Input/output
+fgetpos	int fgetpos(FILE * restrict stream, fpos_t * restrict pos);	stdio.h	B.20 Input/output
+fseek	int fseek(FILE *stream, long int offset, int whence);	stdio.h	B.20 Input/output
+fsetpos	int fsetpos(FILE *stream, const fpos_t *pos);	stdio.h	B.20 Input/output
+ftell	long int ftell(FILE *stream);	stdio.h	B.20 Input/output
+rewind	void rewind(FILE *stream);	stdio.h	B.20 Input/output
+clearerr	void clearerr(FILE *stream);	stdio.h	B.20 Input/output
+feof	int feof(FILE *stream);	stdio.h	B.20 Input/output
+ferror	int ferror(FILE *stream);	stdio.h	B.20 Input/output
+perror	void perror(const char *s);	stdio.h	B.20 Input/output
+L_tmpnam_s		stdio.h	B.20 Input/output
+TMP_MAX_S		stdio.h	B.20 Input/output
+errno_t		stdio.h	B.20 Input/output
+rsize_t		stdio.h	B.20 Input/output
+tmpfile_s	errno_t tmpfile_s(FILE * restrict * restrict streamptr);	stdio.h	B.20 Input/output
+tmpnam_s	errno_t tmpnam_s(char *s, rsize_t maxsize);	stdio.h	B.20 Input/output
+fopen_s	errno_t fopen_s(FILE * restrict * restrict streamptr, const char * restrict filename, const char * restrict mode);	stdio.h	B.20 Input/output
+freopen_s	errno_t freopen_s(FILE * restrict * restrict newstreamptr, const char * restrict filename, const char * restrict mode, FILE * restrict stream);	stdio.h	B.20 Input/output
+fprintf_s	int fprintf_s(FILE * restrict stream, const char * restrict format, ...);	stdio.h	B.20 Input/output
+fscanf_s	int fscanf_s(FILE * restrict stream, const char * restrict format, ...);	stdio.h	B.20 Input/output
+printf_s	int printf_s(const char * restrict format, ...);	stdio.h	B.20 Input/output
+scanf_s	int scanf_s(const char * restrict format, ...);	stdio.h	B.20 Input/output
+snprintf_s	int snprintf_s(char * restrict s, rsize_t n, const char * restrict format, ...);	stdio.h	B.20 Input/output
+sprintf_s	int sprintf_s(char * restrict s, rsize_t n, const char * restrict format, ...);	stdio.h	B.20 Input/output
+sscanf_s	int sscanf_s(const char * restrict s, const char * restrict format, ...);	stdio.h	B.20 Input/output
+vfprintf_s	int vfprintf_s(FILE * restrict stream, const char * restrict format, va_list arg);	stdio.h	B.20 Input/output
+vfscanf_s	int vfscanf_s(FILE * restrict stream, const char * restrict format, va_list arg);	stdio.h	B.20 Input/output
+vprintf_s	int vprintf_s(const char * restrict format, va_list arg);	stdio.h	B.20 Input/output
+vscanf_s	int vscanf_s(const char * restrict format, va_list arg);	stdio.h	B.20 Input/output
+vsnprintf_s	int vsnprintf_s(char * restrict s, rsize_t n, const char * restrict format, va_list arg);	stdio.h	B.20 Input/output
+vsprintf_s	int vsprintf_s(char * restrict s, rsize_t n, const char * restrict format, va_list arg);	stdio.h	B.20 Input/output
+vsscanf_s	int vsscanf_s(const char * restrict s, const char * restrict format, va_list arg);	stdio.h	B.20 Input/output
+gets_s	char *gets_s(char *s, rsize_t n);	stdio.h	B.20 Input/output
+size_t		stdlib.h	B.21 General utilities
+ldiv_t		stdlib.h	B.21 General utilities
+EXIT_FAILURE		stdlib.h	B.21 General utilities
+MB_CUR_MAX		stdlib.h	B.21 General utilities
+wchar_t		stdlib.h	B.21 General utilities
+lldiv_t		stdlib.h	B.21 General utilities
+EXIT_SUCCESS		stdlib.h	B.21 General utilities
+div_t		stdlib.h	B.21 General utilities
+NULL		stdlib.h	B.21 General utilities
+RAND_MAX		stdlib.h	B.21 General utilities
+atof	double atof(const char *nptr);	stdlib.h	B.21 General utilities
+atoi	int atoi(const char *nptr);	stdlib.h	B.21 General utilities
+atol	long int atol(const char *nptr);	stdlib.h	B.21 General utilities
+atoll	long long int atoll(const char *nptr);	stdlib.h	B.21 General utilities
+strtod	double strtod(const char * restrict nptr, char ** restrict endptr);	stdlib.h	B.21 General utilities
+strtof	float strtof(const char * restrict nptr, char ** restrict endptr);	stdlib.h	B.21 General utilities
+strtold	long double strtold(const char * restrict nptr, char ** restrict endptr);	stdlib.h	B.21 General utilities
+strtol	long int strtol(const char * restrict nptr, char ** restrict endptr, int base);	stdlib.h	B.21 General utilities
+strtoll	long long int strtoll(const char * restrict nptr, char ** restrict endptr, int base);	stdlib.h	B.21 General utilities
+strtoul	unsigned long int strtoul(const char * restrict nptr, char ** restrict endptr, int base);	stdlib.h	B.21 General utilities
+strtoull	unsigned long long int strtoull(const char * restrict nptr, char ** restrict endptr, int base);	stdlib.h	B.21 General utilities
+rand	int rand(void);	stdlib.h	B.21 General utilities
+srand	void srand(unsigned int seed);	stdlib.h	B.21 General utilities
+aligned_alloc	void *aligned_alloc(size_t alignment, size_t size);	stdlib.h	B.21 General utilities
+calloc	void *calloc(size_t nmemb, size_t size);	stdlib.h	B.21 General utilities
+free	void free(void *ptr);	stdlib.h	B.21 General utilities
+malloc	void *malloc(size_t size);	stdlib.h	B.21 General utilities
+realloc	void *realloc(void *ptr, size_t size);	stdlib.h	B.21 General utilities
+abort	_Noreturn void abort(void);	stdlib.h	B.21 General utilities
+atexit	int atexit(void (*func)(void));	stdlib.h	B.21 General utilities
+at_quick_exit	int at_quick_exit(void (*func)(void));	stdlib.h	B.21 General utilities
+exit	_Noreturn void exit(int status);	stdlib.h	B.21 General utilities
+_Exit	_Noreturn void _Exit(int status);	stdlib.h	B.21 General utilities
+getenv	char *getenv(const char *name);	stdlib.h	B.21 General utilities
+quick_exit	_Noreturn void quick_exit(int status);	stdlib.h	B.21 General utilities
+system	int system(const char *string);	stdlib.h	B.21 General utilities
+bsearch	void *bsearch(const void *key, const void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *));	stdlib.h	B.21 General utilities
+qsort	void qsort(void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *));	stdlib.h	B.21 General utilities
+abs	int abs(int j);	stdlib.h	B.21 General utilities
+labs	long int labs(long int j);	stdlib.h	B.21 General utilities
+llabs	long long int llabs(long long int j);	stdlib.h	B.21 General utilities
+div	div_t div(int numer, int denom);	stdlib.h	B.21 General utilities
+ldiv	ldiv_t ldiv(long int numer, long int denom);	stdlib.h	B.21 General utilities
+lldiv	lldiv_t lldiv(long long int numer, long long int denom);	stdlib.h	B.21 General utilities
+mblen	int mblen(const char *s, size_t n);	stdlib.h	B.21 General utilities
+mbtowc	int mbtowc(wchar_t * restrict pwc, const char * restrict s, size_t n);	stdlib.h	B.21 General utilities
+wctomb	int wctomb(char *s, wchar_t wchar);	stdlib.h	B.21 General utilities
+mbstowcs	size_t mbstowcs(wchar_t * restrict pwcs, const char * restrict s, size_t n);	stdlib.h	B.21 General utilities
+wcstombs	size_t wcstombs(char * restrict s, const wchar_t * restrict pwcs, size_t n);	stdlib.h	B.21 General utilities
+errno_t		stdlib.h	B.21 General utilities
+rsize_t		stdlib.h	B.21 General utilities
+constraint_handler_t		stdlib.h	B.21 General utilities
+set_constraint_handler_s	constraint_handler_t set_constraint_handler_s(constraint_handler_t handler);	stdlib.h	B.21 General utilities
+abort_handler_s	void abort_handler_s(const char * restrict msg, void * restrict ptr, errno_t error);	stdlib.h	B.21 General utilities
+ignore_handler_s	void ignore_handler_s(const char * restrict msg, void * restrict ptr, errno_t error);	stdlib.h	B.21 General utilities
+getenv_s	errno_t getenv_s(size_t * restrict len, char * restrict value, rsize_t maxsize, const char * restrict name);	stdlib.h	B.21 General utilities
+bsearch_s	void *bsearch_s(const void *key, const void *base, rsize_t nmemb, rsize_t size, int (*compar)(const void *k, const void *y, void *context), void *context);	stdlib.h	B.21 General utilities
+qsort_s	errno_t qsort_s(void *base, rsize_t nmemb, rsize_t size, int (*compar)(const void *x, const void *y, void *context), void *context);	stdlib.h	B.21 General utilities
+wctomb_s	errno_t wctomb_s(int * restrict status, char * restrict s, rsize_t smax, wchar_t wc);	stdlib.h	B.21 General utilities
+mbstowcs_s	errno_t mbstowcs_s(size_t * restrict retval, wchar_t * restrict dst, rsize_t dstmax, const char * restrict src, rsize_t len);	stdlib.h	B.21 General utilities
+wcstombs_s	errno_t wcstombs_s(size_t * restrict retval, char * restrict dst, rsize_t dstmax, const wchar_t * restrict src, rsize_t len);	stdlib.h	B.21 General utilities
+noreturn		stdnoreturn.h	B.22 _Noreturn
+size_t		string.h	B.23 String handling
+NULL		string.h	B.23 String handling
+memcpy	void *memcpy(void * restrict s1, const void * restrict s2, size_t n);	string.h	B.23 String handling
+memmove	void *memmove(void *s1, const void *s2, size_t n);	string.h	B.23 String handling
+strcpy	char *strcpy(char * restrict s1, const char * restrict s2);	string.h	B.23 String handling
+strncpy	char *strncpy(char * restrict s1, const char * restrict s2, size_t n);	string.h	B.23 String handling
+strcat	char *strcat(char * restrict s1, const char * restrict s2);	string.h	B.23 String handling
+strncat	char *strncat(char * restrict s1, const char * restrict s2, size_t n);	string.h	B.23 String handling
+memcmp	int memcmp(const void *s1, const void *s2, size_t n);	string.h	B.23 String handling
+strcmp	int strcmp(const char *s1, const char *s2);	string.h	B.23 String handling
+strcoll	int strcoll(const char *s1, const char *s2);	string.h	B.23 String handling
+strncmp	int strncmp(const char *s1, const char *s2, size_t n);	string.h	B.23 String handling
+strxfrm	size_t strxfrm(char * restrict s1, const char * restrict s2, size_t n);	string.h	B.23 String handling
+memchr	void *memchr(const void *s, int c, size_t n);	string.h	B.23 String handling
+strchr	char *strchr(const char *s, int c);	string.h	B.23 String handling
+strcspn	size_t strcspn(const char *s1, const char *s2);	string.h	B.23 String handling
+strpbrk	char *strpbrk(const char *s1, const char *s2);	string.h	B.23 String handling
+strrchr	char *strrchr(const char *s, int c);	string.h	B.23 String handling
+strspn	size_t strspn(const char *s1, const char *s2);	string.h	B.23 String handling
+strstr	char *strstr(const char *s1, const char *s2);	string.h	B.23 String handling
+strtok	char *strtok(char * restrict s1, const char * restrict s2);	string.h	B.23 String handling
+memset	void *memset(void *s, int c, size_t n);	string.h	B.23 String handling
+strerror	char *strerror(int errnum);	string.h	B.23 String handling
+strlen	size_t strlen(const char *s);	string.h	B.23 String handling
+errno_t		string.h	B.23 String handling
+rsize_t		string.h	B.23 String handling
+memcpy_s	errno_t memcpy_s(void * restrict s1, rsize_t s1max, const void * restrict s2, rsize_t n);	string.h	B.23 String handling
+memmove_s	errno_t memmove_s(void *s1, rsize_t s1max, const void *s2, rsize_t n);	string.h	B.23 String handling
+strcpy_s	errno_t strcpy_s(char * restrict s1, rsize_t s1max, const char * restrict s2);	string.h	B.23 String handling
+strncpy_s	errno_t strncpy_s(char * restrict s1, rsize_t s1max, const char * restrict s2, rsize_t n);	string.h	B.23 String handling
+strcat_s	errno_t strcat_s(char * restrict s1, rsize_t s1max, const char * restrict s2);	string.h	B.23 String handling
+strncat_s	errno_t strncat_s(char * restrict s1, rsize_t s1max, const char * restrict s2, rsize_t n);	string.h	B.23 String handling
+strtok_s	char *strtok_s(char * restrict s1, rsize_t * restrict s1max, const char * restrict s2, char ** restrict ptr);	string.h	B.23 String handling
+memset_s	errno_t memset_s(void *s, rsize_t smax, int c, rsize_t n)	string.h	B.23 String handling
+strerror_s	errno_t strerror_s(char *s, rsize_t maxsize, errno_t errnum);	string.h	B.23 String handling
+strerrorlen_s	size_t strerrorlen_s(errno_t errnum);	string.h	B.23 String handling
+strnlen_s	size_t strnlen_s(const char *s, size_t maxsize);	string.h	B.23 String handling
+acos		tgmath.h	B.24 Type-generic math
+sqrt		tgmath.h	B.24 Type-generic math
+fmod		tgmath.h	B.24 Type-generic math
+nextafter		tgmath.h	B.24 Type-generic math
+asin		tgmath.h	B.24 Type-generic math
+fabs		tgmath.h	B.24 Type-generic math
+frexp		tgmath.h	B.24 Type-generic math
+nexttoward		tgmath.h	B.24 Type-generic math
+atan		tgmath.h	B.24 Type-generic math
+atan2		tgmath.h	B.24 Type-generic math
+hypot		tgmath.h	B.24 Type-generic math
+remainder		tgmath.h	B.24 Type-generic math
+acosh		tgmath.h	B.24 Type-generic math
+cbrt		tgmath.h	B.24 Type-generic math
+ilogb		tgmath.h	B.24 Type-generic math
+remquo		tgmath.h	B.24 Type-generic math
+asinh		tgmath.h	B.24 Type-generic math
+ceil		tgmath.h	B.24 Type-generic math
+ldexp		tgmath.h	B.24 Type-generic math
+rint		tgmath.h	B.24 Type-generic math
+atanh		tgmath.h	B.24 Type-generic math
+copysign		tgmath.h	B.24 Type-generic math
+lgamma		tgmath.h	B.24 Type-generic math
+round		tgmath.h	B.24 Type-generic math
+cos		tgmath.h	B.24 Type-generic math
+erf		tgmath.h	B.24 Type-generic math
+llrint		tgmath.h	B.24 Type-generic math
+scalbn		tgmath.h	B.24 Type-generic math
+sin		tgmath.h	B.24 Type-generic math
+erfc		tgmath.h	B.24 Type-generic math
+llround		tgmath.h	B.24 Type-generic math
+scalbln		tgmath.h	B.24 Type-generic math
+tan		tgmath.h	B.24 Type-generic math
+exp2		tgmath.h	B.24 Type-generic math
+log10		tgmath.h	B.24 Type-generic math
+tgamma		tgmath.h	B.24 Type-generic math
+cosh		tgmath.h	B.24 Type-generic math
+expm1		tgmath.h	B.24 Type-generic math
+log1p		tgmath.h	B.24 Type-generic math
+trunc		tgmath.h	B.24 Type-generic math
+sinh		tgmath.h	B.24 Type-generic math
+fdim		tgmath.h	B.24 Type-generic math
+log2		tgmath.h	B.24 Type-generic math
+carg		tgmath.h	B.24 Type-generic math
+tanh		tgmath.h	B.24 Type-generic math
+floor		tgmath.h	B.24 Type-generic math
+logb		tgmath.h	B.24 Type-generic math
+cimag		tgmath.h	B.24 Type-generic math
+exp		tgmath.h	B.24 Type-generic math
+fma		tgmath.h	B.24 Type-generic math
+lrint		tgmath.h	B.24 Type-generic math
+conj		tgmath.h	B.24 Type-generic math
+log		tgmath.h	B.24 Type-generic math
+fmax		tgmath.h	B.24 Type-generic math
+lround		tgmath.h	B.24 Type-generic math
+cproj		tgmath.h	B.24 Type-generic math
+pow		tgmath.h	B.24 Type-generic math
+fmin		tgmath.h	B.24 Type-generic math
+nearbyint		tgmath.h	B.24 Type-generic math
+creal		tgmath.h	B.24 Type-generic math
+thread_local		threads.h	B.25 Threads
+once_flag		threads.h	B.25 Threads
+ONCE_FLAG_INIT		threads.h	B.25 Threads
+mtx_plain		threads.h	B.25 Threads
+TSS_DTOR_ITERATIONS		threads.h	B.25 Threads
+mtx_recursive		threads.h	B.25 Threads
+cnd_t		threads.h	B.25 Threads
+mtx_timed		threads.h	B.25 Threads
+thrd_t		threads.h	B.25 Threads
+thrd_timedout		threads.h	B.25 Threads
+tss_t		threads.h	B.25 Threads
+thrd_success		threads.h	B.25 Threads
+mtx_t		threads.h	B.25 Threads
+thrd_busy		threads.h	B.25 Threads
+tss_dtor_t		threads.h	B.25 Threads
+thrd_error		threads.h	B.25 Threads
+thrd_start_t		threads.h	B.25 Threads
+thrd_nomem		threads.h	B.25 Threads
+call_once	void call_once(once_flag *flag, void (*func)(void));	threads.h	B.25 Threads
+cnd_broadcast	int cnd_broadcast(cnd_t *cond);	threads.h	B.25 Threads
+cnd_destroy	void cnd_destroy(cnd_t *cond);	threads.h	B.25 Threads
+cnd_init	int cnd_init(cnd_t *cond);	threads.h	B.25 Threads
+cnd_signal	int cnd_signal(cnd_t *cond);	threads.h	B.25 Threads
+cnd_timedwait	int cnd_timedwait(cnd_t *restrict cond, mtx_t *restrict mtx, const struct timespec *restrict ts);	threads.h	B.25 Threads
+cnd_wait	int cnd_wait(cnd_t *cond, mtx_t *mtx);	threads.h	B.25 Threads
+mtx_destroy	void mtx_destroy(mtx_t *mtx);	threads.h	B.25 Threads
+mtx_init	int mtx_init(mtx_t *mtx, int type);	threads.h	B.25 Threads
+mtx_lock	int mtx_lock(mtx_t *mtx);	threads.h	B.25 Threads
+mtx_timedlock	int mtx_timedlock(mtx_t *restrict mtx, const struct timespec *restrict ts);	threads.h	B.25 Threads
+mtx_trylock	int mtx_trylock(mtx_t *mtx);	threads.h	B.25 Threads
+mtx_unlock	int mtx_unlock(mtx_t *mtx);	threads.h	B.25 Threads
+thrd_create	int thrd_create(thrd_t *thr, thrd_start_t func, void *arg);	threads.h	B.25 Threads
+thrd_current	thrd_t thrd_current(void);	threads.h	B.25 Threads
+thrd_detach	int thrd_detach(thrd_t thr);	threads.h	B.25 Threads
+thrd_equal	int thrd_equal(thrd_t thr0, thrd_t thr1);	threads.h	B.25 Threads
+thrd_exit	_Noreturn void thrd_exit(int res);	threads.h	B.25 Threads
+thrd_join	int thrd_join(thrd_t thr, int *res);	threads.h	B.25 Threads
+thrd_sleep	int thrd_sleep(const struct timespec *duration, struct timespec *remaining);	threads.h	B.25 Threads
+thrd_yield	void thrd_yield(void);	threads.h	B.25 Threads
+tss_create	int tss_create(tss_t *key, tss_dtor_t dtor);	threads.h	B.25 Threads
+tss_delete	void tss_delete(tss_t key);	threads.h	B.25 Threads
+tss_get	void *tss_get(tss_t key);	threads.h	B.25 Threads
+tss_set	int tss_set(tss_t key, void *val);	threads.h	B.25 Threads
+NULL		time.h	B.26 Date and time
+size_t		time.h	B.26 Date and time
+struct timespec		time.h	B.26 Date and time
+CLOCKS_PER_SEC		time.h	B.26 Date and time
+clock_t		time.h	B.26 Date and time
+struct tm		time.h	B.26 Date and time
+TIME_UTC		time.h	B.26 Date and time
+time_t		time.h	B.26 Date and time
+clock	clock_t clock(void);	time.h	B.26 Date and time
+difftime	double difftime(time_t time1, time_t time0);	time.h	B.26 Date and time
+mktime	time_t mktime(struct tm *timeptr);	time.h	B.26 Date and time
+time	time_t time(time_t *timer);	time.h	B.26 Date and time
+timespec_get	int timespec_get(timespec *ts, int base);	time.h	B.26 Date and time
+asctime	char *asctime(const struct tm *timeptr);	time.h	B.26 Date and time
+ctime	char *ctime(const time_t *timer);	time.h	B.26 Date and time
+gmtime	struct tm *gmtime(const time_t *timer);	time.h	B.26 Date and time
+localtime	struct tm *localtime(const time_t *timer);	time.h	B.26 Date and time
+strftime	size_t strftime(char * restrict s, size_t maxsize, const char * restrict format, const struct tm * restrict timeptr);	time.h	B.26 Date and time
+errno_t		time.h	B.26 Date and time
+rsize_t		time.h	B.26 Date and time
+asctime_s	errno_t asctime_s(char *s, rsize_t maxsize, const struct tm *timeptr);	time.h	B.26 Date and time
+ctime_s	errno_t ctime_s(char *s, rsize_t maxsize, const time_t *timer);	time.h	B.26 Date and time
+gmtime_s	struct tm *gmtime_s(const time_t * restrict timer, struct tm * restrict result);	time.h	B.26 Date and time
+localtime_s	struct tm *localtime_s(const time_t * restrict timer, struct tm * restrict result);	time.h	B.26 Date and time
+mbstate_t		uchar.h	B.27 Unicode utilities
+size_t		uchar.h	B.27 Unicode utilities
+char16_t		uchar.h	B.27 Unicode utilities
+char32_t		uchar.h	B.27 Unicode utilities
+mbrtoc16	size_t mbrtoc16(char16_t * restrict pc16, const char * restrict s, size_t n, mbstate_t * restrict ps);	uchar.h	B.27 Unicode utilities
+c16rtomb	size_t c16rtomb(char * restrict s, char16_t c16, mbstate_t * restrict ps);	uchar.h	B.27 Unicode utilities
+mbrtoc32	size_t mbrtoc32(char32_t * restrict pc32, const char * restrict s, size_t n, mbstate_t * restrict ps);	uchar.h	B.27 Unicode utilities
+c32rtomb	size_t c32rtomb(char * restrict s, char32_t c32, mbstate_t * restrict ps);	uchar.h	B.27 Unicode utilities
+wchar_t		wchar.h	B.28 Extended multibyte/wide character utilities
+wint_t		wchar.h	B.28 Extended multibyte/wide character utilities
+WCHAR_MAX		wchar.h	B.28 Extended multibyte/wide character utilities
+size_t		wchar.h	B.28 Extended multibyte/wide character utilities
+struct tm		wchar.h	B.28 Extended multibyte/wide character utilities
+WCHAR_MIN		wchar.h	B.28 Extended multibyte/wide character utilities
+mbstate_t		wchar.h	B.28 Extended multibyte/wide character utilities
+NULL		wchar.h	B.28 Extended multibyte/wide character utilities
+WEOF		wchar.h	B.28 Extended multibyte/wide character utilities
+fwprintf	int fwprintf(FILE * restrict stream, const wchar_t * restrict format, ...);	wchar.h	B.28 Extended multibyte/wide character utilities
+fwscanf	int fwscanf(FILE * restrict stream, const wchar_t * restrict format, ...);	wchar.h	B.28 Extended multibyte/wide character utilities
+swprintf	int swprintf(wchar_t * restrict s, size_t n, const wchar_t * restrict format, ...);	wchar.h	B.28 Extended multibyte/wide character utilities
+swscanf	int swscanf(const wchar_t * restrict s, const wchar_t * restrict format, ...);	wchar.h	B.28 Extended multibyte/wide character utilities
+vfwprintf	int vfwprintf(FILE * restrict stream, const wchar_t * restrict format, va_list arg);	wchar.h	B.28 Extended multibyte/wide character utilities
+vfwscanf	int vfwscanf(FILE * restrict stream, const wchar_t * restrict format, va_list arg);	wchar.h	B.28 Extended multibyte/wide character utilities
+vswprintf	int vswprintf(wchar_t * restrict s, size_t n, const wchar_t * restrict format, va_list arg);	wchar.h	B.28 Extended multibyte/wide character utilities
+vswscanf	int vswscanf(const wchar_t * restrict s, const wchar_t * restrict format, va_list arg);	wchar.h	B.28 Extended multibyte/wide character utilities
+vwprintf	int vwprintf(const wchar_t * restrict format, va_list arg);	wchar.h	B.28 Extended multibyte/wide character utilities
+vwscanf	int vwscanf(const wchar_t * restrict format, va_list arg);	wchar.h	B.28 Extended multibyte/wide character utilities
+wprintf	int wprintf(const wchar_t * restrict format, ...);	wchar.h	B.28 Extended multibyte/wide character utilities
+wscanf	int wscanf(const wchar_t * restrict format, ...);	wchar.h	B.28 Extended multibyte/wide character utilities
+fgetwc	wint_t fgetwc(FILE *stream);	wchar.h	B.28 Extended multibyte/wide character utilities
+fgetws	wchar_t *fgetws(wchar_t * restrict s, int n, FILE * restrict stream);	wchar.h	B.28 Extended multibyte/wide character utilities
+fputwc	wint_t fputwc(wchar_t c, FILE *stream);	wchar.h	B.28 Extended multibyte/wide character utilities
+fputws	int fputws(const wchar_t * restrict s, FILE * restrict stream);	wchar.h	B.28 Extended multibyte/wide character utilities
+fwide	int fwide(FILE *stream, int mode);	wchar.h	B.28 Extended multibyte/wide character utilities
+getwc	wint_t getwc(FILE *stream);	wchar.h	B.28 Extended multibyte/wide character utilities
+getwchar	wint_t getwchar(void);	wchar.h	B.28 Extended multibyte/wide character utilities
+putwc	wint_t putwc(wchar_t c, FILE *stream);	wchar.h	B.28 Extended multibyte/wide character utilities
+putwchar	wint_t putwchar(wchar_t c);	wchar.h	B.28 Extended multibyte/wide character utilities
+ungetwc	wint_t ungetwc(wint_t c, FILE *stream);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcstod	double wcstod(const wchar_t * restrict nptr, wchar_t ** restrict endptr);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcstof	float wcstof(const wchar_t * restrict nptr, wchar_t ** restrict endptr);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcstold	long double wcstold(const wchar_t * restrict nptr, wchar_t ** restrict endptr);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcstol	long int wcstol(const wchar_t * restrict nptr, wchar_t ** restrict endptr, int base);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcstoll	long long int wcstoll(const wchar_t * restrict nptr, wchar_t ** restrict endptr, int base);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcstoul	unsigned long int wcstoul(const wchar_t * restrict nptr, wchar_t ** restrict endptr, int base);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcstoull	unsigned long long int wcstoull(const wchar_t * restrict nptr, wchar_t ** restrict endptr, int base);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcscpy	wchar_t *wcscpy(wchar_t * restrict s1, const wchar_t * restrict s2);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcsncpy	wchar_t *wcsncpy(wchar_t * restrict s1, const wchar_t * restrict s2, size_t n);	wchar.h	B.28 Extended multibyte/wide character utilities
+wmemcpy	wchar_t *wmemcpy(wchar_t * restrict s1, const wchar_t * restrict s2, size_t n);	wchar.h	B.28 Extended multibyte/wide character utilities
+wmemmove	wchar_t *wmemmove(wchar_t *s1, const wchar_t *s2, size_t n);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcscat	wchar_t *wcscat(wchar_t * restrict s1, const wchar_t * restrict s2);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcsncat	wchar_t *wcsncat(wchar_t * restrict s1, const wchar_t * restrict s2, size_t n);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcscmp	int wcscmp(const wchar_t *s1, const wchar_t *s2);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcscoll	int wcscoll(const wchar_t *s1, const wchar_t *s2);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcsncmp	int wcsncmp(const wchar_t *s1, const wchar_t *s2, size_t n);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcsxfrm	size_t wcsxfrm(wchar_t * restrict s1, const wchar_t * restrict s2, size_t n);	wchar.h	B.28 Extended multibyte/wide character utilities
+wmemcmp	int wmemcmp(const wchar_t *s1, const wchar_t *s2, size_t n);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcschr	wchar_t *wcschr(const wchar_t *s, wchar_t c);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcscspn	size_t wcscspn(const wchar_t *s1, const wchar_t *s2);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcspbrk	wchar_t *wcspbrk(const wchar_t *s1, const wchar_t *s2);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcsrchr	wchar_t *wcsrchr(const wchar_t *s, wchar_t c);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcsspn	size_t wcsspn(const wchar_t *s1, const wchar_t *s2);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcsstr	wchar_t *wcsstr(const wchar_t *s1, const wchar_t *s2);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcstok	wchar_t *wcstok(wchar_t * restrict s1, const wchar_t * restrict s2, wchar_t ** restrict ptr);	wchar.h	B.28 Extended multibyte/wide character utilities
+wmemchr	wchar_t *wmemchr(const wchar_t *s, wchar_t c, size_t n);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcslen	size_t wcslen(const wchar_t *s);	wchar.h	B.28 Extended multibyte/wide character utilities
+wmemset	wchar_t *wmemset(wchar_t *s, wchar_t c, size_t n);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcsftime	size_t wcsftime(wchar_t * restrict s, size_t maxsize, const wchar_t * restrict format, const struct tm * restrict timeptr);	wchar.h	B.28 Extended multibyte/wide character utilities
+btowc	wint_t btowc(int c);	wchar.h	B.28 Extended multibyte/wide character utilities
+wctob	int wctob(wint_t c);	wchar.h	B.28 Extended multibyte/wide character utilities
+mbsinit	int mbsinit(const mbstate_t *ps);	wchar.h	B.28 Extended multibyte/wide character utilities
+mbrlen	size_t mbrlen(const char * restrict s, size_t n, mbstate_t * restrict ps);	wchar.h	B.28 Extended multibyte/wide character utilities
+mbrtowc	size_t mbrtowc(wchar_t * restrict pwc, const char * restrict s, size_t n, mbstate_t * restrict ps);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcrtomb	size_t wcrtomb(char * restrict s, wchar_t wc, mbstate_t * restrict ps);	wchar.h	B.28 Extended multibyte/wide character utilities
+mbsrtowcs	size_t mbsrtowcs(wchar_t * restrict dst, const char ** restrict src, size_t len, mbstate_t * restrict ps);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcsrtombs	size_t wcsrtombs(char * restrict dst, const wchar_t ** restrict src, size_t len, mbstate_t * restrict ps);	wchar.h	B.28 Extended multibyte/wide character utilities
+errno_t		wchar.h	B.28 Extended multibyte/wide character utilities
+rsize_t		wchar.h	B.28 Extended multibyte/wide character utilities
+fwprintf_s	int fwprintf_s(FILE * restrict stream, const wchar_t * restrict format, ...);	wchar.h	B.28 Extended multibyte/wide character utilities
+fwscanf_s	int fwscanf_s(FILE * restrict stream, const wchar_t * restrict format, ...);	wchar.h	B.28 Extended multibyte/wide character utilities
+snwprintf_s	int snwprintf_s(wchar_t * restrict s, rsize_t n, const wchar_t * restrict format, ...);	wchar.h	B.28 Extended multibyte/wide character utilities
+swprintf_s	int swprintf_s(wchar_t * restrict s, rsize_t n, const wchar_t * restrict format, ...);	wchar.h	B.28 Extended multibyte/wide character utilities
+swscanf_s	int swscanf_s(const wchar_t * restrict s, const wchar_t * restrict format, ...);	wchar.h	B.28 Extended multibyte/wide character utilities
+vfwprintf_s	int vfwprintf_s(FILE * restrict stream, const wchar_t * restrict format, va_list arg);	wchar.h	B.28 Extended multibyte/wide character utilities
+vfwscanf_s	int vfwscanf_s(FILE * restrict stream, const wchar_t * restrict format, va_list arg);	wchar.h	B.28 Extended multibyte/wide character utilities
+vsnwprintf_s	int vsnwprintf_s(wchar_t * restrict s, rsize_t n, const wchar_t * restrict format, va_list arg);	wchar.h	B.28 Extended multibyte/wide character utilities
+vswprintf_s	int vswprintf_s(wchar_t * restrict s, rsize_t n, const wchar_t * restrict format, va_list arg);	wchar.h	B.28 Extended multibyte/wide character utilities
+vswscanf_s	int vswscanf_s(const wchar_t * restrict s, const wchar_t * restrict format, va_list arg);	wchar.h	B.28 Extended multibyte/wide character utilities
+vwprintf_s	int vwprintf_s(const wchar_t * restrict format, va_list arg);	wchar.h	B.28 Extended multibyte/wide character utilities
+vwscanf_s	int vwscanf_s(const wchar_t * restrict format, va_list arg);	wchar.h	B.28 Extended multibyte/wide character utilities
+wprintf_s	int wprintf_s(const wchar_t * restrict format, ...);	wchar.h	B.28 Extended multibyte/wide character utilities
+wscanf_s	int wscanf_s(const wchar_t * restrict format, ...);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcscpy_s	errno_t wcscpy_s(wchar_t * restrict s1, rsize_t s1max, const wchar_t * restrict s2);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcsncpy_s	errno_t wcsncpy_s(wchar_t * restrict s1, rsize_t s1max, const wchar_t * restrict s2, rsize_t n);	wchar.h	B.28 Extended multibyte/wide character utilities
+wmemcpy_s	errno_t wmemcpy_s(wchar_t * restrict s1, rsize_t s1max, const wchar_t * restrict s2, rsize_t n);	wchar.h	B.28 Extended multibyte/wide character utilities
+wmemmove_s	errno_t wmemmove_s(wchar_t *s1, rsize_t s1max, const wchar_t *s2, rsize_t n);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcscat_s	errno_t wcscat_s(wchar_t * restrict s1, rsize_t s1max, const wchar_t * restrict s2);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcsncat_s	errno_t wcsncat_s(wchar_t * restrict s1, rsize_t s1max, const wchar_t * restrict s2, rsize_t n);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcstok_s	wchar_t *wcstok_s(wchar_t * restrict s1, rsize_t * restrict s1max, const wchar_t * restrict s2, wchar_t ** restrict ptr);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcsnlen_s	size_t wcsnlen_s(const wchar_t *s, size_t maxsize);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcrtomb_s	errno_t wcrtomb_s(size_t * restrict retval, char * restrict s, rsize_t smax, wchar_t wc, mbstate_t * restrict ps);	wchar.h	B.28 Extended multibyte/wide character utilities
+mbsrtowcs_s	errno_t mbsrtowcs_s(size_t * restrict retval, wchar_t * restrict dst, rsize_t dstmax, const char ** restrict src, rsize_t len, mbstate_t * restrict ps);	wchar.h	B.28 Extended multibyte/wide character utilities
+wcsrtombs_s	errno_t wcsrtombs_s(size_t * restrict retval, char * restrict dst, rsize_t dstmax, const wchar_t ** restrict src, rsize_t len, mbstate_t * restrict ps);	wchar.h	B.28 Extended multibyte/wide character utilities
+wint_t		wctype.h	B.29 Wide character classification and mapping utilities
+wctrans_t		wctype.h	B.29 Wide character classification and mapping utilities
+wctype_t		wctype.h	B.29 Wide character classification and mapping utilities
+WEOF		wctype.h	B.29 Wide character classification and mapping utilities
+iswalnum	int iswalnum(wint_t wc);	wctype.h	B.29 Wide character classification and mapping utilities
+iswalpha	int iswalpha(wint_t wc);	wctype.h	B.29 Wide character classification and mapping utilities
+iswblank	int iswblank(wint_t wc);	wctype.h	B.29 Wide character classification and mapping utilities
+iswcntrl	int iswcntrl(wint_t wc);	wctype.h	B.29 Wide character classification and mapping utilities
+iswdigit	int iswdigit(wint_t wc);	wctype.h	B.29 Wide character classification and mapping utilities
+iswgraph	int iswgraph(wint_t wc);	wctype.h	B.29 Wide character classification and mapping utilities
+iswlower	int iswlower(wint_t wc);	wctype.h	B.29 Wide character classification and mapping utilities
+iswprint	int iswprint(wint_t wc);	wctype.h	B.29 Wide character classification and mapping utilities
+iswpunct	int iswpunct(wint_t wc);	wctype.h	B.29 Wide character classification and mapping utilities
+iswspace	int iswspace(wint_t wc);	wctype.h	B.29 Wide character classification and mapping utilities
+iswupper	int iswupper(wint_t wc);	wctype.h	B.29 Wide character classification and mapping utilities
+iswxdigit	int iswxdigit(wint_t wc);	wctype.h	B.29 Wide character classification and mapping utilities
+iswctype	int iswctype(wint_t wc, wctype_t desc);	wctype.h	B.29 Wide character classification and mapping utilities
+wctype	wctype_t wctype(const char *property);	wctype.h	B.29 Wide character classification and mapping utilities
+towlower	wint_t towlower(wint_t wc);	wctype.h	B.29 Wide character classification and mapping utilities
+towupper	wint_t towupper(wint_t wc);	wctype.h	B.29 Wide character classification and mapping utilities
+towctrans	wint_t towctrans(wint_t wc, wctrans_t desc);	wctype.h	B.29 Wide character classification and mapping utilities
+wctrans	wctrans_t wctrans(const char *property);	wctype.h	B.29 Wide character classification and mapping utilities

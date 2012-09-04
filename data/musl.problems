@@ -15,8 +15,6 @@ nodecl	fgetws_unlocked	W
 nodecl	fpurge	W
 nodecl	fputwc_unlocked	W
 nodecl	fputws_unlocked	W
-nodecl	getdents	W
-nodecl	getdents64	W
 proto	gethostent	network/ent.c	netdb.h	void*()	struct hostent*(void)
 nodecl	getwc_unlocked	W
 nodecl	getwchar_unlocked	W

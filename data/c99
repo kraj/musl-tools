@@ -1,4 +1,3 @@
-NDEBUG		assert.h	B.1 Diagnostics
 assert	void assert(scalar expression);	assert.h	B.1 Diagnostics
 complex		complex.h	B.2 Complex
 imaginary		complex.h	B.2 Complex
