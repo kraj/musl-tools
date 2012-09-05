@@ -50,6 +50,7 @@ BEGIN {
 	legend = legend "<li>p - function prototype"
 	legend = legend "<li>x - external and forward variable declaration"
 	legend = legend "</ul></ul>"
+	legend = legend "<p>(Annex K apis are excluded: -D__STDC_WANT_LIB_EXT1__=0 is assumed)"
 
 	print "<h3>musl vs c11 api</h3>"
 	print commit

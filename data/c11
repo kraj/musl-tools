@@ -92,7 +92,6 @@ EDOM		errno.h	B.4 Errors
 EILSEQ		errno.h	B.4 Errors
 ERANGE		errno.h	B.4 Errors
 errno		errno.h	B.4 Errors
-errno_t		errno.h	B.4 Errors
 fenv_t		fenv.h	B.5 Floating-point environment
 FE_OVERFLOW		fenv.h	B.5 Floating-point environment
 FE_TOWARDZERO		fenv.h	B.5 Floating-point environment
@@ -671,7 +670,6 @@ NULL		stddef.h	B.18 Common definitions
 size_t		stddef.h	B.18 Common definitions
 wchar_t		stddef.h	B.18 Common definitions
 offsetof	offsetof(type, member-designator)	stddef.h	B.18 Common definitions
-rsize_t		stddef.h	B.18 Common definitions
 int8_t		stdint.h	B.19 Integer types
 int16_t		stdint.h	B.19 Integer types
 int32_t		stdint.h	B.19 Integer types
@@ -761,7 +759,6 @@ UINT16_MAX		stdint.h	B.19 Integer types
 UINT32_MAX		stdint.h	B.19 Integer types
 UINT64_MAX		stdint.h	B.19 Integer types
 PTRDIFF_MIN		stdint.h	B.19 Integer types
-RSIZE_MAX		stdint.h	B.19 Integer types
 size_t		stdio.h	B.20 Input/output
 _IOLBF		stdio.h	B.20 Input/output
 FILENAME_MAX		stdio.h	B.20 Input/output
@@ -826,29 +823,6 @@ clearerr	void clearerr(FILE *stream);	stdio.h	B.20 Input/output
 feof	int feof(FILE *stream);	stdio.h	B.20 Input/output
 ferror	int ferror(FILE *stream);	stdio.h	B.20 Input/output
 perror	void perror(const char *s);	stdio.h	B.20 Input/output
-L_tmpnam_s		stdio.h	B.20 Input/output
-TMP_MAX_S		stdio.h	B.20 Input/output
-errno_t		stdio.h	B.20 Input/output
-rsize_t		stdio.h	B.20 Input/output
-tmpfile_s	errno_t tmpfile_s(FILE * restrict * restrict streamptr);	stdio.h	B.20 Input/output
-tmpnam_s	errno_t tmpnam_s(char *s, rsize_t maxsize);	stdio.h	B.20 Input/output
-fopen_s	errno_t fopen_s(FILE * restrict * restrict streamptr, const char * restrict filename, const char * restrict mode);	stdio.h	B.20 Input/output
-freopen_s	errno_t freopen_s(FILE * restrict * restrict newstreamptr, const char * restrict filename, const char * restrict mode, FILE * restrict stream);	stdio.h	B.20 Input/output
-fprintf_s	int fprintf_s(FILE * restrict stream, const char * restrict format, ...);	stdio.h	B.20 Input/output
-fscanf_s	int fscanf_s(FILE * restrict stream, const char * restrict format, ...);	stdio.h	B.20 Input/output
-printf_s	int printf_s(const char * restrict format, ...);	stdio.h	B.20 Input/output
-scanf_s	int scanf_s(const char * restrict format, ...);	stdio.h	B.20 Input/output
-snprintf_s	int snprintf_s(char * restrict s, rsize_t n, const char * restrict format, ...);	stdio.h	B.20 Input/output
-sprintf_s	int sprintf_s(char * restrict s, rsize_t n, const char * restrict format, ...);	stdio.h	B.20 Input/output
-sscanf_s	int sscanf_s(const char * restrict s, const char * restrict format, ...);	stdio.h	B.20 Input/output
-vfprintf_s	int vfprintf_s(FILE * restrict stream, const char * restrict format, va_list arg);	stdio.h	B.20 Input/output
-vfscanf_s	int vfscanf_s(FILE * restrict stream, const char * restrict format, va_list arg);	stdio.h	B.20 Input/output
-vprintf_s	int vprintf_s(const char * restrict format, va_list arg);	stdio.h	B.20 Input/output
-vscanf_s	int vscanf_s(const char * restrict format, va_list arg);	stdio.h	B.20 Input/output
-vsnprintf_s	int vsnprintf_s(char * restrict s, rsize_t n, const char * restrict format, va_list arg);	stdio.h	B.20 Input/output
-vsprintf_s	int vsprintf_s(char * restrict s, rsize_t n, const char * restrict format, va_list arg);	stdio.h	B.20 Input/output
-vsscanf_s	int vsscanf_s(const char * restrict s, const char * restrict format, va_list arg);	stdio.h	B.20 Input/output
-gets_s	char *gets_s(char *s, rsize_t n);	stdio.h	B.20 Input/output
 size_t		stdlib.h	B.21 General utilities
 ldiv_t		stdlib.h	B.21 General utilities
 EXIT_FAILURE		stdlib.h	B.21 General utilities
@@ -898,18 +872,6 @@ mbtowc	int mbtowc(wchar_t * restrict pwc, const char * restrict s, size_t n);	st
 wctomb	int wctomb(char *s, wchar_t wchar);	stdlib.h	B.21 General utilities
 mbstowcs	size_t mbstowcs(wchar_t * restrict pwcs, const char * restrict s, size_t n);	stdlib.h	B.21 General utilities
 wcstombs	size_t wcstombs(char * restrict s, const wchar_t * restrict pwcs, size_t n);	stdlib.h	B.21 General utilities
-errno_t		stdlib.h	B.21 General utilities
-rsize_t		stdlib.h	B.21 General utilities
-constraint_handler_t		stdlib.h	B.21 General utilities
-set_constraint_handler_s	constraint_handler_t set_constraint_handler_s(constraint_handler_t handler);	stdlib.h	B.21 General utilities
-abort_handler_s	void abort_handler_s(const char * restrict msg, void * restrict ptr, errno_t error);	stdlib.h	B.21 General utilities
-ignore_handler_s	void ignore_handler_s(const char * restrict msg, void * restrict ptr, errno_t error);	stdlib.h	B.21 General utilities
-getenv_s	errno_t getenv_s(size_t * restrict len, char * restrict value, rsize_t maxsize, const char * restrict name);	stdlib.h	B.21 General utilities
-bsearch_s	void *bsearch_s(const void *key, const void *base, rsize_t nmemb, rsize_t size, int (*compar)(const void *k, const void *y, void *context), void *context);	stdlib.h	B.21 General utilities
-qsort_s	errno_t qsort_s(void *base, rsize_t nmemb, rsize_t size, int (*compar)(const void *x, const void *y, void *context), void *context);	stdlib.h	B.21 General utilities
-wctomb_s	errno_t wctomb_s(int * restrict status, char * restrict s, rsize_t smax, wchar_t wc);	stdlib.h	B.21 General utilities
-mbstowcs_s	errno_t mbstowcs_s(size_t * restrict retval, wchar_t * restrict dst, rsize_t dstmax, const char * restrict src, rsize_t len);	stdlib.h	B.21 General utilities
-wcstombs_s	errno_t wcstombs_s(size_t * restrict retval, char * restrict dst, rsize_t dstmax, const wchar_t * restrict src, rsize_t len);	stdlib.h	B.21 General utilities
 noreturn		stdnoreturn.h	B.22 _Noreturn
 size_t		string.h	B.23 String handling
 NULL		string.h	B.23 String handling
@@ -935,19 +897,6 @@ strtok	char *strtok(char * restrict s1, const char * restrict s2);	string.h	B.23
 memset	void *memset(void *s, int c, size_t n);	string.h	B.23 String handling
 strerror	char *strerror(int errnum);	string.h	B.23 String handling
 strlen	size_t strlen(const char *s);	string.h	B.23 String handling
-errno_t		string.h	B.23 String handling
-rsize_t		string.h	B.23 String handling
-memcpy_s	errno_t memcpy_s(void * restrict s1, rsize_t s1max, const void * restrict s2, rsize_t n);	string.h	B.23 String handling
-memmove_s	errno_t memmove_s(void *s1, rsize_t s1max, const void *s2, rsize_t n);	string.h	B.23 String handling
-strcpy_s	errno_t strcpy_s(char * restrict s1, rsize_t s1max, const char * restrict s2);	string.h	B.23 String handling
-strncpy_s	errno_t strncpy_s(char * restrict s1, rsize_t s1max, const char * restrict s2, rsize_t n);	string.h	B.23 String handling
-strcat_s	errno_t strcat_s(char * restrict s1, rsize_t s1max, const char * restrict s2);	string.h	B.23 String handling
-strncat_s	errno_t strncat_s(char * restrict s1, rsize_t s1max, const char * restrict s2, rsize_t n);	string.h	B.23 String handling
-strtok_s	char *strtok_s(char * restrict s1, rsize_t * restrict s1max, const char * restrict s2, char ** restrict ptr);	string.h	B.23 String handling
-memset_s	errno_t memset_s(void *s, rsize_t smax, int c, rsize_t n)	string.h	B.23 String handling
-strerror_s	errno_t strerror_s(char *s, rsize_t maxsize, errno_t errnum);	string.h	B.23 String handling
-strerrorlen_s	size_t strerrorlen_s(errno_t errnum);	string.h	B.23 String handling
-strnlen_s	size_t strnlen_s(const char *s, size_t maxsize);	string.h	B.23 String handling
 acos		tgmath.h	B.24 Type-generic math
 sqrt		tgmath.h	B.24 Type-generic math
 fmod		tgmath.h	B.24 Type-generic math
@@ -1069,12 +1018,6 @@ ctime	char *ctime(const time_t *timer);	time.h	B.26 Date and time
 gmtime	struct tm *gmtime(const time_t *timer);	time.h	B.26 Date and time
 localtime	struct tm *localtime(const time_t *timer);	time.h	B.26 Date and time
 strftime	size_t strftime(char * restrict s, size_t maxsize, const char * restrict format, const struct tm * restrict timeptr);	time.h	B.26 Date and time
-errno_t		time.h	B.26 Date and time
-rsize_t		time.h	B.26 Date and time
-asctime_s	errno_t asctime_s(char *s, rsize_t maxsize, const struct tm *timeptr);	time.h	B.26 Date and time
-ctime_s	errno_t ctime_s(char *s, rsize_t maxsize, const time_t *timer);	time.h	B.26 Date and time
-gmtime_s	struct tm *gmtime_s(const time_t * restrict timer, struct tm * restrict result);	time.h	B.26 Date and time
-localtime_s	struct tm *localtime_s(const time_t * restrict timer, struct tm * restrict result);	time.h	B.26 Date and time
 mbstate_t		uchar.h	B.27 Unicode utilities
 size_t		uchar.h	B.27 Unicode utilities
 char16_t		uchar.h	B.27 Unicode utilities
@@ -1151,33 +1094,6 @@ mbrtowc	size_t mbrtowc(wchar_t * restrict pwc, const char * restrict s, size_t n
 wcrtomb	size_t wcrtomb(char * restrict s, wchar_t wc, mbstate_t * restrict ps);	wchar.h	B.28 Extended multibyte/wide character utilities
 mbsrtowcs	size_t mbsrtowcs(wchar_t * restrict dst, const char ** restrict src, size_t len, mbstate_t * restrict ps);	wchar.h	B.28 Extended multibyte/wide character utilities
 wcsrtombs	size_t wcsrtombs(char * restrict dst, const wchar_t ** restrict src, size_t len, mbstate_t * restrict ps);	wchar.h	B.28 Extended multibyte/wide character utilities
-errno_t		wchar.h	B.28 Extended multibyte/wide character utilities
-rsize_t		wchar.h	B.28 Extended multibyte/wide character utilities
-fwprintf_s	int fwprintf_s(FILE * restrict stream, const wchar_t * restrict format, ...);	wchar.h	B.28 Extended multibyte/wide character utilities
-fwscanf_s	int fwscanf_s(FILE * restrict stream, const wchar_t * restrict format, ...);	wchar.h	B.28 Extended multibyte/wide character utilities
-snwprintf_s	int snwprintf_s(wchar_t * restrict s, rsize_t n, const wchar_t * restrict format, ...);	wchar.h	B.28 Extended multibyte/wide character utilities
-swprintf_s	int swprintf_s(wchar_t * restrict s, rsize_t n, const wchar_t * restrict format, ...);	wchar.h	B.28 Extended multibyte/wide character utilities
-swscanf_s	int swscanf_s(const wchar_t * restrict s, const wchar_t * restrict format, ...);	wchar.h	B.28 Extended multibyte/wide character utilities
-vfwprintf_s	int vfwprintf_s(FILE * restrict stream, const wchar_t * restrict format, va_list arg);	wchar.h	B.28 Extended multibyte/wide character utilities
-vfwscanf_s	int vfwscanf_s(FILE * restrict stream, const wchar_t * restrict format, va_list arg);	wchar.h	B.28 Extended multibyte/wide character utilities
-vsnwprintf_s	int vsnwprintf_s(wchar_t * restrict s, rsize_t n, const wchar_t * restrict format, va_list arg);	wchar.h	B.28 Extended multibyte/wide character utilities
-vswprintf_s	int vswprintf_s(wchar_t * restrict s, rsize_t n, const wchar_t * restrict format, va_list arg);	wchar.h	B.28 Extended multibyte/wide character utilities
-vswscanf_s	int vswscanf_s(const wchar_t * restrict s, const wchar_t * restrict format, va_list arg);	wchar.h	B.28 Extended multibyte/wide character utilities
-vwprintf_s	int vwprintf_s(const wchar_t * restrict format, va_list arg);	wchar.h	B.28 Extended multibyte/wide character utilities
-vwscanf_s	int vwscanf_s(const wchar_t * restrict format, va_list arg);	wchar.h	B.28 Extended multibyte/wide character utilities
-wprintf_s	int wprintf_s(const wchar_t * restrict format, ...);	wchar.h	B.28 Extended multibyte/wide character utilities
-wscanf_s	int wscanf_s(const wchar_t * restrict format, ...);	wchar.h	B.28 Extended multibyte/wide character utilities
-wcscpy_s	errno_t wcscpy_s(wchar_t * restrict s1, rsize_t s1max, const wchar_t * restrict s2);	wchar.h	B.28 Extended multibyte/wide character utilities
-wcsncpy_s	errno_t wcsncpy_s(wchar_t * restrict s1, rsize_t s1max, const wchar_t * restrict s2, rsize_t n);	wchar.h	B.28 Extended multibyte/wide character utilities
-wmemcpy_s	errno_t wmemcpy_s(wchar_t * restrict s1, rsize_t s1max, const wchar_t * restrict s2, rsize_t n);	wchar.h	B.28 Extended multibyte/wide character utilities
-wmemmove_s	errno_t wmemmove_s(wchar_t *s1, rsize_t s1max, const wchar_t *s2, rsize_t n);	wchar.h	B.28 Extended multibyte/wide character utilities
-wcscat_s	errno_t wcscat_s(wchar_t * restrict s1, rsize_t s1max, const wchar_t * restrict s2);	wchar.h	B.28 Extended multibyte/wide character utilities
-wcsncat_s	errno_t wcsncat_s(wchar_t * restrict s1, rsize_t s1max, const wchar_t * restrict s2, rsize_t n);	wchar.h	B.28 Extended multibyte/wide character utilities
-wcstok_s	wchar_t *wcstok_s(wchar_t * restrict s1, rsize_t * restrict s1max, const wchar_t * restrict s2, wchar_t ** restrict ptr);	wchar.h	B.28 Extended multibyte/wide character utilities
-wcsnlen_s	size_t wcsnlen_s(const wchar_t *s, size_t maxsize);	wchar.h	B.28 Extended multibyte/wide character utilities
-wcrtomb_s	errno_t wcrtomb_s(size_t * restrict retval, char * restrict s, rsize_t smax, wchar_t wc, mbstate_t * restrict ps);	wchar.h	B.28 Extended multibyte/wide character utilities
-mbsrtowcs_s	errno_t mbsrtowcs_s(size_t * restrict retval, wchar_t * restrict dst, rsize_t dstmax, const char ** restrict src, rsize_t len, mbstate_t * restrict ps);	wchar.h	B.28 Extended multibyte/wide character utilities
-wcsrtombs_s	errno_t wcsrtombs_s(size_t * restrict retval, char * restrict dst, rsize_t dstmax, const wchar_t ** restrict src, rsize_t len, mbstate_t * restrict ps);	wchar.h	B.28 Extended multibyte/wide character utilities
 wint_t		wctype.h	B.29 Wide character classification and mapping utilities
 wctrans_t		wctype.h	B.29 Wide character classification and mapping utilities
 wctype_t		wctype.h	B.29 Wide character classification and mapping utilities

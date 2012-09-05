@@ -1,6 +1,6 @@
 <h3>musl vs c11 api</h3>
 <h4>commit</h4><p>commit <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/commit/&amp;h=fb247fafa04ee52dda816355ab0461132297b9a4">fb247fafa04ee52dda816355ab0461132297b9a4</a><br>Date:   Sun Sep 2 12:46:06 2012 -0400<br><br>    avoid "inline" in public headers for strict c89 compatibility<br>    <br>    while musl itself requires a c99 compiler, some applications insist on<br>    being compiled with c89 compilers, and use of "inline" in the headers<br>    was breaking them. much of this had been avoided already by just<br>    skipping the inline keyword in pre-c99 compilers or modes, but this<br>    new unified solution is cleaner and may/should result in better code<br>    generation in the default gcc configuration.
-<h4>legend</h4><ul><li>status: musl implementation status summary<ul><li>(empty) - implemented<li>nosym - prototype found in include files (see decl) but not in libc.a (see sym)<li>nodecl - symbol is in libc.a but not declared in a public header<li>missing - neither in include files (see decl) nor in libc.a (see sym)</ul><li>sym: external symbol kind as found by `nm libc.a` (symbol kind only reported once)<ul><li>C - symbol is common (uninitialized data)<li>D - symbol is in the initialized data section<li>R - symbol is in the read only data section<li>T - symbol is in the text section<li>V - weak object<li>W - weak symbol</ul><li>decl: kind of declaration as found by `ctags -R include` (every occurance is reported, arch specific definitions are not linked)<ul><li>d - macro definition<li>t - typedef<li>s - struct declaration<li>u - union declaration<li>p - function prototype<li>x - external and forward variable declaration</ul></ul>
+<h4>legend</h4><ul><li>status: musl implementation status summary<ul><li>(empty) - implemented<li>nosym - prototype found in include files (see decl) but not in libc.a (see sym)<li>nodecl - symbol is in libc.a but not declared in a public header<li>missing - neither in include files (see decl) nor in libc.a (see sym)</ul><li>sym: external symbol kind as found by `nm libc.a` (symbol kind only reported once)<ul><li>C - symbol is common (uninitialized data)<li>D - symbol is in the initialized data section<li>R - symbol is in the read only data section<li>T - symbol is in the text section<li>V - weak object<li>W - weak symbol</ul><li>decl: kind of declaration as found by `ctags -R include` (every occurance is reported, arch specific definitions are not linked)<ul><li>d - macro definition<li>t - typedef<li>s - struct declaration<li>u - union declaration<li>p - function prototype<li>x - external and forward variable declaration</ul></ul><p>(Annex K apis are excluded: -D__STDC_WANT_LIB_EXT1__=0 is assumed)
 <h4>table</h4><table border=1><tr><th colspan=3>musl<th colspan=4>c11<tr><th>status<th>sym<th>decl<th>name<th>header<th>proto<th>section
 <tr><td>missing<td>&#160;<td>&#160;<td>static_assert<td>assert.h<td>&#160;<td>B.1 Diagnostics
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/assert.h#n1">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/assert.h#n4">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/assert.h#n6">d</a> <td>assert<td>assert.h<td>void assert(scalar expression);<td>B.1 Diagnostics
@@ -96,7 +96,6 @@
 <tr><td>&#160;<td>&#160;<td>d <td>EILSEQ<td>errno.h<td>&#160;<td>B.4 Errors
 <tr><td>&#160;<td>&#160;<td>d <td>ERANGE<td>errno.h<td>&#160;<td>B.4 Errors
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/errno.h#n14">d</a> <td>errno<td>errno.h<td>&#160;<td>B.4 Errors
-<tr><td>missing<td>&#160;<td>&#160;<td>errno_t<td>errno.h<td>&#160;<td>B.4 Errors
 <tr><td>&#160;<td>&#160;<td>t <td>fenv_t<td>fenv.h<td>&#160;<td>B.5 Floating-point environment
 <tr><td>&#160;<td>&#160;<td>d <td>FE_OVERFLOW<td>fenv.h<td>&#160;<td>B.5 Floating-point environment
 <tr><td>&#160;<td>&#160;<td>d <td>FE_TOWARDZERO<td>fenv.h<td>&#160;<td>B.5 Floating-point environment
@@ -675,7 +674,6 @@
 <tr><td>&#160;<td>&#160;<td>t <td>size_t<td>stddef.h<td>&#160;<td>B.18 Common definitions
 <tr><td>&#160;<td>&#160;<td>t t <td>wchar_t<td>stddef.h<td>&#160;<td>B.18 Common definitions
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/stddef.h#n17">d</a> <td>offsetof<td>stddef.h<td>offsetof(type, member-designator)<td>B.18 Common definitions
-<tr><td>missing<td>&#160;<td>&#160;<td>rsize_t<td>stddef.h<td>&#160;<td>B.18 Common definitions
 <tr><td>&#160;<td>&#160;<td>t <td>int8_t<td>stdint.h<td>&#160;<td>B.19 Integer types
 <tr><td>&#160;<td>&#160;<td>t <td>int16_t<td>stdint.h<td>&#160;<td>B.19 Integer types
 <tr><td>&#160;<td>&#160;<td>t <td>int32_t<td>stdint.h<td>&#160;<td>B.19 Integer types
@@ -765,7 +763,6 @@
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/stdint.h#n56">d</a> <td>UINT32_MAX<td>stdint.h<td>&#160;<td>B.19 Integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/stdint.h#n57">d</a> <td>UINT64_MAX<td>stdint.h<td>&#160;<td>B.19 Integer types
 <tr><td>&#160;<td>&#160;<td>d <td>PTRDIFF_MIN<td>stdint.h<td>&#160;<td>B.19 Integer types
-<tr><td>missing<td>&#160;<td>&#160;<td>RSIZE_MAX<td>stdint.h<td>&#160;<td>B.19 Integer types
 <tr><td>&#160;<td>&#160;<td>t <td>size_t<td>stdio.h<td>&#160;<td>B.20 Input/output
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/stdio.h#n39">d</a> <td>_IOLBF<td>stdio.h<td>&#160;<td>B.20 Input/output
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/stdio.h#n43">d</a> <td>FILENAME_MAX<td>stdio.h<td>&#160;<td>B.20 Input/output
@@ -830,29 +827,6 @@
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/stdio.h#n68">p</a> <td>feof<td>stdio.h<td>int feof(FILE *stream);<td>B.20 Input/output
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/stdio.h#n69">p</a> <td>ferror<td>stdio.h<td>int ferror(FILE *stream);<td>B.20 Input/output
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/stdio.h#n117">p</a> <td>perror<td>stdio.h<td>void perror(const char *s);<td>B.20 Input/output
-<tr><td>missing<td>&#160;<td>&#160;<td>L_tmpnam_s<td>stdio.h<td>&#160;<td>B.20 Input/output
-<tr><td>missing<td>&#160;<td>&#160;<td>TMP_MAX_S<td>stdio.h<td>&#160;<td>B.20 Input/output
-<tr><td>missing<td>&#160;<td>&#160;<td>errno_t<td>stdio.h<td>&#160;<td>B.20 Input/output
-<tr><td>missing<td>&#160;<td>&#160;<td>rsize_t<td>stdio.h<td>&#160;<td>B.20 Input/output
-<tr><td>missing<td>&#160;<td>&#160;<td>tmpfile_s<td>stdio.h<td>errno_t tmpfile_s(FILE * restrict * restrict streamptr);<td>B.20 Input/output
-<tr><td>missing<td>&#160;<td>&#160;<td>tmpnam_s<td>stdio.h<td>errno_t tmpnam_s(char *s, rsize_t maxsize);<td>B.20 Input/output
-<tr><td>missing<td>&#160;<td>&#160;<td>fopen_s<td>stdio.h<td>errno_t fopen_s(FILE * restrict * restrict streamptr, const char * restrict filename, const char * restrict mode);<td>B.20 Input/output
-<tr><td>missing<td>&#160;<td>&#160;<td>freopen_s<td>stdio.h<td>errno_t freopen_s(FILE * restrict * restrict newstreamptr, const char * restrict filename, const char * restrict mode, FILE * restrict stream);<td>B.20 Input/output
-<tr><td>missing<td>&#160;<td>&#160;<td>fprintf_s<td>stdio.h<td>int fprintf_s(FILE * restrict stream, const char * restrict format, ...);<td>B.20 Input/output
-<tr><td>missing<td>&#160;<td>&#160;<td>fscanf_s<td>stdio.h<td>int fscanf_s(FILE * restrict stream, const char * restrict format, ...);<td>B.20 Input/output
-<tr><td>missing<td>&#160;<td>&#160;<td>printf_s<td>stdio.h<td>int printf_s(const char * restrict format, ...);<td>B.20 Input/output
-<tr><td>missing<td>&#160;<td>&#160;<td>scanf_s<td>stdio.h<td>int scanf_s(const char * restrict format, ...);<td>B.20 Input/output
-<tr><td>missing<td>&#160;<td>&#160;<td>snprintf_s<td>stdio.h<td>int snprintf_s(char * restrict s, rsize_t n, const char * restrict format, ...);<td>B.20 Input/output
-<tr><td>missing<td>&#160;<td>&#160;<td>sprintf_s<td>stdio.h<td>int sprintf_s(char * restrict s, rsize_t n, const char * restrict format, ...);<td>B.20 Input/output
-<tr><td>missing<td>&#160;<td>&#160;<td>sscanf_s<td>stdio.h<td>int sscanf_s(const char * restrict s, const char * restrict format, ...);<td>B.20 Input/output
-<tr><td>missing<td>&#160;<td>&#160;<td>vfprintf_s<td>stdio.h<td>int vfprintf_s(FILE * restrict stream, const char * restrict format, va_list arg);<td>B.20 Input/output
-<tr><td>missing<td>&#160;<td>&#160;<td>vfscanf_s<td>stdio.h<td>int vfscanf_s(FILE * restrict stream, const char * restrict format, va_list arg);<td>B.20 Input/output
-<tr><td>missing<td>&#160;<td>&#160;<td>vprintf_s<td>stdio.h<td>int vprintf_s(const char * restrict format, va_list arg);<td>B.20 Input/output
-<tr><td>missing<td>&#160;<td>&#160;<td>vscanf_s<td>stdio.h<td>int vscanf_s(const char * restrict format, va_list arg);<td>B.20 Input/output
-<tr><td>missing<td>&#160;<td>&#160;<td>vsnprintf_s<td>stdio.h<td>int vsnprintf_s(char * restrict s, rsize_t n, const char * restrict format, va_list arg);<td>B.20 Input/output
-<tr><td>missing<td>&#160;<td>&#160;<td>vsprintf_s<td>stdio.h<td>int vsprintf_s(char * restrict s, rsize_t n, const char * restrict format, va_list arg);<td>B.20 Input/output
-<tr><td>missing<td>&#160;<td>&#160;<td>vsscanf_s<td>stdio.h<td>int vsscanf_s(const char * restrict s, const char * restrict format, va_list arg);<td>B.20 Input/output
-<tr><td>missing<td>&#160;<td>&#160;<td>gets_s<td>stdio.h<td>char *gets_s(char *s, rsize_t n);<td>B.20 Input/output
 <tr><td>&#160;<td>&#160;<td>t <td>size_t<td>stdlib.h<td>&#160;<td>B.21 General utilities
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/stdlib.h#n62">t</a> <td>ldiv_t<td>stdlib.h<td>&#160;<td>B.21 General utilities
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/stdlib.h#n75">d</a> <td>EXIT_FAILURE<td>stdlib.h<td>&#160;<td>B.21 General utilities
@@ -902,18 +876,6 @@
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/stdlib.h#n71">p</a> <td>wctomb<td>stdlib.h<td>int wctomb(char *s, wchar_t wchar);<td>B.21 General utilities
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/stdlib.h#n72">p</a> <td>mbstowcs<td>stdlib.h<td>size_t mbstowcs(wchar_t * restrict pwcs, const char * restrict s, size_t n);<td>B.21 General utilities
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/stdlib.h#n73">p</a> <td>wcstombs<td>stdlib.h<td>size_t wcstombs(char * restrict s, const wchar_t * restrict pwcs, size_t n);<td>B.21 General utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>errno_t<td>stdlib.h<td>&#160;<td>B.21 General utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>rsize_t<td>stdlib.h<td>&#160;<td>B.21 General utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>constraint_handler_t<td>stdlib.h<td>&#160;<td>B.21 General utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>set_constraint_handler_s<td>stdlib.h<td>constraint_handler_t set_constraint_handler_s(constraint_handler_t handler);<td>B.21 General utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>abort_handler_s<td>stdlib.h<td>void abort_handler_s(const char * restrict msg, void * restrict ptr, errno_t error);<td>B.21 General utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>ignore_handler_s<td>stdlib.h<td>void ignore_handler_s(const char * restrict msg, void * restrict ptr, errno_t error);<td>B.21 General utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>getenv_s<td>stdlib.h<td>errno_t getenv_s(size_t * restrict len, char * restrict value, rsize_t maxsize, const char * restrict name);<td>B.21 General utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>bsearch_s<td>stdlib.h<td>void *bsearch_s(const void *key, const void *base, rsize_t nmemb, rsize_t size, int (*compar)(const void *k, const void *y, void *context), void *context);<td>B.21 General utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>qsort_s<td>stdlib.h<td>errno_t qsort_s(void *base, rsize_t nmemb, rsize_t size, int (*compar)(const void *x, const void *y, void *context), void *context);<td>B.21 General utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>wctomb_s<td>stdlib.h<td>errno_t wctomb_s(int * restrict status, char * restrict s, rsize_t smax, wchar_t wc);<td>B.21 General utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>mbstowcs_s<td>stdlib.h<td>errno_t mbstowcs_s(size_t * restrict retval, wchar_t * restrict dst, rsize_t dstmax, const char * restrict src, rsize_t len);<td>B.21 General utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>wcstombs_s<td>stdlib.h<td>errno_t wcstombs_s(size_t * restrict retval, char * restrict dst, rsize_t dstmax, const wchar_t * restrict src, rsize_t len);<td>B.21 General utilities
 <tr><td>missing<td>&#160;<td>&#160;<td>noreturn<td>stdnoreturn.h<td>&#160;<td>B.22 _Noreturn
 <tr><td>&#160;<td>&#160;<td>t <td>size_t<td>string.h<td>&#160;<td>B.23 String handling
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/locale.h#n10">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/locale.h#n12">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/locale.h#n8">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/stddef.h#n4">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/stddef.h#n6">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/stddef.h#n8">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/stdio.h#n21">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/stdio.h#n23">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/stdio.h#n25">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/stdlib.h#n10">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/stdlib.h#n12">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/stdlib.h#n8">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/string.h#n10">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/string.h#n12">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/string.h#n8">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/time.h#n10">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/time.h#n12">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/time.h#n8">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/unistd.h#n16">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/unistd.h#n18">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/unistd.h#n20">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/wchar.h#n27">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/wchar.h#n29">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/wchar.h#n31">d</a> <td>NULL<td>string.h<td>&#160;<td>B.23 String handling
@@ -939,19 +901,6 @@
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/string.h#n26">p</a> <td>memset<td>string.h<td>void *memset(void *s, int c, size_t n);<td>B.23 String handling
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/string.h#n53">p</a> <td>strerror<td>string.h<td>char *strerror(int errnum);<td>B.23 String handling
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/string.h#n51">p</a> <td>strlen<td>string.h<td>size_t strlen(const char *s);<td>B.23 String handling
-<tr><td>missing<td>&#160;<td>&#160;<td>errno_t<td>string.h<td>&#160;<td>B.23 String handling
-<tr><td>missing<td>&#160;<td>&#160;<td>rsize_t<td>string.h<td>&#160;<td>B.23 String handling
-<tr><td>missing<td>&#160;<td>&#160;<td>memcpy_s<td>string.h<td>errno_t memcpy_s(void * restrict s1, rsize_t s1max, const void * restrict s2, rsize_t n);<td>B.23 String handling
-<tr><td>missing<td>&#160;<td>&#160;<td>memmove_s<td>string.h<td>errno_t memmove_s(void *s1, rsize_t s1max, const void *s2, rsize_t n);<td>B.23 String handling
-<tr><td>missing<td>&#160;<td>&#160;<td>strcpy_s<td>string.h<td>errno_t strcpy_s(char * restrict s1, rsize_t s1max, const char * restrict s2);<td>B.23 String handling
-<tr><td>missing<td>&#160;<td>&#160;<td>strncpy_s<td>string.h<td>errno_t strncpy_s(char * restrict s1, rsize_t s1max, const char * restrict s2, rsize_t n);<td>B.23 String handling
-<tr><td>missing<td>&#160;<td>&#160;<td>strcat_s<td>string.h<td>errno_t strcat_s(char * restrict s1, rsize_t s1max, const char * restrict s2);<td>B.23 String handling
-<tr><td>missing<td>&#160;<td>&#160;<td>strncat_s<td>string.h<td>errno_t strncat_s(char * restrict s1, rsize_t s1max, const char * restrict s2, rsize_t n);<td>B.23 String handling
-<tr><td>missing<td>&#160;<td>&#160;<td>strtok_s<td>string.h<td>char *strtok_s(char * restrict s1, rsize_t * restrict s1max, const char * restrict s2, char ** restrict ptr);<td>B.23 String handling
-<tr><td>missing<td>&#160;<td>&#160;<td>memset_s<td>string.h<td>errno_t memset_s(void *s, rsize_t smax, int c, rsize_t n)<td>B.23 String handling
-<tr><td>missing<td>&#160;<td>&#160;<td>strerror_s<td>string.h<td>errno_t strerror_s(char *s, rsize_t maxsize, errno_t errnum);<td>B.23 String handling
-<tr><td>missing<td>&#160;<td>&#160;<td>strerrorlen_s<td>string.h<td>size_t strerrorlen_s(errno_t errnum);<td>B.23 String handling
-<tr><td>missing<td>&#160;<td>&#160;<td>strnlen_s<td>string.h<td>size_t strnlen_s(const char *s, size_t maxsize);<td>B.23 String handling
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/math.h#n106">p</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/tgmath.h#n126">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/tgmath.h#n189">d</a> <td>acos<td>tgmath.h<td>&#160;<td>B.24 Type-generic math
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/math.h#n314">p</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/tgmath.h#n181">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/tgmath.h#n244">d</a> <td>sqrt<td>tgmath.h<td>&#160;<td>B.24 Type-generic math
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/math.h#n198">p</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/tgmath.h#n154">d</a> <a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/tgmath.h#n217">d</a> <td>fmod<td>tgmath.h<td>&#160;<td>B.24 Type-generic math
@@ -1073,12 +1022,6 @@
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/time.h#n52">p</a> <td>gmtime<td>time.h<td>struct tm *gmtime(const time_t *timer);<td>B.26 Date and time
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/time.h#n53">p</a> <td>localtime<td>time.h<td>struct tm *localtime(const time_t *timer);<td>B.26 Date and time
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/time.h#n51">p</a> <td>strftime<td>time.h<td>size_t strftime(char * restrict s, size_t maxsize, const char * restrict format, const struct tm * restrict timeptr);<td>B.26 Date and time
-<tr><td>missing<td>&#160;<td>&#160;<td>errno_t<td>time.h<td>&#160;<td>B.26 Date and time
-<tr><td>missing<td>&#160;<td>&#160;<td>rsize_t<td>time.h<td>&#160;<td>B.26 Date and time
-<tr><td>missing<td>&#160;<td>&#160;<td>asctime_s<td>time.h<td>errno_t asctime_s(char *s, rsize_t maxsize, const struct tm *timeptr);<td>B.26 Date and time
-<tr><td>missing<td>&#160;<td>&#160;<td>ctime_s<td>time.h<td>errno_t ctime_s(char *s, rsize_t maxsize, const time_t *timer);<td>B.26 Date and time
-<tr><td>missing<td>&#160;<td>&#160;<td>gmtime_s<td>time.h<td>struct tm *gmtime_s(const time_t * restrict timer, struct tm * restrict result);<td>B.26 Date and time
-<tr><td>missing<td>&#160;<td>&#160;<td>localtime_s<td>time.h<td>struct tm *localtime_s(const time_t * restrict timer, struct tm * restrict result);<td>B.26 Date and time
 <tr><td>&#160;<td>&#160;<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/wchar.h#n40">t</a> <td>mbstate_t<td>uchar.h<td>&#160;<td>B.27 Unicode utilities
 <tr><td>&#160;<td>&#160;<td>t <td>size_t<td>uchar.h<td>&#160;<td>B.27 Unicode utilities
 <tr><td>missing<td>&#160;<td>&#160;<td>char16_t<td>uchar.h<td>&#160;<td>B.27 Unicode utilities
@@ -1155,33 +1098,6 @@
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/wchar.h#n79">p</a> <td>wcrtomb<td>wchar.h<td>size_t wcrtomb(char * restrict s, wchar_t wc, mbstate_t * restrict ps);<td>B.28 Extended multibyte/wide character utilities
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/wchar.h#n83">p</a> <td>mbsrtowcs<td>wchar.h<td>size_t mbsrtowcs(wchar_t * restrict dst, const char ** restrict src, size_t len, mbstate_t * restrict ps);<td>B.28 Extended multibyte/wide character utilities
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/wchar.h#n84">p</a> <td>wcsrtombs<td>wchar.h<td>size_t wcsrtombs(char * restrict dst, const wchar_t ** restrict src, size_t len, mbstate_t * restrict ps);<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>errno_t<td>wchar.h<td>&#160;<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>rsize_t<td>wchar.h<td>&#160;<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>fwprintf_s<td>wchar.h<td>int fwprintf_s(FILE * restrict stream, const wchar_t * restrict format, ...);<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>fwscanf_s<td>wchar.h<td>int fwscanf_s(FILE * restrict stream, const wchar_t * restrict format, ...);<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>snwprintf_s<td>wchar.h<td>int snwprintf_s(wchar_t * restrict s, rsize_t n, const wchar_t * restrict format, ...);<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>swprintf_s<td>wchar.h<td>int swprintf_s(wchar_t * restrict s, rsize_t n, const wchar_t * restrict format, ...);<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>swscanf_s<td>wchar.h<td>int swscanf_s(const wchar_t * restrict s, const wchar_t * restrict format, ...);<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>vfwprintf_s<td>wchar.h<td>int vfwprintf_s(FILE * restrict stream, const wchar_t * restrict format, va_list arg);<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>vfwscanf_s<td>wchar.h<td>int vfwscanf_s(FILE * restrict stream, const wchar_t * restrict format, va_list arg);<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>vsnwprintf_s<td>wchar.h<td>int vsnwprintf_s(wchar_t * restrict s, rsize_t n, const wchar_t * restrict format, va_list arg);<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>vswprintf_s<td>wchar.h<td>int vswprintf_s(wchar_t * restrict s, rsize_t n, const wchar_t * restrict format, va_list arg);<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>vswscanf_s<td>wchar.h<td>int vswscanf_s(const wchar_t * restrict s, const wchar_t * restrict format, va_list arg);<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>vwprintf_s<td>wchar.h<td>int vwprintf_s(const wchar_t * restrict format, va_list arg);<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>vwscanf_s<td>wchar.h<td>int vwscanf_s(const wchar_t * restrict format, va_list arg);<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>wprintf_s<td>wchar.h<td>int wprintf_s(const wchar_t * restrict format, ...);<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>wscanf_s<td>wchar.h<td>int wscanf_s(const wchar_t * restrict format, ...);<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>wcscpy_s<td>wchar.h<td>errno_t wcscpy_s(wchar_t * restrict s1, rsize_t s1max, const wchar_t * restrict s2);<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>wcsncpy_s<td>wchar.h<td>errno_t wcsncpy_s(wchar_t * restrict s1, rsize_t s1max, const wchar_t * restrict s2, rsize_t n);<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>wmemcpy_s<td>wchar.h<td>errno_t wmemcpy_s(wchar_t * restrict s1, rsize_t s1max, const wchar_t * restrict s2, rsize_t n);<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>wmemmove_s<td>wchar.h<td>errno_t wmemmove_s(wchar_t *s1, rsize_t s1max, const wchar_t *s2, rsize_t n);<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>wcscat_s<td>wchar.h<td>errno_t wcscat_s(wchar_t * restrict s1, rsize_t s1max, const wchar_t * restrict s2);<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>wcsncat_s<td>wchar.h<td>errno_t wcsncat_s(wchar_t * restrict s1, rsize_t s1max, const wchar_t * restrict s2, rsize_t n);<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>wcstok_s<td>wchar.h<td>wchar_t *wcstok_s(wchar_t * restrict s1, rsize_t * restrict s1max, const wchar_t * restrict s2, wchar_t ** restrict ptr);<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>wcsnlen_s<td>wchar.h<td>size_t wcsnlen_s(const wchar_t *s, size_t maxsize);<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>wcrtomb_s<td>wchar.h<td>errno_t wcrtomb_s(size_t * restrict retval, char * restrict s, rsize_t smax, wchar_t wc, mbstate_t * restrict ps);<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>mbsrtowcs_s<td>wchar.h<td>errno_t mbsrtowcs_s(size_t * restrict retval, wchar_t * restrict dst, rsize_t dstmax, const char ** restrict src, rsize_t len, mbstate_t * restrict ps);<td>B.28 Extended multibyte/wide character utilities
-<tr><td>missing<td>&#160;<td>&#160;<td>wcsrtombs_s<td>wchar.h<td>errno_t wcsrtombs_s(size_t * restrict retval, char * restrict dst, rsize_t dstmax, const wchar_t ** restrict src, rsize_t len, mbstate_t * restrict ps);<td>B.28 Extended multibyte/wide character utilities
 <tr><td>&#160;<td>&#160;<td>t <td>wint_t<td>wctype.h<td>&#160;<td>B.29 Wide character classification and mapping utilities
 <tr><td>&#160;<td>&#160;<td>t <td>wctrans_t<td>wctype.h<td>&#160;<td>B.29 Wide character classification and mapping utilities
 <tr><td>&#160;<td>&#160;<td>t <td>wctype_t<td>wctype.h<td>&#160;<td>B.29 Wide character classification and mapping utilities
@@ -1205,4 +1121,4 @@
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/wctype.h#n37">p</a> <td>towctrans<td>wctype.h<td>wint_t towctrans(wint_t wc, wctrans_t desc);<td>B.29 Wide character classification and mapping utilities
 <tr><td>&#160;<td>T<td><a href="http://git.etalabs.net/cgi-bin/cgit.cgi?url=musl/tree/include/wctype.h#n40">p</a> <td>wctrans<td>wctype.h<td>wctrans_t wctrans(const char *property);<td>B.29 Wide character classification and mapping utilities
 </table>
-<h4>stats</h4><ul><li>missing: 233<li>nosym: 0<li>nodecl: 0</ul>
+<h4>stats</h4><ul><li>missing: 149<li>nosym: 0<li>nodecl: 0</ul>
