@@ -7,7 +7,7 @@ awk '
 BEGIN {
 	# builtin type specifiers/qualifiers..
 	s = "void char short int long float double signed unsigned _Bool _Complex bool complex"
-	s = s " static extern auto register inline const volatile restrict"
+	s = s " static extern auto register inline const volatile restrict __restrict"
 	# typedef names in posix without _t
 	s = s " FILE DIR VISIT ENTRY ACTION DBM datum fd_set jmp_buf sigjmp_buf va_list nl_item nl_catd"
 	s = s " scalar real-floating" # used in macros
@@ -19,9 +19,6 @@ BEGIN {
 	split("struct union enum", a)
 	for (i in a)
 		tok[a[i]] = "struct"
-
-	# todo: drop restrict for now
-	tok["restrict"] = ""
 }
 
 function put(tok) {
@@ -60,6 +57,7 @@ function put(tok) {
 	gsub(/\[[0-9]+\]/, "[]", s)
 	gsub(/unsigned int/, "unsigned", s)
 	gsub(/long int/, "long", s)
+	gsub(/__restrict/, "restrict", s)
 
 	print s
 }

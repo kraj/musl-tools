@@ -1128,7 +1128,7 @@ wait	sys/wait.h		wait, waitpid - wait for a child process to stop or terminate	p
 waitid	sys/wait.h		waitid - wait for a child process to change state	int waitid(idtype_t idtype, id_t id, siginfo_t *infop, int options);
 waitpid	sys/wait.h		wait, waitpid - wait for a child process to stop or terminate	pid_t waitpid(pid_t pid, int *stat_loc, int options);
 wcpcpy	wchar.h	CX	wcpcpy, wcscpy - copy a wide-character string, returning a pointer to its end	wchar_t *wcpcpy(wchar_t *restrict ws1, const wchar_t *restrict ws2);
-wcpncpy	wchar.h	CX	wcpncpy, wcsncpy - copy a fixed-size wide-character string, returning a pointer to its end	wchar_t *wcpncpy(wchar_t restrict *ws1, const wchar_t *restrict ws2, size_t n);
+wcpncpy	wchar.h	CX	wcpncpy, wcsncpy - copy a fixed-size wide-character string, returning a pointer to its end	wchar_t *wcpncpy(wchar_t *restrict ws1, const wchar_t *restrict ws2, size_t n);
 wcrtomb	wchar.h		wcrtomb - convert a wide-character code to a character (restartable)	size_t wcrtomb(char *restrict s, wchar_t wc, mbstate_t *restrict ps);
 wcscasecmp	wchar.h	CX	wcscasecmp, wcscasecmp_l, wcsncasecmp, wcsncasecmp_l - case-insensitive wide-character string comparison	int wcscasecmp(const wchar_t *ws1, const wchar_t *ws2);
 wcscasecmp_l	wchar.h	CX	wcscasecmp, wcscasecmp_l, wcsncasecmp, wcsncasecmp_l - case-insensitive wide-character string comparison	int wcscasecmp_l(const wchar_t *ws1, const wchar_t *ws2, locale_t locale);

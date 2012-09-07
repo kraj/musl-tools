@@ -20,7 +20,7 @@ function proto(t,f,n) {
 	if (t == "p")
 		cmd = cmd "{s=$0; if(s!~/;/){getline; s=s \" \" $0} print s; exit}"
 	else if (t == "f") {
-		cmd = cmd "{s=$0; sub(/^#.*/,\"\",s); gsub(/\\/\\/.*/,\"\",s); gsub(/.*\\*\\//,\"\",s);"
+		cmd = cmd "{s=$0; sub(/^#.*/,\"\",s); sub(/^}/,\"\",s); gsub(/\\/\\/.*/,\"\",s); gsub(/.*\\*\\//,\"\",s);"
 		cmd = cmd "while(s!~/{/){getline; s=s \" \" $0} sub(/ *{.*$/,\"\",s); print s; exit}"
 	} else if (t == "d")
 		cmd = cmd "{s=$0; while(gsub(/\\\\$/,\"\",s)){getline; s=s $0} print s; exit}"
