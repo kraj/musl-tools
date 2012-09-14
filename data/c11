@@ -654,8 +654,16 @@ atomic_compare_exchange_strong	_Bool atomic_compare_exchange_strong(volatile A *
 atomic_compare_exchange_strong_explicit	_Bool atomic_compare_exchange_strong_explicit(volatile A *object, C *expected, C desired, memory_order success, memory_order failure);	stdatomic.h	B.16 Atomics
 atomic_compare_exchange_weak	_Bool atomic_compare_exchange_weak(volatile A *object, C *expected, C desired);	stdatomic.h	B.16 Atomics
 atomic_compare_exchange_weak_explicit	_Bool atomic_compare_exchange_weak_explicit(volatile A *object, C *expected, C desired, memory_order success, memory_order failure);	stdatomic.h	B.16 Atomics
-atomic_fetch_key	C atomic_fetch_key(volatile A *object, M operand);	stdatomic.h	B.16 Atomics
-atomic_fetch_key_explicit	C atomic_fetch_key_explicit(volatile A *object, M operand, memory_order order);	stdatomic.h	B.16 Atomics
+atomic_fetch_add	C atomic_fetch_add(volatile A *object, M operand);	stdatomic.h	B.16 Atomics
+atomic_fetch_sub	C atomic_fetch_sub(volatile A *object, M operand);	stdatomic.h	B.16 Atomics
+atomic_fetch_and	C atomic_fetch_and(volatile A *object, M operand);	stdatomic.h	B.16 Atomics
+atomic_fetch_or	C atomic_fetch_or(volatile A *object, M operand);	stdatomic.h	B.16 Atomics
+atomic_fetch_xor	C atomic_fetch_xor(volatile A *object, M operand);	stdatomic.h	B.16 Atomics
+atomic_fetch_add_explicit	C atomic_fetch_add_explicit(volatile A *object, M operand, memory_order order);	stdatomic.h	B.16 Atomics
+atomic_fetch_sub_explicit	C atomic_fetch_sub_explicit(volatile A *object, M operand, memory_order order);	stdatomic.h	B.16 Atomics
+atomic_fetch_and_explicit	C atomic_fetch_and_explicit(volatile A *object, M operand, memory_order order);	stdatomic.h	B.16 Atomics
+atomic_fetch_or_explicit	C atomic_fetch_or_explicit(volatile A *object, M operand, memory_order order);	stdatomic.h	B.16 Atomics
+atomic_fetch_xor_explicit	C atomic_fetch_xor_explicit(volatile A *object, M operand, memory_order order);	stdatomic.h	B.16 Atomics
 atomic_flag_test_and_set	_Bool atomic_flag_test_and_set(volatile atomic_flag *object);	stdatomic.h	B.16 Atomics
 atomic_flag_test_and_set_explicit	_Bool atomic_flag_test_and_set_explicit(volatile atomic_flag *object, memory_order order);	stdatomic.h	B.16 Atomics
 atomic_flag_clear	void atomic_flag_clear(volatile atomic_flag *object);	stdatomic.h	B.16 Atomics

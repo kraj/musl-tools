@@ -658,8 +658,16 @@
 <tr><td>missing<td>&#160;<td>&#160;<td>atomic_compare_exchange_strong_explicit<td>stdatomic.h<td>_Bool atomic_compare_exchange_strong_explicit(volatile A *object, C *expected, C desired, memory_order success, memory_order failure);<td>B.16 Atomics
 <tr><td>missing<td>&#160;<td>&#160;<td>atomic_compare_exchange_weak<td>stdatomic.h<td>_Bool atomic_compare_exchange_weak(volatile A *object, C *expected, C desired);<td>B.16 Atomics
 <tr><td>missing<td>&#160;<td>&#160;<td>atomic_compare_exchange_weak_explicit<td>stdatomic.h<td>_Bool atomic_compare_exchange_weak_explicit(volatile A *object, C *expected, C desired, memory_order success, memory_order failure);<td>B.16 Atomics
-<tr><td>missing<td>&#160;<td>&#160;<td>atomic_fetch_key<td>stdatomic.h<td>C atomic_fetch_key(volatile A *object, M operand);<td>B.16 Atomics
-<tr><td>missing<td>&#160;<td>&#160;<td>atomic_fetch_key_explicit<td>stdatomic.h<td>C atomic_fetch_key_explicit(volatile A *object, M operand, memory_order order);<td>B.16 Atomics
+<tr><td>missing<td>&#160;<td>&#160;<td>atomic_fetch_add<td>stdatomic.h<td>C atomic_fetch_add(volatile A *object, M operand);<td>B.16 Atomics
+<tr><td>missing<td>&#160;<td>&#160;<td>atomic_fetch_sub<td>stdatomic.h<td>C atomic_fetch_sub(volatile A *object, M operand);<td>B.16 Atomics
+<tr><td>missing<td>&#160;<td>&#160;<td>atomic_fetch_and<td>stdatomic.h<td>C atomic_fetch_and(volatile A *object, M operand);<td>B.16 Atomics
+<tr><td>missing<td>&#160;<td>&#160;<td>atomic_fetch_or<td>stdatomic.h<td>C atomic_fetch_or(volatile A *object, M operand);<td>B.16 Atomics
+<tr><td>missing<td>&#160;<td>&#160;<td>atomic_fetch_xor<td>stdatomic.h<td>C atomic_fetch_xor(volatile A *object, M operand);<td>B.16 Atomics
+<tr><td>missing<td>&#160;<td>&#160;<td>atomic_fetch_add_explicit<td>stdatomic.h<td>C atomic_fetch_add_explicit(volatile A *object, M operand, memory_order order);<td>B.16 Atomics
+<tr><td>missing<td>&#160;<td>&#160;<td>atomic_fetch_sub_explicit<td>stdatomic.h<td>C atomic_fetch_sub_explicit(volatile A *object, M operand, memory_order order);<td>B.16 Atomics
+<tr><td>missing<td>&#160;<td>&#160;<td>atomic_fetch_and_explicit<td>stdatomic.h<td>C atomic_fetch_and_explicit(volatile A *object, M operand, memory_order order);<td>B.16 Atomics
+<tr><td>missing<td>&#160;<td>&#160;<td>atomic_fetch_or_explicit<td>stdatomic.h<td>C atomic_fetch_or_explicit(volatile A *object, M operand, memory_order order);<td>B.16 Atomics
+<tr><td>missing<td>&#160;<td>&#160;<td>atomic_fetch_xor_explicit<td>stdatomic.h<td>C atomic_fetch_xor_explicit(volatile A *object, M operand, memory_order order);<td>B.16 Atomics
 <tr><td>missing<td>&#160;<td>&#160;<td>atomic_flag_test_and_set<td>stdatomic.h<td>_Bool atomic_flag_test_and_set(volatile atomic_flag *object);<td>B.16 Atomics
 <tr><td>missing<td>&#160;<td>&#160;<td>atomic_flag_test_and_set_explicit<td>stdatomic.h<td>_Bool atomic_flag_test_and_set_explicit(volatile atomic_flag *object, memory_order order);<td>B.16 Atomics
 <tr><td>missing<td>&#160;<td>&#160;<td>atomic_flag_clear<td>stdatomic.h<td>void atomic_flag_clear(volatile atomic_flag *object);<td>B.16 Atomics
@@ -1121,4 +1129,4 @@
 <tr><td>&#160;<td>T<td><a href="http://git.musl-libc.org/cgi-bin/cgit.cgi?url=musl/tree/include/wctype.h#n39">p</a> <td>towctrans<td>wctype.h<td>wint_t towctrans(wint_t wc, wctrans_t desc);<td>B.29 Wide character classification and mapping utilities
 <tr><td>&#160;<td>T<td><a href="http://git.musl-libc.org/cgi-bin/cgit.cgi?url=musl/tree/include/wctype.h#n42">p</a> <td>wctrans<td>wctype.h<td>wctrans_t wctrans(const char *property);<td>B.29 Wide character classification and mapping utilities
 </table>
-<h4>stats</h4><ul><li>missing: 148<li>nosym: 0<li>nodecl: 0</ul>
+<h4>stats</h4><ul><li>missing: 156<li>nosym: 0<li>nodecl: 0</ul>
