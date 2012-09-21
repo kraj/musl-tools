@@ -9,7 +9,7 @@ BEGIN {
 	hash = $2
 	getline
 
-	commit = "<h4>commit</h4><p>commit <a href=\"http://git.musl-libc.org/cgi-bin/cgit.cgi?url=musl/commit/&amp;h=" hash "\">" hash "</a>"
+	commit = "<h4>commit</h4><p>commit <a href=\"http://git.musl-libc.org/cgit/musl/commit/?id=" hash "\">" hash "</a>"
 	while (getline == 1)
 		commit = commit "<br>" $0
 
@@ -25,7 +25,7 @@ BEGIN {
 		if ($2 ~ /bits\//)
 			s = $3 " "
 		else
-			s = "<a href=\"http://git.musl-libc.org/cgi-bin/cgit.cgi?url=musl/tree/include/" $2 "#n" $4 "\">" $3 "</a> "
+			s = "<a href=\"http://git.musl-libc.org/cgit/musl/tree/include/" $2 "#n" $4 "\">" $3 "</a> "
 		kind[$1] = kind[$1] $3
 		kindstr[$1] = kindstr[$1] s
 	}
