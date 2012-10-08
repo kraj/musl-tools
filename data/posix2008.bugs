@@ -11,3 +11,5 @@ http://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_kill.html
 restrict in wcpncpy prototype is at the wrong place
 wchar_t *wcpncpy(wchar_t restrict *ws1, const wchar_t *restrict ws2, size_t n);
 
+http://pubs.opengroup.org/onlinepubs/9699919799/functions/dirname.html
+dirname of "usr/" is not specified clearly (it could be "" or "." based on the specs)
