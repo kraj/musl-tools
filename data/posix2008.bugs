@@ -4,7 +4,6 @@ http://pubs.opengroup.org/onlinepubs/9699919799/functions/wcrtomb.html
 vs
 http://repo.or.cz/w/c-standard.git/blob_plain/HEAD:/n1256.html#7.24.6.3.3
 
-
 pthread_kill(invalid_value, sig); required to return ESRCH which is not possible
 http://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_kill.html
 
@@ -13,3 +12,25 @@ wchar_t *wcpncpy(wchar_t restrict *ws1, const wchar_t *restrict ws2, size_t n);
 
 http://pubs.opengroup.org/onlinepubs/9699919799/functions/dirname.html
 dirname of "usr/" is not specified clearly (it could be "" or "." based on the specs)
+
+INET_ADDRSTRLEN etc is a symbolic constant not a macro
+http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/arpa_inet.h.html
+
+in pthread the usual text is used:
+"The following shall be declared as functions and may also be defined as macros. Function prototypes shall be provided."
+pthread_cleanup_[push|pop] should not need a prototype
+http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/pthread.h.html
+
+PTHREAD_CANCELED symbolic const should be marked as void* (otherwise it's assumed to be int)
+http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/pthread.h.html
+
+"..to access an actual object, or a progrm defines an identifier with the name.."
+http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/time.h.html
+
+cx option in unistd.h
+[CX][Option Start]
+char        *ctermid(char *);
+http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/unistd.h.html
+
+gets "get a string from a .I stdin stream"
+http://pubs.opengroup.org/onlinepubs/9699919799/functions/gets.html
