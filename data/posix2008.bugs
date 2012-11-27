@@ -34,3 +34,6 @@ http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/unistd.h.html
 
 gets "get a string from a .I stdin stream"
 http://pubs.opengroup.org/onlinepubs/9699919799/functions/gets.html
+
+quo is not specified when the return value is nan only if y is zero
+http://pubs.opengroup.org/onlinepubs/9699919799/functions/remquo.html

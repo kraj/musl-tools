@@ -1,3 +1,5 @@
+proto	ElfW	link.h	link.h	 const ElfW(Phdr) *dlpi_phdr;	 ElfW(Addr) dlpi_addr;
+proto	ElfW	link.h	link.h	 ElfW(Half) dlpi_phnum;	 ElfW(Addr) dlpi_addr;
 proto	basename	string.h	libgen.h	char *basename();	char *basename(char *);
 proto	basename	string.h	char*()	char*(char*)	char *basename();	char *basename(char *path);
 nodecl	capget	T
@@ -25,8 +27,12 @@ nodecl	pivot_root	T
 proto	poll	poll.h	int(struct pollfd*,nfds_t,int)	int(struct pollfd[],nfds_t,int)	int poll (struct pollfd *, nfds_t, int);	int poll(struct pollfd fds[], nfds_t nfds, int timeout);
 proto	posix_spawn	spawn.h	int(pid_t*restrict,const char*restrict,const posix_spawn_file_actions_t*,const posix_spawnattr_t*restrict,char*const*restrict,char*const*restrict)	int(pid_t*restrict,const char*restrict,const posix_spawn_file_actions_t*,const posix_spawnattr_t*restrict,char*const[restrict],char*const[restrict])	int posix_spawn(pid_t *__restrict, const char *__restrict, const posix_spawn_file_actions_t *, const posix_spawnattr_t *__restrict, char *const *__restrict, char *const *__restrict);	int posix_spawn(pid_t *restrict pid, const char *restrict path, const posix_spawn_file_actions_t *file_actions, const posix_spawnattr_t *restrict attrp, char *const argv[restrict], char *const envp[restrict]);
 proto	posix_spawn	process/posix_spawn.c	spawn.h	int(pid_t*restrict,const char*restrict,const posix_spawn_file_actions_t*,const posix_spawnattr_t*restrict,char*const[restrict],char*const[restrict])	int(pid_t*restrict,const char*restrict,const posix_spawn_file_actions_t*,const posix_spawnattr_t*restrict,char*const*restrict,char*const*restrict)
+proto	posix_spawnattr_getschedpolicy	spawn.h	int(const posix_spawnattr_t*restrict,int*)	int(const posix_spawnattr_t*restrict,int*restrict)	int posix_spawnattr_getschedpolicy(const posix_spawnattr_t *__restrict, int *);	int posix_spawnattr_getschedpolicy(const posix_spawnattr_t *restrict attr, int *restrict schedpolicy);
+proto	posix_spawnattr_setschedpolicy	spawn.h	int(posix_spawnattr_t*restrict,int)	int(posix_spawnattr_t*,int)	int posix_spawnattr_setschedpolicy(posix_spawnattr_t *__restrict, int);	int posix_spawnattr_setschedpolicy(posix_spawnattr_t *attr, int schedpolicy);
 proto	posix_spawnp	spawn.h	int(pid_t*restrict,const char*restrict,const posix_spawn_file_actions_t*,const posix_spawnattr_t*restrict,char*const*restrict,char*const*restrict)	int(pid_t*restrict,const char*restrict,const posix_spawn_file_actions_t*,const posix_spawnattr_t*restrict,char*const[restrict],char*const[restrict])	int posix_spawnp(pid_t *__restrict, const char *__restrict, const posix_spawn_file_actions_t *, const posix_spawnattr_t *__restrict, char *const *__restrict, char *const *__restrict);	int posix_spawnp(pid_t *restrict pid, const char *restrict file, const posix_spawn_file_actions_t *file_actions, const posix_spawnattr_t *restrict attrp, char *const argv[restrict], char *const envp[restrict]);
 proto	posix_spawnp	process/posix_spawnp.c	spawn.h	int(pid_t*restrict,const char*restrict,const posix_spawn_file_actions_t*,const posix_spawnattr_t*restrict,char*const[restrict],char*const[restrict])	int(pid_t*restrict,const char*restrict,const posix_spawn_file_actions_t*,const posix_spawnattr_t*restrict,char*const*restrict,char*const*restrict)
+proto	pthread_attr_getinheritsched	thread/pthread_attr_get.c	pthread.h	int(const pthread_attr_t*,int*)	int(const pthread_attr_t*restrict,int*restrict)
+proto	pthread_attr_getschedpolicy	thread/pthread_attr_get.c	pthread.h	int(const pthread_attr_t*,int*)	int(const pthread_attr_t*restrict,int*restrict)
 proto	pthread_equal	thread/pthread_equal.c	pthread.h	int()(pthread_t,pthread_t)	int(pthread_t,pthread_t)
 nodecl	putwc_unlocked	W
 nodecl	putwchar_unlocked	W
