@@ -51,7 +51,7 @@ function pinc(s) {
 BEGIN {
 	FS = "\t"
 
-	posix = "data/posix.inc"
+	posix = "data/posix2008.inc"
 	g = "data/glibc.inc.tags"
 	m = "data/musl.inc.tags"
 
