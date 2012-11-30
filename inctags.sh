@@ -5,10 +5,7 @@ export LC_ALL=C
 dotags() {
 (
 	cd $1
-#	ctags -f /tmp/inc.tags -R -n -u --language-force=c --c-kinds=pxdstuv --fields=k --exclude='*.sh' --exclude .
-	ctags -f /tmp/inc.tags -R -n -u --links=no --langmap='c:.c.h' --languages=c --c-kinds=pxdstuv --fields=k --exclude='*.c' .
-#	# fix wchar_t bug of ctags
-#	awk '/typedef.* wchar_t/{print "wchar_t\tbits/alltypes.h\t" NR ";\"\tt"}' bits/alltypes.h >>/tmp/musl.tags
+	ctags -f /tmp/inc.tags -R -n -u --links=no --languages='c,c++' --c-kinds=pxdstuv --fields=k --exclude='*.c' .
 )
 awk -v path=$1/ '
 BEGIN {
