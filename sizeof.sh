@@ -38,6 +38,6 @@ echo '#define p(x) printf("%s\\t%u\\n", #x, sizeof(x));' >>sizeof.c
 echo 'int main(){' >>sizeof.c
 sort /tmp/m.type |uniq |awk '
 	/^(struct|union) __(CODE|ptcb|siginfo|ucontext|sigjmp_buf|double_repr|float_repr)$/ ||
-	/^(DIR|FILE|Sg_io_vec)$/ { printf "//" }
+	/^(DIR|FILE|elf_fpxregset_t|struct user_fpxregs_struct|Sg_io_vec)$/ { printf "//" }
 	{ print "p(" $0 ")" }' >>sizeof.c
 echo 'return 0;}' >>sizeof.c

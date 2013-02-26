@@ -1,43 +1,43 @@
---- data/glibc.sizeof	2013-02-26 10:10:32.000000000 +0100
-+++ data/musl.sizeof	2013-02-26 10:10:32.000000000 +0100
-@@ -88,3 +88,3 @@
+--- data/glibc.sizeof	2013-02-26 11:49:20.000000000 +0100
++++ data/musl.sizeof	2013-02-26 11:49:20.000000000 +0100
+@@ -87,3 +87,3 @@
  fd_set	128
 -fenv_t	28
 +fenv_t	32
  fexcept_t	2
-@@ -123,3 +123,3 @@
+@@ -122,3 +122,3 @@
  intptr_t	4
 -jmp_buf	156
 +jmp_buf	24
  key_t	4
-@@ -182,3 +182,3 @@
+@@ -181,3 +181,3 @@
  quad_t	8
 -regex_t	32
 +regex_t	28
  register_t	4
-@@ -209,3 +209,3 @@
+@@ -208,3 +208,3 @@
  struct __res_state	512
 -struct _fpstate	624
 +struct _fpstate	112
  struct _ns_flagdata	8
-@@ -223,3 +223,3 @@
+@@ -222,3 +222,3 @@
  struct cmsghdr	12
 -struct crypt_data	131228
 +struct crypt_data	260
  struct dirent	276
-@@ -327,4 +327,4 @@
+@@ -326,4 +326,4 @@
  struct rtentry	84
 -struct rusage	72
 -struct sched_param	4
 +struct rusage	136
 +struct sched_param	28
  struct sembuf	6
-@@ -349,3 +349,3 @@
+@@ -348,3 +348,3 @@
  struct sockaddr_ll	20
 -struct sockaddr_storage	128
 +struct sockaddr_storage	132
  struct sockaddr_un	110
-@@ -362,3 +362,3 @@
+@@ -361,3 +361,3 @@
  struct strrecvfd	20
 -struct sysinfo	64
 +struct sysinfo	312

@@ -79,7 +79,6 @@ div_t	8
 double	8
 double_t	12
 elf_fpregset_t	108
-elf_fpxregset_t	512
 elf_greg_t	4
 elf_gregset_t	68
 epoll_data_t	8
@@ -373,7 +372,6 @@ struct ucred	12
 struct udphdr	8
 struct user	284
 struct user_fpregs_struct	108
-struct user_fpxregs_struct	512
 struct user_regs_struct	68
 struct utimbuf	8
 struct utmpx	384
