@@ -3,12 +3,12 @@
 #define _FILE_OFFSET_BITS 64
 #define SYSLOG_NAMES 1
 #include <stddef.h>
-#include <stdio.h>
 #include <sys/types.h>
 
 #include <aio.h>
 #include <alloca.h>
 #include <ar.h>
+#include <arpa/ftp.h>
 #include <arpa/inet.h>
 #include <arpa/nameser.h>
 #include <arpa/telnet.h>

@@ -27,7 +27,6 @@ echo '#define _LARGEFILE64_SOURCE 1' >>sizeof.c
 echo '#define _FILE_OFFSET_BITS 64' >>sizeof.c
 echo '#define SYSLOG_NAMES 1' >>sizeof.c
 echo '#include <stddef.h>' >>sizeof.c
-echo '#include <stdio.h>' >>sizeof.c
 echo '#include <sys/types.h>' >>sizeof.c
 echo '' >>sizeof.c
 
