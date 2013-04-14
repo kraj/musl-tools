@@ -41,3 +41,7 @@ http://pubs.opengroup.org/onlinepubs/9699919799/functions/remquo.html
 "If x is 0.0, -HUGE_VAL shall be returned" is specified for y0,y1,yn
 but yn(1,x) == -yn(-1,x) so this is incorrect mathematically
 http://pubs.opengroup.org/onlinepubs/9699919799/functions/yn.html
+
+what if syslog fails (bad printf args..)
+http://pubs.opengroup.org/onlinepubs/9699919799/functions/syslog.html
+
