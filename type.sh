@@ -9,7 +9,7 @@ BEGIN {
 	s = "void char short int long float double signed unsigned _Bool _Complex bool complex"
 	s = s " static extern auto register inline const volatile restrict __restrict"
 	# typedef names in posix without _t
-	s = s " FILE DIR VISIT ENTRY ACTION DBM datum fd_set jmp_buf sigjmp_buf va_list nl_item nl_catd"
+	s = s " FILE DIR VISIT ENTRY ACTION DBM datum fd_set jmp_buf sigjmp_buf va_list __isoc_va_list nl_item nl_catd"
 	s = s " scalar real-floating" # used in macros
 	split(s, a)
 	for (i in a)
@@ -58,6 +58,7 @@ function put(tok) {
 	gsub(/unsigned int/, "unsigned", s)
 	gsub(/long int/, "long", s)
 	gsub(/__restrict/, "restrict", s)
+	gsub(/__isoc_va_list/, "va_list", s)
 
 	print s
 }

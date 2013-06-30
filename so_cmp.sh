@@ -3,7 +3,7 @@
 export LC_ALL=C
 
 D=data
-M=/lib
+M=../musl/lib
 G=/lib
 
 # list symbol info in tab separated format:

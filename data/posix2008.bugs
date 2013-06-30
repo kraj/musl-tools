@@ -45,3 +45,5 @@ http://pubs.opengroup.org/onlinepubs/9699919799/functions/yn.html
 what if syslog fails (bad printf args..)
 http://pubs.opengroup.org/onlinepubs/9699919799/functions/syslog.html
 
+duplocale example typo: '}'
+
