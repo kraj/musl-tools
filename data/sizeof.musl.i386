@@ -179,7 +179,7 @@ pthread_spinlock_t	4
 pthread_t	4
 ptrdiff_t	4
 quad_t	8
-regex_t	28
+regex_t	32
 register_t	4
 regmatch_t	8
 regoff_t	4
@@ -346,7 +346,7 @@ struct sockaddr	16
 struct sockaddr_in	16
 struct sockaddr_in6	28
 struct sockaddr_ll	20
-struct sockaddr_storage	132
+struct sockaddr_storage	128
 struct sockaddr_un	110
 struct spwd	36
 struct stat	96

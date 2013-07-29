@@ -41,3 +41,6 @@ proto	regexec	regex.h	int(const regex_t*restrict,const char*restrict,size_t,regm
 proto	regexec	regex/regexec.c	regex.h	int(const regex_t*restrict,const char*restrict,size_t,regmatch_t[restrict],int)	int(const regex_t*restrict,const char*restrict,size_t,regmatch_t*restrict,int)
 proto	seed48	prng/seed48.c	stdlib.h	unsigned short*(unsigned short*)	unsigned short*(unsigned short[])
 proto	setgroups	linux/setgroups.c	grp.h	int(size_t,const gid_t[])	int(size_t,const gid_t*)
+nodecl	strtod_l	W
+nodecl	strtof_l	W
+nodecl	strtold_l	W

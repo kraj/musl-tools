@@ -47,3 +47,5 @@ http://pubs.opengroup.org/onlinepubs/9699919799/functions/syslog.html
 
 duplocale example typo: '}'
 
+fputc('x',stdin) should be explicitly ub
+
