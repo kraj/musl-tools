@@ -28,6 +28,7 @@ function proto(t,h,n) {
 	close(cmd)
 	gsub(/\t/, " ", s)
 	gsub(/ +/, " ", s)
+	gsub(/ \(/, "(", s)
 	return s
 }
 /^[^!]/ {
