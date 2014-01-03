@@ -33,7 +33,7 @@ function put(tok) {
 
 {
 	# eat comments
-	gsub(/\/\*[^/]*\*\//, "")
+	gsub(/\/\*[^\/]*\*\//, "")
 	gsub(/\/\/.*/, "")
 
 	gsub(/[^a-zA-Z0-9_.-]/," & ")
