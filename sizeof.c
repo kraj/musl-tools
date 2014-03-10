@@ -11,7 +11,9 @@
 #include <arpa/ftp.h>
 #include <arpa/inet.h>
 #include <arpa/nameser.h>
+#include <arpa/nameser_compat.h>
 #include <arpa/telnet.h>
+#include <arpa/tftp.h>
 #include <assert.h>
 #include <byteswap.h>
 #include <complex.h>
@@ -34,6 +36,7 @@
 #include <glob.h>
 #include <grp.h>
 #include <iconv.h>
+#include <ifaddrs.h>
 #include <inttypes.h>
 #include <iso646.h>
 #include <langinfo.h>
@@ -54,8 +57,10 @@
 #include <net/if_arp.h>
 #include <net/route.h>
 #include <netdb.h>
+#include <netinet/ether.h>
 #include <netinet/icmp6.h>
 #include <netinet/if_ether.h>
+#include <netinet/igmp.h>
 #include <netinet/in.h>
 #include <netinet/in_systm.h>
 #include <netinet/ip.h>
@@ -74,6 +79,7 @@
 #include <resolv.h>
 #include <sched.h>
 #include <scsi/scsi.h>
+#include <scsi/scsi_ioctl.h>
 #include <scsi/sg.h>
 #include <search.h>
 #include <semaphore.h>
@@ -95,8 +101,12 @@
 #include <stropts.h>
 #include <sys/acct.h>
 //#include <sys/cachectl.h>
+#include <sys/dir.h>
 #include <sys/epoll.h>
+//#include <sys/errno.h>
 #include <sys/eventfd.h>
+#include <sys/fanotify.h>
+//#include <sys/fcntl.h>
 #include <sys/file.h>
 #include <sys/fsuid.h>
 #include <sys/inotify.h>
@@ -111,10 +121,11 @@
 #include <sys/mtio.h>
 #include <sys/param.h>
 #include <sys/personality.h>
-#include <sys/poll.h>
+//#include <sys/poll.h>
 #include <sys/prctl.h>
 #include <sys/procfs.h>
 #include <sys/ptrace.h>
+#include <sys/quota.h>
 #include <sys/reboot.h>
 #include <sys/reg.h>
 #include <sys/resource.h>
@@ -122,23 +133,27 @@
 #include <sys/sem.h>
 #include <sys/sendfile.h>
 #include <sys/shm.h>
+//#include <sys/signal.h>
 #include <sys/signalfd.h>
 #include <sys/socket.h>
-#include <sys/soundcard.h>
+//#include <sys/soundcard.h>
 #include <sys/stat.h>
 #include <sys/statfs.h>
 #include <sys/statvfs.h>
 #include <sys/stropts.h>
 #include <sys/swap.h>
 #include <sys/syscall.h>
-#include <sys/sysctl.h>
+//#include <sys/sysctl.h>
 #include <sys/sysinfo.h>
 #include <sys/syslog.h>
 #include <sys/sysmacros.h>
+//#include <sys/termios.h>
 #include <sys/time.h>
+#include <sys/timeb.h>
 #include <sys/timerfd.h>
 #include <sys/times.h>
 #include <sys/timex.h>
+#include <sys/ttydefaults.h>
 #include <sys/types.h>
 #include <sys/ucontext.h>
 #include <sys/uio.h>
@@ -163,6 +178,7 @@
 #include <utmp.h>
 #include <utmpx.h>
 #include <values.h>
+//#include <wait.h>
 #include <wchar.h>
 #include <wctype.h>
 #include <wordexp.h>
@@ -237,9 +253,8 @@ p(Sg_req_info)
 p(Sg_scsi_id)
 p(VISIT)
 p(_Bool)
-p(__uint16_t)
-p(__uint32_t)
-p(__uint64_t)
+//p(__isoc_va_list)
+p(__jmp_buf)
 p(blkcnt_t)
 p(blksize_t)
 p(caddr_t)
@@ -247,6 +262,7 @@ p(cc_t)
 p(clock_t)
 p(clockid_t)
 p(comp_t)
+p(cpu_set_t)
 p(dev_t)
 p(div_t)
 p(double)
@@ -364,6 +380,7 @@ p(sem_t)
 p(sg_io_hdr_t)
 p(sg_iovec_t)
 p(sg_req_info_t)
+p(shmatt_t)
 p(short)
 p(sig_atomic_t)
 p(sig_t)
@@ -378,12 +395,14 @@ p(ssize_t)
 p(stack_t)
 p(struct FTW)
 //p(struct __CODE)
+//p(struct __fsid_t)
+p(struct __jmp_buf_tag)
+//p(struct __mbstate_t)
 p(struct __ns_msg)
 p(struct __ns_rr)
 //p(struct __ptcb)
 p(struct __res_state)
-//p(struct __siginfo)
-//p(struct __sigjmp_buf)
+//p(struct __sigset_t)
 //p(struct __ucontext)
 p(struct _fpstate)
 p(struct _ns_flagdata)
@@ -399,20 +418,29 @@ p(struct arpreq_old)
 p(struct bandinfo)
 p(struct ccs_modesel_head)
 p(struct cmsghdr)
+//p(struct cpu_set_t)
 p(struct crypt_data)
 p(struct dirent)
 p(struct dl_phdr_info)
+p(struct dqblk)
+p(struct dqinfo)
 p(struct elf_prpsinfo)
 p(struct elf_prstatus)
 p(struct elf_siginfo)
+p(struct entry)
 p(struct epoll_event)
 p(struct ether_addr)
 p(struct ether_arp)
 p(struct ether_header)
 p(struct ethhdr)
 p(struct f_owner_ex)
+p(struct fanotify_event_metadata)
+p(struct fanotify_response)
 p(struct flock)
 p(struct group)
+p(struct group_filter)
+p(struct group_req)
+p(struct group_source_req)
 p(struct hostent)
 p(struct icmp)
 p(struct icmp6_filter)
@@ -422,9 +450,11 @@ p(struct icmp_ra_addr)
 p(struct icmphdr)
 p(struct if_nameindex)
 p(struct ifaddr)
+p(struct ifaddrs)
 p(struct ifconf)
 p(struct ifmap)
 p(struct ifreq)
+p(struct igmp)
 p(struct ih_idseq)
 p(struct ih_pmtu)
 p(struct ih_rtradv)
@@ -451,7 +481,9 @@ p(struct ip6_opt_tunnel)
 p(struct ip6_rthdr)
 p(struct ip6_rthdr0)
 p(struct ip_mreq)
+p(struct ip_mreq_source)
 p(struct ip_mreqn)
+p(struct ip_msfilter)
 p(struct ip_opts)
 p(struct ip_timestamp)
 p(struct ipc_perm)
@@ -495,8 +527,10 @@ p(struct packet_mreq)
 p(struct passwd)
 p(struct pollfd)
 p(struct protoent)
+//p(struct ptrace_peeksiginfo_args)
 p(struct qelem)
 p(struct r_debug)
+p(struct re_pattern_buffer)
 p(struct res_sym)
 p(struct rlimit)
 p(struct rr_pco_match)
@@ -518,6 +552,7 @@ p(struct shm_info)
 p(struct shmid_ds)
 p(struct shminfo)
 p(struct sigaction)
+p(struct sigaltstack)
 p(struct sigcontext)
 p(struct sigevent)
 p(struct signalfd_siginfo)
@@ -539,7 +574,12 @@ p(struct strioctl)
 p(struct strpeek)
 p(struct strrecvfd)
 p(struct sysinfo)
+p(struct tcp_info)
+p(struct tcp_md5sig)
+p(struct tcphdr)
 p(struct termios)
+p(struct tftphdr)
+p(struct timeb)
 p(struct timespec)
 p(struct timestamp)
 p(struct timeval)
@@ -588,10 +628,10 @@ p(uint_least8_t)
 p(uintmax_t)
 p(uintptr_t)
 p(ulong)
-//p(union __double_repr)
-//p(union __float_repr)
+//p(union _G_fpos64_t)
 p(union epoll_data)
 p(union sigval)
+p(useconds_t)
 p(ushort)
 p(va_list)
 p(void*)
