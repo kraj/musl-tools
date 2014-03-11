@@ -1,0 +1,64 @@
+--- sizeof.mips.glibc	2014-03-11 12:16:38.593778252 +0100
++++ sizeof.mips.musl	2014-03-11 12:18:05.270207732 +0100
+@@ -66,3 +66,3 @@
+ _Bool	1
+-__jmp_buf	104
++__jmp_buf	120
+ blkcnt_t	8
+@@ -121,3 +121,3 @@
+ intptr_t	4
+-jmp_buf	240
++jmp_buf	256
+ key_t	4
+@@ -197,3 +197,3 @@
+ siginfo_t	128
+-sigjmp_buf	240
++sigjmp_buf	256
+ sigset_t	128
+@@ -205,3 +205,3 @@
+ struct FTW	8
+-struct __jmp_buf_tag	240
++struct __jmp_buf_tag	256
+ struct __ns_msg	48
+@@ -222,3 +222,3 @@
+ struct cmsghdr	12
+-struct crypt_data	131228
++struct crypt_data	260
+ struct dirent	280
+@@ -337,6 +337,6 @@
+ struct rtentry	84
+-struct rusage	72
+-struct sched_param	4
++struct rusage	136
++struct sched_param	28
+ struct sembuf	6
+-struct semid_ds	56
++struct semid_ds	64
+ struct seminfo	40
+@@ -351,3 +351,3 @@
+ struct shminfo	36
+-struct sigaction	144
++struct sigaction	140
+ struct sigaltstack	12
+@@ -364,3 +364,3 @@
+ struct stat	160
+-struct statfs	96
++struct statfs	88
+ struct statvfs	96
+@@ -373,3 +373,3 @@
+ struct strrecvfd	20
+-struct sysinfo	64
++struct sysinfo	312
+ struct tcp_info	104
+@@ -377,4 +377,4 @@
+ struct tcphdr	20
+-struct termios	52
+-struct tftphdr	5
++struct termios	60
++struct tftphdr	6
+ struct timeb	12
+@@ -407,3 +407,3 @@
+ u_short	2
+-ucontext_t	744
++ucontext_t	1256
+ uid_t	4
