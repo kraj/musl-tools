@@ -1,0 +1,434 @@
+ACTION	4
+CODE	8
+Dl_info	16
+ENTRY	8
+Elf32_Addr	4
+Elf32_Conflict	4
+Elf32_Dyn	8
+Elf32_Ehdr	52
+Elf32_Half	2
+Elf32_Lib	20
+Elf32_Move	24
+Elf32_Nhdr	12
+Elf32_Off	4
+Elf32_Phdr	32
+Elf32_RegInfo	24
+Elf32_Rel	8
+Elf32_Rela	12
+Elf32_Section	2
+Elf32_Shdr	40
+Elf32_Sword	4
+Elf32_Sxword	8
+Elf32_Sym	16
+Elf32_Syminfo	4
+Elf32_Verdaux	8
+Elf32_Verdef	20
+Elf32_Vernaux	16
+Elf32_Verneed	16
+Elf32_Versym	2
+Elf32_Word	4
+Elf32_Xword	8
+Elf32_auxv_t	8
+Elf32_gptab	8
+Elf64_Addr	8
+Elf64_Dyn	16
+Elf64_Ehdr	64
+Elf64_Half	2
+Elf64_Lib	20
+Elf64_Move	32
+Elf64_Nhdr	12
+Elf64_Off	8
+Elf64_Phdr	56
+Elf64_Rel	16
+Elf64_Rela	24
+Elf64_Section	2
+Elf64_Shdr	64
+Elf64_Sword	4
+Elf64_Sxword	8
+Elf64_Sym	24
+Elf64_Syminfo	4
+Elf64_Verdaux	8
+Elf64_Verdef	20
+Elf64_Vernaux	16
+Elf64_Verneed	16
+Elf64_Versym	2
+Elf64_Word	4
+Elf64_Xword	8
+Elf64_auxv_t	16
+Elf_Options	8
+Elf_Options_Hw	8
+Elf_Symndx	4
+HEADER	12
+Sg_io_hdr	64
+Sg_req_info	20
+Sg_scsi_id	32
+VISIT	4
+_Bool	1
+__jmp_buf	448
+blkcnt_t	8
+blksize_t	4
+caddr_t	4
+cc_t	1
+clock_t	4
+clockid_t	4
+comp_t	2
+cpu_set_t	128
+dev_t	8
+div_t	8
+double	8
+double_t	8
+elf_fpregset_t	264
+elf_greg_t	4
+elf_gregset_t	192
+epoll_data_t	8
+eventfd_t	8
+fd_mask	4
+fd_set	128
+fenv_t	8
+fexcept_t	4
+float	4
+float_t	4
+fpos_t	16
+fsblkcnt_t	8
+fsfilcnt_t	8
+fsid_t	8
+gid_t	4
+glob_t	36
+gregset_t	192
+iconv_t	4
+id_t	4
+idtype_t	4
+imaxdiv_t	16
+in_addr_t	4
+in_port_t	2
+ino_t	8
+int	4
+int16_t	2
+int32_t	4
+int64_t	8
+int8_t	1
+int_fast16_t	4
+int_fast32_t	4
+int_fast64_t	8
+int_fast8_t	1
+int_least16_t	2
+int_least32_t	4
+int_least64_t	8
+int_least8_t	1
+intmax_t	8
+intptr_t	4
+jmp_buf	584
+key_t	4
+ldiv_t	8
+lldiv_t	16
+locale_t	4
+long	4
+long double	8
+long long	8
+lwpid_t	4
+mbstate_t	8
+mcontext_t	992
+mode_t	4
+mqd_t	4
+msglen_t	4
+msgqnum_t	4
+n_long	4
+n_short	2
+n_time	4
+nfds_t	4
+nl_catd	4
+nl_item	4
+nlink_t	4
+ns_cert_types	4
+ns_class	4
+ns_flag	4
+ns_key_types	4
+ns_msg	48
+ns_opcode	4
+ns_rcode	4
+ns_rr	1044
+ns_sect	4
+ns_tcp_tsig_state	528
+ns_tsig_key	2060
+ns_type	4
+ns_update_operation	4
+off_t	8
+pid_t	4
+posix_spawn_file_actions_t	76
+posix_spawnattr_t	336
+prfpregset_t	264
+prgregset_t	192
+prpsinfo_t	128
+prstatus_t	268
+psaddr_t	4
+pthread_attr_t	36
+pthread_barrier_t	20
+pthread_barrierattr_t	4
+pthread_cond_t	48
+pthread_condattr_t	4
+pthread_key_t	4
+pthread_mutex_t	24
+pthread_mutexattr_t	4
+pthread_once_t	4
+pthread_rwlock_t	32
+pthread_rwlockattr_t	8
+pthread_spinlock_t	4
+pthread_t	4
+ptrdiff_t	4
+quad_t	8
+regex_t	32
+register_t	4
+regmatch_t	8
+regoff_t	4
+res_state	4
+rlim_t	8
+sa_family_t	2
+sem_t	16
+sg_io_hdr_t	64
+sg_iovec_t	8
+sg_req_info_t	20
+shmatt_t	4
+short	2
+sig_atomic_t	4
+sig_t	4
+sighandler_t	4
+siginfo_t	128
+sigjmp_buf	584
+sigset_t	128
+size_t	4
+socklen_t	4
+speed_t	4
+ssize_t	4
+stack_t	12
+struct FTW	8
+struct __jmp_buf_tag	584
+struct __ns_msg	48
+struct __ns_rr	1044
+struct __res_state	512
+struct _ns_flagdata	8
+struct acct	64
+struct acct_v3	64
+struct addrinfo	32
+struct aiocb	144
+struct ar_hdr	60
+struct arpd_request	28
+struct arphdr	8
+struct arpreq	68
+struct arpreq_old	52
+struct bandinfo	8
+struct ccs_modesel_head	12
+struct cmsghdr	12
+struct crypt_data	260
+struct dirent	280
+struct dl_phdr_info	40
+struct dqblk	72
+struct dqinfo	24
+struct elf_prpsinfo	128
+struct elf_prstatus	268
+struct elf_siginfo	12
+struct entry	8
+struct epoll_event	16
+struct ether_addr	6
+struct ether_arp	28
+struct ether_header	14
+struct ethhdr	14
+struct f_owner_ex	8
+struct flock	32
+struct group	16
+struct group_filter	268
+struct group_req	132
+struct group_source_req	260
+struct hostent	20
+struct icmp	28
+struct icmp6_filter	32
+struct icmp6_hdr	8
+struct icmp6_router_renum	16
+struct icmp_ra_addr	8
+struct icmphdr	8
+struct if_nameindex	8
+struct ifaddr	40
+struct ifaddrs	28
+struct ifconf	8
+struct ifmap	16
+struct ifreq	32
+struct igmp	8
+struct ih_idseq	4
+struct ih_pmtu	4
+struct ih_rtradv	4
+struct in6_addr	16
+struct in6_pktinfo	20
+struct in6_rtmsg	72
+struct in_addr	4
+struct in_pktinfo	12
+struct inotify_event	16
+struct iovec	8
+struct ip	20
+struct ip6_dest	2
+struct ip6_ext	2
+struct ip6_frag	8
+struct ip6_hbh	2
+struct ip6_hdr	40
+struct ip6_hdrctl	8
+struct ip6_mtuinfo	32
+struct ip6_opt	2
+struct ip6_opt_jumbo	6
+struct ip6_opt_nsap	4
+struct ip6_opt_router	4
+struct ip6_opt_tunnel	3
+struct ip6_rthdr	4
+struct ip6_rthdr0	8
+struct ip_mreq	8
+struct ip_mreq_source	12
+struct ip_mreqn	12
+struct ip_msfilter	20
+struct ip_opts	44
+struct ip_timestamp	40
+struct ipc_perm	36
+struct iphdr	20
+struct ipv6_mreq	20
+struct itimerspec	16
+struct itimerval	16
+struct lastlog	292
+struct lconv	56
+struct linger	8
+struct link_map	20
+struct mld_hdr	24
+struct mntent	24
+struct mq_attr	32
+struct msgbuf	8
+struct msghdr	28
+struct msginfo	32
+struct msqid_ds	88
+struct mt_tape_info	8
+struct mtconfiginfo	32
+struct mtget	28
+struct mtop	8
+struct mtpos	4
+struct nd_neighbor_advert	24
+struct nd_neighbor_solicit	24
+struct nd_opt_adv_interval	8
+struct nd_opt_hdr	2
+struct nd_opt_home_agent_info	8
+struct nd_opt_mtu	8
+struct nd_opt_prefix_info	32
+struct nd_opt_rd_hdr	8
+struct nd_redirect	40
+struct nd_router_advert	16
+struct nd_router_solicit	8
+struct netent	16
+struct ns_tcp_tsig_state	528
+struct ns_tsig_key	2060
+struct ntptimeval	16
+struct option	16
+struct packet_mreq	16
+struct passwd	28
+struct pollfd	8
+struct protoent	12
+struct qelem	12
+struct r_debug	20
+struct re_pattern_buffer	32
+struct res_sym	12
+struct rlimit	16
+struct rr_pco_match	24
+struct rr_pco_use	32
+struct rr_result	24
+struct rtentry	84
+struct rusage	136
+struct sched_param	28
+struct sembuf	6
+struct semid_ds	64
+struct seminfo	40
+struct servent	16
+struct sg_header	36
+struct sg_io_hdr	64
+struct sg_iovec	8
+struct sg_req_info	20
+struct sg_scsi_id	32
+struct shm_info	24
+struct shmid_ds	84
+struct shminfo	36
+struct sigaction	140
+struct sigaltstack	12
+struct sigcontext	32
+struct sigevent	64
+struct signalfd_siginfo	128
+struct sockaddr	16
+struct sockaddr_in	16
+struct sockaddr_in6	28
+struct sockaddr_ll	20
+struct sockaddr_storage	128
+struct sockaddr_un	110
+struct spwd	36
+struct stat	104
+struct statfs	88
+struct statvfs	96
+struct str_list	8
+struct str_mlist	9
+struct strbuf	12
+struct strfdinsert	36
+struct strioctl	16
+struct strpeek	28
+struct strrecvfd	20
+struct sysinfo	312
+struct tcp_info	104
+struct tcp_md5sig	216
+struct tcphdr	20
+struct termios	44
+struct tftphdr	6
+struct timeb	12
+struct timespec	8
+struct timestamp	40
+struct timeval	8
+struct timex	128
+struct timezone	8
+struct tm	44
+struct tms	16
+struct ucred	12
+struct udphdr	8
+struct user	244
+struct utimbuf	8
+struct utmpx	384
+struct utsname	390
+struct winsize	8
+suseconds_t	4
+tcflag_t	4
+time_t	4
+timer_t	4
+u_char	1
+u_int	4
+u_int16_t	2
+u_int32_t	4
+u_int64_t	8
+u_int8_t	1
+u_long	4
+u_quad_t	8
+u_short	2
+ucontext_t	1184
+uid_t	4
+uint	4
+uint16_t	2
+uint32_t	4
+uint64_t	8
+uint8_t	1
+uint_fast16_t	4
+uint_fast32_t	4
+uint_fast64_t	8
+uint_fast8_t	1
+uint_least16_t	2
+uint_least32_t	4
+uint_least64_t	8
+uint_least8_t	1
+uintmax_t	8
+uintptr_t	4
+ulong	4
+union epoll_data	8
+union sigval	4
+useconds_t	4
+ushort	2
+va_list	12
+void*	4
+wchar_t	4
+wctrans_t	4
+wctype_t	4
+wint_t	4
+wordexp_t	12

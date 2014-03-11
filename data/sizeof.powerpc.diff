@@ -1,0 +1,64 @@
+--- sizeof.powerpc.glibc	2014-03-11 12:56:17.045572063 +0100
++++ sizeof.powerpc.musl	2014-03-11 12:57:00.149785807 +0100
+@@ -119,3 +119,3 @@
+ intptr_t	4
+-jmp_buf	592
++jmp_buf	584
+ key_t	4
+@@ -125,3 +125,3 @@
+ long	4
+-long double	16
++long double	8
+ long long	8
+@@ -195,3 +195,3 @@
+ siginfo_t	128
+-sigjmp_buf	592
++sigjmp_buf	584
+ sigset_t	128
+@@ -203,3 +203,3 @@
+ struct FTW	8
+-struct __jmp_buf_tag	592
++struct __jmp_buf_tag	584
+ struct __ns_msg	48
+@@ -220,3 +220,3 @@
+ struct cmsghdr	12
+-struct crypt_data	131228
++struct crypt_data	260
+ struct dirent	280
+@@ -285,3 +285,3 @@
+ struct ip_timestamp	40
+-struct ipc_perm	48
++struct ipc_perm	36
+ struct iphdr	20
+@@ -300,3 +300,3 @@
+ struct msginfo	32
+-struct msqid_ds	104
++struct msqid_ds	88
+ struct mt_tape_info	8
+@@ -335,6 +335,6 @@
+ struct rtentry	84
+-struct rusage	72
+-struct sched_param	4
++struct rusage	136
++struct sched_param	28
+ struct sembuf	6
+-struct semid_ds	80
++struct semid_ds	64
+ struct seminfo	40
+@@ -347,3 +347,3 @@
+ struct shm_info	24
+-struct shmid_ds	104
++struct shmid_ds	84
+ struct shminfo	36
+@@ -371,3 +371,3 @@
+ struct strrecvfd	20
+-struct sysinfo	64
++struct sysinfo	312
+ struct tcp_info	104
+@@ -375,4 +375,4 @@
+ struct tcphdr	20
+-struct termios	60
+-struct tftphdr	5
++struct termios	44
++struct tftphdr	6
+ struct timeb	12
