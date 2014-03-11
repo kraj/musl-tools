@@ -89,6 +89,7 @@ fexcept_t	4
 float	4
 float_t	4
 fpos_t	16
+fpregset_t	272
 fsblkcnt_t	8
 fsfilcnt_t	8
 fsid_t	8
