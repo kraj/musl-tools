@@ -9,9 +9,9 @@ tables:
 	MUSL=$(MUSL) ./update.sh
 
 sizeof: sizeof-glibc sizeof-musl
-	./sizeof-glibc >data/glibc.sizeof
-	./sizeof-musl >data/musl.sizeof
-	diff -U1 data/glibc.sizeof data/musl.sizeof >data/sizeof.diff || true
+	./sizeof-glibc >data/sizeof.ARCH.glibc
+	./sizeof-musl >data/sizeof.ARCH.musl
+	diff -U1 data/sizeof.ARCH.glibc data/sizeof.ARCH.musl >data/sizeof.ARCH.diff || true
 
 LIBGCC=`gcc -print-file-name=libgcc.a |sed 's,/libgcc.a$$,,'`
 # when compiling with pcc
