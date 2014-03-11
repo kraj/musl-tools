@@ -64,9 +64,7 @@ Sg_req_info	20
 Sg_scsi_id	32
 VISIT	4
 _Bool	1
-__uint16_t	2
-__uint32_t	4
-__uint64_t	8
+__jmp_buf	24
 blkcnt_t	8
 blksize_t	4
 caddr_t	4
@@ -74,6 +72,7 @@ cc_t	1
 clock_t	4
 clockid_t	4
 comp_t	2
+cpu_set_t	128
 dev_t	8
 div_t	8
 double	8
@@ -190,6 +189,7 @@ sem_t	16
 sg_io_hdr_t	64
 sg_iovec_t	8
 sg_req_info_t	20
+shmatt_t	4
 short	2
 sig_atomic_t	4
 sig_t	4
@@ -203,6 +203,7 @@ speed_t	4
 ssize_t	4
 stack_t	12
 struct FTW	8
+struct __jmp_buf_tag	156
 struct __ns_msg	48
 struct __ns_rr	1044
 struct __res_state	512
@@ -223,17 +224,25 @@ struct cmsghdr	12
 struct crypt_data	131228
 struct dirent	276
 struct dl_phdr_info	40
+struct dqblk	68
+struct dqinfo	24
 struct elf_prpsinfo	124
 struct elf_prstatus	144
 struct elf_siginfo	12
+struct entry	8
 struct epoll_event	12
 struct ether_addr	6
 struct ether_arp	28
 struct ether_header	14
 struct ethhdr	14
 struct f_owner_ex	8
+struct fanotify_event_metadata	24
+struct fanotify_response	8
 struct flock	24
 struct group	16
+struct group_filter	268
+struct group_req	132
+struct group_source_req	260
 struct hostent	20
 struct icmp	28
 struct icmp6_filter	32
@@ -243,9 +252,11 @@ struct icmp_ra_addr	8
 struct icmphdr	8
 struct if_nameindex	8
 struct ifaddr	40
+struct ifaddrs	28
 struct ifconf	8
 struct ifmap	16
 struct ifreq	32
+struct igmp	8
 struct ih_idseq	4
 struct ih_pmtu	4
 struct ih_rtradv	4
@@ -272,7 +283,9 @@ struct ip6_opt_tunnel	3
 struct ip6_rthdr	4
 struct ip6_rthdr0	8
 struct ip_mreq	8
+struct ip_mreq_source	12
 struct ip_mreqn	12
+struct ip_msfilter	20
 struct ip_opts	44
 struct ip_timestamp	40
 struct ipc_perm	36
@@ -310,7 +323,7 @@ struct nd_router_solicit	8
 struct netent	16
 struct ns_tcp_tsig_state	528
 struct ns_tsig_key	2060
-struct ntptimeval	16
+struct ntptimeval	36
 struct option	16
 struct packet_mreq	16
 struct passwd	28
@@ -318,6 +331,7 @@ struct pollfd	8
 struct protoent	12
 struct qelem	12
 struct r_debug	20
+struct re_pattern_buffer	32
 struct res_sym	12
 struct rlimit	16
 struct rr_pco_match	24
@@ -339,6 +353,7 @@ struct shm_info	24
 struct shmid_ds	84
 struct shminfo	36
 struct sigaction	140
+struct sigaltstack	12
 struct sigcontext	88
 struct sigevent	64
 struct signalfd_siginfo	128
@@ -360,7 +375,12 @@ struct strioctl	16
 struct strpeek	28
 struct strrecvfd	20
 struct sysinfo	64
+struct tcp_info	104
+struct tcp_md5sig	216
+struct tcphdr	20
 struct termios	60
+struct tftphdr	5
+struct timeb	12
 struct timespec	8
 struct timestamp	40
 struct timeval	8
@@ -410,6 +430,7 @@ uintptr_t	4
 ulong	4
 union epoll_data	8
 union sigval	4
+useconds_t	4
 ushort	2
 va_list	4
 void*	4
