@@ -1,0 +1,38 @@
+--- sizeof.arm.glibc	2014-03-11 12:25:20.936368173 +0100
++++ sizeof.arm.musl	2014-03-11 12:50:44.235921742 +0100
+@@ -91,3 +91,2 @@
+ fpos_t	16
+-fpregset_t	116
+ fsblkcnt_t	8
+@@ -162,3 +161,3 @@
+ prgregset_t	72
+-prpsinfo_t	124
++prpsinfo_t	128
+ prstatus_t	148
+@@ -222,3 +221,3 @@
+ struct cmsghdr	12
+-struct crypt_data	131228
++struct crypt_data	260
+ struct dirent	280
+@@ -227,3 +226,3 @@
+ struct dqinfo	24
+-struct elf_prpsinfo	124
++struct elf_prpsinfo	128
+ struct elf_prstatus	148
+@@ -337,4 +336,4 @@
+ struct rtentry	84
+-struct rusage	72
+-struct sched_param	4
++struct rusage	136
++struct sched_param	28
+ struct sembuf	6
+@@ -373,3 +372,3 @@
+ struct strrecvfd	20
+-struct sysinfo	64
++struct sysinfo	312
+ struct tcp_info	104
+@@ -378,3 +377,3 @@
+ struct termios	60
+-struct tftphdr	5
++struct tftphdr	6
+ struct timeb	12
