@@ -1,5 +1,6 @@
 ACTION	4
 CODE	16
+Dl_info	32
 ENTRY	16
 Elf32_Addr	4
 Elf32_Conflict	4
@@ -56,24 +57,29 @@ Elf64_Xword	8
 Elf64_auxv_t	16
 Elf_Options	8
 Elf_Options_Hw	8
+Elf_Symndx	4
 HEADER	12
+Sg_io_hdr	88
+Sg_req_info	24
+Sg_scsi_id	32
 VISIT	4
 _Bool	1
-__uint16_t	2
-__uint32_t	4
-__uint64_t	8
+__jmp_buf	64
 blkcnt_t	8
 blksize_t	8
 caddr_t	8
 cc_t	1
 clock_t	8
 clockid_t	4
+comp_t	2
+cpu_set_t	128
 dev_t	8
 div_t	8
 double	8
-elf_fpregset_t	216
+double_t	8
+elf_fpregset_t	512
 elf_greg_t	8
-elf_gregset_t	136
+elf_gregset_t	216
 epoll_data_t	8
 eventfd_t	8
 fd_mask	8
@@ -81,12 +87,16 @@ fd_set	128
 fenv_t	32
 fexcept_t	2
 float	4
+float_t	4
 fpos_t	16
+fpregset_t	8
 fsblkcnt_t	8
 fsfilcnt_t	8
 fsid_t	8
 gid_t	4
 glob_t	72
+greg_t	8
+gregset_t	184
 iconv_t	8
 id_t	4
 idtype_t	4
@@ -124,7 +134,10 @@ mode_t	4
 mqd_t	4
 msglen_t	8
 msgqnum_t	8
-nfds_t	4
+n_long	4
+n_short	2
+n_time	4
+nfds_t	8
 nl_catd	8
 nl_item	4
 nlink_t	8
@@ -145,10 +158,10 @@ off_t	8
 pid_t	4
 posix_spawn_file_actions_t	80
 posix_spawnattr_t	336
-prfpregset_t	216
-prgregset_t	136
+prfpregset_t	512
+prgregset_t	216
 prpsinfo_t	136
-prstatus_t	256
+prstatus_t	336
 psaddr_t	8
 pthread_attr_t	56
 pthread_barrier_t	32
@@ -165,19 +178,23 @@ pthread_spinlock_t	4
 pthread_t	8
 ptrdiff_t	8
 quad_t	8
-regex_t	56
+regex_t	64
 register_t	8
 regmatch_t	16
 regoff_t	8
 res_state	8
 rlim_t	8
 sa_family_t	2
-scrnmap_t	1
 sem_t	32
+sg_io_hdr_t	88
+sg_iovec_t	16
+sg_req_info_t	24
+shmatt_t	8
 short	2
 sig_atomic_t	4
+sig_t	8
 sighandler_t	8
-siginfo_t	136
+siginfo_t	128
 sigjmp_buf	200
 sigset_t	128
 size_t	8
@@ -186,42 +203,46 @@ speed_t	4
 ssize_t	8
 stack_t	24
 struct FTW	8
+struct __jmp_buf_tag	200
 struct __ns_msg	80
 struct __ns_rr	1048
 struct __res_state	568
+struct _fpstate	512
 struct _ns_flagdata	8
+struct acct	64
+struct acct_v3	64
 struct addrinfo	48
 struct aiocb	168
-struct arpd_request	28
+struct ar_hdr	60
+struct arpd_request	40
 struct arphdr	8
 struct arpreq	68
 struct arpreq_old	52
 struct bandinfo	8
-struct cmsghdr	12
-struct console_font_op	32
-struct consolefontdesc	16
+struct ccs_modesel_head	12
+struct cmsghdr	16
+struct crypt_data	260
 struct dirent	280
+struct dl_phdr_info	64
+struct dqblk	72
+struct dqinfo	24
 struct elf_prpsinfo	136
-struct elf_prstatus	256
+struct elf_prstatus	336
 struct elf_siginfo	12
+struct entry	16
 struct epoll_event	12
 struct ether_addr	6
 struct ether_arp	28
 struct ether_header	14
 struct ethhdr	14
-struct fb_bitfield	12
-struct fb_cmap	40
-struct fb_con2fbmap	8
-struct fb_copyarea	24
-struct fb_cursor	104
-struct fb_fillrect	24
-struct fb_fix_screeninfo	80
-struct fb_image	80
-struct fb_var_screeninfo	160
-struct fb_vblank	32
-struct fbcurpos	4
+struct f_owner_ex	8
+struct fanotify_event_metadata	24
+struct fanotify_response	8
 struct flock	32
 struct group	32
+struct group_filter	272
+struct group_req	136
+struct group_source_req	264
 struct hostent	32
 struct icmp	28
 struct icmp6_filter	32
@@ -231,9 +252,11 @@ struct icmp_ra_addr	8
 struct icmphdr	8
 struct if_nameindex	16
 struct ifaddr	48
+struct ifaddrs	56
 struct ifconf	16
 struct ifmap	24
 struct ifreq	40
+struct igmp	8
 struct ih_idseq	4
 struct ih_pmtu	4
 struct ih_rtradv	4
@@ -260,7 +283,9 @@ struct ip6_opt_tunnel	3
 struct ip6_rthdr	4
 struct ip6_rthdr0	8
 struct ip_mreq	8
+struct ip_mreq_source	12
 struct ip_mreqn	12
+struct ip_msfilter	20
 struct ip_opts	44
 struct ip_timestamp	40
 struct ipc_perm	48
@@ -268,22 +293,22 @@ struct iphdr	20
 struct ipv6_mreq	20
 struct itimerspec	32
 struct itimerval	32
-struct kbd_repeat	8
-struct kbdiacr	3
-struct kbdiacrs	772
-struct kbentry	4
-struct kbkeycode	8
-struct kbsentry	513
+struct lastlog	296
 struct lconv	96
 struct linger	8
-struct loop_info	168
-struct loop_info64	232
+struct link_map	40
 struct mld_hdr	24
 struct mntent	40
 struct mq_attr	64
+struct msgbuf	16
 struct msghdr	56
 struct msginfo	32
 struct msqid_ds	120
+struct mt_tape_info	16
+struct mtconfiginfo	48
+struct mtget	48
+struct mtop	8
+struct mtpos	8
 struct nd_neighbor_advert	24
 struct nd_neighbor_solicit	24
 struct nd_opt_adv_interval	8
@@ -304,6 +329,9 @@ struct packet_mreq	16
 struct passwd	48
 struct pollfd	8
 struct protoent	24
+struct qelem	24
+struct r_debug	40
+struct re_pattern_buffer	64
 struct res_sym	24
 struct rlimit	16
 struct rr_pco_match	24
@@ -316,10 +344,16 @@ struct sembuf	6
 struct semid_ds	104
 struct seminfo	40
 struct servent	32
+struct sg_header	36
+struct sg_io_hdr	88
+struct sg_iovec	16
+struct sg_req_info	24
+struct sg_scsi_id	32
 struct shm_info	48
 struct shmid_ds	112
 struct shminfo	72
 struct sigaction	152
+struct sigaltstack	24
 struct sigcontext	256
 struct sigevent	64
 struct signalfd_siginfo	128
@@ -327,7 +361,7 @@ struct sockaddr	16
 struct sockaddr_in	16
 struct sockaddr_in6	28
 struct sockaddr_ll	20
-struct sockaddr_storage	136
+struct sockaddr_storage	128
 struct sockaddr_un	110
 struct spwd	72
 struct stat	144
@@ -341,7 +375,12 @@ struct strioctl	24
 struct strpeek	40
 struct strrecvfd	20
 struct sysinfo	368
+struct tcp_info	104
+struct tcp_md5sig	216
+struct tcphdr	20
 struct termios	60
+struct tftphdr	6
+struct timeb	16
 struct timespec	16
 struct timestamp	40
 struct timeval	16
@@ -351,19 +390,12 @@ struct tm	56
 struct tms	32
 struct ucred	12
 struct udphdr	8
-struct unimapdesc	16
-struct unimapinit	6
-struct unipair	4
-struct user	504
-struct user_fpregs_struct	216
-struct user_regs_struct	136
+struct user	912
+struct user_fpregs_struct	512
+struct user_regs_struct	216
 struct utimbuf	16
 struct utmpx	400
 struct utsname	390
-struct vt_consize	12
-struct vt_mode	8
-struct vt_sizes	6
-struct vt_stat	6
 struct winsize	8
 suseconds_t	8
 tcflag_t	4
@@ -398,12 +430,12 @@ uintptr_t	8
 ulong	8
 union epoll_data	8
 union sigval	8
+useconds_t	4
 ushort	2
 va_list	24
 void*	8
 wchar_t	4
-wctrans_t	4
-wctype_t	4
+wctrans_t	8
+wctype_t	8
 wint_t	4
 wordexp_t	24
-

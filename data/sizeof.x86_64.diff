@@ -1,105 +1,60 @@
---- sizeof.glibc.x86_64	2011-09-22 20:03:09.000000000 +0200
-+++ sizeof.musl.x86_64	2011-09-22 20:02:27.000000000 +0200
-@@ -73,5 +73,5 @@
- double	8
--elf_fpregset_t	512
-+elf_fpregset_t	216
- elf_greg_t	8
--elf_gregset_t	216
-+elf_gregset_t	136
- epoll_data_t	8
-@@ -101,4 +101,4 @@
+--- data/glibc.sizeof	2014-03-11 11:37:53.000000000 +0100
++++ data/musl.sizeof	2014-03-11 11:37:53.000000000 +0100
+@@ -111,4 +111,4 @@
  int8_t	1
 -int_fast16_t	8
 -int_fast32_t	8
 +int_fast16_t	4
 +int_fast32_t	4
  int_fast64_t	8
-@@ -126,3 +126,3 @@
- msgqnum_t	8
--nfds_t	8
-+nfds_t	4
- nl_catd	8
-@@ -147,6 +147,6 @@
- posix_spawnattr_t	336
--prfpregset_t	512
--prgregset_t	216
-+prfpregset_t	216
-+prgregset_t	136
- prpsinfo_t	136
--prstatus_t	336
-+prstatus_t	256
- psaddr_t	8
-@@ -167,6 +167,6 @@
- quad_t	8
--regex_t	64
-+regex_t	56
+@@ -182,4 +182,4 @@
  register_t	8
 -regmatch_t	8
 -regoff_t	4
 +regmatch_t	16
 +regoff_t	8
  res_state	8
-@@ -179,3 +179,3 @@
- sighandler_t	8
--siginfo_t	128
-+siginfo_t	136
- sigjmp_buf	200
-@@ -194,3 +194,3 @@
- struct aiocb	168
--struct arpd_request	40
-+struct arpd_request	28
- struct arphdr	8
-@@ -199,3 +199,3 @@
- struct bandinfo	8
--struct cmsghdr	16
-+struct cmsghdr	12
- struct console_font_op	32
-@@ -204,3 +204,3 @@
- struct elf_prpsinfo	136
--struct elf_prstatus	336
-+struct elf_prstatus	256
- struct elf_siginfo	12
-@@ -312,4 +312,4 @@
+@@ -223,3 +223,3 @@
+ struct cmsghdr	16
+-struct crypt_data	131232
++struct crypt_data	260
+ struct dirent	280
+@@ -295,3 +295,3 @@
+ struct itimerval	32
+-struct lastlog	292
++struct lastlog	296
+ struct lconv	96
+@@ -325,3 +325,3 @@
+ struct ns_tsig_key	2072
+-struct ntptimeval	72
++struct ntptimeval	32
+ struct option	32
+@@ -340,4 +340,4 @@
  struct rtentry	120
 -struct rusage	144
 -struct sched_param	4
 +struct rusage	272
 +struct sched_param	48
  struct sembuf	6
-@@ -329,3 +329,3 @@
- struct sockaddr_ll	20
--struct sockaddr_storage	128
-+struct sockaddr_storage	136
- struct sockaddr_un	110
-@@ -342,3 +342,3 @@
+@@ -376,3 +376,3 @@
  struct strrecvfd	20
 -struct sysinfo	112
 +struct sysinfo	368
+ struct tcp_info	104
+@@ -381,3 +381,3 @@
  struct termios	60
-@@ -356,7 +356,7 @@
- struct unipair	4
--struct user	912
--struct user_fpregs_struct	512
--struct user_regs_struct	216
-+struct user	504
-+struct user_fpregs_struct	216
-+struct user_regs_struct	136
+-struct tftphdr	5
++struct tftphdr	6
+ struct timeb	16
+@@ -396,3 +396,3 @@
  struct utimbuf	16
 -struct utmpx	384
 +struct utmpx	400
  struct utsname	390
-@@ -387,4 +387,4 @@
+@@ -419,4 +419,4 @@
  uint8_t	1
 -uint_fast16_t	8
 -uint_fast32_t	8
 +uint_fast16_t	4
 +uint_fast32_t	4
  uint_fast64_t	8
-@@ -404,4 +404,4 @@
- wchar_t	4
--wctrans_t	8
--wctype_t	8
-+wctrans_t	4
-+wctype_t	4
- wint_t	4
