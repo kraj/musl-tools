@@ -110,10 +110,10 @@
 #include <sys/file.h>
 #include <sys/fsuid.h>
 #include <sys/inotify.h>
-#include <sys/io.h>
+//#include <sys/io.h>
 #include <sys/ioctl.h>
 #include <sys/ipc.h>
-#include <sys/kd.h>
+//#include <sys/kd.h>
 #include <sys/klog.h>
 #include <sys/mman.h>
 #include <sys/mount.h>
@@ -127,7 +127,7 @@
 #include <sys/ptrace.h>
 #include <sys/quota.h>
 #include <sys/reboot.h>
-#include <sys/reg.h>
+//#include <sys/reg.h>
 #include <sys/resource.h>
 #include <sys/select.h>
 #include <sys/sem.h>
@@ -161,7 +161,7 @@
 #include <sys/user.h>
 #include <sys/utsname.h>
 #include <sys/vfs.h>
-#include <sys/vt.h>
+//#include <sys/vt.h>
 #include <sys/wait.h>
 #include <sys/xattr.h>
 #include <syscall.h>
@@ -404,7 +404,7 @@ p(struct __ns_rr)
 p(struct __res_state)
 //p(struct __sigset_t)
 //p(struct __ucontext)
-p(struct _fpstate)
+//p(struct _fpstate)
 p(struct _ns_flagdata)
 p(struct acct)
 p(struct acct_v3)
