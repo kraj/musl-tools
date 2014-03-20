@@ -21,6 +21,7 @@ nodecl	fgetws_unlocked	W
 nodecl	fpurge	W
 nodecl	fputwc_unlocked	W
 nodecl	fputws_unlocked	W
+proto	getc_unlocked	stdio/getc_unlocked.c	stdio.h	int()(FILE*)	int(FILE*)
 proto	gethostent	network/ent.c	netdb.h	void*()	struct hostent*(void)
 nodecl	getwc_unlocked	W
 nodecl	getwchar_unlocked	W
@@ -35,6 +36,7 @@ proto	posix_spawnp	process/posix_spawnp.c	spawn.h	int(pid_t*restrict,const char*
 proto	pthread_equal	thread/pthread_equal.c	pthread.h	int()(pthread_t,pthread_t)	int(pthread_t,pthread_t)
 proto	pthread_getaffinity_np	sched/affinity.c	pthread.h	int(pthread_t,size_t,cpu_set_t*)	int(pthread_t,size_t,struct cpu_set_t*)
 proto	pthread_setaffinity_np	sched/affinity.c	pthread.h	int(pthread_t,size_t,const cpu_set_t*)	int(pthread_t,size_t,const struct cpu_set_t*)
+proto	putc_unlocked	stdio/putc_unlocked.c	stdio.h	int()(int,FILE*)	int(int,FILE*)
 nodecl	putwc_unlocked	W
 nodecl	putwchar_unlocked	W
 proto	qsort	stdlib/qsort.c	stdlib.h	void(void*,size_t,size_t,)	void(void*,size_t,size_t,int(*)(const void*,const void*))

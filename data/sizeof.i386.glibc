@@ -207,7 +207,6 @@ struct __jmp_buf_tag	156
 struct __ns_msg	48
 struct __ns_rr	1044
 struct __res_state	512
-struct _fpstate	624
 struct _ns_flagdata	8
 struct acct	64
 struct acct_v3	64

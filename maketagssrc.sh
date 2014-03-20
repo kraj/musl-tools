@@ -6,7 +6,7 @@ MUSL=${MUSL:-../musl}
 (
 	cd $MUSL/src
 #	ctags -f /tmp/musl.tags -R -n -u --language-force=c --c-kinds=pxdstuf --fields=k --exclude='*.sh' --exclude='*o' --exclude='*.s' .
-	ctags -f /tmp/musl.tags -R -n -u --language-force=c --c-kinds=xtf --fields=k --exclude='*.sh' --exclude='*o' --exclude='*.s' .
+	ctags -f /tmp/musl.tags -R -n -u --language-force=c --c-kinds=xtf --fields=k --exclude='*.sh' --exclude='*.o' --exclude='*.lo' --exclude='*.s' .
 )
 
 awk -v src=$MUSL/src/ '
