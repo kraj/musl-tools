@@ -1,6 +1,6 @@
 MUSL=../musl
 
-all: tables sizeof
+all: tables sizeof abi
 
 clean:
 	rm -f sizeof*.o sizeof-glibc sizeof-musl sizeof.diff tab_*.html
@@ -32,3 +32,17 @@ sizeof-musl: sizeof.c
 sizeof-g++: sizeof.c
 	g++ -std=gnu99 -nostdinc -fno-stack-protector -isystem $(MUSL)/include -isystem $(LIBGCC) -isystem /usr/include -c -o $@.o $<
 	ld -o $@ $@.o -X -d -e _start -Bstatic $(MUSL)/lib/crti.o $(MUSL)/lib/crt1.o $(MUSL)/lib/crtn.o -L$(MUSL)/lib -lc -L$(LIBGCC) -lgcc -nostdlib
+
+abi: abi.ARCH.diff
+	cp abi.ARCH.* data/
+
+abi.cc:
+	./abi.sh
+abi.ARCH.glibc: abi.cc
+	g++ -c -o $@.o $<
+	nm $@.o |sed -n 's/^[[:xdigit:]]* T //p' |c++filt >$@
+abi.ARCH.musl: abi.cc
+	g++ -nostdinc -fno-stack-protector -isystem $(MUSL)/include -isystem $(LIBGCC) -isystem /usr/include -c -o $@.o $<
+	nm $@.o |sed -n 's/^[[:xdigit:]]* T //p' |c++filt >$@
+abi.ARCH.diff:  abi.ARCH.glibc abi.ARCH.musl
+	diff -U0 $^ >$@ || true

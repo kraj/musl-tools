@@ -1,0 +1,47 @@
+--- abi.ARCH.glibc	2014-09-10 23:21:59.003339043 +0200
++++ abi.ARCH.musl	2014-09-10 23:21:59.955343761 +0200
+@@ -2 +2 @@
+-x__fpstate(_fpstate, size (*) [624], align (*) [4])
++x__fpstate(_fpstate, size (*) [112], align (*) [4])
+@@ -35 +35 @@
+-x_tcp_info(tcp_info, size (*) [104], align (*) [4])
++x_tcp_info(tcp_info, size (*) [120], align (*) [4])
+@@ -55 +55 @@
+-x___jmp_buf(int*, size (*) [24], align (*) [4])
++x___jmp_buf(unsigned long*, size (*) [24], align (*) [4])
+@@ -83 +83 @@
+-x_siginfo_t(siginfo, size (*) [128], align (*) [4])
++x_siginfo_t(siginfo_t, size (*) [128], align (*) [4])
+@@ -116 +116 @@
+-x_crypt_data(crypt_data, size (*) [131228], align (*) [4])
++x_crypt_data(crypt_data, size (*) [260], align (*) [4])
+@@ -121 +121 @@
+-x_fpregset_t(_libc_fpstate*, size (*) [4], align (*) [4])
++x_fpregset_t(_fpstate*, size (*) [4], align (*) [4])
+@@ -130 +130 @@
+-x_ntptimeval(ntptimeval, size (*) [36], align (*) [4])
++x_ntptimeval(ntptimeval, size (*) [16], align (*) [4])
+@@ -163 +163 @@
+-x_sched_param(sched_param, size (*) [4], align (*) [4])
++x_sched_param(sched_param, size (*) [28], align (*) [4])
+@@ -186 +186 @@
+-x_ether_header(ether_header, size (*) [14], align (*) [1])
++x_ether_header(ether_header, size (*) [14], align (*) [2])
+@@ -279 +279 @@
+-x_CODE(_code, size (*) [8], align (*) [4])
++x_CODE(CODE, size (*) [8], align (*) [4])
+@@ -339 +339 @@
+-x_ethhdr(ethhdr, size (*) [14], align (*) [1])
++x_ethhdr(ethhdr, size (*) [14], align (*) [2])
+@@ -366 +366 @@
+-x_rusage(rusage, size (*) [72], align (*) [4])
++x_rusage(rusage, size (*) [136], align (*) [4])
+@@ -385 +385 @@
+-x_fd_mask(long, size (*) [4], align (*) [4])
++x_fd_mask(unsigned long, size (*) [4], align (*) [4])
+@@ -427 +427 @@
+-x_sysinfo(sysinfo, size (*) [64], align (*) [4])
++x_sysinfo(sysinfo, size (*) [312], align (*) [4])
+@@ -429 +429 @@
+-x_tftphdr(tftphdr, size (*) [5], align (*) [1])
++x_tftphdr(tftphdr, size (*) [6], align (*) [2])
