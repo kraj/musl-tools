@@ -1,5 +1,5 @@
 <h3>musl vs c11 api</h3>
-<h4>commit</h4><p>commit <a href="http://git.musl-libc.org/cgit/musl/commit/?id=5edbc6fe13e1e0f27e3d3a20f2582da476f74c4b">5edbc6fe13e1e0f27e3d3a20f2582da476f74c4b</a><br>Date:   2014-09-10 12:47:55 -0400<br><br>    add _DEFAULT_SOURCE feature profile as an alias for _BSD_SOURCE<br>    <br>    as a result of commit ab8f6a6e42ff893041f7545a23e6d6a0edde07fb, this<br>    definition is now equivalent to the actual "default profile" which<br>    appears immediately below in features.h, and which defines both<br>    _BSD_SOURCE and _XOPEN_SOURCE.<br>    <br>    the intent of providing a _DEFAULT_SOURCE, which glibc also now<br>    provides, is to give applications a way to "get back" the default<br>    feature profile when it was lost either by compiler flags that inhibit<br>    it (such as -std=c99) or by library-provided predefined macros (such<br>    as -D_POSIX_C_SOURCE=200809L) which may inhibit exposure of features<br>    that were otherwise visible by default and which the application may<br>    need. without _DEFAULT_SOURCE, the application had encode knowledge of<br>    a particular libc's defaults, and such knowledge was fragile and<br>    subject to bitrot.<br>    <br>    eventually the names _GNU_SOURCE and _BSD_SOURCE should be phased out<br>    in favor of the more-descriptive and more-accurate _ALL_SOURCE and<br>    _DEFAULT_SOURCE, leaving the old names as aliases but using the new<br>    ones internally. however this is a more invasive change that would<br>    require extensive regression testing, so it is deferred.
+<h4>commit</h4><p>commit <a href="http://git.musl-libc.org/cgit/musl/commit/?id=00548408398ced546c540dab773ea66cea4fe1c2">00548408398ced546c540dab773ea66cea4fe1c2</a><br>Date:   2014-10-13 18:26:28 -0400<br><br>    eliminate global waiters count in pthread_once
 <h4>legend</h4><ul><li>status: musl implementation status summary<ul><li>(empty) - implemented<li>nosym - prototype found in include files (see decl) but not in libc.a (see sym)<li>nodecl - symbol is in libc.a but not declared in a public header<li>missing - neither in include files (see decl) nor in libc.a (see sym)</ul><li>sym: external symbol kind as found by `nm libc.a` (symbol kind only reported once)<ul><li>C - symbol is common (uninitialized data)<li>D - symbol is in the initialized data section<li>R - symbol is in the read only data section<li>T - symbol is in the text section<li>V - weak object<li>W - weak symbol</ul><li>decl: kind of declaration as found by `ctags -R include` (every occurance is reported, arch specific definitions are not linked)<ul><li>d - macro definition<li>t - typedef<li>s - struct declaration<li>u - union declaration<li>p - function prototype<li>x - external and forward variable declaration</ul></ul><p>(Annex K apis are excluded: -D__STDC_WANT_LIB_EXT1__=0 is assumed)
 <h4>table</h4><table border=1><tr><th colspan=3>musl<th colspan=4>c11<tr><th>status<th>sym<th>decl<th>name<th>header<th>proto<th>section
 <tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/assert.h#n12">d</a> <td>static_assert<td>assert.h<td>&#160;<td>B.1 Diagnostics
@@ -581,7 +581,7 @@
 <tr><td>&#160;<td>T<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/signal.h#n247">p</a> <td>raise<td>signal.h<td>int raise(int sig);<td>B.13 Signal handling
 <tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/stdalign.h#n12">d</a> <td>alignas<td>stdalign.h<td>&#160;<td>B.14 Alignment
 <tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/stdalign.h#n17">d</a> <td>__alignas_is_defined<td>stdalign.h<td>&#160;<td>B.14 Alignment
-<tr><td>&#160;<td>&#160;<td>t t v v <td>va_list<td>stdarg.h<td>&#160;<td>B.15 Variable arguments
+<tr><td>&#160;<td>&#160;<td>t v <td>va_list<td>stdarg.h<td>&#160;<td>B.15 Variable arguments
 <tr><td>&#160;<td>&#160;<td>d <a href="http://git.musl-libc.org/cgit/musl/tree/include/stdarg.h#n15">d</a> <td>va_arg<td>stdarg.h<td>type va_arg(va_list ap, type);<td>B.15 Variable arguments
 <tr><td>&#160;<td>&#160;<td>d <a href="http://git.musl-libc.org/cgit/musl/tree/include/stdarg.h#n16">d</a> <td>va_copy<td>stdarg.h<td>void va_copy(va_list dest, va_list src);<td>B.15 Variable arguments
 <tr><td>&#160;<td>&#160;<td>d <a href="http://git.musl-libc.org/cgit/musl/tree/include/stdarg.h#n14">d</a> <td>va_end<td>stdarg.h<td>void va_end(va_list ap);<td>B.15 Variable arguments
@@ -680,7 +680,7 @@
 <tr><td>&#160;<td>&#160;<td>t v <td>max_align_t<td>stddef.h<td>&#160;<td>B.18 Common definitions
 <tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/locale.h#n11">d</a> <a href="http://git.musl-libc.org/cgit/musl/tree/include/locale.h#n13">d</a> <a href="http://git.musl-libc.org/cgit/musl/tree/include/stddef.h#n5">d</a> <a href="http://git.musl-libc.org/cgit/musl/tree/include/stddef.h#n7">d</a> <a href="http://git.musl-libc.org/cgit/musl/tree/include/stdio.h#n25">d</a> <a href="http://git.musl-libc.org/cgit/musl/tree/include/stdio.h#n27">d</a> <a href="http://git.musl-libc.org/cgit/musl/tree/include/stdlib.h#n11">d</a> <a href="http://git.musl-libc.org/cgit/musl/tree/include/stdlib.h#n13">d</a> <a href="http://git.musl-libc.org/cgit/musl/tree/include/string.h#n11">d</a> <a href="http://git.musl-libc.org/cgit/musl/tree/include/string.h#n13">d</a> <a href="http://git.musl-libc.org/cgit/musl/tree/include/time.h#n11">d</a> <a href="http://git.musl-libc.org/cgit/musl/tree/include/time.h#n13">d</a> <a href="http://git.musl-libc.org/cgit/musl/tree/include/unistd.h#n19">d</a> <a href="http://git.musl-libc.org/cgit/musl/tree/include/unistd.h#n21">d</a> <a href="http://git.musl-libc.org/cgit/musl/tree/include/wchar.h#n37">d</a> <a href="http://git.musl-libc.org/cgit/musl/tree/include/wchar.h#n39">d</a> <td>NULL<td>stddef.h<td>&#160;<td>B.18 Common definitions
 <tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/alltypes.h.in#n1">v</a> t <td>size_t<td>stddef.h<td>&#160;<td>B.18 Common definitions
-<tr><td>&#160;<td>&#160;<td>t t <td>wchar_t<td>stddef.h<td>&#160;<td>B.18 Common definitions
+<tr><td>&#160;<td>&#160;<td>t <td>wchar_t<td>stddef.h<td>&#160;<td>B.18 Common definitions
 <tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/stddef.h#n20">d</a> <a href="http://git.musl-libc.org/cgit/musl/tree/include/stddef.h#n22">d</a> <td>offsetof<td>stddef.h<td>offsetof(type, member-designator)<td>B.18 Common definitions
 <tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/alltypes.h.in#n9">v</a> t <td>int8_t<td>stdint.h<td>&#160;<td>B.19 Integer types
 <tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/alltypes.h.in#n10">v</a> t <td>int16_t<td>stdint.h<td>&#160;<td>B.19 Integer types
@@ -839,7 +839,7 @@
 <tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/stdlib.h#n63">t</a> <td>ldiv_t<td>stdlib.h<td>&#160;<td>B.21 General utilities
 <tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/stdlib.h#n76">d</a> <td>EXIT_FAILURE<td>stdlib.h<td>&#160;<td>B.21 General utilities
 <tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/stdlib.h#n79">d</a> <td>MB_CUR_MAX<td>stdlib.h<td>&#160;<td>B.21 General utilities
-<tr><td>&#160;<td>&#160;<td>t t <td>wchar_t<td>stdlib.h<td>&#160;<td>B.21 General utilities
+<tr><td>&#160;<td>&#160;<td>t <td>wchar_t<td>stdlib.h<td>&#160;<td>B.21 General utilities
 <tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/stdlib.h#n64">t</a> <td>lldiv_t<td>stdlib.h<td>&#160;<td>B.21 General utilities
 <tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/stdlib.h#n77">d</a> <td>EXIT_SUCCESS<td>stdlib.h<td>&#160;<td>B.21 General utilities
 <tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/stdlib.h#n62">t</a> <td>div_t<td>stdlib.h<td>&#160;<td>B.21 General utilities
@@ -972,21 +972,21 @@
 <tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/threads.h#n12">d</a> <td>thread_local<td>threads.h<td>&#160;<td>B.25 Threads
 <tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/threads.h#n15">t</a> <td>once_flag<td>threads.h<td>&#160;<td>B.25 Threads
 <tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/threads.h#n41">d</a> <td>ONCE_FLAG_INIT<td>threads.h<td>&#160;<td>B.25 Threads
-<tr><td>missing<td>&#160;<td>&#160;<td>mtx_plain<td>threads.h<td>&#160;<td>B.25 Threads
+<tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/threads.h#n36">e</a> <td>mtx_plain<td>threads.h<td>&#160;<td>B.25 Threads
 <tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/threads.h#n25">d</a> <td>TSS_DTOR_ITERATIONS<td>threads.h<td>&#160;<td>B.25 Threads
-<tr><td>missing<td>&#160;<td>&#160;<td>mtx_recursive<td>threads.h<td>&#160;<td>B.25 Threads
+<tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/threads.h#n37">e</a> <td>mtx_recursive<td>threads.h<td>&#160;<td>B.25 Threads
 <tr><td>&#160;<td>&#160;<td>t v <td>cnd_t<td>threads.h<td>&#160;<td>B.25 Threads
-<tr><td>missing<td>&#160;<td>&#160;<td>mtx_timed<td>threads.h<td>&#160;<td>B.25 Threads
+<tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/threads.h#n38">e</a> <td>mtx_timed<td>threads.h<td>&#160;<td>B.25 Threads
 <tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/threads.h#n11">t</a> <a href="http://git.musl-libc.org/cgit/musl/tree/include/threads.h#n9">t</a> <td>thrd_t<td>threads.h<td>&#160;<td>B.25 Threads
-<tr><td>missing<td>&#160;<td>&#160;<td>thrd_timedout<td>threads.h<td>&#160;<td>B.25 Threads
+<tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/threads.h#n32">e</a> <td>thrd_timedout<td>threads.h<td>&#160;<td>B.25 Threads
 <tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/threads.h#n16">t</a> <td>tss_t<td>threads.h<td>&#160;<td>B.25 Threads
-<tr><td>missing<td>&#160;<td>&#160;<td>thrd_success<td>threads.h<td>&#160;<td>B.25 Threads
+<tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/threads.h#n28">e</a> <td>thrd_success<td>threads.h<td>&#160;<td>B.25 Threads
 <tr><td>&#160;<td>&#160;<td>t v <td>mtx_t<td>threads.h<td>&#160;<td>B.25 Threads
-<tr><td>missing<td>&#160;<td>&#160;<td>thrd_busy<td>threads.h<td>&#160;<td>B.25 Threads
+<tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/threads.h#n29">e</a> <td>thrd_busy<td>threads.h<td>&#160;<td>B.25 Threads
 <tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/threads.h#n18">t</a> <td>tss_dtor_t<td>threads.h<td>&#160;<td>B.25 Threads
-<tr><td>missing<td>&#160;<td>&#160;<td>thrd_error<td>threads.h<td>&#160;<td>B.25 Threads
+<tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/threads.h#n30">e</a> <td>thrd_error<td>threads.h<td>&#160;<td>B.25 Threads
 <tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/threads.h#n17">t</a> <td>thrd_start_t<td>threads.h<td>&#160;<td>B.25 Threads
-<tr><td>missing<td>&#160;<td>&#160;<td>thrd_nomem<td>threads.h<td>&#160;<td>B.25 Threads
+<tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/threads.h#n31">e</a> <td>thrd_nomem<td>threads.h<td>&#160;<td>B.25 Threads
 <tr><td>&#160;<td>T<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/threads.h#n56">p</a> <td>call_once<td>threads.h<td>void call_once(once_flag *flag, void (*func)(void));<td>B.25 Threads
 <tr><td>&#160;<td>T<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/threads.h#n69">p</a> <td>cnd_broadcast<td>threads.h<td>int cnd_broadcast(cnd_t *cond);<td>B.25 Threads
 <tr><td>&#160;<td>T<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/threads.h#n67">p</a> <td>cnd_destroy<td>threads.h<td>void cnd_destroy(cnd_t *cond);<td>B.25 Threads
@@ -1038,7 +1038,7 @@
 <tr><td>missing<td>&#160;<td>&#160;<td>c16rtomb<td>uchar.h<td>size_t c16rtomb(char * restrict s, char16_t c16, mbstate_t * restrict ps);<td>B.27 Unicode utilities
 <tr><td>missing<td>&#160;<td>&#160;<td>mbrtoc32<td>uchar.h<td>size_t mbrtoc32(char32_t * restrict pc32, const char * restrict s, size_t n, mbstate_t * restrict ps);<td>B.27 Unicode utilities
 <tr><td>missing<td>&#160;<td>&#160;<td>c32rtomb<td>uchar.h<td>size_t c32rtomb(char * restrict s, char32_t c32, mbstate_t * restrict ps);<td>B.27 Unicode utilities
-<tr><td>&#160;<td>&#160;<td>t t <td>wchar_t<td>wchar.h<td>&#160;<td>B.28 Extended multibyte/wide character utilities
+<tr><td>&#160;<td>&#160;<td>t <td>wchar_t<td>wchar.h<td>&#160;<td>B.28 Extended multibyte/wide character utilities
 <tr><td>&#160;<td>&#160;<td>t v <td>wint_t<td>wchar.h<td>&#160;<td>B.28 Extended multibyte/wide character utilities
 <tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/stdint.h#n85">d</a> <a href="http://git.musl-libc.org/cgit/musl/tree/include/stdint.h#n88">d</a> <a href="http://git.musl-libc.org/cgit/musl/tree/include/wchar.h#n29">d</a> <a href="http://git.musl-libc.org/cgit/musl/tree/include/wchar.h#n32">d</a> <td>WCHAR_MAX<td>wchar.h<td>&#160;<td>B.28 Extended multibyte/wide character utilities
 <tr><td>&#160;<td>&#160;<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/alltypes.h.in#n1">v</a> t <td>size_t<td>wchar.h<td>&#160;<td>B.28 Extended multibyte/wide character utilities
@@ -1129,4 +1129,4 @@
 <tr><td>&#160;<td>T<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/wctype.h#n40">p</a> <td>towctrans<td>wctype.h<td>wint_t towctrans(wint_t wc, wctrans_t desc);<td>B.29 Wide character classification and mapping utilities
 <tr><td>&#160;<td>T<td><a href="http://git.musl-libc.org/cgit/musl/tree/include/wctype.h#n43">p</a> <td>wctrans<td>wctype.h<td>wctrans_t wctrans(const char *property);<td>B.29 Wide character classification and mapping utilities
 </table>
-<h4>stats</h4><ul><li>missing: 105<li>nosym: 0<li>nodecl: 0</ul>
+<h4>stats</h4><ul><li>missing: 97<li>nosym: 0<li>nodecl: 0</ul>

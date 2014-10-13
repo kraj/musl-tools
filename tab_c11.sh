@@ -64,7 +64,7 @@ BEGIN {
 		} else if (sym[$1]) {
 			s = s "nodecl"
 			nodecl++
-		} else if (kind[$1] ~ /[dtsu]/) {
+		} else if (kind[$1] ~ /[dtsue]/) {
 			s = s "&#160;"
 		} else if (kind[$1]) {
 			s = s "nosym"

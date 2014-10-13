@@ -4,6 +4,7 @@ proto	ElfW	link.h	link.h	 ElfW(Addr) l_addr;	 ElfW(Addr) dlpi_addr;
 proto	ElfW	link.h	link.h	 ElfW(Dyn) *l_ld;	 ElfW(Addr) dlpi_addr;
 proto	ElfW	link.h	link.h	 ElfW(Addr) r_brk;	 ElfW(Addr) dlpi_addr;
 proto	ElfW	link.h	link.h	 ElfW(Addr) r_ldbase;	 ElfW(Addr) dlpi_addr;
+nodecl	arch_prctl	T
 proto	basename	string.h	libgen.h	char *basename();	char *basename(char *);
 proto	basename	string.h	char*()	char*(char*)	char *basename();	char *basename(char *path);
 nodecl	capget	T

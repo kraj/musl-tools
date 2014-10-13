@@ -5,7 +5,7 @@ export LC_ALL=C
 dotags() {
 (
 	cd $1
-	ctags -f /tmp/inc.tags -R -n -u --links=no --languages='c,c++' --c-kinds=pxdstuv --fields=k --exclude='*.c' .
+	ctags -f /tmp/inc.tags -R -n -u --links=no --languages='c,c++' --c-kinds=pxdstuve --fields=k --exclude='*.c' .
 )
 awk -v path=$1/ '
 BEGIN {
