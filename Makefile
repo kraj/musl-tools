@@ -1,6 +1,6 @@
 MUSL=../musl
 
-all: tables sizeof abi
+all: tables abi.ARCH.musl
 
 clean:
 	rm -f sizeof*.o sizeof-glibc sizeof-musl sizeof.diff tab_*.html
