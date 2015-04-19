@@ -39,10 +39,10 @@ abi: abi.ARCH.diff
 abi.cc:
 	./abi.sh
 abi.ARCH.glibc: abi.cc
-	g++ -c -o $@.o $<
-	nm $@.o |sed -n 's/^[[:xdigit:]]* T //p' |c++filt >$@
+	g++ -std=c++11 $(GLIBC_FLAGS) -c -o $@.o $<
+	nm -C $@.o |sed -n 's/^[[:xdigit:]]* T //p' |sort >$@
 abi.ARCH.musl: abi.cc
-	g++ -nostdinc -fno-stack-protector -isystem $(MUSL)/include -isystem $(LIBGCC) -isystem /usr/include -c -o $@.o $<
-	nm $@.o |sed -n 's/^[[:xdigit:]]* T //p' |c++filt >$@
+	g++ -std=c++11 -nostdinc -fno-stack-protector -isystem $(MUSL)/include -isystem $(LIBGCC) -isystem /usr/include -c -o $@.o $<
+	nm -C $@.o |sed -n 's/^[[:xdigit:]]* T //p' |sort >$@
 abi.ARCH.diff:  abi.ARCH.glibc abi.ARCH.musl
 	diff -U0 $^ >$@ || true
