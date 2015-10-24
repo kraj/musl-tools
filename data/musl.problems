@@ -15,7 +15,11 @@ proto	cimagl	complex/cimagl.c	complex.h	long double()(long double complex)	long 
 proto	creal	complex/creal.c	complex.h	double()(double complex)	double(double complex)
 proto	crealf	complex/crealf.c	complex.h	float()(float complex)	float(float complex)
 proto	creall	complex/creall.c	complex.h	long double()(long double complex)	long double(long double complex)
+nodecl	dcgettext	T
+nodecl	dcngettext	T
 nodecl	delete_module	T
+nodecl	dgettext	T
+nodecl	dngettext	T
 proto	encrypt	unistd.h	void(char*,int)	void(char[],int)	void encrypt(char *, int);	void encrypt(char block[64], int edflag);
 nodecl	fgetwc_unlocked	W
 nodecl	fgetws_unlocked	W
@@ -24,10 +28,12 @@ nodecl	fputwc_unlocked	W
 nodecl	fputws_unlocked	W
 proto	getc_unlocked	stdio/getc_unlocked.c	stdio.h	int()(FILE*)	int(FILE*)
 proto	gethostent	network/ent.c	netdb.h	void*()	struct hostent*(void)
+nodecl	gettext	T
 nodecl	getwc_unlocked	W
 nodecl	getwchar_unlocked	W
 nodecl	init_module	T
 proto	lio_listio	aio.h	int(int,struct aiocb*restrict const*restrict,int,struct sigevent*restrict)	int(int,struct aiocb*restrict const[restrict],int,struct sigevent*restrict)	int lio_listio(int, struct aiocb *__restrict const *__restrict, int, struct sigevent *__restrict);	int lio_listio(int mode, struct aiocb *restrict const list[restrict], int nent, struct sigevent *restrict sig);
+nodecl	ngettext	T
 nodecl	pivot_root	T
 proto	poll	poll.h	int(struct pollfd*,nfds_t,int)	int(struct pollfd[],nfds_t,int)	int poll(struct pollfd *, nfds_t, int);	int poll(struct pollfd fds[], nfds_t nfds, int timeout);
 proto	posix_spawn	spawn.h	int(pid_t*restrict,const char*restrict,const posix_spawn_file_actions_t*,const posix_spawnattr_t*restrict,char*const*restrict,char*const*restrict)	int(pid_t*restrict,const char*restrict,const posix_spawn_file_actions_t*,const posix_spawnattr_t*restrict,char*const[restrict],char*const[restrict])	int posix_spawn(pid_t *__restrict, const char *__restrict, const posix_spawn_file_actions_t *, const posix_spawnattr_t *__restrict, char *const *__restrict, char *const *__restrict);	int posix_spawn(pid_t *restrict pid, const char *restrict path, const posix_spawn_file_actions_t *file_actions, const posix_spawnattr_t *restrict attrp, char *const argv[restrict], char *const envp[restrict]);

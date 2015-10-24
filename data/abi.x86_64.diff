@@ -1,5 +1,5 @@
---- abi.ARCH.glibc
-+++ abi.ARCH.musl
+--- abi.x86_64.glibc
++++ abi.x86_64.musl
 @@ -2 +2 @@
 -x_CODE(_code, _code*, size (*) [16], align (*) [8])
 +x_CODE(CODE, CODE*, size (*) [16], align (*) [8])
