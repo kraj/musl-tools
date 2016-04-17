@@ -36,12 +36,12 @@ sizeof-g++: sizeof.c
 abi: abi.ARCH.diff
 	cp abi.ARCH.* data/
 
-abi.cc:
-	./abi.sh
-abi.ARCH.glibc: abi.cc
+abi_type.cc:
+	./abi_type.sh
+abi.ARCH.glibc: abi_type.cc
 	g++ -std=c++11 $(GLIBC_FLAGS) -c -o $@.o $<
 	nm -C $@.o |sed -n 's/^[[:xdigit:]]* T //p' |sort >$@
-abi.ARCH.musl: abi.cc
+abi.ARCH.musl: abi_type.cc
 	g++ -std=c++11 -nostdinc -fno-stack-protector -isystem $(MUSL)/include -isystem $(LIBGCC) -isystem /usr/include -c -o $@.o $<
 	nm -C $@.o |sed -n 's/^[[:xdigit:]]* T //p' |sort >$@
 abi.ARCH.diff:  abi.ARCH.glibc abi.ARCH.musl
