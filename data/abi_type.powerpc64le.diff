@@ -1,0 +1,110 @@
+--- abi_type.powerpc64le.glibc	2016-04-18 21:01:51.632963567 +0100
++++ abi_type.powerpc64le.musl	2016-04-15 20:57:39.000149371 +0100
+@@ -1 +0,0 @@
+-std::piecewise_construct
+@@ -3 +2 @@
+-CODE: _code, _code*, size (*) [16], align (*) [8]
++CODE: CODE, CODE*, size (*) [16], align (*) [8]
+@@ -69 +68 @@
+-__jmp_buf: long*, long (*) [64], size (*) [512], align (*) [16]
++__jmp_buf: unsigned long long*, unsigned long long (*) [66], size (*) [528], align (*) [8]
+@@ -90,2 +89,2 @@
+-elf_vrreg_t: __vector128, __vector128*, size (*) [16], align (*) [16]
+-elf_vrregset_t: __vector128*, __vector128 (*) [34], size (*) [544], align (*) [16]
++elf_vrreg_t: elf_vrreg_t, elf_vrreg_t*, size (*) [16], align (*) [16]
++elf_vrregset_t: elf_vrreg_t*, elf_vrreg_t (*) [34], size (*) [544], align (*) [16]
+@@ -94 +93 @@
+-fd_mask: long, long*, size (*) [8], align (*) [8]
++fd_mask: unsigned long, unsigned long*, size (*) [8], align (*) [8]
+@@ -97 +96 @@
+-fexcept_t: unsigned int, unsigned int*, size (*) [4], align (*) [4]
++fexcept_t: unsigned long, unsigned long*, size (*) [8], align (*) [8]
+@@ -101 +100 @@
+-fpregset_t: double*, double (*) [33], size (*) [264], align (*) [8]
++fpregset_t: fpregset_t, fpregset_t*, size (*) [264], align (*) [8]
+@@ -106,0 +106 @@
++greg_t: unsigned long, unsigned long*, size (*) [8], align (*) [8]
+@@ -120,2 +120,2 @@
+-int_fast16_t: long, long*, size (*) [8], align (*) [8]
+-int_fast32_t: long, long*, size (*) [8], align (*) [8]
++int_fast16_t: int, int*, size (*) [4], align (*) [4]
++int_fast32_t: int, int*, size (*) [4], align (*) [4]
+@@ -130 +130 @@
+-jmp_buf: __jmp_buf_tag*, __jmp_buf_tag (*) [1], size (*) [656], align (*) [16]
++jmp_buf: __jmp_buf_tag*, __jmp_buf_tag (*) [1], size (*) [664], align (*) [8]
+@@ -141 +141 @@
+-mcontext_t: mcontext_t, mcontext_t*, size (*) [1272], align (*) [8]
++mcontext_t: sigcontext, sigcontext*, size (*) [1528], align (*) [8]
+@@ -183,2 +183,2 @@
+-pthread_rwlockattr_t: pthread_rwlockattr_t, pthread_rwlockattr_t*, size (*) [8], align (*) [8]
+-pthread_spinlock_t: int, int volatile*, size (*) [4], align (*) [4]
++pthread_rwlockattr_t: pthread_rwlockattr_t, pthread_rwlockattr_t*, size (*) [8], align (*) [4]
++pthread_spinlock_t: int, int*, size (*) [4], align (*) [4]
+@@ -187 +187 @@
+-quad_t: long, long*, size (*) [8], align (*) [8]
++quad_t: long long, long long*, size (*) [8], align (*) [8]
+@@ -190,2 +190,2 @@
+-regmatch_t: regmatch_t, regmatch_t*, size (*) [8], align (*) [4]
+-regoff_t: int, int*, size (*) [4], align (*) [4]
++regmatch_t: regmatch_t, regmatch_t*, size (*) [16], align (*) [8]
++regoff_t: long, long*, size (*) [8], align (*) [8]
+@@ -193 +193 @@
+-rlim_t: unsigned long, unsigned long*, size (*) [8], align (*) [8]
++rlim_t: unsigned long long, unsigned long long*, size (*) [8], align (*) [8]
+@@ -195 +195 @@
+-sem_t: sem_t, sem_t*, size (*) [32], align (*) [8]
++sem_t: sem_t, sem_t*, size (*) [32], align (*) [4]
+@@ -205 +205 @@
+-sigjmp_buf: __jmp_buf_tag*, __jmp_buf_tag (*) [1], size (*) [656], align (*) [16]
++sigjmp_buf: __jmp_buf_tag*, __jmp_buf_tag (*) [1], size (*) [664], align (*) [8]
+@@ -213 +213 @@
+-__jmp_buf_tag: __jmp_buf_tag, __jmp_buf_tag*, size (*) [656], align (*) [16]
++__jmp_buf_tag: __jmp_buf_tag, __jmp_buf_tag*, size (*) [664], align (*) [8]
+@@ -229,2 +229,2 @@
+-cmsghdr: cmsghdr, cmsghdr*, size (*) [16], align (*) [8]
+-crypt_data: crypt_data, crypt_data*, size (*) [131232], align (*) [8]
++cmsghdr: cmsghdr, cmsghdr*, size (*) [16], align (*) [4]
++crypt_data: crypt_data, crypt_data*, size (*) [260], align (*) [4]
+@@ -242,2 +242,2 @@
+-ether_header: ether_header, ether_header*, size (*) [14], align (*) [1]
+-ethhdr: ethhdr, ethhdr*, size (*) [14], align (*) [1]
++ether_header: ether_header, ether_header*, size (*) [14], align (*) [2]
++ethhdr: ethhdr, ethhdr*, size (*) [14], align (*) [2]
+@@ -299 +299 @@
+-lastlog: lastlog, lastlog*, size (*) [292], align (*) [4]
++lastlog: lastlog, lastlog*, size (*) [296], align (*) [8]
+@@ -330 +330 @@
+-ntptimeval: ntptimeval, ntptimeval*, size (*) [72], align (*) [8]
++ntptimeval: ntptimeval, ntptimeval*, size (*) [32], align (*) [8]
+@@ -347,2 +347,2 @@
+-rusage: rusage, rusage*, size (*) [144], align (*) [8]
+-sched_param: sched_param, sched_param*, size (*) [4], align (*) [4]
++rusage: rusage, rusage*, size (*) [272], align (*) [8]
++sched_param: sched_param, sched_param*, size (*) [48], align (*) [8]
+@@ -383,2 +383,2 @@
+-sysinfo: sysinfo, sysinfo*, size (*) [112], align (*) [8]
+-tcp_info: tcp_info, tcp_info*, size (*) [104], align (*) [4]
++sysinfo: sysinfo, sysinfo*, size (*) [368], align (*) [8]
++tcp_info: tcp_info, tcp_info*, size (*) [144], align (*) [8]
+@@ -387,2 +387,2 @@
+-termios: termios, termios*, size (*) [60], align (*) [4]
+-tftphdr: tftphdr, tftphdr*, size (*) [5], align (*) [1]
++termios: termios, termios*, size (*) [44], align (*) [4]
++tftphdr: tftphdr, tftphdr*, size (*) [6], align (*) [2]
+@@ -401 +401 @@
+-utmpx: utmpx, utmpx*, size (*) [384], align (*) [4]
++utmpx: utmpx, utmpx*, size (*) [400], align (*) [8]
+@@ -415 +415 @@
+-u_quad_t: unsigned long, unsigned long*, size (*) [8], align (*) [8]
++u_quad_t: unsigned long long, unsigned long long*, size (*) [8], align (*) [8]
+@@ -417 +417 @@
+-ucontext_t: ucontext, ucontext*, size (*) [1440], align (*) [8]
++ucontext_t: ucontext, ucontext*, size (*) [1696], align (*) [8]
+@@ -424,2 +424,2 @@
+-uint_fast16_t: unsigned long, unsigned long*, size (*) [8], align (*) [8]
+-uint_fast32_t: unsigned long, unsigned long*, size (*) [8], align (*) [8]
++uint_fast16_t: unsigned int, unsigned int*, size (*) [4], align (*) [4]
++uint_fast32_t: unsigned int, unsigned int*, size (*) [4], align (*) [4]
+@@ -441 +441 @@
+-vrregset_t: _libc_vrstate, _libc_vrstate*, size (*) [544], align (*) [16]
++vrregset_t: vrregset_t, vrregset_t*, size (*) [544], align (*) [8]

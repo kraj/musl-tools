@@ -1,0 +1,126 @@
+--- abi_func.powerpc64le.glibc	2016-04-18 21:17:45.463166527 +0100
++++ abi_func.powerpc64le.musl	2016-04-18 21:17:53.171152867 +0100
+@@ -2 +2 @@
+-void __assert_fail(char const*, char const*, unsigned int, char const*)
++void __assert_fail(char const*, char const*, int, char const*)
+@@ -6,0 +7 @@
++int __flt_rounds()
+@@ -11 +12 @@
+-void __fpurge(_IO_FILE*)
++int __fpurge(_IO_FILE*)
+@@ -12,0 +14 @@
++unsigned long __freadahead(_IO_FILE*)
+@@ -13,0 +16,3 @@
++char const* __freadptr(_IO_FILE*, unsigned long*)
++void __freadptrinc(_IO_FILE*, unsigned long)
++void __fseterr(_IO_FILE*)
+@@ -27,0 +33,2 @@
++void _pthread_cleanup_pop(__ptcb*, int)
++void _pthread_cleanup_push(__ptcb*, void (*)(void*), void*)
+@@ -299 +306 @@
+-int fanotify_mark(int, unsigned int, unsigned long, int, char const*)
++int fanotify_mark(int, unsigned int, unsigned long long, int, char const*)
+@@ -316 +323 @@
+-int fegetexceptflag(unsigned int*, int)
++int fegetexceptflag(unsigned long*, int)
+@@ -325 +332 @@
+-int fesetexceptflag(unsigned int const*, int)
++int fesetexceptflag(unsigned long const*, int)
+@@ -337,0 +345 @@
++char* fgetln(_IO_FILE*, unsigned long*)
+@@ -435,0 +444 @@
++int getdents(int, dirent*, unsigned long)
+@@ -492,0 +502 @@
++char* gets(char*)
+@@ -505 +515 @@
+-int gettimeofday(timeval*, timezone*)
++int gettimeofday(timeval*, void*)
+@@ -508,3 +518,3 @@
+-utmp* getutent()
+-utmp* getutid(utmp const*)
+-utmp* getutline(utmp const*)
++utmpx* getutent()
++utmpx* getutid(utmpx const*)
++utmpx* getutline(utmpx const*)
+@@ -548,0 +559 @@
++char* index(char const*, int)
+@@ -565 +576 @@
+-int ioctl(int, unsigned long, ...)
++int ioctl(int, int, ...)
+@@ -586,0 +598 @@
++int issetugid()
+@@ -649 +661 @@
+-int lio_listio(int, aiocb* const*, int, sigevent*)
++int lio_listio(int, aiocb* const restrict*, int, sigevent*)
+@@ -710,0 +723 @@
++void* memchr(void const*, int, unsigned long)
+@@ -715,0 +729 @@
++void* memrchr(void const*, int, unsigned long)
+@@ -803,0 +818 @@
++int posix_close(int, int)
+@@ -841 +856 @@
+-int prlimit(int, __rlimit_resource, rlimit const*, rlimit*)
++int prlimit(int, int, rlimit const*, rlimit*)
+@@ -944,5 +959,5 @@
+-int pthread_spin_destroy(int volatile*)
+-int pthread_spin_init(int volatile*, int)
+-int pthread_spin_lock(int volatile*)
+-int pthread_spin_trylock(int volatile*)
+-int pthread_spin_unlock(int volatile*)
++int pthread_spin_destroy(int*)
++int pthread_spin_init(int*, int)
++int pthread_spin_lock(int*)
++int pthread_spin_trylock(int*)
++int pthread_spin_unlock(int*)
+@@ -950 +965 @@
+-long ptrace(__ptrace_request, ...)
++long ptrace(int, ...)
+@@ -962 +977 @@
+-utmp* pututline(utmp const*)
++utmpx* pututline(utmpx const*)
+@@ -988 +1003 @@
+-int recvmmsg(int, mmsghdr*, unsigned int, int, timespec*)
++int recvmmsg(int, mmsghdr*, unsigned int, unsigned int, timespec*)
+@@ -1013,0 +1029 @@
++char* rindex(char const*, int)
+@@ -1062 +1078 @@
+-int sendmmsg(int, mmsghdr*, unsigned int, int)
++int sendmmsg(int, mmsghdr*, unsigned int, unsigned int)
+@@ -1177,0 +1194 @@
++char* strcasestr(char const*, char const*)
+@@ -1178,0 +1196,2 @@
++char* strchr(char const*, int)
++char* strchrnul(char const*, int)
+@@ -1187 +1206 @@
+-char* strerror_r(int, char*, unsigned long)
++int strerror_r(int, char*, unsigned long)
+@@ -1191,0 +1211,2 @@
++unsigned long strlcat(char*, char const*, unsigned long)
++unsigned long strlcpy(char*, char const*, unsigned long)
+@@ -1199,0 +1221 @@
++char* strpbrk(char const*, char const*)
+@@ -1200,0 +1223 @@
++char* strrchr(char const*, int)
+@@ -1203,0 +1227 @@
++char* strstr(char const*, char const*)
+@@ -1310 +1334 @@
+-void updwtmp(char const*, utmp const*)
++void updwtmp(char const*, utmpx const*)
+@@ -1344,3 +1368,3 @@
+-int wait(void*)
+-int wait3(void*, int, rusage*)
+-int wait4(int, void*, int, rusage*)
++int wait(int*)
++int wait3(int*, int, rusage*)
++int wait4(int, int*, int, rusage*)
+@@ -1356,0 +1381 @@
++wchar_t* wcschr(wchar_t const*, wchar_t)
+@@ -1371,0 +1397,2 @@
++wchar_t* wcspbrk(wchar_t const*, wchar_t const*)
++wchar_t* wcsrchr(wchar_t const*, wchar_t)
+@@ -1373,0 +1401 @@
++wchar_t* wcsstr(wchar_t const*, wchar_t const*)
+@@ -1384,0 +1413 @@
++wchar_t* wcswcs(wchar_t const*, wchar_t const*)
+@@ -1394,0 +1424 @@
++wchar_t* wmemchr(wchar_t const*, wchar_t, unsigned long)
