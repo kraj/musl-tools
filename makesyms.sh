@@ -2,8 +2,9 @@
 
 export LC_ALL=C
 MUSL=${MUSL:-../musl}
+MUSL_PREFIX=${MUSL_PREFIX:-$MUSL}
 
-nm -p -P $MUSL/lib/libc.a |awk '$2~/[A-Zvw]/{print $1,$2}' |sort |uniq |awk '
+nm -p -P $MUSL_PREFIX/lib/libc.a |awk '$2~/[A-Zvw]/{print $1,$2}' |sort |uniq |awk '
 NR==1 {
 	prev=$1
 	t=$2

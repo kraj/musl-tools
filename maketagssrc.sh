@@ -2,6 +2,7 @@
 
 export LC_ALL=C
 MUSL=${MUSL:-../musl}
+MUSL_PREFIX=${MUSL_PREFIX:-$MUSL}
 
 (
 	cd $MUSL/src

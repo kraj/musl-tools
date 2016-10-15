@@ -62,12 +62,16 @@
 #include <stropts.h>
 #include <sys/acct.h>
 #include <sys/auxv.h>
+#ifndef __GLIBC__
+#include <sys/cachectl.h>
+#endif
 #include <sys/epoll.h>
 #include <sys/eventfd.h>
 #include <sys/fanotify.h>
 #include <sys/file.h>
 #include <sys/fsuid.h>
 #include <sys/inotify.h>
+// #include <sys/io.h>
 #include <sys/ioctl.h>
 #include <sys/ipc.h>
 #include <sys/klog.h>
@@ -103,6 +107,9 @@
 #include <sys/xattr.h>
 #include <syslog.h>
 #include <termios.h>
+#ifndef __GLIBC__
+#include <threads.h>
+#endif
 #include <time.h>
 #include <uchar.h>
 #include <ucontext.h>
@@ -124,7 +131,7 @@
 #define M(x) x
 #endif
 
-// T(ElfW)
+// ElfW
 T(_Exit)
 T(__assert_fail)
 T(__ctype_get_mb_cur_max)
@@ -155,7 +162,7 @@ T(__signbit)
 T(__signbitf)
 T(__signbitl)
 T(_exit)
-// _flush_cache
+M(T(_flush_cache))
 T(_flushlbf)
 T(_longjmp)
 M(T(_pthread_cleanup_pop))
@@ -228,15 +235,15 @@ T(c32rtomb)
 T(cabs)
 T(cabsf)
 T(cabsl)
-// cachectl
-// cacheflush
+M(T(cachectl))
+M(T(cacheflush))
 T(cacos)
 T(cacosf)
 T(cacosh)
 T(cacoshf)
 T(cacoshl)
 T(cacosl)
-// call_once
+M(T(call_once))
 T(calloc)
 T(carg)
 T(cargf)
@@ -301,12 +308,12 @@ T(clone)
 T(close)
 T(closedir)
 T(closelog)
-// cnd_broadcast
-// cnd_destroy
-// cnd_init
-// cnd_signal
-// cnd_timedwait
-// cnd_wait
+M(T(cnd_broadcast))
+M(T(cnd_destroy))
+M(T(cnd_init))
+M(T(cnd_signal))
+M(T(cnd_timedwait))
+M(T(cnd_wait))
 T(confstr)
 T(conj)
 T(conjf)
@@ -906,12 +913,12 @@ T(msgget)
 T(msgrcv)
 T(msgsnd)
 T(msync)
-// mtx_destroy
-// mtx_init
-// mtx_lock
-// mtx_timedlock
-// mtx_trylock
-// mtx_unlock
+M(T(mtx_destroy))
+M(T(mtx_init))
+M(T(mtx_lock))
+M(T(mtx_timedlock))
+M(T(mtx_trylock))
+M(T(mtx_unlock))
 T(munlock)
 T(munlockall)
 T(munmap)
@@ -1193,7 +1200,6 @@ T(scanf)
 T(sched_get_priority_max)
 T(sched_get_priority_min)
 T(sched_getaffinity)
-T(sched_getcpu)
 T(sched_getparam)
 T(sched_getscheduler)
 T(sched_rr_get_interval)
@@ -1428,14 +1434,14 @@ T(tfind)
 T(tgamma)
 T(tgammaf)
 T(tgammal)
-// thrd_create
-// thrd_current
-// thrd_detach
-// thrd_equal
-// thrd_exit
-// thrd_join
-// thrd_sleep
-// thrd_yield
+M(T(thrd_create))
+M(T(thrd_current))
+M(T(thrd_detach))
+M(T(thrd_equal))
+M(T(thrd_exit))
+M(T(thrd_join))
+M(T(thrd_sleep))
+M(T(thrd_yield))
 T(time)
 T(timegm)
 T(timer_create)
@@ -1466,10 +1472,10 @@ T(truncate)
 T(truncf)
 T(truncl)
 T(tsearch)
-// tss_create
-// tss_delete
-// tss_get
-// tss_set
+M(T(tss_create))
+M(T(tss_delete))
+M(T(tss_get))
+M(T(tss_set))
 T(ttyname)
 T(ttyname_r)
 T(twalk)

@@ -2,16 +2,17 @@
 
 export LC_ALL=C
 MUSL=${MUSL:-../musl}
+MUSL_PREFIX=${MUSL_PREFIX:-$MUSL}
 
 (
-	cd $MUSL/include
+	cd $MUSL_PREFIX/include
 	ctags -f /tmp/musl.tags -R -n -u --language-force=c --c-kinds=pxdstuve --fields=k --exclude='*.sh' .
 
 	# fix wchar_t bug of ctags
 	awk '/typedef.* wchar_t/{print "wchar_t\tbits/alltypes.h\t" NR ";\"\tt"}' bits/alltypes.h >>/tmp/musl.tags
 )
 
-awk -v inc=$MUSL/include/ '
+awk -v inc=$MUSL_PREFIX/include/ '
 BEGIN {
 	FS="\t"
 }

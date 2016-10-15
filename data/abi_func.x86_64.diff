@@ -1,0 +1,148 @@
+--- abi_func.x86_64.glibc
++++ abi_func.x86_64.musl
+@@ -2 +2 @@
+-void __assert_fail(char const*, char const*, unsigned int, char const*)
++void __assert_fail(char const*, char const*, int, char const*)
+@@ -6,0 +7 @@
++int __flt_rounds()
+@@ -11 +12 @@
+-void __fpurge(_IO_FILE*)
++int __fpurge(_IO_FILE*)
+@@ -12,0 +14 @@
++unsigned long __freadahead(_IO_FILE*)
+@@ -13,0 +16,3 @@
++char const* __freadptr(_IO_FILE*, unsigned long*)
++void __freadptrinc(_IO_FILE*, unsigned long)
++void __fseterr(_IO_FILE*)
+@@ -25,0 +31 @@
++int _flush_cache(void*, int, int)
+@@ -27,0 +34,2 @@
++void _pthread_cleanup_pop(__ptcb*, int)
++void _pthread_cleanup_push(__ptcb*, void (*)(void*), void*)
+@@ -95,0 +104,2 @@
++int cachectl(void*, int, int)
++int cacheflush(void*, int, int)
+@@ -101,0 +112 @@
++void call_once(int*, void (*)())
+@@ -165,0 +177,6 @@
++int cnd_broadcast(cnd_t*)
++void cnd_destroy(cnd_t*)
++int cnd_init(cnd_t*)
++int cnd_signal(cnd_t*)
++int cnd_timedwait(cnd_t*, mtx_t*, timespec const*)
++int cnd_wait(cnd_t*, mtx_t*)
+@@ -299 +316 @@
+-int fanotify_mark(int, unsigned int, unsigned long, int, char const*)
++int fanotify_mark(int, unsigned int, unsigned long long, int, char const*)
+@@ -337,0 +355 @@
++char* fgetln(_IO_FILE*, unsigned long*)
+@@ -435,0 +454 @@
++int getdents(int, dirent*, unsigned long)
+@@ -492,0 +512 @@
++char* gets(char*)
+@@ -505 +525 @@
+-int gettimeofday(timeval*, timezone*)
++int gettimeofday(timeval*, void*)
+@@ -508,3 +528,3 @@
+-utmp* getutent()
+-utmp* getutid(utmp const*)
+-utmp* getutline(utmp const*)
++utmpx* getutent()
++utmpx* getutid(utmpx const*)
++utmpx* getutline(utmpx const*)
+@@ -548,0 +569 @@
++char* index(char const*, int)
+@@ -565 +586 @@
+-int ioctl(int, unsigned long, ...)
++int ioctl(int, int, ...)
+@@ -586,0 +608 @@
++int issetugid()
+@@ -649 +671 @@
+-int lio_listio(int, aiocb* const*, int, sigevent*)
++int lio_listio(int, aiocb* const restrict*, int, sigevent*)
+@@ -710,0 +733 @@
++void* memchr(void const*, int, unsigned long)
+@@ -715,0 +739 @@
++void* memrchr(void const*, int, unsigned long)
+@@ -755,0 +780,6 @@
++void mtx_destroy(mtx_t*)
++int mtx_init(mtx_t*, int)
++int mtx_lock(mtx_t*)
++int mtx_timedlock(mtx_t*, timespec const*)
++int mtx_trylock(mtx_t*)
++int mtx_unlock(mtx_t*)
+@@ -803,0 +834 @@
++int posix_close(int, int)
+@@ -841 +872 @@
+-int prlimit(int, __rlimit_resource, rlimit const*, rlimit*)
++int prlimit(int, int, rlimit const*, rlimit*)
+@@ -944,5 +975,5 @@
+-int pthread_spin_destroy(int volatile*)
+-int pthread_spin_init(int volatile*, int)
+-int pthread_spin_lock(int volatile*)
+-int pthread_spin_trylock(int volatile*)
+-int pthread_spin_unlock(int volatile*)
++int pthread_spin_destroy(int*)
++int pthread_spin_init(int*, int)
++int pthread_spin_lock(int*)
++int pthread_spin_trylock(int*)
++int pthread_spin_unlock(int*)
+@@ -952 +983 @@
+-long ptrace(__ptrace_request, ...)
++long ptrace(int, ...)
+@@ -964 +995 @@
+-utmp* pututline(utmp const*)
++utmpx* pututline(utmpx const*)
+@@ -990 +1021 @@
+-int recvmmsg(int, mmsghdr*, unsigned int, int, timespec*)
++int recvmmsg(int, mmsghdr*, unsigned int, unsigned int, timespec*)
+@@ -1015,0 +1047 @@
++char* rindex(char const*, int)
+@@ -1064 +1096 @@
+-int sendmmsg(int, mmsghdr*, unsigned int, int)
++int sendmmsg(int, mmsghdr*, unsigned int, unsigned int)
+@@ -1179,0 +1212 @@
++char* strcasestr(char const*, char const*)
+@@ -1180,0 +1214,2 @@
++char* strchr(char const*, int)
++char* strchrnul(char const*, int)
+@@ -1189 +1224 @@
+-char* strerror_r(int, char*, unsigned long)
++int strerror_r(int, char*, unsigned long)
+@@ -1193,0 +1229,2 @@
++unsigned long strlcat(char*, char const*, unsigned long)
++unsigned long strlcpy(char*, char const*, unsigned long)
+@@ -1201,0 +1239 @@
++char* strpbrk(char const*, char const*)
+@@ -1202,0 +1241 @@
++char* strrchr(char const*, int)
+@@ -1205,0 +1245 @@
++char* strstr(char const*, char const*)
+@@ -1263,0 +1304,8 @@
++int thrd_create(unsigned long*, int (*)(void*), void*)
++unsigned long thrd_current()
++int thrd_detach(unsigned long)
++int thrd_equal(unsigned long, unsigned long)
++void thrd_exit(int)
++int thrd_join(unsigned long, int*)
++int thrd_sleep(timespec const*, timespec*)
++void thrd_yield()
+@@ -1293,0 +1342,4 @@
++int tss_create(unsigned int*, void (*)(void*))
++void tss_delete(unsigned int)
++void* tss_get(unsigned int)
++int tss_set(unsigned int, void*)
+@@ -1312 +1364 @@
+-void updwtmp(char const*, utmp const*)
++void updwtmp(char const*, utmpx const*)
+@@ -1358,0 +1411 @@
++wchar_t* wcschr(wchar_t const*, wchar_t)
+@@ -1373,0 +1427,2 @@
++wchar_t* wcspbrk(wchar_t const*, wchar_t const*)
++wchar_t* wcsrchr(wchar_t const*, wchar_t)
+@@ -1375,0 +1431 @@
++wchar_t* wcsstr(wchar_t const*, wchar_t const*)
+@@ -1386,0 +1443 @@
++wchar_t* wcswcs(wchar_t const*, wchar_t const*)
+@@ -1396,0 +1454 @@
++wchar_t* wmemchr(wchar_t const*, wchar_t, unsigned long)
