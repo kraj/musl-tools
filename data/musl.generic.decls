@@ -66,6 +66,7 @@ AF_IPX	sys/socket.h	d	#define AF_IPX PF_IPX
 AF_IRDA	sys/socket.h	d	#define AF_IRDA PF_IRDA
 AF_ISDN	sys/socket.h	d	#define AF_ISDN PF_ISDN
 AF_IUCV	sys/socket.h	d	#define AF_IUCV PF_IUCV
+AF_KCM	sys/socket.h	d	#define AF_KCM PF_KCM
 AF_KEY	sys/socket.h	d	#define AF_KEY PF_KEY
 AF_LLC	sys/socket.h	d	#define AF_LLC PF_LLC
 AF_LOCAL	sys/socket.h	d	#define AF_LOCAL PF_LOCAL
@@ -339,6 +340,7 @@ CLONE_DETACHED	sched.h	d	#define CLONE_DETACHED 0x00400000
 CLONE_FILES	sched.h	d	#define CLONE_FILES 0x00000400
 CLONE_FS	sched.h	d	#define CLONE_FS 0x00000200
 CLONE_IO	sched.h	d	#define CLONE_IO 0x80000000
+CLONE_NEWCGROUP	sched.h	d	#define CLONE_NEWCGROUP 0x02000000
 CLONE_NEWIPC	sched.h	d	#define CLONE_NEWIPC 0x08000000
 CLONE_NEWNET	sched.h	d	#define CLONE_NEWNET 0x40000000
 CLONE_NEWNS	sched.h	d	#define CLONE_NEWNS 0x00020000
@@ -363,7 +365,7 @@ CMSG_ALIGN	sys/socket.h	d	#define CMSG_ALIGN(len) (((len) + sizeof (size_t) - 1)
 CMSG_DATA	sys/socket.h	d	#define CMSG_DATA(cmsg) ((unsigned char *) (((struct cmsghdr *)(cmsg)) + 1))
 CMSG_FIRSTHDR	sys/socket.h	d	#define CMSG_FIRSTHDR(mhdr) ((size_t) (mhdr)->msg_controllen >= sizeof (struct cmsghdr) ? (struct cmsghdr *) (mhdr)->msg_control : (struct cmsghdr *) 0)
 CMSG_LEN	sys/socket.h	d	#define CMSG_LEN(len) (CMSG_ALIGN (sizeof (struct cmsghdr)) + (len))
-CMSG_NXTHDR	sys/socket.h	d	#define CMSG_NXTHDR(mhdr, cmsg) ((cmsg)->cmsg_len < sizeof (struct cmsghdr) ? (struct cmsghdr *)0 : (__CMSG_NEXT(cmsg) + sizeof (struct cmsghdr) >= __MHDR_END(mhdr) ? (struct cmsghdr *)0 : ((struct cmsghdr *)__CMSG_NEXT(cmsg))))
+CMSG_NXTHDR	sys/socket.h	d	#define CMSG_NXTHDR(mhdr, cmsg) ((cmsg)->cmsg_len < sizeof (struct cmsghdr) || __CMSG_LEN(cmsg) + sizeof(struct cmsghdr) >= __MHDR_END(mhdr) - (unsigned char *)(cmsg) ? 0 : (struct cmsghdr *)__CMSG_NEXT(cmsg))
 CMSG_SPACE	sys/socket.h	d	#define CMSG_SPACE(len) (CMSG_ALIGN (len) + CMSG_ALIGN (sizeof (struct cmsghdr)))
 CODE	syslog.h	t	} CODE;
 CODESET	langinfo.h	d	#define CODESET 14
@@ -594,13 +596,14 @@ DT_MIPS_LOCALPAGE_GOTIDX	elf.h	d	#define DT_MIPS_LOCALPAGE_GOTIDX 0x70000025
 DT_MIPS_LOCAL_GOTIDX	elf.h	d	#define DT_MIPS_LOCAL_GOTIDX 0x70000026
 DT_MIPS_LOCAL_GOTNO	elf.h	d	#define DT_MIPS_LOCAL_GOTNO 0x7000000a
 DT_MIPS_MSYM	elf.h	d	#define DT_MIPS_MSYM 0x70000007
-DT_MIPS_NUM	elf.h	d	#define DT_MIPS_NUM 0x35
+DT_MIPS_NUM	elf.h	d	#define DT_MIPS_NUM 0x36
 DT_MIPS_OPTIONS	elf.h	d	#define DT_MIPS_OPTIONS 0x70000029
 DT_MIPS_PERF_SUFFIX	elf.h	d	#define DT_MIPS_PERF_SUFFIX 0x7000002e
 DT_MIPS_PIXIE_INIT	elf.h	d	#define DT_MIPS_PIXIE_INIT 0x70000023
 DT_MIPS_PLTGOT	elf.h	d	#define DT_MIPS_PLTGOT 0x70000032
 DT_MIPS_PROTECTED_GOTIDX	elf.h	d	#define DT_MIPS_PROTECTED_GOTIDX 0x70000028
 DT_MIPS_RLD_MAP	elf.h	d	#define DT_MIPS_RLD_MAP 0x70000016
+DT_MIPS_RLD_MAP_REL	elf.h	d	#define DT_MIPS_RLD_MAP_REL 0x70000035
 DT_MIPS_RLD_TEXT_RESOLVE_ADDR	elf.h	d	#define DT_MIPS_RLD_TEXT_RESOLVE_ADDR 0x7000002d
 DT_MIPS_RLD_VERSION	elf.h	d	#define DT_MIPS_RLD_VERSION 0x70000001
 DT_MIPS_RWPLT	elf.h	d	#define DT_MIPS_RWPLT 0x70000034
@@ -612,6 +615,7 @@ DT_MOVEENT	elf.h	d	#define DT_MOVEENT 0x6ffffdfa
 DT_MOVESZ	elf.h	d	#define DT_MOVESZ 0x6ffffdfb
 DT_MOVETAB	elf.h	d	#define DT_MOVETAB 0x6ffffefe
 DT_NEEDED	elf.h	d	#define DT_NEEDED 1
+DT_NIOS2_GP	elf.h	d	#define DT_NIOS2_GP 0x70000002
 DT_NULL	elf.h	d	#define DT_NULL 0
 DT_NUM	elf.h	d	#define DT_NUM 34
 DT_PLTGOT	elf.h	d	#define DT_PLTGOT 3
@@ -621,11 +625,13 @@ DT_PLTREL	elf.h	d	#define DT_PLTREL 20
 DT_PLTRELSZ	elf.h	d	#define DT_PLTRELSZ 2
 DT_POSFLAG_1	elf.h	d	#define DT_POSFLAG_1 0x6ffffdfd
 DT_PPC64_GLINK	elf.h	d	#define DT_PPC64_GLINK (DT_LOPROC + 0)
-DT_PPC64_NUM	elf.h	d	#define DT_PPC64_NUM 3
+DT_PPC64_NUM	elf.h	d	#define DT_PPC64_NUM 4
 DT_PPC64_OPD	elf.h	d	#define DT_PPC64_OPD (DT_LOPROC + 1)
 DT_PPC64_OPDSZ	elf.h	d	#define DT_PPC64_OPDSZ (DT_LOPROC + 2)
+DT_PPC64_OPT	elf.h	d	#define DT_PPC64_OPT (DT_LOPROC + 3)
 DT_PPC_GOT	elf.h	d	#define DT_PPC_GOT (DT_LOPROC + 0)
-DT_PPC_NUM	elf.h	d	#define DT_PPC_NUM 1
+DT_PPC_NUM	elf.h	d	#define DT_PPC_NUM 2
+DT_PPC_OPT	elf.h	d	#define DT_PPC_OPT (DT_LOPROC + 1)
 DT_PREINIT_ARRAY	elf.h	d	#define DT_PREINIT_ARRAY 32
 DT_PREINIT_ARRAYSZ	elf.h	d	#define DT_PREINIT_ARRAYSZ 33
 DT_PROCNUM	elf.h	d	#define DT_PROCNUM DT_MIPS_NUM
@@ -747,6 +753,7 @@ EF_MIPS_ARCH_5	elf.h	d	#define EF_MIPS_ARCH_5 0x40000000
 EF_MIPS_ARCH_64	elf.h	d	#define EF_MIPS_ARCH_64 0x60000000
 EF_MIPS_ARCH_64R2	elf.h	d	#define EF_MIPS_ARCH_64R2 0x80000000
 EF_MIPS_CPIC	elf.h	d	#define EF_MIPS_CPIC 4
+EF_MIPS_FP64	elf.h	d	#define EF_MIPS_FP64 512
 EF_MIPS_NAN2008	elf.h	d	#define EF_MIPS_NAN2008 1024
 EF_MIPS_NOREORDER	elf.h	d	#define EF_MIPS_NOREORDER 1
 EF_MIPS_PIC	elf.h	d	#define EF_MIPS_PIC 2
@@ -758,9 +765,32 @@ EF_PARISC_LSB	elf.h	d	#define EF_PARISC_LSB 0x00040000
 EF_PARISC_NO_KABP	elf.h	d	#define EF_PARISC_NO_KABP 0x00100000
 EF_PARISC_TRAPNIL	elf.h	d	#define EF_PARISC_TRAPNIL 0x00010000
 EF_PARISC_WIDE	elf.h	d	#define EF_PARISC_WIDE 0x00080000
+EF_PPC64_ABI	elf.h	d	#define EF_PPC64_ABI 3
 EF_PPC_EMB	elf.h	d	#define EF_PPC_EMB 0x80000000
 EF_PPC_RELOCATABLE	elf.h	d	#define EF_PPC_RELOCATABLE 0x00010000
 EF_PPC_RELOCATABLE_LIB	elf.h	d	#define EF_PPC_RELOCATABLE_LIB 0x00008000
+EF_SH1	elf.h	d	#define EF_SH1 0x1
+EF_SH2	elf.h	d	#define EF_SH2 0x2
+EF_SH2A	elf.h	d	#define EF_SH2A 0xd
+EF_SH2A_NOFPU	elf.h	d	#define EF_SH2A_NOFPU 0x13
+EF_SH2A_SH3E	elf.h	d	#define EF_SH2A_SH3E 0x18
+EF_SH2A_SH3_NOFPU	elf.h	d	#define EF_SH2A_SH3_NOFPU 0x16
+EF_SH2A_SH4	elf.h	d	#define EF_SH2A_SH4 0x17
+EF_SH2A_SH4_NOFPU	elf.h	d	#define EF_SH2A_SH4_NOFPU 0x15
+EF_SH2E	elf.h	d	#define EF_SH2E 0xb
+EF_SH3	elf.h	d	#define EF_SH3 0x3
+EF_SH3E	elf.h	d	#define EF_SH3E 0x8
+EF_SH3_DSP	elf.h	d	#define EF_SH3_DSP 0x5
+EF_SH3_NOMMU	elf.h	d	#define EF_SH3_NOMMU 0x14
+EF_SH4	elf.h	d	#define EF_SH4 0x9
+EF_SH4A	elf.h	d	#define EF_SH4A 0xc
+EF_SH4AL_DSP	elf.h	d	#define EF_SH4AL_DSP 0x6
+EF_SH4A_NOFPU	elf.h	d	#define EF_SH4A_NOFPU 0x11
+EF_SH4_NOFPU	elf.h	d	#define EF_SH4_NOFPU 0x10
+EF_SH4_NOMMU_NOFPU	elf.h	d	#define EF_SH4_NOMMU_NOFPU 0x12
+EF_SH_DSP	elf.h	d	#define EF_SH_DSP 0x4
+EF_SH_MACH_MASK	elf.h	d	#define EF_SH_MACH_MASK 0x1f
+EF_SH_UNKNOWN	elf.h	d	#define EF_SH_UNKNOWN 0x0
 EF_SPARCV9_MM	elf.h	d	#define EF_SPARCV9_MM 3
 EF_SPARCV9_PSO	elf.h	d	#define EF_SPARCV9_PSO 1
 EF_SPARCV9_RMO	elf.h	d	#define EF_SPARCV9_RMO 2
@@ -807,6 +837,11 @@ ELFCLASS32	elf.h	d	#define ELFCLASS32 1
 ELFCLASS64	elf.h	d	#define ELFCLASS64 2
 ELFCLASSNONE	elf.h	d	#define ELFCLASSNONE 0
 ELFCLASSNUM	elf.h	d	#define ELFCLASSNUM 3
+ELFCOMPRESS_HIOS	elf.h	d	#define ELFCOMPRESS_HIOS 0x6fffffff
+ELFCOMPRESS_HIPROC	elf.h	d	#define ELFCOMPRESS_HIPROC 0x7fffffff
+ELFCOMPRESS_LOOS	elf.h	d	#define ELFCOMPRESS_LOOS 0x60000000
+ELFCOMPRESS_LOPROC	elf.h	d	#define ELFCOMPRESS_LOPROC 0x70000000
+ELFCOMPRESS_ZLIB	elf.h	d	#define ELFCOMPRESS_ZLIB 1
 ELFDATA2LSB	elf.h	d	#define ELFDATA2LSB 1
 ELFDATA2MSB	elf.h	d	#define ELFDATA2MSB 2
 ELFDATANONE	elf.h	d	#define ELFDATANONE 0
@@ -853,6 +888,7 @@ EM_88K	elf.h	d	#define EM_88K 5
 EM_960	elf.h	d	#define EM_960 19
 EM_AARCH64	elf.h	d	#define EM_AARCH64 183
 EM_ALPHA	elf.h	d	#define EM_ALPHA 0x9026
+EM_ALTERA_NIOS2	elf.h	d	#define EM_ALTERA_NIOS2 113
 EM_ARC	elf.h	d	#define EM_ARC 45
 EM_ARC_A5	elf.h	d	#define EM_ARC_A5 93
 EM_ARM	elf.h	d	#define EM_ARM 40
@@ -888,6 +924,7 @@ EM_NCPU	elf.h	d	#define EM_NCPU 56
 EM_NDR1	elf.h	d	#define EM_NDR1 57
 EM_NONE	elf.h	d	#define EM_NONE 0
 EM_NUM	elf.h	d	#define EM_NUM 192
+EM_OPENRISC	elf.h	d	#define EM_OPENRISC 92
 EM_OR1K	elf.h	d	#define EM_OR1K 92
 EM_PARISC	elf.h	d	#define EM_PARISC 15
 EM_PCP	elf.h	d	#define EM_PCP 55
@@ -950,6 +987,7 @@ EOF	stdio.h	d	#define EOF (-1)
 EOR	arpa/telnet.h	d	#define EOR 239
 EPOLLERR	sys/epoll.h	d	#define EPOLLERR 0x008
 EPOLLET	sys/epoll.h	d	#define EPOLLET (1U<<31)
+EPOLLEXCLUSIVE	sys/epoll.h	d	#define EPOLLEXCLUSIVE (1U<<28)
 EPOLLHUP	sys/epoll.h	d	#define EPOLLHUP 0x010
 EPOLLIN	sys/epoll.h	d	#define EPOLLIN 0x001
 EPOLLMSG	sys/epoll.h	d	#define EPOLLMSG 0x400
@@ -1052,6 +1090,7 @@ ETH_P_LINK_CTL	netinet/if_ether.h	d	#define ETH_P_LINK_CTL 0x886c
 ETH_P_LOCALTALK	netinet/if_ether.h	d	#define ETH_P_LOCALTALK 0x0009
 ETH_P_LOOP	netinet/if_ether.h	d	#define ETH_P_LOOP 0x0060
 ETH_P_LOOPBACK	netinet/if_ether.h	d	#define ETH_P_LOOPBACK 0x9000
+ETH_P_MACSEC	netinet/if_ether.h	d	#define ETH_P_MACSEC 0x88E5
 ETH_P_MOBITEX	netinet/if_ether.h	d	#define ETH_P_MOBITEX 0x0015
 ETH_P_MPLS_MC	netinet/if_ether.h	d	#define ETH_P_MPLS_MC 0x8848
 ETH_P_MPLS_UC	netinet/if_ether.h	d	#define ETH_P_MPLS_UC 0x8847
@@ -1130,6 +1169,7 @@ E_MIPS_ARCH_4	elf.h	d	#define E_MIPS_ARCH_4 0x30000000
 E_MIPS_ARCH_5	elf.h	d	#define E_MIPS_ARCH_5 0x40000000
 E_MIPS_ARCH_64	elf.h	d	#define E_MIPS_ARCH_64 0x60000000
 Elf32_Addr	elf.h	t	typedef uint32_t Elf32_Addr;
+Elf32_Chdr	elf.h	t	} Elf32_Chdr;
 Elf32_Conflict	elf.h	t	typedef Elf32_Addr Elf32_Conflict;
 Elf32_Dyn	elf.h	t	} Elf32_Dyn;
 Elf32_Ehdr	elf.h	t	} Elf32_Ehdr;
@@ -1158,6 +1198,7 @@ Elf32_Xword	elf.h	t	typedef uint64_t Elf32_Xword;
 Elf32_auxv_t	elf.h	t	} Elf32_auxv_t;
 Elf32_gptab	elf.h	t	} Elf32_gptab;
 Elf64_Addr	elf.h	t	typedef uint64_t Elf64_Addr;
+Elf64_Chdr	elf.h	t	} Elf64_Chdr;
 Elf64_Dyn	elf.h	t	} Elf64_Dyn;
 Elf64_Ehdr	elf.h	t	} Elf64_Ehdr;
 Elf64_Half	elf.h	t	typedef uint16_t Elf64_Half;
@@ -1191,6 +1232,7 @@ ElfW	link.h	p	 ElfW(Addr) r_ldbase;
 ElfW	link.h	p	 ElfW(Dyn) *l_ld;
 ElfW	link.h	p	 ElfW(Half) dlpi_phnum;
 ElfW	link.h	p	 const ElfW(Phdr) *dlpi_phdr;
+Elf_MIPS_ABIFlags_v0	elf.h	t	} Elf_MIPS_ABIFlags_v0;
 Elf_Options	elf.h	t	} Elf_Options;
 Elf_Options_Hw	elf.h	t	} Elf_Options_Hw;
 Elf_Symndx	link.h	t	typedef uint32_t Elf_Symndx;
@@ -1879,6 +1921,7 @@ IPV6_CHECKSUM	netinet/in.h	d	#define IPV6_CHECKSUM 7
 IPV6_DONTFRAG	netinet/in.h	d	#define IPV6_DONTFRAG 62
 IPV6_DROP_MEMBERSHIP	netinet/in.h	d	#define IPV6_DROP_MEMBERSHIP IPV6_LEAVE_GROUP
 IPV6_DSTOPTS	netinet/in.h	d	#define IPV6_DSTOPTS 59
+IPV6_HDRINCL	netinet/in.h	d	#define IPV6_HDRINCL 36
 IPV6_HOPLIMIT	netinet/in.h	d	#define IPV6_HOPLIMIT 52
 IPV6_HOPOPTS	netinet/in.h	d	#define IPV6_HOPOPTS 54
 IPV6_IPSEC_POLICY	netinet/in.h	d	#define IPV6_IPSEC_POLICY 34
@@ -2133,7 +2176,41 @@ L_XTND	unistd.h	d	#define L_XTND 2
 L_ctermid	stdio.h	d	#define L_ctermid 20
 L_cuserid	stdio.h	d	#define L_cuserid 20
 L_tmpnam	stdio.h	d	#define L_tmpnam 20
+MADV_DODUMP	sys/mman.h	d	#define MADV_DODUMP 17
+MADV_DOFORK	sys/mman.h	d	#define MADV_DOFORK 11
+MADV_DONTDUMP	sys/mman.h	d	#define MADV_DONTDUMP 16
+MADV_DONTFORK	sys/mman.h	d	#define MADV_DONTFORK 10
+MADV_DONTNEED	sys/mman.h	d	#define MADV_DONTNEED 4
+MADV_FREE	sys/mman.h	d	#define MADV_FREE 8
+MADV_HUGEPAGE	sys/mman.h	d	#define MADV_HUGEPAGE 14
+MADV_HWPOISON	sys/mman.h	d	#define MADV_HWPOISON 100
+MADV_MERGEABLE	sys/mman.h	d	#define MADV_MERGEABLE 12
+MADV_NOHUGEPAGE	sys/mman.h	d	#define MADV_NOHUGEPAGE 15
+MADV_NORMAL	sys/mman.h	d	#define MADV_NORMAL 0
+MADV_RANDOM	sys/mman.h	d	#define MADV_RANDOM 1
+MADV_REMOVE	sys/mman.h	d	#define MADV_REMOVE 9
+MADV_SEQUENTIAL	sys/mman.h	d	#define MADV_SEQUENTIAL 2
+MADV_SOFT_OFFLINE	sys/mman.h	d	#define MADV_SOFT_OFFLINE 101
+MADV_UNMERGEABLE	sys/mman.h	d	#define MADV_UNMERGEABLE 13
+MADV_WILLNEED	sys/mman.h	d	#define MADV_WILLNEED 3
 MAGIC	cpio.h	d	#define MAGIC "070707"
+MAP_ANON	sys/mman.h	d	#define MAP_ANON 0x20
+MAP_ANONYMOUS	sys/mman.h	d	#define MAP_ANONYMOUS MAP_ANON
+MAP_DENYWRITE	sys/mman.h	d	#define MAP_DENYWRITE 0x0800
+MAP_EXECUTABLE	sys/mman.h	d	#define MAP_EXECUTABLE 0x1000
+MAP_FAILED	sys/mman.h	d	#define MAP_FAILED ((void *) -1)
+MAP_FILE	sys/mman.h	d	#define MAP_FILE 0
+MAP_FIXED	sys/mman.h	d	#define MAP_FIXED 0x10
+MAP_GROWSDOWN	sys/mman.h	d	#define MAP_GROWSDOWN 0x0100
+MAP_HUGETLB	sys/mman.h	d	#define MAP_HUGETLB 0x40000
+MAP_LOCKED	sys/mman.h	d	#define MAP_LOCKED 0x2000
+MAP_NONBLOCK	sys/mman.h	d	#define MAP_NONBLOCK 0x10000
+MAP_NORESERVE	sys/mman.h	d	#define MAP_NORESERVE 0x4000
+MAP_POPULATE	sys/mman.h	d	#define MAP_POPULATE 0x8000
+MAP_PRIVATE	sys/mman.h	d	#define MAP_PRIVATE 0x02
+MAP_SHARED	sys/mman.h	d	#define MAP_SHARED 0x01
+MAP_STACK	sys/mman.h	d	#define MAP_STACK 0x20000
+MAP_TYPE	sys/mman.h	d	#define MAP_TYPE 0x0f
 MATH_ERREXCEPT	math.h	d	#define MATH_ERREXCEPT 2
 MATH_ERRNO	math.h	d	#define MATH_ERRNO 1
 MAX	sys/param.h	d	#define MAX(a,b) (((a)>(b))?(a):(b))
@@ -2172,6 +2249,9 @@ MCAST_LEAVE_GROUP	netinet/in.h	d	#define MCAST_LEAVE_GROUP 45
 MCAST_LEAVE_SOURCE_GROUP	netinet/in.h	d	#define MCAST_LEAVE_SOURCE_GROUP 47
 MCAST_MSFILTER	netinet/in.h	d	#define MCAST_MSFILTER 48
 MCAST_UNBLOCK_SOURCE	netinet/in.h	d	#define MCAST_UNBLOCK_SOURCE 44
+MCL_CURRENT	sys/mman.h	d	#define MCL_CURRENT 1
+MCL_FUTURE	sys/mman.h	d	#define MCL_FUTURE 2
+MCL_ONFAULT	sys/mman.h	d	#define MCL_ONFAULT 4
 MEDIUM_ERROR	scsi/scsi.h	d	#define MEDIUM_ERROR 0x03
 MEDIUM_SCAN	scsi/scsi.h	d	#define MEDIUM_SCAN 0x38
 MESSAGE_REJECT	scsi/scsi.h	d	#define MESSAGE_REJECT 0x07
@@ -2181,6 +2261,43 @@ MINFLOAT	values.h	d	#define MINFLOAT FLT_MIN
 MININT	values.h	d	#define MININT INT_MIN
 MINLONG	values.h	d	#define MINLONG LONG_MIN
 MINSHORT	values.h	d	#define MINSHORT SHRT_MIN
+MIPS_AFL_ASE_DSP	elf.h	d	#define MIPS_AFL_ASE_DSP 0x00000001
+MIPS_AFL_ASE_DSPR2	elf.h	d	#define MIPS_AFL_ASE_DSPR2 0x00000002
+MIPS_AFL_ASE_EVA	elf.h	d	#define MIPS_AFL_ASE_EVA 0x00000004
+MIPS_AFL_ASE_MASK	elf.h	d	#define MIPS_AFL_ASE_MASK 0x00001fff
+MIPS_AFL_ASE_MCU	elf.h	d	#define MIPS_AFL_ASE_MCU 0x00000008
+MIPS_AFL_ASE_MDMX	elf.h	d	#define MIPS_AFL_ASE_MDMX 0x00000010
+MIPS_AFL_ASE_MICROMIPS	elf.h	d	#define MIPS_AFL_ASE_MICROMIPS 0x00000800
+MIPS_AFL_ASE_MIPS16	elf.h	d	#define MIPS_AFL_ASE_MIPS16 0x00000400
+MIPS_AFL_ASE_MIPS3D	elf.h	d	#define MIPS_AFL_ASE_MIPS3D 0x00000020
+MIPS_AFL_ASE_MSA	elf.h	d	#define MIPS_AFL_ASE_MSA 0x00000200
+MIPS_AFL_ASE_MT	elf.h	d	#define MIPS_AFL_ASE_MT 0x00000040
+MIPS_AFL_ASE_SMARTMIPS	elf.h	d	#define MIPS_AFL_ASE_SMARTMIPS 0x00000080
+MIPS_AFL_ASE_VIRT	elf.h	d	#define MIPS_AFL_ASE_VIRT 0x00000100
+MIPS_AFL_ASE_XPA	elf.h	d	#define MIPS_AFL_ASE_XPA 0x00001000
+MIPS_AFL_EXT_10000	elf.h	d	#define MIPS_AFL_EXT_10000 11
+MIPS_AFL_EXT_3900	elf.h	d	#define MIPS_AFL_EXT_3900 10
+MIPS_AFL_EXT_4010	elf.h	d	#define MIPS_AFL_EXT_4010 8
+MIPS_AFL_EXT_4100	elf.h	d	#define MIPS_AFL_EXT_4100 9
+MIPS_AFL_EXT_4111	elf.h	d	#define MIPS_AFL_EXT_4111 13
+MIPS_AFL_EXT_4120	elf.h	d	#define MIPS_AFL_EXT_4120 14
+MIPS_AFL_EXT_4650	elf.h	d	#define MIPS_AFL_EXT_4650 7
+MIPS_AFL_EXT_5400	elf.h	d	#define MIPS_AFL_EXT_5400 15
+MIPS_AFL_EXT_5500	elf.h	d	#define MIPS_AFL_EXT_5500 16
+MIPS_AFL_EXT_5900	elf.h	d	#define MIPS_AFL_EXT_5900 6
+MIPS_AFL_EXT_LOONGSON_2E	elf.h	d	#define MIPS_AFL_EXT_LOONGSON_2E 17
+MIPS_AFL_EXT_LOONGSON_2F	elf.h	d	#define MIPS_AFL_EXT_LOONGSON_2F 18
+MIPS_AFL_EXT_LOONGSON_3A	elf.h	d	#define MIPS_AFL_EXT_LOONGSON_3A 4
+MIPS_AFL_EXT_OCTEON	elf.h	d	#define MIPS_AFL_EXT_OCTEON 5
+MIPS_AFL_EXT_OCTEON2	elf.h	d	#define MIPS_AFL_EXT_OCTEON2 2
+MIPS_AFL_EXT_OCTEONP	elf.h	d	#define MIPS_AFL_EXT_OCTEONP 3
+MIPS_AFL_EXT_SB1	elf.h	d	#define MIPS_AFL_EXT_SB1 12
+MIPS_AFL_EXT_XLR	elf.h	d	#define MIPS_AFL_EXT_XLR 1
+MIPS_AFL_FLAGS1_ODDSPREG	elf.h	d	#define MIPS_AFL_FLAGS1_ODDSPREG 1
+MIPS_AFL_REG_128	elf.h	d	#define MIPS_AFL_REG_128 0x03
+MIPS_AFL_REG_32	elf.h	d	#define MIPS_AFL_REG_32 0x01
+MIPS_AFL_REG_64	elf.h	d	#define MIPS_AFL_REG_64 0x02
+MIPS_AFL_REG_NONE	elf.h	d	#define MIPS_AFL_REG_NONE 0x00
 MISCOMPARE	scsi/scsi.h	d	#define MISCOMPARE 0x0e
 MLD_LISTENER_QUERY	netinet/icmp6.h	d	#define MLD_LISTENER_QUERY 130
 MLD_LISTENER_REDUCTION	netinet/icmp6.h	d	#define MLD_LISTENER_REDUCTION 132
@@ -2274,6 +2391,7 @@ MREMAP_FIXED	sys/mman.h	d	#define MREMAP_FIXED 2
 MREMAP_MAYMOVE	sys/mman.h	d	#define MREMAP_MAYMOVE 1
 MSG_ANY	stropts.h	d	#define MSG_ANY 0x02
 MSG_BAND	stropts.h	d	#define MSG_BAND 0x04
+MSG_BATCH	sys/socket.h	d	#define MSG_BATCH 0x40000
 MSG_CMSG_CLOEXEC	sys/socket.h	d	#define MSG_CMSG_CLOEXEC 0x40000000
 MSG_CONFIRM	sys/socket.h	d	#define MSG_CONFIRM 0x0800
 MSG_CTRUNC	sys/socket.h	d	#define MSG_CTRUNC 0x0008
@@ -2300,9 +2418,11 @@ MSG_TRUNC	sys/socket.h	d	#define MSG_TRUNC 0x0020
 MSG_WAITALL	sys/socket.h	d	#define MSG_WAITALL 0x0100
 MSG_WAITFORONE	sys/socket.h	d	#define MSG_WAITFORONE 0x10000
 MS_ACTIVE	sys/mount.h	d	#define MS_ACTIVE (1<<30)
+MS_ASYNC	sys/mman.h	d	#define MS_ASYNC 1
 MS_BIND	sys/mount.h	d	#define MS_BIND 4096
 MS_BORN	sys/mount.h	d	#define MS_BORN (1<<29)
 MS_DIRSYNC	sys/mount.h	d	#define MS_DIRSYNC 128
+MS_INVALIDATE	sys/mman.h	d	#define MS_INVALIDATE 2
 MS_I_VERSION	sys/mount.h	d	#define MS_I_VERSION (1<<23)
 MS_KERNMOUNT	sys/mount.h	d	#define MS_KERNMOUNT (1<<22)
 MS_LAZYTIME	sys/mount.h	d	#define MS_LAZYTIME (1<<25)
@@ -2328,6 +2448,7 @@ MS_SHARED	sys/mount.h	d	#define MS_SHARED (1<<20)
 MS_SILENT	sys/mount.h	d	#define MS_SILENT 32768
 MS_SLAVE	sys/mount.h	d	#define MS_SLAVE (1<<19)
 MS_STRICTATIME	sys/mount.h	d	#define MS_STRICTATIME (1<<24)
+MS_SYNC	sys/mman.h	d	#define MS_SYNC 4
 MS_SYNCHRONOUS	sys/mount.h	d	#define MS_SYNCHRONOUS 16
 MS_UNBINDABLE	sys/mount.h	d	#define MS_UNBINDABLE (1<<17)
 MTBSF	sys/mtio.h	d	#define MTBSF 2
@@ -2597,6 +2718,7 @@ NT_386_IOPERM	elf.h	d	#define NT_386_IOPERM 0x201
 NT_386_TLS	elf.h	d	#define NT_386_TLS 0x200
 NT_ARM_HW_BREAK	elf.h	d	#define NT_ARM_HW_BREAK 0x402
 NT_ARM_HW_WATCH	elf.h	d	#define NT_ARM_HW_WATCH 0x403
+NT_ARM_SYSTEM_CALL	elf.h	d	#define NT_ARM_SYSTEM_CALL 0x404
 NT_ARM_TLS	elf.h	d	#define NT_ARM_TLS 0x401
 NT_ARM_VFP	elf.h	d	#define NT_ARM_VFP 0x400
 NT_ASRS	elf.h	d	#define NT_ASRS 8
@@ -2790,12 +2912,13 @@ PF_IPX	sys/socket.h	d	#define PF_IPX 4
 PF_IRDA	sys/socket.h	d	#define PF_IRDA 23
 PF_ISDN	sys/socket.h	d	#define PF_ISDN 34
 PF_IUCV	sys/socket.h	d	#define PF_IUCV 32
+PF_KCM	sys/socket.h	d	#define PF_KCM 41
 PF_KEY	sys/socket.h	d	#define PF_KEY 15
 PF_LLC	sys/socket.h	d	#define PF_LLC 26
 PF_LOCAL	sys/socket.h	d	#define PF_LOCAL 1
 PF_MASKOS	elf.h	d	#define PF_MASKOS 0x0ff00000
 PF_MASKPROC	elf.h	d	#define PF_MASKPROC 0xf0000000
-PF_MAX	sys/socket.h	d	#define PF_MAX 41
+PF_MAX	sys/socket.h	d	#define PF_MAX 42
 PF_MIPS_LOCAL	elf.h	d	#define PF_MIPS_LOCAL 0x10000000
 PF_MPLS	sys/socket.h	d	#define PF_MPLS 28
 PF_NETBEUI	sys/socket.h	d	#define PF_NETBEUI 13
@@ -2849,12 +2972,21 @@ POSIX_FADV_NORMAL	fcntl.h	d	#define POSIX_FADV_NORMAL 0
 POSIX_FADV_RANDOM	fcntl.h	d	#define POSIX_FADV_RANDOM 1
 POSIX_FADV_SEQUENTIAL	fcntl.h	d	#define POSIX_FADV_SEQUENTIAL 2
 POSIX_FADV_WILLNEED	fcntl.h	d	#define POSIX_FADV_WILLNEED 3
+POSIX_MADV_DONTNEED	sys/mman.h	d	#define POSIX_MADV_DONTNEED 4
+POSIX_MADV_NORMAL	sys/mman.h	d	#define POSIX_MADV_NORMAL 0
+POSIX_MADV_RANDOM	sys/mman.h	d	#define POSIX_MADV_RANDOM 1
+POSIX_MADV_SEQUENTIAL	sys/mman.h	d	#define POSIX_MADV_SEQUENTIAL 2
+POSIX_MADV_WILLNEED	sys/mman.h	d	#define POSIX_MADV_WILLNEED 3
 POSIX_SPAWN_RESETIDS	spawn.h	d	#define POSIX_SPAWN_RESETIDS 1
 POSIX_SPAWN_SETPGROUP	spawn.h	d	#define POSIX_SPAWN_SETPGROUP 2
 POSIX_SPAWN_SETSCHEDPARAM	spawn.h	d	#define POSIX_SPAWN_SETSCHEDPARAM 16
 POSIX_SPAWN_SETSCHEDULER	spawn.h	d	#define POSIX_SPAWN_SETSCHEDULER 32
 POSIX_SPAWN_SETSIGDEF	spawn.h	d	#define POSIX_SPAWN_SETSIGDEF 4
 POSIX_SPAWN_SETSIGMASK	spawn.h	d	#define POSIX_SPAWN_SETSIGMASK 8
+PPC64_LOCAL_ENTRY_OFFSET	elf.h	d	#define PPC64_LOCAL_ENTRY_OFFSET(x) (1 << (((x)&0xe0)>>5) & 0xfc)
+PPC64_OPT_MULTI_TOC	elf.h	d	#define PPC64_OPT_MULTI_TOC 2
+PPC64_OPT_TLS	elf.h	d	#define PPC64_OPT_TLS 1
+PPC_OPT_TLS	elf.h	d	#define PPC_OPT_TLS 1
 PRELIM	arpa/ftp.h	d	#define PRELIM 1
 PRE_FETCH	scsi/scsi.h	d	#define PRE_FETCH 0x34
 PRIO_MAX	sys/resource.h	d	#define PRIO_MAX 20
@@ -2946,6 +3078,12 @@ PRIxLEAST64	inttypes.h	d	#define PRIxLEAST64 __PRI64 "x"
 PRIxLEAST8	inttypes.h	d	#define PRIxLEAST8 "x"
 PRIxMAX	inttypes.h	d	#define PRIxMAX __PRI64 "x"
 PRIxPTR	inttypes.h	d	#define PRIxPTR __PRIPTR "x"
+PROT_EXEC	sys/mman.h	d	#define PROT_EXEC 4
+PROT_GROWSDOWN	sys/mman.h	d	#define PROT_GROWSDOWN 0x01000000
+PROT_GROWSUP	sys/mman.h	d	#define PROT_GROWSUP 0x02000000
+PROT_NONE	sys/mman.h	d	#define PROT_NONE 0
+PROT_READ	sys/mman.h	d	#define PROT_READ 1
+PROT_WRITE	sys/mman.h	d	#define PROT_WRITE 2
 PR_CAPBSET_DROP	sys/prctl.h	d	#define PR_CAPBSET_DROP 24
 PR_CAPBSET_READ	sys/prctl.h	d	#define PR_CAPBSET_READ 23
 PR_CAP_AMBIENT	sys/prctl.h	d	#define PR_CAP_AMBIENT 47
@@ -3165,6 +3303,7 @@ PT_LOAD	elf.h	d	#define PT_LOAD 1
 PT_LOOS	elf.h	d	#define PT_LOOS 0x60000000
 PT_LOPROC	elf.h	d	#define PT_LOPROC 0x70000000
 PT_LOSUNW	elf.h	d	#define PT_LOSUNW 0x6ffffffa
+PT_MIPS_ABIFLAGS	elf.h	d	#define PT_MIPS_ABIFLAGS 0x70000003
 PT_MIPS_OPTIONS	elf.h	d	#define PT_MIPS_OPTIONS 0x70000002
 PT_MIPS_REGINFO	elf.h	d	#define PT_MIPS_REGINFO 0x70000000
 PT_MIPS_RTPROC	elf.h	d	#define PT_MIPS_RTPROC 0x70000001
@@ -3457,8 +3596,9 @@ RT_DELETE	link.h	e
 RT_LOCALADDR	net/route.h	d	#define RT_LOCALADDR(flags) ((flags & RTF_ADDRCLASSMASK) == (RTF_LOCAL|RTF_INTERFACE))
 RT_TOS	net/route.h	d	#define RT_TOS(tos) ((tos) & IPTOS_TOS_MASK)
 RUN_LVL	utmpx.h	d	#define RUN_LVL 1
-RUSAGE_CHILDREN	sys/resource.h	d	#define RUSAGE_CHILDREN 1
+RUSAGE_CHILDREN	sys/resource.h	d	#define RUSAGE_CHILDREN (-1)
 RUSAGE_SELF	sys/resource.h	d	#define RUSAGE_SELF 0
+RUSAGE_THREAD	sys/resource.h	d	#define RUSAGE_THREAD 1
 R_386_16	elf.h	d	#define R_386_16 20
 R_386_32	elf.h	d	#define R_386_32 1
 R_386_32PLT	elf.h	d	#define R_386_32PLT 11
@@ -3466,12 +3606,13 @@ R_386_8	elf.h	d	#define R_386_8 22
 R_386_COPY	elf.h	d	#define R_386_COPY 5
 R_386_GLOB_DAT	elf.h	d	#define R_386_GLOB_DAT 6
 R_386_GOT32	elf.h	d	#define R_386_GOT32 3
+R_386_GOT32X	elf.h	d	#define R_386_GOT32X 43
 R_386_GOTOFF	elf.h	d	#define R_386_GOTOFF 9
 R_386_GOTPC	elf.h	d	#define R_386_GOTPC 10
 R_386_IRELATIVE	elf.h	d	#define R_386_IRELATIVE 42
 R_386_JMP_SLOT	elf.h	d	#define R_386_JMP_SLOT 7
 R_386_NONE	elf.h	d	#define R_386_NONE 0
-R_386_NUM	elf.h	d	#define R_386_NUM 43
+R_386_NUM	elf.h	d	#define R_386_NUM 44
 R_386_PC16	elf.h	d	#define R_386_PC16 21
 R_386_PC32	elf.h	d	#define R_386_PC32 2
 R_386_PC8	elf.h	d	#define R_386_PC8 23
@@ -3638,6 +3779,16 @@ R_AARCH64_MOVW_UABS_G2	elf.h	d	#define R_AARCH64_MOVW_UABS_G2 267
 R_AARCH64_MOVW_UABS_G2_NC	elf.h	d	#define R_AARCH64_MOVW_UABS_G2_NC 268
 R_AARCH64_MOVW_UABS_G3	elf.h	d	#define R_AARCH64_MOVW_UABS_G3 269
 R_AARCH64_NONE	elf.h	d	#define R_AARCH64_NONE 0
+R_AARCH64_P32_ABS32	elf.h	d	#define R_AARCH64_P32_ABS32 1
+R_AARCH64_P32_COPY	elf.h	d	#define R_AARCH64_P32_COPY 180
+R_AARCH64_P32_GLOB_DAT	elf.h	d	#define R_AARCH64_P32_GLOB_DAT 181
+R_AARCH64_P32_IRELATIVE	elf.h	d	#define R_AARCH64_P32_IRELATIVE 188
+R_AARCH64_P32_JUMP_SLOT	elf.h	d	#define R_AARCH64_P32_JUMP_SLOT 182
+R_AARCH64_P32_RELATIVE	elf.h	d	#define R_AARCH64_P32_RELATIVE 183
+R_AARCH64_P32_TLSDESC	elf.h	d	#define R_AARCH64_P32_TLSDESC 187
+R_AARCH64_P32_TLS_DTPMOD	elf.h	d	#define R_AARCH64_P32_TLS_DTPMOD 184
+R_AARCH64_P32_TLS_DTPREL	elf.h	d	#define R_AARCH64_P32_TLS_DTPREL 185
+R_AARCH64_P32_TLS_TPREL	elf.h	d	#define R_AARCH64_P32_TLS_TPREL 186
 R_AARCH64_PREL16	elf.h	d	#define R_AARCH64_PREL16 262
 R_AARCH64_PREL32	elf.h	d	#define R_AARCH64_PREL32 261
 R_AARCH64_PREL64	elf.h	d	#define R_AARCH64_PREL64 260
@@ -3705,8 +3856,11 @@ R_AARCH64_TLSLE_MOVW_TPREL_G0_NC	elf.h	d	#define R_AARCH64_TLSLE_MOVW_TPREL_G0_N
 R_AARCH64_TLSLE_MOVW_TPREL_G1	elf.h	d	#define R_AARCH64_TLSLE_MOVW_TPREL_G1 545
 R_AARCH64_TLSLE_MOVW_TPREL_G1_NC	elf.h	d	#define R_AARCH64_TLSLE_MOVW_TPREL_G1_NC 546
 R_AARCH64_TLSLE_MOVW_TPREL_G2	elf.h	d	#define R_AARCH64_TLSLE_MOVW_TPREL_G2 544
+R_AARCH64_TLS_DTPMOD	elf.h	d	#define R_AARCH64_TLS_DTPMOD 1028
 R_AARCH64_TLS_DTPMOD64	elf.h	d	#define R_AARCH64_TLS_DTPMOD64 1028
+R_AARCH64_TLS_DTPREL	elf.h	d	#define R_AARCH64_TLS_DTPREL 1029
 R_AARCH64_TLS_DTPREL64	elf.h	d	#define R_AARCH64_TLS_DTPREL64 1029
+R_AARCH64_TLS_TPREL	elf.h	d	#define R_AARCH64_TLS_TPREL 1030
 R_AARCH64_TLS_TPREL64	elf.h	d	#define R_AARCH64_TLS_TPREL64 1030
 R_AARCH64_TSTBR14	elf.h	d	#define R_AARCH64_TSTBR14 279
 R_ALPHA_BRADDR	elf.h	d	#define R_ALPHA_BRADDR 7
@@ -4122,6 +4276,52 @@ R_MN10300_PCREL8	elf.h	d	#define R_MN10300_PCREL8 6
 R_MN10300_PLT16	elf.h	d	#define R_MN10300_PLT16 16
 R_MN10300_PLT32	elf.h	d	#define R_MN10300_PLT32 15
 R_MN10300_RELATIVE	elf.h	d	#define R_MN10300_RELATIVE 23
+R_NIOS2_ALIGN	elf.h	d	#define R_NIOS2_ALIGN 21
+R_NIOS2_BFD_RELOC_16	elf.h	d	#define R_NIOS2_BFD_RELOC_16 13
+R_NIOS2_BFD_RELOC_32	elf.h	d	#define R_NIOS2_BFD_RELOC_32 12
+R_NIOS2_BFD_RELOC_8	elf.h	d	#define R_NIOS2_BFD_RELOC_8 14
+R_NIOS2_CACHE_OPX	elf.h	d	#define R_NIOS2_CACHE_OPX 6
+R_NIOS2_CALL16	elf.h	d	#define R_NIOS2_CALL16 23
+R_NIOS2_CALL26	elf.h	d	#define R_NIOS2_CALL26 4
+R_NIOS2_CALL26_NOAT	elf.h	d	#define R_NIOS2_CALL26_NOAT 41
+R_NIOS2_CALLR	elf.h	d	#define R_NIOS2_CALLR 20
+R_NIOS2_CALL_HA	elf.h	d	#define R_NIOS2_CALL_HA 45
+R_NIOS2_CALL_LO	elf.h	d	#define R_NIOS2_CALL_LO 44
+R_NIOS2_CJMP	elf.h	d	#define R_NIOS2_CJMP 19
+R_NIOS2_COPY	elf.h	d	#define R_NIOS2_COPY 36
+R_NIOS2_GLOB_DAT	elf.h	d	#define R_NIOS2_GLOB_DAT 37
+R_NIOS2_GNU_VTENTRY	elf.h	d	#define R_NIOS2_GNU_VTENTRY 17
+R_NIOS2_GNU_VTINHERIT	elf.h	d	#define R_NIOS2_GNU_VTINHERIT 16
+R_NIOS2_GOT16	elf.h	d	#define R_NIOS2_GOT16 22
+R_NIOS2_GOTOFF	elf.h	d	#define R_NIOS2_GOTOFF 40
+R_NIOS2_GOTOFF_HA	elf.h	d	#define R_NIOS2_GOTOFF_HA 25
+R_NIOS2_GOTOFF_LO	elf.h	d	#define R_NIOS2_GOTOFF_LO 24
+R_NIOS2_GOT_HA	elf.h	d	#define R_NIOS2_GOT_HA 43
+R_NIOS2_GOT_LO	elf.h	d	#define R_NIOS2_GOT_LO 42
+R_NIOS2_GPREL	elf.h	d	#define R_NIOS2_GPREL 15
+R_NIOS2_HI16	elf.h	d	#define R_NIOS2_HI16 9
+R_NIOS2_HIADJ16	elf.h	d	#define R_NIOS2_HIADJ16 11
+R_NIOS2_IMM5	elf.h	d	#define R_NIOS2_IMM5 5
+R_NIOS2_IMM6	elf.h	d	#define R_NIOS2_IMM6 7
+R_NIOS2_IMM8	elf.h	d	#define R_NIOS2_IMM8 8
+R_NIOS2_JUMP_SLOT	elf.h	d	#define R_NIOS2_JUMP_SLOT 38
+R_NIOS2_LO16	elf.h	d	#define R_NIOS2_LO16 10
+R_NIOS2_NONE	elf.h	d	#define R_NIOS2_NONE 0
+R_NIOS2_PCREL16	elf.h	d	#define R_NIOS2_PCREL16 3
+R_NIOS2_PCREL_HA	elf.h	d	#define R_NIOS2_PCREL_HA 27
+R_NIOS2_PCREL_LO	elf.h	d	#define R_NIOS2_PCREL_LO 26
+R_NIOS2_RELATIVE	elf.h	d	#define R_NIOS2_RELATIVE 39
+R_NIOS2_S16	elf.h	d	#define R_NIOS2_S16 1
+R_NIOS2_TLS_DTPMOD	elf.h	d	#define R_NIOS2_TLS_DTPMOD 33
+R_NIOS2_TLS_DTPREL	elf.h	d	#define R_NIOS2_TLS_DTPREL 34
+R_NIOS2_TLS_GD16	elf.h	d	#define R_NIOS2_TLS_GD16 28
+R_NIOS2_TLS_IE16	elf.h	d	#define R_NIOS2_TLS_IE16 31
+R_NIOS2_TLS_LDM16	elf.h	d	#define R_NIOS2_TLS_LDM16 29
+R_NIOS2_TLS_LDO16	elf.h	d	#define R_NIOS2_TLS_LDO16 30
+R_NIOS2_TLS_LE16	elf.h	d	#define R_NIOS2_TLS_LE16 32
+R_NIOS2_TLS_TPREL	elf.h	d	#define R_NIOS2_TLS_TPREL 35
+R_NIOS2_U16	elf.h	d	#define R_NIOS2_U16 2
+R_NIOS2_UJMP	elf.h	d	#define R_NIOS2_UJMP 18
 R_OK	fcntl.h	d	#define R_OK 4
 R_OK	unistd.h	d	#define R_OK 4
 R_OR1K_16	elf.h	d	#define R_OR1K_16 2
@@ -4276,6 +4476,8 @@ R_PPC64_ADDR16	elf.h	d	#define R_PPC64_ADDR16 R_PPC_ADDR16
 R_PPC64_ADDR16_DS	elf.h	d	#define R_PPC64_ADDR16_DS 56
 R_PPC64_ADDR16_HA	elf.h	d	#define R_PPC64_ADDR16_HA R_PPC_ADDR16_HA
 R_PPC64_ADDR16_HI	elf.h	d	#define R_PPC64_ADDR16_HI R_PPC_ADDR16_HI
+R_PPC64_ADDR16_HIGH	elf.h	d	#define R_PPC64_ADDR16_HIGH 110
+R_PPC64_ADDR16_HIGHA	elf.h	d	#define R_PPC64_ADDR16_HIGHA 111
 R_PPC64_ADDR16_HIGHER	elf.h	d	#define R_PPC64_ADDR16_HIGHER 39
 R_PPC64_ADDR16_HIGHERA	elf.h	d	#define R_PPC64_ADDR16_HIGHERA 40
 R_PPC64_ADDR16_HIGHEST	elf.h	d	#define R_PPC64_ADDR16_HIGHEST 41
@@ -4292,6 +4494,8 @@ R_PPC64_DTPREL16	elf.h	d	#define R_PPC64_DTPREL16 74
 R_PPC64_DTPREL16_DS	elf.h	d	#define R_PPC64_DTPREL16_DS 101
 R_PPC64_DTPREL16_HA	elf.h	d	#define R_PPC64_DTPREL16_HA 77
 R_PPC64_DTPREL16_HI	elf.h	d	#define R_PPC64_DTPREL16_HI 76
+R_PPC64_DTPREL16_HIGH	elf.h	d	#define R_PPC64_DTPREL16_HIGH 114
+R_PPC64_DTPREL16_HIGHA	elf.h	d	#define R_PPC64_DTPREL16_HIGHA 115
 R_PPC64_DTPREL16_HIGHER	elf.h	d	#define R_PPC64_DTPREL16_HIGHER 103
 R_PPC64_DTPREL16_HIGHERA	elf.h	d	#define R_PPC64_DTPREL16_HIGHERA 104
 R_PPC64_DTPREL16_HIGHEST	elf.h	d	#define R_PPC64_DTPREL16_HIGHEST 105
@@ -4358,6 +4562,8 @@ R_PPC64_SECTOFF_HI	elf.h	d	#define R_PPC64_SECTOFF_HI R_PPC_SECTOFF_HI
 R_PPC64_SECTOFF_LO	elf.h	d	#define R_PPC64_SECTOFF_LO R_PPC_SECTOFF_LO
 R_PPC64_SECTOFF_LO_DS	elf.h	d	#define R_PPC64_SECTOFF_LO_DS 62
 R_PPC64_TLS	elf.h	d	#define R_PPC64_TLS 67
+R_PPC64_TLSGD	elf.h	d	#define R_PPC64_TLSGD 107
+R_PPC64_TLSLD	elf.h	d	#define R_PPC64_TLSLD 108
 R_PPC64_TOC	elf.h	d	#define R_PPC64_TOC 51
 R_PPC64_TOC16	elf.h	d	#define R_PPC64_TOC16 47
 R_PPC64_TOC16_DS	elf.h	d	#define R_PPC64_TOC16_DS 63
@@ -4365,10 +4571,13 @@ R_PPC64_TOC16_HA	elf.h	d	#define R_PPC64_TOC16_HA 50
 R_PPC64_TOC16_HI	elf.h	d	#define R_PPC64_TOC16_HI 49
 R_PPC64_TOC16_LO	elf.h	d	#define R_PPC64_TOC16_LO 48
 R_PPC64_TOC16_LO_DS	elf.h	d	#define R_PPC64_TOC16_LO_DS 64
+R_PPC64_TOCSAVE	elf.h	d	#define R_PPC64_TOCSAVE 109
 R_PPC64_TPREL16	elf.h	d	#define R_PPC64_TPREL16 69
 R_PPC64_TPREL16_DS	elf.h	d	#define R_PPC64_TPREL16_DS 95
 R_PPC64_TPREL16_HA	elf.h	d	#define R_PPC64_TPREL16_HA 72
 R_PPC64_TPREL16_HI	elf.h	d	#define R_PPC64_TPREL16_HI 71
+R_PPC64_TPREL16_HIGH	elf.h	d	#define R_PPC64_TPREL16_HIGH 112
+R_PPC64_TPREL16_HIGHA	elf.h	d	#define R_PPC64_TPREL16_HIGHA 113
 R_PPC64_TPREL16_HIGHER	elf.h	d	#define R_PPC64_TPREL16_HIGHER 97
 R_PPC64_TPREL16_HIGHERA	elf.h	d	#define R_PPC64_TPREL16_HIGHERA 98
 R_PPC64_TPREL16_HIGHEST	elf.h	d	#define R_PPC64_TPREL16_HIGHEST 99
@@ -4464,6 +4673,8 @@ R_PPC_SECTOFF_HA	elf.h	d	#define R_PPC_SECTOFF_HA 36
 R_PPC_SECTOFF_HI	elf.h	d	#define R_PPC_SECTOFF_HI 35
 R_PPC_SECTOFF_LO	elf.h	d	#define R_PPC_SECTOFF_LO 34
 R_PPC_TLS	elf.h	d	#define R_PPC_TLS 67
+R_PPC_TLSGD	elf.h	d	#define R_PPC_TLSGD 95
+R_PPC_TLSLD	elf.h	d	#define R_PPC_TLSLD 96
 R_PPC_TOC16	elf.h	d	#define R_PPC_TOC16 255
 R_PPC_TPREL16	elf.h	d	#define R_PPC_TPREL16 69
 R_PPC_TPREL16_HA	elf.h	d	#define R_PPC_TPREL16_HA 72
@@ -4628,12 +4839,13 @@ R_X86_64_GOTPC32_TLSDESC	elf.h	d	#define R_X86_64_GOTPC32_TLSDESC 34
 R_X86_64_GOTPC64	elf.h	d	#define R_X86_64_GOTPC64 29
 R_X86_64_GOTPCREL	elf.h	d	#define R_X86_64_GOTPCREL 9
 R_X86_64_GOTPCREL64	elf.h	d	#define R_X86_64_GOTPCREL64 28
+R_X86_64_GOTPCRELX	elf.h	d	#define R_X86_64_GOTPCRELX 41
 R_X86_64_GOTPLT64	elf.h	d	#define R_X86_64_GOTPLT64 30
 R_X86_64_GOTTPOFF	elf.h	d	#define R_X86_64_GOTTPOFF 22
 R_X86_64_IRELATIVE	elf.h	d	#define R_X86_64_IRELATIVE 37
 R_X86_64_JUMP_SLOT	elf.h	d	#define R_X86_64_JUMP_SLOT 7
 R_X86_64_NONE	elf.h	d	#define R_X86_64_NONE 0
-R_X86_64_NUM	elf.h	d	#define R_X86_64_NUM 39
+R_X86_64_NUM	elf.h	d	#define R_X86_64_NUM 43
 R_X86_64_PC16	elf.h	d	#define R_X86_64_PC16 13
 R_X86_64_PC32	elf.h	d	#define R_X86_64_PC32 2
 R_X86_64_PC64	elf.h	d	#define R_X86_64_PC64 24
@@ -4642,6 +4854,7 @@ R_X86_64_PLT32	elf.h	d	#define R_X86_64_PLT32 4
 R_X86_64_PLTOFF64	elf.h	d	#define R_X86_64_PLTOFF64 31
 R_X86_64_RELATIVE	elf.h	d	#define R_X86_64_RELATIVE 8
 R_X86_64_RELATIVE64	elf.h	d	#define R_X86_64_RELATIVE64 38
+R_X86_64_REX_GOTPCRELX	elf.h	d	#define R_X86_64_REX_GOTPCRELX 42
 R_X86_64_SIZE32	elf.h	d	#define R_X86_64_SIZE32 32
 R_X86_64_SIZE64	elf.h	d	#define R_X86_64_SIZE64 33
 R_X86_64_TLSDESC	elf.h	d	#define R_X86_64_TLSDESC 36
@@ -4775,6 +4988,7 @@ SEGSIZE	arpa/tftp.h	d	#define SEGSIZE 512
 SEGV_ACCERR	signal.h	d	#define SEGV_ACCERR 2
 SEGV_BNDERR	signal.h	d	#define SEGV_BNDERR 3
 SEGV_MAPERR	signal.h	d	#define SEGV_MAPERR 1
+SEGV_PKUERR	signal.h	d	#define SEGV_PKUERR 4
 SELFMAG	elf.h	d	#define SELFMAG 4
 SEM_FAILED	semaphore.h	d	#define SEM_FAILED ((sem_t *)0)
 SEM_INFO	sys/sem.h	d	#define SEM_INFO 19
@@ -4850,6 +5064,7 @@ SHF_ALLOC	elf.h	d	#define SHF_ALLOC (1 << 1)
 SHF_ALPHA_GPREL	elf.h	d	#define SHF_ALPHA_GPREL 0x10000000
 SHF_ARM_COMDEF	elf.h	d	#define SHF_ARM_COMDEF 0x80000000
 SHF_ARM_ENTRYSECT	elf.h	d	#define SHF_ARM_ENTRYSECT 0x10000000
+SHF_COMPRESSED	elf.h	d	#define SHF_COMPRESSED (1 << 11)
 SHF_EXCLUDE	elf.h	d	#define SHF_EXCLUDE (1U << 31)
 SHF_EXECINSTR	elf.h	d	#define SHF_EXECINSTR (1 << 2)
 SHF_GROUP	elf.h	d	#define SHF_GROUP (1 << 9)
@@ -5071,27 +5286,45 @@ SOCK_RDM	sys/socket.h	d	#define SOCK_RDM 4
 SOCK_SEQPACKET	sys/socket.h	d	#define SOCK_SEQPACKET 5
 SOCK_STREAM	sys/socket.h	d	#define SOCK_STREAM 1
 SOL_AAL	sys/socket.h	d	#define SOL_AAL 265
+SOL_ALG	sys/socket.h	d	#define SOL_ALG 279
 SOL_ATM	sys/socket.h	d	#define SOL_ATM 264
+SOL_BLUETOOTH	sys/socket.h	d	#define SOL_BLUETOOTH 274
+SOL_CAIF	sys/socket.h	d	#define SOL_CAIF 278
+SOL_DCCP	sys/socket.h	d	#define SOL_DCCP 269
 SOL_DECNET	sys/socket.h	d	#define SOL_DECNET 261
 SOL_ICMPV6	sys/socket.h	d	#define SOL_ICMPV6 58
 SOL_IP	sys/socket.h	d	#define SOL_IP 0
 SOL_IPV6	sys/socket.h	d	#define SOL_IPV6 41
 SOL_IRDA	sys/socket.h	d	#define SOL_IRDA 266
+SOL_IUCV	sys/socket.h	d	#define SOL_IUCV 277
+SOL_KCM	sys/socket.h	d	#define SOL_KCM 281
+SOL_LLC	sys/socket.h	d	#define SOL_LLC 268
+SOL_NETBEUI	sys/socket.h	d	#define SOL_NETBEUI 267
+SOL_NETLINK	sys/socket.h	d	#define SOL_NETLINK 270
+SOL_NFC	sys/socket.h	d	#define SOL_NFC 280
 SOL_PACKET	sys/socket.h	d	#define SOL_PACKET 263
+SOL_PNPIPE	sys/socket.h	d	#define SOL_PNPIPE 275
+SOL_PPPOL2TP	sys/socket.h	d	#define SOL_PPPOL2TP 273
 SOL_RAW	sys/socket.h	d	#define SOL_RAW 255
+SOL_RDS	sys/socket.h	d	#define SOL_RDS 276
+SOL_RXRPC	sys/socket.h	d	#define SOL_RXRPC 272
 SOL_SOCKET	sys/socket.h	d	#define SOL_SOCKET 1
 SOL_TCP	netinet/tcp.h	d	#define SOL_TCP 6
+SOL_TIPC	sys/socket.h	d	#define SOL_TIPC 271
 SOL_UDP	netinet/udp.h	d	#define SOL_UDP 17
 SOL_X25	sys/socket.h	d	#define SOL_X25 262
 SOMAXCONN	sys/socket.h	d	#define SOMAXCONN 128
 SO_ACCEPTCONN	sys/socket.h	d	#define SO_ACCEPTCONN 30
 SO_ATTACH_BPF	sys/socket.h	d	#define SO_ATTACH_BPF 50
 SO_ATTACH_FILTER	sys/socket.h	d	#define SO_ATTACH_FILTER 26
+SO_ATTACH_REUSEPORT_CBPF	sys/socket.h	d	#define SO_ATTACH_REUSEPORT_CBPF 51
+SO_ATTACH_REUSEPORT_EBPF	sys/socket.h	d	#define SO_ATTACH_REUSEPORT_EBPF 52
 SO_BINDTODEVICE	sys/socket.h	d	#define SO_BINDTODEVICE 25
 SO_BPF_EXTENSIONS	sys/socket.h	d	#define SO_BPF_EXTENSIONS 48
 SO_BROADCAST	sys/socket.h	d	#define SO_BROADCAST 6
 SO_BSDCOMPAT	sys/socket.h	d	#define SO_BSDCOMPAT 14
 SO_BUSY_POLL	sys/socket.h	d	#define SO_BUSY_POLL 46
+SO_CNX_ADVICE	sys/socket.h	d	#define SO_CNX_ADVICE 53
 SO_DEBUG	sys/socket.h	d	#define SO_DEBUG 1
 SO_DETACH_BPF	sys/socket.h	d	#define SO_DETACH_BPF SO_DETACH_FILTER
 SO_DETACH_FILTER	sys/socket.h	d	#define SO_DETACH_FILTER 27
@@ -5187,6 +5420,8 @@ STO_MIPS_INTERNAL	elf.h	d	#define STO_MIPS_INTERNAL 0x1
 STO_MIPS_PLT	elf.h	d	#define STO_MIPS_PLT 0x8
 STO_MIPS_PROTECTED	elf.h	d	#define STO_MIPS_PROTECTED 0x3
 STO_MIPS_SC_ALIGN_UNUSED	elf.h	d	#define STO_MIPS_SC_ALIGN_UNUSED 0xff
+STO_PPC64_LOCAL_BIT	elf.h	d	#define STO_PPC64_LOCAL_BIT 5
+STO_PPC64_LOCAL_MASK	elf.h	d	#define STO_PPC64_LOCAL_MASK 0xe0
 STRU_F	arpa/ftp.h	d	#define STRU_F 1
 STRU_P	arpa/ftp.h	d	#define STRU_P 3
 STRU_R	arpa/ftp.h	d	#define STRU_R 2
@@ -5604,6 +5839,15 @@ VER_NEED_NONE	elf.h	d	#define VER_NEED_NONE 0
 VER_NEED_NUM	elf.h	d	#define VER_NEED_NUM 2
 VISIT	search.h	t	typedef enum { preorder, postorder, endorder, leaf } VISIT;
 VOLUME_OVERFLOW	scsi/scsi.h	d	#define VOLUME_OVERFLOW 0x0d
+Val_GNU_MIPS_ABI_FP_64	elf.h	e	
+Val_GNU_MIPS_ABI_FP_64A	elf.h	e	
+Val_GNU_MIPS_ABI_FP_ANY	elf.h	e	
+Val_GNU_MIPS_ABI_FP_DOUBLE	elf.h	e	
+Val_GNU_MIPS_ABI_FP_MAX	elf.h	e	
+Val_GNU_MIPS_ABI_FP_OLD_64	elf.h	e	
+Val_GNU_MIPS_ABI_FP_SINGLE	elf.h	e	
+Val_GNU_MIPS_ABI_FP_SOFT	elf.h	e	
+Val_GNU_MIPS_ABI_FP_XX	elf.h	e	
 WCHAR_MAX	stdint.h	d	#define WCHAR_MAX (0x7fffffff+L'\0')
 WCHAR_MAX	stdint.h	d	#define WCHAR_MAX (0xffffffffu+L'\0')
 WCHAR_MAX	wchar.h	d	#define WCHAR_MAX (0x7fffffff+L'\0')
@@ -6101,6 +6345,7 @@ _SPAWN_H	spawn.h	d	#define _SPAWN_H
 _STDALIGN_H	stdalign.h	d	#define _STDALIGN_H
 _STDARG_H	stdarg.h	d	#define _STDARG_H
 _STDBOOL_H	stdbool.h	d	#define _STDBOOL_H
+_STDC_PREDEF_H	stdc-predef.h	d	#define _STDC_PREDEF_H
 _STDDEF_H	stddef.h	d	#define _STDDEF_H
 _STDINT_H	stdint.h	d	#define _STDINT_H
 _STDIO_EXT_H	stdio_ext.h	d	#define _STDIO_EXT_H
@@ -6490,6 +6735,8 @@ __RETCAST_CX	tgmath.h	d	#define __RETCAST_CX(x) (__typeof__(__RETCAST(x)0+I))
 __RETCAST_REAL	tgmath.h	d	#define __RETCAST_REAL(x)
 __RETCAST_REAL	tgmath.h	d	#define __RETCAST_REAL(x) ( __type2(__IS_FP(x) && sizeof((x)+I) == sizeof(float complex), float, __type2(sizeof((x)+1.0+I) == sizeof(double complex), double, long double)))
 __SID	stropts.h	d	#define __SID ('S' << 8)
+__STDC_IEC_559__	stdc-predef.h	d	#define __STDC_IEC_559__ 1
+__STDC_ISO_10646__	stdc-predef.h	d	#define __STDC_ISO_10646__ 201206L
 __USE_GNU_GETTEXT	libintl.h	d	#define __USE_GNU_GETTEXT 1
 __WALL	sys/wait.h	d	#define __WALL 0x40000000
 __WCLONE	sys/wait.h	d	#define __WCLONE 0x80000000
@@ -8095,6 +8342,8 @@ pthread_spin_lock	pthread.h	p	int pthread_spin_lock(pthread_spinlock_t *);
 pthread_spin_trylock	pthread.h	p	int pthread_spin_trylock(pthread_spinlock_t *);
 pthread_spin_unlock	pthread.h	p	int pthread_spin_unlock(pthread_spinlock_t *);
 pthread_testcancel	pthread.h	p	void pthread_testcancel(void);
+pthread_timedjoin_np	pthread.h	p	int pthread_timedjoin_np(pthread_t, void **, const struct timespec *);
+pthread_tryjoin_np	pthread.h	p	int pthread_tryjoin_np(pthread_t, void **);
 ptrace	sys/ptrace.h	p	long ptrace(int, ...);
 ptsname	stdlib.h	p	char *ptsname(int);
 ptsname_r	stdlib.h	p	int ptsname_r(int, char *, size_t);
@@ -8212,6 +8461,7 @@ scanf	stdio.h	p	int scanf(const char *__restrict, ...);
 sched_get_priority_max	sched.h	p	int sched_get_priority_max(int);
 sched_get_priority_min	sched.h	p	int sched_get_priority_min(int);
 sched_getaffinity	sched.h	p	int sched_getaffinity(pid_t, size_t, cpu_set_t *);
+sched_getcpu	sched.h	p	int sched_getcpu(void);
 sched_getparam	sched.h	p	int sched_getparam(pid_t, struct sched_param *);
 sched_getscheduler	sched.h	p	int sched_getscheduler(pid_t);
 sched_rr_get_interval	sched.h	p	int sched_rr_get_interval(pid_t, struct timespec *);
@@ -8311,16 +8561,17 @@ si_band	signal.h	d	#define si_band __si_fields.__sigpoll.si_band
 si_call_addr	signal.h	d	#define si_call_addr __si_fields.__sigsys.si_call_addr
 si_fd	signal.h	d	#define si_fd __si_fields.__sigpoll.si_fd
 si_int	signal.h	d	#define si_int si_value.sival_int
-si_lower	signal.h	d	#define si_lower __si_fields.__sigfault.__addr_bnd.si_lower
+si_lower	signal.h	d	#define si_lower __si_fields.__sigfault.__first.__addr_bnd.si_lower
 si_overrun	signal.h	d	#define si_overrun __si_fields.__si_common.__first.__timer.si_overrun
 si_pid	signal.h	d	#define si_pid __si_fields.__si_common.__first.__piduid.si_pid
+si_pkey	signal.h	d	#define si_pkey __si_fields.__sigfault.__first.si_pkey
 si_ptr	signal.h	d	#define si_ptr si_value.sival_ptr
 si_status	signal.h	d	#define si_status __si_fields.__si_common.__second.__sigchld.si_status
 si_stime	signal.h	d	#define si_stime __si_fields.__si_common.__second.__sigchld.si_stime
 si_syscall	signal.h	d	#define si_syscall __si_fields.__sigsys.si_syscall
 si_timerid	signal.h	d	#define si_timerid __si_fields.__si_common.__first.__timer.si_timerid
 si_uid	signal.h	d	#define si_uid __si_fields.__si_common.__first.__piduid.si_uid
-si_upper	signal.h	d	#define si_upper __si_fields.__sigfault.__addr_bnd.si_upper
+si_upper	signal.h	d	#define si_upper __si_fields.__sigfault.__first.__addr_bnd.si_upper
 si_utime	signal.h	d	#define si_utime __si_fields.__si_common.__second.__sigchld.si_utime
 si_value	signal.h	d	#define si_value __si_fields.__si_common.__second.si_value
 sig_atomic_t	signal.h	t	typedef int sig_atomic_t;

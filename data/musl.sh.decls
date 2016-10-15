@@ -35,7 +35,9 @@ BS1	bits/termios.h	d	#define BS1 0020000
 BSDLY	bits/termios.h	d	#define BSDLY 0020000
 CBAUD	bits/termios.h	d	#define CBAUD 0010017
 CBAUDEX	bits/termios.h	d	#define CBAUDEX 0010000
+CIBAUD	bits/termios.h	d	#define CIBAUD 002003600000
 CLOCAL	bits/termios.h	d	#define CLOCAL 0004000
+CMSPAR	bits/termios.h	d	#define CMSPAR 010000000000
 CR0	bits/termios.h	d	#define CR0 0000000
 CR1	bits/termios.h	d	#define CR1 0001000
 CR2	bits/termios.h	d	#define CR2 0002000
@@ -192,6 +194,8 @@ EUSERS	bits/errno.h	d	#define EUSERS 87
 EWOULDBLOCK	bits/errno.h	d	#define EWOULDBLOCK EAGAIN
 EXDEV	bits/errno.h	d	#define EXDEV 18
 EXFULL	bits/errno.h	d	#define EXFULL 54
+EXTA	bits/termios.h	d	#define EXTA 0000016
+EXTB	bits/termios.h	d	#define EXTB 0000017
 EXTPROC	bits/termios.h	d	#define EXTPROC 0200000
 FE_ALL_EXCEPT	bits/fenv.h	d	#define FE_ALL_EXCEPT 0
 FE_ALL_EXCEPT	bits/fenv.h	d	#define FE_ALL_EXCEPT 0x7c
@@ -270,47 +274,7 @@ LDBL_TRUE_MIN	bits/float.h	d	#define LDBL_TRUE_MIN 4.94065645841246544177e-324L
 LLONG_MAX	bits/limits.h	d	#define LLONG_MAX 0x7fffffffffffffffLL
 LONG_BIT	bits/limits.h	d	#define LONG_BIT 32
 LONG_MAX	bits/limits.h	d	#define LONG_MAX 0x7fffffffL
-MADV_DODUMP	bits/mman.h	d	#define MADV_DODUMP 17
-MADV_DOFORK	bits/mman.h	d	#define MADV_DOFORK 11
-MADV_DONTDUMP	bits/mman.h	d	#define MADV_DONTDUMP 16
-MADV_DONTFORK	bits/mman.h	d	#define MADV_DONTFORK 10
-MADV_DONTNEED	bits/mman.h	d	#define MADV_DONTNEED 4
-MADV_HUGEPAGE	bits/mman.h	d	#define MADV_HUGEPAGE 14
-MADV_HWPOISON	bits/mman.h	d	#define MADV_HWPOISON 100
-MADV_MERGEABLE	bits/mman.h	d	#define MADV_MERGEABLE 12
-MADV_NOHUGEPAGE	bits/mman.h	d	#define MADV_NOHUGEPAGE 15
-MADV_NORMAL	bits/mman.h	d	#define MADV_NORMAL 0
-MADV_RANDOM	bits/mman.h	d	#define MADV_RANDOM 1
-MADV_REMOVE	bits/mman.h	d	#define MADV_REMOVE 9
-MADV_SEQUENTIAL	bits/mman.h	d	#define MADV_SEQUENTIAL 2
-MADV_SOFT_OFFLINE	bits/mman.h	d	#define MADV_SOFT_OFFLINE 101
-MADV_UNMERGEABLE	bits/mman.h	d	#define MADV_UNMERGEABLE 13
-MADV_WILLNEED	bits/mman.h	d	#define MADV_WILLNEED 3
-MAP_32BIT	bits/mman.h	d	#define MAP_32BIT 0x40
-MAP_ANON	bits/mman.h	d	#define MAP_ANON 0x20
-MAP_ANONYMOUS	bits/mman.h	d	#define MAP_ANONYMOUS MAP_ANON
-MAP_DENYWRITE	bits/mman.h	d	#define MAP_DENYWRITE 0x0800
-MAP_EXECUTABLE	bits/mman.h	d	#define MAP_EXECUTABLE 0x1000
-MAP_FAILED	bits/mman.h	d	#define MAP_FAILED ((void *) -1)
-MAP_FILE	bits/mman.h	d	#define MAP_FILE 0x00
-MAP_FIXED	bits/mman.h	d	#define MAP_FIXED 0x10
-MAP_GROWSDOWN	bits/mman.h	d	#define MAP_GROWSDOWN 0x0100
-MAP_HUGETLB	bits/mman.h	d	#define MAP_HUGETLB 0x40000
-MAP_LOCKED	bits/mman.h	d	#define MAP_LOCKED 0x2000
-MAP_NONBLOCK	bits/mman.h	d	#define MAP_NONBLOCK 0x10000
-MAP_NORESERVE	bits/mman.h	d	#define MAP_NORESERVE 0x4000
-MAP_POPULATE	bits/mman.h	d	#define MAP_POPULATE 0x8000
-MAP_PRIVATE	bits/mman.h	d	#define MAP_PRIVATE 0x02
-MAP_SHARED	bits/mman.h	d	#define MAP_SHARED 0x01
-MAP_STACK	bits/mman.h	d	#define MAP_STACK 0x20000
-MAP_TYPE	bits/mman.h	d	#define MAP_TYPE 0x0f
-MCL_CURRENT	bits/mman.h	d	#define MCL_CURRENT 1
-MCL_FUTURE	bits/mman.h	d	#define MCL_FUTURE 2
-MCL_ONFAULT	bits/mman.h	d	#define MCL_ONFAULT 4
 MINSIGSTKSZ	bits/signal.h	d	#define MINSIGSTKSZ 2048
-MS_ASYNC	bits/mman.h	d	#define MS_ASYNC 1
-MS_INVALIDATE	bits/mman.h	d	#define MS_INVALIDATE 2
-MS_SYNC	bits/mman.h	d	#define MS_SYNC 4
 NL0	bits/termios.h	d	#define NL0 0000000
 NL1	bits/termios.h	d	#define NL1 0000400
 NLDLY	bits/termios.h	d	#define NLDLY 0000400
@@ -363,17 +327,6 @@ PARENB	bits/termios.h	d	#define PARENB 0000400
 PARMRK	bits/termios.h	d	#define PARMRK 0000010
 PARODD	bits/termios.h	d	#define PARODD 0001000
 PENDIN	bits/termios.h	d	#define PENDIN 0040000
-POSIX_MADV_DONTNEED	bits/mman.h	d	#define POSIX_MADV_DONTNEED 4
-POSIX_MADV_NORMAL	bits/mman.h	d	#define POSIX_MADV_NORMAL 0
-POSIX_MADV_RANDOM	bits/mman.h	d	#define POSIX_MADV_RANDOM 1
-POSIX_MADV_SEQUENTIAL	bits/mman.h	d	#define POSIX_MADV_SEQUENTIAL 2
-POSIX_MADV_WILLNEED	bits/mman.h	d	#define POSIX_MADV_WILLNEED 3
-PROT_EXEC	bits/mman.h	d	#define PROT_EXEC 4
-PROT_GROWSDOWN	bits/mman.h	d	#define PROT_GROWSDOWN 0x01000000
-PROT_GROWSUP	bits/mman.h	d	#define PROT_GROWSUP 0x02000000
-PROT_NONE	bits/mman.h	d	#define PROT_NONE 0
-PROT_READ	bits/mman.h	d	#define PROT_READ 1
-PROT_WRITE	bits/mman.h	d	#define PROT_WRITE 2
 PTRDIFF_MAX	bits/stdint.h	d	#define PTRDIFF_MAX INT32_MAX
 PTRDIFF_MIN	bits/stdint.h	d	#define PTRDIFF_MIN INT32_MIN
 REG_FPREG0	bits/user.h	d	#define REG_FPREG0 23
@@ -485,6 +438,7 @@ SIOCSIFMAP	bits/ioctl.h	d	#define SIOCSIFMAP 0x8971
 SIOCSIFMEM	bits/ioctl.h	d	#define SIOCSIFMEM 0x8920
 SIOCSIFMETRIC	bits/ioctl.h	d	#define SIOCSIFMETRIC 0x891e
 SIOCSIFMTU	bits/ioctl.h	d	#define SIOCSIFMTU 0x8922
+SIOCSIFNAME	bits/ioctl.h	d	#define SIOCSIFNAME 0x8923
 SIOCSIFNETMASK	bits/ioctl.h	d	#define SIOCSIFNETMASK 0x891c
 SIOCSIFPFLAGS	bits/ioctl.h	d	#define SIOCSIFPFLAGS 0x8934
 SIOCSIFSLAVE	bits/ioctl.h	d	#define SIOCSIFSLAVE 0x8930
@@ -841,7 +795,6 @@ TABDLY	bits/termios.h	d	#define TABDLY 0014000
 TCFLSH	bits/ioctl.h	d	#define TCFLSH _IO('t', 31)
 TCGETA	bits/ioctl.h	d	#define TCGETA _IOR('t', 23, char[18])
 TCGETS	bits/ioctl.h	d	#define TCGETS _IO('T', 1)
-TCGETS2	bits/ioctl.h	d	#define TCGETS2 _IOR('T', 42, char[44])
 TCIFLUSH	bits/termios.h	d	#define TCIFLUSH 0
 TCIOFF	bits/termios.h	d	#define TCIOFF 2
 TCIOFLUSH	bits/termios.h	d	#define TCIOFLUSH 2
@@ -858,11 +811,8 @@ TCSETA	bits/ioctl.h	d	#define TCSETA _IOW('t', 24, char[18])
 TCSETAF	bits/ioctl.h	d	#define TCSETAF _IOW('t', 28, char[18])
 TCSETAW	bits/ioctl.h	d	#define TCSETAW _IOW('t', 25, char[18])
 TCSETS	bits/ioctl.h	d	#define TCSETS _IO('T', 2)
-TCSETS2	bits/ioctl.h	d	#define TCSETS2 _IOW('T', 43, char[44])
 TCSETSF	bits/ioctl.h	d	#define TCSETSF _IO('T', 4)
-TCSETSF2	bits/ioctl.h	d	#define TCSETSF2 _IOW('T', 45, char[44])
 TCSETSW	bits/ioctl.h	d	#define TCSETSW _IO('T', 3)
-TCSETSW2	bits/ioctl.h	d	#define TCSETSW2 _IOW('T', 44, char[44])
 TCXONC	bits/ioctl.h	d	#define TCXONC _IO('t', 30)
 TIOCCBRK	bits/ioctl.h	d	#define TIOCCBRK _IO('T', 40)
 TIOCCONS	bits/ioctl.h	d	#define TIOCCONS _IO('T', 29)
@@ -876,6 +826,7 @@ TIOCGPGRP	bits/ioctl.h	d	#define TIOCGPGRP _IOR('t', 119, int)
 TIOCGPKT	bits/ioctl.h	d	#define TIOCGPKT _IOR('T', 56, int)
 TIOCGPTLCK	bits/ioctl.h	d	#define TIOCGPTLCK _IOR('T', 57, int)
 TIOCGPTN	bits/ioctl.h	d	#define TIOCGPTN _IOR('T', 48, unsigned int)
+TIOCGRS485	bits/ioctl.h	d	#define TIOCGRS485 _IOR('T', 46, char[32])
 TIOCGSERIAL	bits/ioctl.h	d	#define TIOCGSERIAL _IOR('T', 30, char[60])
 TIOCGSID	bits/ioctl.h	d	#define TIOCGSID _IOR('T', 41, int)
 TIOCGSOFTCAR	bits/ioctl.h	d	#define TIOCGSOFTCAR _IOR('T', 25, unsigned int)
@@ -894,7 +845,6 @@ TIOCM_DSR	bits/ioctl.h	d	#define TIOCM_DSR 0x100
 TIOCM_DTR	bits/ioctl.h	d	#define TIOCM_DTR 0x002
 TIOCM_LE	bits/ioctl.h	d	#define TIOCM_LE 0x001
 TIOCM_LOOP	bits/ioctl.h	d	#define TIOCM_LOOP 0x8000
-TIOCM_MODEM_BITS	bits/ioctl.h	d	#define TIOCM_MODEM_BITS TIOCM_OUT2
 TIOCM_OUT1	bits/ioctl.h	d	#define TIOCM_OUT1 0x2000
 TIOCM_OUT2	bits/ioctl.h	d	#define TIOCM_OUT2 0x4000
 TIOCM_RI	bits/ioctl.h	d	#define TIOCM_RI TIOCM_RNG
@@ -929,6 +879,7 @@ TIOCSIG	bits/ioctl.h	d	#define TIOCSIG _IOW('T', 54, int)
 TIOCSLCKTRMIOS	bits/ioctl.h	d	#define TIOCSLCKTRMIOS _IO('T', 87)
 TIOCSPGRP	bits/ioctl.h	d	#define TIOCSPGRP _IOW('t', 118, int)
 TIOCSPTLCK	bits/ioctl.h	d	#define TIOCSPTLCK _IOW('T', 49, int)
+TIOCSRS485	bits/ioctl.h	d	#define TIOCSRS485 _IOWR('T', 47, char[32])
 TIOCSSERIAL	bits/ioctl.h	d	#define TIOCSSERIAL _IOW('T', 31, char[60])
 TIOCSSOFTCAR	bits/ioctl.h	d	#define TIOCSSOFTCAR _IOW('T', 26, unsigned int)
 TIOCSTART	bits/ioctl.h	d	#define TIOCSTART _IO('t', 110)
@@ -960,6 +911,7 @@ VT1	bits/termios.h	d	#define VT1 0040000
 VTDLY	bits/termios.h	d	#define VTDLY 0040000
 VTIME	bits/termios.h	d	#define VTIME 5
 VWERASE	bits/termios.h	d	#define VWERASE 14
+XCASE	bits/termios.h	d	#define XCASE 0000004
 XTABS	bits/termios.h	d	#define XTABS 0014000
 _Addr	bits/alltypes.h	d	#define _Addr int
 _IO	bits/ioctl.h	d	#define _IO(a,b) _IOC(_IOC_NONE,(a),(b),0)

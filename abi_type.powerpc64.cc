@@ -85,20 +85,25 @@
 #include <shadow.h>
 #include <signal.h>
 #include <spawn.h>
-//#include <stdalign.h>
+#ifndef __GLIBC__
+#include <stdalign.h>
+#endif
 #include <stdarg.h>
 #include <stdbool.h>
+#include <stdc-predef.h>
 #include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdio_ext.h>
 #include <stdlib.h>
-//#include <stdnoreturn.h>
+#ifndef __GLIBC__
+#include <stdnoreturn.h>
+#endif
 #include <string.h>
 #include <strings.h>
 #include <stropts.h>
 #include <sys/acct.h>
-//#include <sys/auxv.h>
+#include <sys/auxv.h>
 //#include <sys/cachectl.h>
 #include <sys/dir.h>
 #include <sys/epoll.h>
@@ -156,7 +161,9 @@
 #include <tar.h>
 #include <termios.h>
 #include <tgmath.h>
-//#include <threads.h>
+#ifndef __GLIBC__
+#include <threads.h>
+#endif
 #include <time.h>
 #include <uchar.h>
 #include <ucontext.h>
@@ -172,10 +179,13 @@
 
 typedef long long long_long;
 typedef long double long_double;
+typedef void *object_pointer;
+typedef void (*function_pointer)();
 struct size {char c;};
 struct align {char c;};
+struct incomplete {char c;};
 #define T(s,t) void x_##t(s t x, s t* ptr, size(*y)[sizeof(s t)], align(*z)[__alignof__(s t)]){}
-#define P(s,t) void y_##t(s t* ptr, size(*y)[sizeof(s t*)], align(*z)[__alignof__(s t*)]){}
+#define P(s,t) void x_##t(incomplete x, s t* ptr, incomplete y, incomplete z){}
 #ifdef __GLIBC__
 #define M(x)
 #else
@@ -188,6 +198,7 @@ P(,DIR)
 T(,Dl_info)
 T(,ENTRY)
 T(,Elf32_Addr)
+T(,Elf32_Chdr)
 T(,Elf32_Conflict)
 T(,Elf32_Dyn)
 T(,Elf32_Ehdr)
@@ -216,6 +227,7 @@ T(,Elf32_Xword)
 T(,Elf32_auxv_t)
 T(,Elf32_gptab)
 T(,Elf64_Addr)
+T(,Elf64_Chdr)
 T(,Elf64_Dyn)
 T(,Elf64_Ehdr)
 T(,Elf64_Half)
@@ -240,6 +252,7 @@ T(,Elf64_Versym)
 T(,Elf64_Word)
 T(,Elf64_Xword)
 T(,Elf64_auxv_t)
+T(,Elf_MIPS_ABIFlags_v0)
 T(,Elf_Options)
 T(,Elf_Options_Hw)
 T(,Elf_Symndx)
@@ -262,7 +275,7 @@ T(,char16_t)
 T(,char32_t)
 T(,clock_t)
 T(,clockid_t)
-//T(,cnd_t)
+M(T(,cnd_t))
 T(,comp_t)
 T(,cpu_set_t)
 T(,dev_t)
@@ -288,9 +301,10 @@ T(,fpregset_t)
 T(,fsblkcnt_t)
 T(,fsfilcnt_t)
 T(,fsid_t)
+T(,function_pointer)
 T(,gid_t)
 T(,glob_t)
-M(T(,greg_t))
+T(,greg_t)
 T(,gregset_t)
 T(,iconv_t)
 T(,id_t)
@@ -330,7 +344,7 @@ T(,mode_t)
 T(,mqd_t)
 T(,msglen_t)
 T(,msgqnum_t)
-//T(,mtx_t)
+M(T(,mtx_t))
 T(,n_long)
 T(,n_short)
 T(,n_time)
@@ -351,8 +365,9 @@ T(,ns_sect)
 //T(,ns_tsig_key)
 T(,ns_type)
 T(,ns_update_operation)
+T(,object_pointer)
 T(,off_t)
-//T(,once_flag)
+M(T(,once_flag))
 T(,pid_t)
 T(,posix_spawn_file_actions_t)
 T(,posix_spawnattr_t)
@@ -607,12 +622,12 @@ T(struct,winsize)
 T(,suseconds_t)
 T(,tcflag_t)
 //T(,tcp_seq)
-//T(,thrd_start_t)
-//T(,thrd_t)
+M(T(,thrd_start_t))
+M(T(,thrd_t))
 T(,time_t)
 T(,timer_t)
-//T(,tss_dtor_t)
-//T(,tss_t)
+M(T(,tss_dtor_t))
+M(T(,tss_t))
 T(,u_char)
 T(,u_int)
 T(,u_int16_t)
@@ -646,7 +661,6 @@ T(union,sigval)
 T(,useconds_t)
 T(,ushort)
 T(,va_list)
-P(,void)
 T(,vrregset_t)
 T(,wchar_t)
 T(,wctrans_t)

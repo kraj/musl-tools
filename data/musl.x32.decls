@@ -35,7 +35,9 @@ BS1	bits/termios.h	d	#define BS1 0020000
 BSDLY	bits/termios.h	d	#define BSDLY 0020000
 CBAUD	bits/termios.h	d	#define CBAUD 0010017
 CBAUDEX	bits/termios.h	d	#define CBAUDEX 0010000
+CIBAUD	bits/termios.h	d	#define CIBAUD 002003600000
 CLOCAL	bits/termios.h	d	#define CLOCAL 0004000
+CMSPAR	bits/termios.h	d	#define CMSPAR 010000000000
 CR0	bits/termios.h	d	#define CR0 0000000
 CR1	bits/termios.h	d	#define CR1 0001000
 CR2	bits/termios.h	d	#define CR2 0002000
@@ -196,6 +198,8 @@ EUSERS	bits/errno.h	d	#define EUSERS 87
 EWOULDBLOCK	bits/errno.h	d	#define EWOULDBLOCK EAGAIN
 EXDEV	bits/errno.h	d	#define EXDEV 18
 EXFULL	bits/errno.h	d	#define EXFULL 54
+EXTA	bits/termios.h	d	#define EXTA 0000016
+EXTB	bits/termios.h	d	#define EXTB 0000017
 EXTPROC	bits/termios.h	d	#define EXTPROC 0200000
 FE_ALL_EXCEPT	bits/fenv.h	d	#define FE_ALL_EXCEPT 63
 FE_DFL_ENV	bits/fenv.h	d	#define FE_DFL_ENV ((const fenv_t *) -1)
@@ -281,47 +285,8 @@ LDBL_TRUE_MIN	bits/float.h	d	#define LDBL_TRUE_MIN 3.6451995318824746025e-4951L
 LLONG_MAX	bits/limits.h	d	#define LLONG_MAX 0x7fffffffffffffffLL
 LONG_BIT	bits/limits.h	d	#define LONG_BIT 32
 LONG_MAX	bits/limits.h	d	#define LONG_MAX 0x7fffffffL
-MADV_DODUMP	bits/mman.h	d	#define MADV_DODUMP 17
-MADV_DOFORK	bits/mman.h	d	#define MADV_DOFORK 11
-MADV_DONTDUMP	bits/mman.h	d	#define MADV_DONTDUMP 16
-MADV_DONTFORK	bits/mman.h	d	#define MADV_DONTFORK 10
-MADV_DONTNEED	bits/mman.h	d	#define MADV_DONTNEED 4
-MADV_HUGEPAGE	bits/mman.h	d	#define MADV_HUGEPAGE 14
-MADV_HWPOISON	bits/mman.h	d	#define MADV_HWPOISON 100
-MADV_MERGEABLE	bits/mman.h	d	#define MADV_MERGEABLE 12
-MADV_NOHUGEPAGE	bits/mman.h	d	#define MADV_NOHUGEPAGE 15
-MADV_NORMAL	bits/mman.h	d	#define MADV_NORMAL 0
-MADV_RANDOM	bits/mman.h	d	#define MADV_RANDOM 1
-MADV_REMOVE	bits/mman.h	d	#define MADV_REMOVE 9
-MADV_SEQUENTIAL	bits/mman.h	d	#define MADV_SEQUENTIAL 2
-MADV_SOFT_OFFLINE	bits/mman.h	d	#define MADV_SOFT_OFFLINE 101
-MADV_UNMERGEABLE	bits/mman.h	d	#define MADV_UNMERGEABLE 13
-MADV_WILLNEED	bits/mman.h	d	#define MADV_WILLNEED 3
 MAP_32BIT	bits/mman.h	d	#define MAP_32BIT 0x40
-MAP_ANON	bits/mman.h	d	#define MAP_ANON 0x20
-MAP_ANONYMOUS	bits/mman.h	d	#define MAP_ANONYMOUS MAP_ANON
-MAP_DENYWRITE	bits/mman.h	d	#define MAP_DENYWRITE 0x0800
-MAP_EXECUTABLE	bits/mman.h	d	#define MAP_EXECUTABLE 0x1000
-MAP_FAILED	bits/mman.h	d	#define MAP_FAILED ((void *) -1)
-MAP_FILE	bits/mman.h	d	#define MAP_FILE 0x00
-MAP_FIXED	bits/mman.h	d	#define MAP_FIXED 0x10
-MAP_GROWSDOWN	bits/mman.h	d	#define MAP_GROWSDOWN 0x0100
-MAP_HUGETLB	bits/mman.h	d	#define MAP_HUGETLB 0x40000
-MAP_LOCKED	bits/mman.h	d	#define MAP_LOCKED 0x2000
-MAP_NONBLOCK	bits/mman.h	d	#define MAP_NONBLOCK 0x10000
-MAP_NORESERVE	bits/mman.h	d	#define MAP_NORESERVE 0x4000
-MAP_POPULATE	bits/mman.h	d	#define MAP_POPULATE 0x8000
-MAP_PRIVATE	bits/mman.h	d	#define MAP_PRIVATE 0x02
-MAP_SHARED	bits/mman.h	d	#define MAP_SHARED 0x01
-MAP_STACK	bits/mman.h	d	#define MAP_STACK 0x20000
-MAP_TYPE	bits/mman.h	d	#define MAP_TYPE 0x0f
-MCL_CURRENT	bits/mman.h	d	#define MCL_CURRENT 1
-MCL_FUTURE	bits/mman.h	d	#define MCL_FUTURE 2
-MCL_ONFAULT	bits/mman.h	d	#define MCL_ONFAULT 4
 MINSIGSTKSZ	bits/signal.h	d	#define MINSIGSTKSZ 2048
-MS_ASYNC	bits/mman.h	d	#define MS_ASYNC 1
-MS_INVALIDATE	bits/mman.h	d	#define MS_INVALIDATE 2
-MS_SYNC	bits/mman.h	d	#define MS_SYNC 4
 NBPG	bits/user.h	d	#define NBPG PAGE_SIZE
 NL0	bits/termios.h	d	#define NL0 0000000
 NL1	bits/termios.h	d	#define NL1 0000400
@@ -377,17 +342,6 @@ PARENB	bits/termios.h	d	#define PARENB 0000400
 PARMRK	bits/termios.h	d	#define PARMRK 0000010
 PARODD	bits/termios.h	d	#define PARODD 0001000
 PENDIN	bits/termios.h	d	#define PENDIN 0040000
-POSIX_MADV_DONTNEED	bits/mman.h	d	#define POSIX_MADV_DONTNEED 0
-POSIX_MADV_NORMAL	bits/mman.h	d	#define POSIX_MADV_NORMAL 0
-POSIX_MADV_RANDOM	bits/mman.h	d	#define POSIX_MADV_RANDOM 1
-POSIX_MADV_SEQUENTIAL	bits/mman.h	d	#define POSIX_MADV_SEQUENTIAL 2
-POSIX_MADV_WILLNEED	bits/mman.h	d	#define POSIX_MADV_WILLNEED 3
-PROT_EXEC	bits/mman.h	d	#define PROT_EXEC 4
-PROT_GROWSDOWN	bits/mman.h	d	#define PROT_GROWSDOWN 0x01000000
-PROT_GROWSUP	bits/mman.h	d	#define PROT_GROWSUP 0x02000000
-PROT_NONE	bits/mman.h	d	#define PROT_NONE 0
-PROT_READ	bits/mman.h	d	#define PROT_READ 1
-PROT_WRITE	bits/mman.h	d	#define PROT_WRITE 2
 PTRDIFF_MAX	bits/stdint.h	d	#define PTRDIFF_MAX INT32_MAX
 PTRDIFF_MIN	bits/stdint.h	d	#define PTRDIFF_MIN INT32_MIN
 R10	bits/reg.h	d	#define R10 7
@@ -524,6 +478,7 @@ SIOCSIFMAP	bits/ioctl.h	d	#define SIOCSIFMAP 0x8971
 SIOCSIFMEM	bits/ioctl.h	d	#define SIOCSIFMEM 0x8920
 SIOCSIFMETRIC	bits/ioctl.h	d	#define SIOCSIFMETRIC 0x891e
 SIOCSIFMTU	bits/ioctl.h	d	#define SIOCSIFMTU 0x8922
+SIOCSIFNAME	bits/ioctl.h	d	#define SIOCSIFNAME 0x8923
 SIOCSIFNETMASK	bits/ioctl.h	d	#define SIOCSIFNETMASK 0x891c
 SIOCSIFPFLAGS	bits/ioctl.h	d	#define SIOCSIFPFLAGS 0x8934
 SIOCSIFSLAVE	bits/ioctl.h	d	#define SIOCSIFSLAVE 0x8930
@@ -533,326 +488,324 @@ SIOCSRARP	bits/ioctl.h	d	#define SIOCSRARP 0x8962
 SIOGIFINDEX	bits/ioctl.h	d	#define SIOGIFINDEX SIOCGIFINDEX
 SIZE_MAX	bits/stdint.h	d	#define SIZE_MAX UINT32_MAX
 SS	bits/reg.h	d	#define SS 20
-SYS_accept	bits/syscall.h	d	#define SYS_accept __NR_accept
-SYS_accept4	bits/syscall.h	d	#define SYS_accept4 __NR_accept4
-SYS_access	bits/syscall.h	d	#define SYS_access __NR_access
-SYS_acct	bits/syscall.h	d	#define SYS_acct __NR_acct
-SYS_add_key	bits/syscall.h	d	#define SYS_add_key __NR_add_key
-SYS_adjtimex	bits/syscall.h	d	#define SYS_adjtimex __NR_adjtimex
-SYS_afs_syscall	bits/syscall.h	d	#define SYS_afs_syscall __NR_afs_syscall
-SYS_alarm	bits/syscall.h	d	#define SYS_alarm __NR_alarm
-SYS_arch_prctl	bits/syscall.h	d	#define SYS_arch_prctl __NR_arch_prctl
-SYS_bind	bits/syscall.h	d	#define SYS_bind __NR_bind
-SYS_bpf	bits/syscall.h	d	#define SYS_bpf __NR_bpf
-SYS_brk	bits/syscall.h	d	#define SYS_brk __NR_brk
-SYS_capget	bits/syscall.h	d	#define SYS_capget __NR_capget
-SYS_capset	bits/syscall.h	d	#define SYS_capset __NR_capset
-SYS_chdir	bits/syscall.h	d	#define SYS_chdir __NR_chdir
-SYS_chmod	bits/syscall.h	d	#define SYS_chmod __NR_chmod
-SYS_chown	bits/syscall.h	d	#define SYS_chown __NR_chown
-SYS_chroot	bits/syscall.h	d	#define SYS_chroot __NR_chroot
-SYS_clock_adjtime	bits/syscall.h	d	#define SYS_clock_adjtime __NR_clock_adjtime
-SYS_clock_getres	bits/syscall.h	d	#define SYS_clock_getres __NR_clock_getres
-SYS_clock_gettime	bits/syscall.h	d	#define SYS_clock_gettime __NR_clock_gettime
-SYS_clock_nanosleep	bits/syscall.h	d	#define SYS_clock_nanosleep __NR_clock_nanosleep
-SYS_clock_settime	bits/syscall.h	d	#define SYS_clock_settime __NR_clock_settime
-SYS_clone	bits/syscall.h	d	#define SYS_clone __NR_clone
-SYS_close	bits/syscall.h	d	#define SYS_close __NR_close
-SYS_connect	bits/syscall.h	d	#define SYS_connect __NR_connect
-SYS_creat	bits/syscall.h	d	#define SYS_creat __NR_creat
-SYS_delete_module	bits/syscall.h	d	#define SYS_delete_module __NR_delete_module
-SYS_dup	bits/syscall.h	d	#define SYS_dup __NR_dup
-SYS_dup2	bits/syscall.h	d	#define SYS_dup2 __NR_dup2
-SYS_dup3	bits/syscall.h	d	#define SYS_dup3 __NR_dup3
-SYS_epoll_create	bits/syscall.h	d	#define SYS_epoll_create __NR_epoll_create
-SYS_epoll_create1	bits/syscall.h	d	#define SYS_epoll_create1 __NR_epoll_create1
-SYS_epoll_ctl	bits/syscall.h	d	#define SYS_epoll_ctl __NR_epoll_ctl
-SYS_epoll_pwait	bits/syscall.h	d	#define SYS_epoll_pwait __NR_epoll_pwait
-SYS_epoll_wait	bits/syscall.h	d	#define SYS_epoll_wait __NR_epoll_wait
-SYS_eventfd	bits/syscall.h	d	#define SYS_eventfd __NR_eventfd
-SYS_eventfd2	bits/syscall.h	d	#define SYS_eventfd2 __NR_eventfd2
-SYS_execve	bits/syscall.h	d	#define SYS_execve __NR_execve
-SYS_execveat	bits/syscall.h	d	#define SYS_execveat __NR_execveat
-SYS_exit	bits/syscall.h	d	#define SYS_exit __NR_exit
-SYS_exit_group	bits/syscall.h	d	#define SYS_exit_group __NR_exit_group
-SYS_faccessat	bits/syscall.h	d	#define SYS_faccessat __NR_faccessat
-SYS_fadvise	bits/syscall.h	d	#define SYS_fadvise SYS_fadvise64
-SYS_fadvise64	bits/syscall.h	d	#define SYS_fadvise64 __NR_fadvise64
-SYS_fallocate	bits/syscall.h	d	#define SYS_fallocate __NR_fallocate
-SYS_fanotify_init	bits/syscall.h	d	#define SYS_fanotify_init __NR_fanotify_init
-SYS_fanotify_mark	bits/syscall.h	d	#define SYS_fanotify_mark __NR_fanotify_mark
-SYS_fchdir	bits/syscall.h	d	#define SYS_fchdir __NR_fchdir
-SYS_fchmod	bits/syscall.h	d	#define SYS_fchmod __NR_fchmod
-SYS_fchmodat	bits/syscall.h	d	#define SYS_fchmodat __NR_fchmodat
-SYS_fchown	bits/syscall.h	d	#define SYS_fchown __NR_fchown
-SYS_fchownat	bits/syscall.h	d	#define SYS_fchownat __NR_fchownat
-SYS_fcntl	bits/syscall.h	d	#define SYS_fcntl __NR_fcntl
-SYS_fdatasync	bits/syscall.h	d	#define SYS_fdatasync __NR_fdatasync
-SYS_fgetxattr	bits/syscall.h	d	#define SYS_fgetxattr __NR_fgetxattr
-SYS_finit_module	bits/syscall.h	d	#define SYS_finit_module __NR_finit_module
-SYS_flistxattr	bits/syscall.h	d	#define SYS_flistxattr __NR_flistxattr
-SYS_flock	bits/syscall.h	d	#define SYS_flock __NR_flock
-SYS_fork	bits/syscall.h	d	#define SYS_fork __NR_fork
-SYS_fremovexattr	bits/syscall.h	d	#define SYS_fremovexattr __NR_fremovexattr
-SYS_fsetxattr	bits/syscall.h	d	#define SYS_fsetxattr __NR_fsetxattr
-SYS_fstat	bits/syscall.h	d	#define SYS_fstat __NR_fstat
-SYS_fstatat	bits/syscall.h	d	#define SYS_fstatat SYS_newfstatat
-SYS_fstatfs	bits/syscall.h	d	#define SYS_fstatfs __NR_fstatfs
-SYS_fsync	bits/syscall.h	d	#define SYS_fsync __NR_fsync
-SYS_ftruncate	bits/syscall.h	d	#define SYS_ftruncate __NR_ftruncate
-SYS_futex	bits/syscall.h	d	#define SYS_futex __NR_futex
-SYS_futimesat	bits/syscall.h	d	#define SYS_futimesat __NR_futimesat
-SYS_get_mempolicy	bits/syscall.h	d	#define SYS_get_mempolicy __NR_get_mempolicy
-SYS_get_robust_list	bits/syscall.h	d	#define SYS_get_robust_list __NR_get_robust_list
-SYS_getcpu	bits/syscall.h	d	#define SYS_getcpu __NR_getcpu
-SYS_getcwd	bits/syscall.h	d	#define SYS_getcwd __NR_getcwd
-SYS_getdents	bits/syscall.h	d	#define SYS_getdents SYS_getdents64
-SYS_getdents	bits/syscall.h	d	#define SYS_getdents __NR_getdents
-SYS_getdents64	bits/syscall.h	d	#define SYS_getdents64 __NR_getdents64
-SYS_getegid	bits/syscall.h	d	#define SYS_getegid __NR_getegid
-SYS_geteuid	bits/syscall.h	d	#define SYS_geteuid __NR_geteuid
-SYS_getgid	bits/syscall.h	d	#define SYS_getgid __NR_getgid
-SYS_getgroups	bits/syscall.h	d	#define SYS_getgroups __NR_getgroups
-SYS_getitimer	bits/syscall.h	d	#define SYS_getitimer __NR_getitimer
-SYS_getpeername	bits/syscall.h	d	#define SYS_getpeername __NR_getpeername
-SYS_getpgid	bits/syscall.h	d	#define SYS_getpgid __NR_getpgid
-SYS_getpgrp	bits/syscall.h	d	#define SYS_getpgrp __NR_getpgrp
-SYS_getpid	bits/syscall.h	d	#define SYS_getpid __NR_getpid
-SYS_getpmsg	bits/syscall.h	d	#define SYS_getpmsg __NR_getpmsg
-SYS_getppid	bits/syscall.h	d	#define SYS_getppid __NR_getppid
-SYS_getpriority	bits/syscall.h	d	#define SYS_getpriority __NR_getpriority
-SYS_getrandom	bits/syscall.h	d	#define SYS_getrandom __NR_getrandom
-SYS_getresgid	bits/syscall.h	d	#define SYS_getresgid __NR_getresgid
-SYS_getresuid	bits/syscall.h	d	#define SYS_getresuid __NR_getresuid
-SYS_getrlimit	bits/syscall.h	d	#define SYS_getrlimit __NR_getrlimit
-SYS_getrusage	bits/syscall.h	d	#define SYS_getrusage __NR_getrusage
-SYS_getsid	bits/syscall.h	d	#define SYS_getsid __NR_getsid
-SYS_getsockname	bits/syscall.h	d	#define SYS_getsockname __NR_getsockname
-SYS_getsockopt	bits/syscall.h	d	#define SYS_getsockopt __NR_getsockopt
-SYS_gettid	bits/syscall.h	d	#define SYS_gettid __NR_gettid
-SYS_gettimeofday	bits/syscall.h	d	#define SYS_gettimeofday __NR_gettimeofday
-SYS_getuid	bits/syscall.h	d	#define SYS_getuid __NR_getuid
-SYS_getxattr	bits/syscall.h	d	#define SYS_getxattr __NR_getxattr
-SYS_init_module	bits/syscall.h	d	#define SYS_init_module __NR_init_module
-SYS_inotify_add_watch	bits/syscall.h	d	#define SYS_inotify_add_watch __NR_inotify_add_watch
-SYS_inotify_init	bits/syscall.h	d	#define SYS_inotify_init __NR_inotify_init
-SYS_inotify_init1	bits/syscall.h	d	#define SYS_inotify_init1 __NR_inotify_init1
-SYS_inotify_rm_watch	bits/syscall.h	d	#define SYS_inotify_rm_watch __NR_inotify_rm_watch
-SYS_io_cancel	bits/syscall.h	d	#define SYS_io_cancel __NR_io_cancel
-SYS_io_destroy	bits/syscall.h	d	#define SYS_io_destroy __NR_io_destroy
-SYS_io_getevents	bits/syscall.h	d	#define SYS_io_getevents __NR_io_getevents
-SYS_io_setup	bits/syscall.h	d	#define SYS_io_setup __NR_io_setup
-SYS_io_submit	bits/syscall.h	d	#define SYS_io_submit __NR_io_submit
-SYS_ioctl	bits/syscall.h	d	#define SYS_ioctl __NR_ioctl
-SYS_ioperm	bits/syscall.h	d	#define SYS_ioperm __NR_ioperm
-SYS_iopl	bits/syscall.h	d	#define SYS_iopl __NR_iopl
-SYS_ioprio_get	bits/syscall.h	d	#define SYS_ioprio_get __NR_ioprio_get
-SYS_ioprio_set	bits/syscall.h	d	#define SYS_ioprio_set __NR_ioprio_set
-SYS_kcmp	bits/syscall.h	d	#define SYS_kcmp __NR_kcmp
-SYS_kexec_file_load	bits/syscall.h	d	#define SYS_kexec_file_load __NR_kexec_file_load
-SYS_kexec_load	bits/syscall.h	d	#define SYS_kexec_load __NR_kexec_load
-SYS_keyctl	bits/syscall.h	d	#define SYS_keyctl __NR_keyctl
-SYS_kill	bits/syscall.h	d	#define SYS_kill __NR_kill
-SYS_lchown	bits/syscall.h	d	#define SYS_lchown __NR_lchown
-SYS_lgetxattr	bits/syscall.h	d	#define SYS_lgetxattr __NR_lgetxattr
-SYS_link	bits/syscall.h	d	#define SYS_link __NR_link
-SYS_linkat	bits/syscall.h	d	#define SYS_linkat __NR_linkat
-SYS_listen	bits/syscall.h	d	#define SYS_listen __NR_listen
-SYS_listxattr	bits/syscall.h	d	#define SYS_listxattr __NR_listxattr
-SYS_llistxattr	bits/syscall.h	d	#define SYS_llistxattr __NR_llistxattr
-SYS_lookup_dcookie	bits/syscall.h	d	#define SYS_lookup_dcookie __NR_lookup_dcookie
-SYS_lremovexattr	bits/syscall.h	d	#define SYS_lremovexattr __NR_lremovexattr
-SYS_lseek	bits/syscall.h	d	#define SYS_lseek __NR_lseek
-SYS_lsetxattr	bits/syscall.h	d	#define SYS_lsetxattr __NR_lsetxattr
-SYS_lstat	bits/syscall.h	d	#define SYS_lstat __NR_lstat
-SYS_madvise	bits/syscall.h	d	#define SYS_madvise __NR_madvise
-SYS_mbind	bits/syscall.h	d	#define SYS_mbind __NR_mbind
-SYS_membarrier	bits/syscall.h	d	#define SYS_membarrier __NR_membarrier
-SYS_memfd_create	bits/syscall.h	d	#define SYS_memfd_create __NR_memfd_create
-SYS_migrate_pages	bits/syscall.h	d	#define SYS_migrate_pages __NR_migrate_pages
-SYS_mincore	bits/syscall.h	d	#define SYS_mincore __NR_mincore
-SYS_mkdir	bits/syscall.h	d	#define SYS_mkdir __NR_mkdir
-SYS_mkdirat	bits/syscall.h	d	#define SYS_mkdirat __NR_mkdirat
-SYS_mknod	bits/syscall.h	d	#define SYS_mknod __NR_mknod
-SYS_mknodat	bits/syscall.h	d	#define SYS_mknodat __NR_mknodat
-SYS_mlock	bits/syscall.h	d	#define SYS_mlock __NR_mlock
-SYS_mlock2	bits/syscall.h	d	#define SYS_mlock2 __NR_mlock2
-SYS_mlockall	bits/syscall.h	d	#define SYS_mlockall __NR_mlockall
-SYS_mmap	bits/syscall.h	d	#define SYS_mmap __NR_mmap
-SYS_modify_ldt	bits/syscall.h	d	#define SYS_modify_ldt __NR_modify_ldt
-SYS_mount	bits/syscall.h	d	#define SYS_mount __NR_mount
-SYS_move_pages	bits/syscall.h	d	#define SYS_move_pages __NR_move_pages
-SYS_mprotect	bits/syscall.h	d	#define SYS_mprotect __NR_mprotect
-SYS_mq_getsetattr	bits/syscall.h	d	#define SYS_mq_getsetattr __NR_mq_getsetattr
-SYS_mq_notify	bits/syscall.h	d	#define SYS_mq_notify __NR_mq_notify
-SYS_mq_open	bits/syscall.h	d	#define SYS_mq_open __NR_mq_open
-SYS_mq_timedreceive	bits/syscall.h	d	#define SYS_mq_timedreceive __NR_mq_timedreceive
-SYS_mq_timedsend	bits/syscall.h	d	#define SYS_mq_timedsend __NR_mq_timedsend
-SYS_mq_unlink	bits/syscall.h	d	#define SYS_mq_unlink __NR_mq_unlink
-SYS_mremap	bits/syscall.h	d	#define SYS_mremap __NR_mremap
-SYS_msgctl	bits/syscall.h	d	#define SYS_msgctl __NR_msgctl
-SYS_msgget	bits/syscall.h	d	#define SYS_msgget __NR_msgget
-SYS_msgrcv	bits/syscall.h	d	#define SYS_msgrcv __NR_msgrcv
-SYS_msgsnd	bits/syscall.h	d	#define SYS_msgsnd __NR_msgsnd
-SYS_msync	bits/syscall.h	d	#define SYS_msync __NR_msync
-SYS_munlock	bits/syscall.h	d	#define SYS_munlock __NR_munlock
-SYS_munlockall	bits/syscall.h	d	#define SYS_munlockall __NR_munlockall
-SYS_munmap	bits/syscall.h	d	#define SYS_munmap __NR_munmap
-SYS_name_to_handle_at	bits/syscall.h	d	#define SYS_name_to_handle_at __NR_name_to_handle_at
-SYS_nanosleep	bits/syscall.h	d	#define SYS_nanosleep __NR_nanosleep
-SYS_newfstatat	bits/syscall.h	d	#define SYS_newfstatat __NR_newfstatat
-SYS_open	bits/syscall.h	d	#define SYS_open __NR_open
-SYS_open_by_handle_at	bits/syscall.h	d	#define SYS_open_by_handle_at __NR_open_by_handle_at
-SYS_openat	bits/syscall.h	d	#define SYS_openat __NR_openat
-SYS_pause	bits/syscall.h	d	#define SYS_pause __NR_pause
-SYS_perf_event_open	bits/syscall.h	d	#define SYS_perf_event_open __NR_perf_event_open
-SYS_personality	bits/syscall.h	d	#define SYS_personality __NR_personality
-SYS_pipe	bits/syscall.h	d	#define SYS_pipe __NR_pipe
-SYS_pipe2	bits/syscall.h	d	#define SYS_pipe2 __NR_pipe2
-SYS_pivot_root	bits/syscall.h	d	#define SYS_pivot_root __NR_pivot_root
-SYS_poll	bits/syscall.h	d	#define SYS_poll __NR_poll
-SYS_ppoll	bits/syscall.h	d	#define SYS_ppoll __NR_ppoll
-SYS_prctl	bits/syscall.h	d	#define SYS_prctl __NR_prctl
-SYS_pread	bits/syscall.h	d	#define SYS_pread SYS_pread64
-SYS_pread64	bits/syscall.h	d	#define SYS_pread64 __NR_pread64
-SYS_preadv	bits/syscall.h	d	#define SYS_preadv __NR_preadv
-SYS_prlimit64	bits/syscall.h	d	#define SYS_prlimit64 __NR_prlimit64
-SYS_process_vm_readv	bits/syscall.h	d	#define SYS_process_vm_readv __NR_process_vm_readv
-SYS_process_vm_writev	bits/syscall.h	d	#define SYS_process_vm_writev __NR_process_vm_writev
-SYS_pselect6	bits/syscall.h	d	#define SYS_pselect6 __NR_pselect6
-SYS_ptrace	bits/syscall.h	d	#define SYS_ptrace __NR_ptrace
-SYS_putpmsg	bits/syscall.h	d	#define SYS_putpmsg __NR_putpmsg
-SYS_pwrite	bits/syscall.h	d	#define SYS_pwrite SYS_pwrite64
-SYS_pwrite64	bits/syscall.h	d	#define SYS_pwrite64 __NR_pwrite64
-SYS_pwritev	bits/syscall.h	d	#define SYS_pwritev __NR_pwritev
-SYS_quotactl	bits/syscall.h	d	#define SYS_quotactl __NR_quotactl
-SYS_read	bits/syscall.h	d	#define SYS_read __NR_read
-SYS_readahead	bits/syscall.h	d	#define SYS_readahead __NR_readahead
-SYS_readlink	bits/syscall.h	d	#define SYS_readlink __NR_readlink
-SYS_readlinkat	bits/syscall.h	d	#define SYS_readlinkat __NR_readlinkat
-SYS_readv	bits/syscall.h	d	#define SYS_readv __NR_readv
-SYS_reboot	bits/syscall.h	d	#define SYS_reboot __NR_reboot
-SYS_recvfrom	bits/syscall.h	d	#define SYS_recvfrom __NR_recvfrom
-SYS_recvmmsg	bits/syscall.h	d	#define SYS_recvmmsg __NR_recvmmsg
-SYS_recvmsg	bits/syscall.h	d	#define SYS_recvmsg __NR_recvmsg
-SYS_remap_file_pages	bits/syscall.h	d	#define SYS_remap_file_pages __NR_remap_file_pages
-SYS_removexattr	bits/syscall.h	d	#define SYS_removexattr __NR_removexattr
-SYS_rename	bits/syscall.h	d	#define SYS_rename __NR_rename
-SYS_renameat	bits/syscall.h	d	#define SYS_renameat __NR_renameat
-SYS_renameat2	bits/syscall.h	d	#define SYS_renameat2 __NR_renameat2
-SYS_request_key	bits/syscall.h	d	#define SYS_request_key __NR_request_key
-SYS_restart_syscall	bits/syscall.h	d	#define SYS_restart_syscall __NR_restart_syscall
-SYS_rmdir	bits/syscall.h	d	#define SYS_rmdir __NR_rmdir
-SYS_rt_sigaction	bits/syscall.h	d	#define SYS_rt_sigaction __NR_rt_sigaction
-SYS_rt_sigpending	bits/syscall.h	d	#define SYS_rt_sigpending __NR_rt_sigpending
-SYS_rt_sigprocmask	bits/syscall.h	d	#define SYS_rt_sigprocmask __NR_rt_sigprocmask
-SYS_rt_sigqueueinfo	bits/syscall.h	d	#define SYS_rt_sigqueueinfo __NR_rt_sigqueueinfo
-SYS_rt_sigreturn	bits/syscall.h	d	#define SYS_rt_sigreturn __NR_rt_sigreturn
-SYS_rt_sigsuspend	bits/syscall.h	d	#define SYS_rt_sigsuspend __NR_rt_sigsuspend
-SYS_rt_sigtimedwait	bits/syscall.h	d	#define SYS_rt_sigtimedwait __NR_rt_sigtimedwait
-SYS_rt_tgsigqueueinfo	bits/syscall.h	d	#define SYS_rt_tgsigqueueinfo __NR_rt_tgsigqueueinfo
-SYS_sched_get_priority_max	bits/syscall.h	d	#define SYS_sched_get_priority_max __NR_sched_get_priority_max
-SYS_sched_get_priority_min	bits/syscall.h	d	#define SYS_sched_get_priority_min __NR_sched_get_priority_min
-SYS_sched_getaffinity	bits/syscall.h	d	#define SYS_sched_getaffinity __NR_sched_getaffinity
-SYS_sched_getattr	bits/syscall.h	d	#define SYS_sched_getattr __NR_sched_getattr
-SYS_sched_getparam	bits/syscall.h	d	#define SYS_sched_getparam __NR_sched_getparam
-SYS_sched_getscheduler	bits/syscall.h	d	#define SYS_sched_getscheduler __NR_sched_getscheduler
-SYS_sched_rr_get_interval	bits/syscall.h	d	#define SYS_sched_rr_get_interval __NR_sched_rr_get_interval
-SYS_sched_setaffinity	bits/syscall.h	d	#define SYS_sched_setaffinity __NR_sched_setaffinity
-SYS_sched_setattr	bits/syscall.h	d	#define SYS_sched_setattr __NR_sched_setattr
-SYS_sched_setparam	bits/syscall.h	d	#define SYS_sched_setparam __NR_sched_setparam
-SYS_sched_setscheduler	bits/syscall.h	d	#define SYS_sched_setscheduler __NR_sched_setscheduler
-SYS_sched_yield	bits/syscall.h	d	#define SYS_sched_yield __NR_sched_yield
-SYS_seccomp	bits/syscall.h	d	#define SYS_seccomp __NR_seccomp
-SYS_security	bits/syscall.h	d	#define SYS_security __NR_security
-SYS_select	bits/syscall.h	d	#define SYS_select __NR_select
-SYS_semctl	bits/syscall.h	d	#define SYS_semctl __NR_semctl
-SYS_semget	bits/syscall.h	d	#define SYS_semget __NR_semget
-SYS_semop	bits/syscall.h	d	#define SYS_semop __NR_semop
-SYS_semtimedop	bits/syscall.h	d	#define SYS_semtimedop __NR_semtimedop
-SYS_sendfile	bits/syscall.h	d	#define SYS_sendfile __NR_sendfile
-SYS_sendmmsg	bits/syscall.h	d	#define SYS_sendmmsg __NR_sendmmsg
-SYS_sendmsg	bits/syscall.h	d	#define SYS_sendmsg __NR_sendmsg
-SYS_sendto	bits/syscall.h	d	#define SYS_sendto __NR_sendto
-SYS_set_mempolicy	bits/syscall.h	d	#define SYS_set_mempolicy __NR_set_mempolicy
-SYS_set_robust_list	bits/syscall.h	d	#define SYS_set_robust_list __NR_set_robust_list
-SYS_set_tid_address	bits/syscall.h	d	#define SYS_set_tid_address __NR_set_tid_address
-SYS_setdomainname	bits/syscall.h	d	#define SYS_setdomainname __NR_setdomainname
-SYS_setfsgid	bits/syscall.h	d	#define SYS_setfsgid __NR_setfsgid
-SYS_setfsuid	bits/syscall.h	d	#define SYS_setfsuid __NR_setfsuid
-SYS_setgid	bits/syscall.h	d	#define SYS_setgid __NR_setgid
-SYS_setgroups	bits/syscall.h	d	#define SYS_setgroups __NR_setgroups
-SYS_sethostname	bits/syscall.h	d	#define SYS_sethostname __NR_sethostname
-SYS_setitimer	bits/syscall.h	d	#define SYS_setitimer __NR_setitimer
-SYS_setns	bits/syscall.h	d	#define SYS_setns __NR_setns
-SYS_setpgid	bits/syscall.h	d	#define SYS_setpgid __NR_setpgid
-SYS_setpriority	bits/syscall.h	d	#define SYS_setpriority __NR_setpriority
-SYS_setregid	bits/syscall.h	d	#define SYS_setregid __NR_setregid
-SYS_setresgid	bits/syscall.h	d	#define SYS_setresgid __NR_setresgid
-SYS_setresuid	bits/syscall.h	d	#define SYS_setresuid __NR_setresuid
-SYS_setreuid	bits/syscall.h	d	#define SYS_setreuid __NR_setreuid
-SYS_setrlimit	bits/syscall.h	d	#define SYS_setrlimit __NR_setrlimit
-SYS_setsid	bits/syscall.h	d	#define SYS_setsid __NR_setsid
-SYS_setsockopt	bits/syscall.h	d	#define SYS_setsockopt __NR_setsockopt
-SYS_settimeofday	bits/syscall.h	d	#define SYS_settimeofday __NR_settimeofday
-SYS_setuid	bits/syscall.h	d	#define SYS_setuid __NR_setuid
-SYS_setxattr	bits/syscall.h	d	#define SYS_setxattr __NR_setxattr
-SYS_shmat	bits/syscall.h	d	#define SYS_shmat __NR_shmat
-SYS_shmctl	bits/syscall.h	d	#define SYS_shmctl __NR_shmctl
-SYS_shmdt	bits/syscall.h	d	#define SYS_shmdt __NR_shmdt
-SYS_shmget	bits/syscall.h	d	#define SYS_shmget __NR_shmget
-SYS_shutdown	bits/syscall.h	d	#define SYS_shutdown __NR_shutdown
-SYS_sigaltstack	bits/syscall.h	d	#define SYS_sigaltstack __NR_sigaltstack
-SYS_signalfd	bits/syscall.h	d	#define SYS_signalfd __NR_signalfd
-SYS_signalfd4	bits/syscall.h	d	#define SYS_signalfd4 __NR_signalfd4
-SYS_socket	bits/syscall.h	d	#define SYS_socket __NR_socket
-SYS_socketpair	bits/syscall.h	d	#define SYS_socketpair __NR_socketpair
-SYS_splice	bits/syscall.h	d	#define SYS_splice __NR_splice
-SYS_stat	bits/syscall.h	d	#define SYS_stat __NR_stat
-SYS_statfs	bits/syscall.h	d	#define SYS_statfs __NR_statfs
-SYS_swapoff	bits/syscall.h	d	#define SYS_swapoff __NR_swapoff
-SYS_swapon	bits/syscall.h	d	#define SYS_swapon __NR_swapon
-SYS_symlink	bits/syscall.h	d	#define SYS_symlink __NR_symlink
-SYS_symlinkat	bits/syscall.h	d	#define SYS_symlinkat __NR_symlinkat
-SYS_sync	bits/syscall.h	d	#define SYS_sync __NR_sync
-SYS_sync_file_range	bits/syscall.h	d	#define SYS_sync_file_range __NR_sync_file_range
-SYS_syncfs	bits/syscall.h	d	#define SYS_syncfs __NR_syncfs
-SYS_sysfs	bits/syscall.h	d	#define SYS_sysfs __NR_sysfs
-SYS_sysinfo	bits/syscall.h	d	#define SYS_sysinfo __NR_sysinfo
-SYS_syslog	bits/syscall.h	d	#define SYS_syslog __NR_syslog
-SYS_tee	bits/syscall.h	d	#define SYS_tee __NR_tee
-SYS_tgkill	bits/syscall.h	d	#define SYS_tgkill __NR_tgkill
-SYS_time	bits/syscall.h	d	#define SYS_time __NR_time
-SYS_timer_create	bits/syscall.h	d	#define SYS_timer_create __NR_timer_create
-SYS_timer_delete	bits/syscall.h	d	#define SYS_timer_delete __NR_timer_delete
-SYS_timer_getoverrun	bits/syscall.h	d	#define SYS_timer_getoverrun __NR_timer_getoverrun
-SYS_timer_gettime	bits/syscall.h	d	#define SYS_timer_gettime __NR_timer_gettime
-SYS_timer_settime	bits/syscall.h	d	#define SYS_timer_settime __NR_timer_settime
-SYS_timerfd_create	bits/syscall.h	d	#define SYS_timerfd_create __NR_timerfd_create
-SYS_timerfd_gettime	bits/syscall.h	d	#define SYS_timerfd_gettime __NR_timerfd_gettime
-SYS_timerfd_settime	bits/syscall.h	d	#define SYS_timerfd_settime __NR_timerfd_settime
-SYS_times	bits/syscall.h	d	#define SYS_times __NR_times
-SYS_tkill	bits/syscall.h	d	#define SYS_tkill __NR_tkill
-SYS_truncate	bits/syscall.h	d	#define SYS_truncate __NR_truncate
-SYS_tuxcall	bits/syscall.h	d	#define SYS_tuxcall __NR_tuxcall
-SYS_umask	bits/syscall.h	d	#define SYS_umask __NR_umask
-SYS_umount2	bits/syscall.h	d	#define SYS_umount2 __NR_umount2
-SYS_uname	bits/syscall.h	d	#define SYS_uname __NR_uname
-SYS_unlink	bits/syscall.h	d	#define SYS_unlink __NR_unlink
-SYS_unlinkat	bits/syscall.h	d	#define SYS_unlinkat __NR_unlinkat
-SYS_unshare	bits/syscall.h	d	#define SYS_unshare __NR_unshare
-SYS_userfaultfd	bits/syscall.h	d	#define SYS_userfaultfd __NR_userfaultfd
-SYS_ustat	bits/syscall.h	d	#define SYS_ustat __NR_ustat
-SYS_utime	bits/syscall.h	d	#define SYS_utime __NR_utime
-SYS_utimensat	bits/syscall.h	d	#define SYS_utimensat __NR_utimensat
-SYS_utimes	bits/syscall.h	d	#define SYS_utimes __NR_utimes
-SYS_vfork	bits/syscall.h	d	#define SYS_vfork __NR_vfork
-SYS_vhangup	bits/syscall.h	d	#define SYS_vhangup __NR_vhangup
-SYS_vmsplice	bits/syscall.h	d	#define SYS_vmsplice __NR_vmsplice
-SYS_wait4	bits/syscall.h	d	#define SYS_wait4 __NR_wait4
-SYS_waitid	bits/syscall.h	d	#define SYS_waitid __NR_waitid
-SYS_write	bits/syscall.h	d	#define SYS_write __NR_write
-SYS_writev	bits/syscall.h	d	#define SYS_writev __NR_writev
+SYS_accept	bits/syscall.h	d	#define SYS_accept (0x40000000 + 43)
+SYS_accept4	bits/syscall.h	d	#define SYS_accept4 (0x40000000 + 288)
+SYS_access	bits/syscall.h	d	#define SYS_access (0x40000000 + 21)
+SYS_acct	bits/syscall.h	d	#define SYS_acct (0x40000000 + 163)
+SYS_add_key	bits/syscall.h	d	#define SYS_add_key (0x40000000 + 248)
+SYS_adjtimex	bits/syscall.h	d	#define SYS_adjtimex (0x40000000 + 159)
+SYS_afs_syscall	bits/syscall.h	d	#define SYS_afs_syscall (0x40000000 + 183)
+SYS_alarm	bits/syscall.h	d	#define SYS_alarm (0x40000000 + 37)
+SYS_arch_prctl	bits/syscall.h	d	#define SYS_arch_prctl (0x40000000 + 158)
+SYS_bind	bits/syscall.h	d	#define SYS_bind (0x40000000 + 49)
+SYS_bpf	bits/syscall.h	d	#define SYS_bpf (0x40000000 + 321)
+SYS_brk	bits/syscall.h	d	#define SYS_brk (0x40000000 + 12)
+SYS_capget	bits/syscall.h	d	#define SYS_capget (0x40000000 + 125)
+SYS_capset	bits/syscall.h	d	#define SYS_capset (0x40000000 + 126)
+SYS_chdir	bits/syscall.h	d	#define SYS_chdir (0x40000000 + 80)
+SYS_chmod	bits/syscall.h	d	#define SYS_chmod (0x40000000 + 90)
+SYS_chown	bits/syscall.h	d	#define SYS_chown (0x40000000 + 92)
+SYS_chroot	bits/syscall.h	d	#define SYS_chroot (0x40000000 + 161)
+SYS_clock_adjtime	bits/syscall.h	d	#define SYS_clock_adjtime (0x40000000 + 305)
+SYS_clock_getres	bits/syscall.h	d	#define SYS_clock_getres (0x40000000 + 229)
+SYS_clock_gettime	bits/syscall.h	d	#define SYS_clock_gettime (0x40000000 + 228)
+SYS_clock_nanosleep	bits/syscall.h	d	#define SYS_clock_nanosleep (0x40000000 + 230)
+SYS_clock_settime	bits/syscall.h	d	#define SYS_clock_settime (0x40000000 + 227)
+SYS_clone	bits/syscall.h	d	#define SYS_clone (0x40000000 + 56)
+SYS_close	bits/syscall.h	d	#define SYS_close (0x40000000 + 3)
+SYS_connect	bits/syscall.h	d	#define SYS_connect (0x40000000 + 42)
+SYS_copy_file_range	bits/syscall.h	d	#define SYS_copy_file_range (0x40000000 + 326)
+SYS_creat	bits/syscall.h	d	#define SYS_creat (0x40000000 + 85)
+SYS_delete_module	bits/syscall.h	d	#define SYS_delete_module (0x40000000 + 176)
+SYS_dup	bits/syscall.h	d	#define SYS_dup (0x40000000 + 32)
+SYS_dup2	bits/syscall.h	d	#define SYS_dup2 (0x40000000 + 33)
+SYS_dup3	bits/syscall.h	d	#define SYS_dup3 (0x40000000 + 292)
+SYS_epoll_create	bits/syscall.h	d	#define SYS_epoll_create (0x40000000 + 213)
+SYS_epoll_create1	bits/syscall.h	d	#define SYS_epoll_create1 (0x40000000 + 291)
+SYS_epoll_ctl	bits/syscall.h	d	#define SYS_epoll_ctl (0x40000000 + 233)
+SYS_epoll_pwait	bits/syscall.h	d	#define SYS_epoll_pwait (0x40000000 + 281)
+SYS_epoll_wait	bits/syscall.h	d	#define SYS_epoll_wait (0x40000000 + 232)
+SYS_eventfd	bits/syscall.h	d	#define SYS_eventfd (0x40000000 + 284)
+SYS_eventfd2	bits/syscall.h	d	#define SYS_eventfd2 (0x40000000 + 290)
+SYS_execve	bits/syscall.h	d	#define SYS_execve (0x40000000 + 520)
+SYS_execveat	bits/syscall.h	d	#define SYS_execveat (0x40000000 + 545)
+SYS_exit	bits/syscall.h	d	#define SYS_exit (0x40000000 + 60)
+SYS_exit_group	bits/syscall.h	d	#define SYS_exit_group (0x40000000 + 231)
+SYS_faccessat	bits/syscall.h	d	#define SYS_faccessat (0x40000000 + 269)
+SYS_fadvise64	bits/syscall.h	d	#define SYS_fadvise64 (0x40000000 + 221)
+SYS_fallocate	bits/syscall.h	d	#define SYS_fallocate (0x40000000 + 285)
+SYS_fanotify_init	bits/syscall.h	d	#define SYS_fanotify_init (0x40000000 + 300)
+SYS_fanotify_mark	bits/syscall.h	d	#define SYS_fanotify_mark (0x40000000 + 301)
+SYS_fchdir	bits/syscall.h	d	#define SYS_fchdir (0x40000000 + 81)
+SYS_fchmod	bits/syscall.h	d	#define SYS_fchmod (0x40000000 + 91)
+SYS_fchmodat	bits/syscall.h	d	#define SYS_fchmodat (0x40000000 + 268)
+SYS_fchown	bits/syscall.h	d	#define SYS_fchown (0x40000000 + 93)
+SYS_fchownat	bits/syscall.h	d	#define SYS_fchownat (0x40000000 + 260)
+SYS_fcntl	bits/syscall.h	d	#define SYS_fcntl (0x40000000 + 72)
+SYS_fdatasync	bits/syscall.h	d	#define SYS_fdatasync (0x40000000 + 75)
+SYS_fgetxattr	bits/syscall.h	d	#define SYS_fgetxattr (0x40000000 + 193)
+SYS_finit_module	bits/syscall.h	d	#define SYS_finit_module (0x40000000 + 313)
+SYS_flistxattr	bits/syscall.h	d	#define SYS_flistxattr (0x40000000 + 196)
+SYS_flock	bits/syscall.h	d	#define SYS_flock (0x40000000 + 73)
+SYS_fork	bits/syscall.h	d	#define SYS_fork (0x40000000 + 57)
+SYS_fremovexattr	bits/syscall.h	d	#define SYS_fremovexattr (0x40000000 + 199)
+SYS_fsetxattr	bits/syscall.h	d	#define SYS_fsetxattr (0x40000000 + 190)
+SYS_fstat	bits/syscall.h	d	#define SYS_fstat (0x40000000 + 5)
+SYS_fstatfs	bits/syscall.h	d	#define SYS_fstatfs (0x40000000 + 138)
+SYS_fsync	bits/syscall.h	d	#define SYS_fsync (0x40000000 + 74)
+SYS_ftruncate	bits/syscall.h	d	#define SYS_ftruncate (0x40000000 + 77)
+SYS_futex	bits/syscall.h	d	#define SYS_futex (0x40000000 + 202)
+SYS_futimesat	bits/syscall.h	d	#define SYS_futimesat (0x40000000 + 261)
+SYS_get_mempolicy	bits/syscall.h	d	#define SYS_get_mempolicy (0x40000000 + 239)
+SYS_get_robust_list	bits/syscall.h	d	#define SYS_get_robust_list (0x40000000 + 531)
+SYS_getcpu	bits/syscall.h	d	#define SYS_getcpu (0x40000000 + 309)
+SYS_getcwd	bits/syscall.h	d	#define SYS_getcwd (0x40000000 + 79)
+SYS_getdents	bits/syscall.h	d	#define SYS_getdents (0x40000000 + 78)
+SYS_getdents64	bits/syscall.h	d	#define SYS_getdents64 (0x40000000 + 217)
+SYS_getegid	bits/syscall.h	d	#define SYS_getegid (0x40000000 + 108)
+SYS_geteuid	bits/syscall.h	d	#define SYS_geteuid (0x40000000 + 107)
+SYS_getgid	bits/syscall.h	d	#define SYS_getgid (0x40000000 + 104)
+SYS_getgroups	bits/syscall.h	d	#define SYS_getgroups (0x40000000 + 115)
+SYS_getitimer	bits/syscall.h	d	#define SYS_getitimer (0x40000000 + 36)
+SYS_getpeername	bits/syscall.h	d	#define SYS_getpeername (0x40000000 + 52)
+SYS_getpgid	bits/syscall.h	d	#define SYS_getpgid (0x40000000 + 121)
+SYS_getpgrp	bits/syscall.h	d	#define SYS_getpgrp (0x40000000 + 111)
+SYS_getpid	bits/syscall.h	d	#define SYS_getpid (0x40000000 + 39)
+SYS_getpmsg	bits/syscall.h	d	#define SYS_getpmsg (0x40000000 + 181)
+SYS_getppid	bits/syscall.h	d	#define SYS_getppid (0x40000000 + 110)
+SYS_getpriority	bits/syscall.h	d	#define SYS_getpriority (0x40000000 + 140)
+SYS_getrandom	bits/syscall.h	d	#define SYS_getrandom (0x40000000 + 318)
+SYS_getresgid	bits/syscall.h	d	#define SYS_getresgid (0x40000000 + 120)
+SYS_getresuid	bits/syscall.h	d	#define SYS_getresuid (0x40000000 + 118)
+SYS_getrlimit	bits/syscall.h	d	#define SYS_getrlimit (0x40000000 + 97)
+SYS_getrusage	bits/syscall.h	d	#define SYS_getrusage (0x40000000 + 98)
+SYS_getsid	bits/syscall.h	d	#define SYS_getsid (0x40000000 + 124)
+SYS_getsockname	bits/syscall.h	d	#define SYS_getsockname (0x40000000 + 51)
+SYS_getsockopt	bits/syscall.h	d	#define SYS_getsockopt (0x40000000 + 542)
+SYS_gettid	bits/syscall.h	d	#define SYS_gettid (0x40000000 + 186)
+SYS_gettimeofday	bits/syscall.h	d	#define SYS_gettimeofday (0x40000000 + 96)
+SYS_getuid	bits/syscall.h	d	#define SYS_getuid (0x40000000 + 102)
+SYS_getxattr	bits/syscall.h	d	#define SYS_getxattr (0x40000000 + 191)
+SYS_init_module	bits/syscall.h	d	#define SYS_init_module (0x40000000 + 175)
+SYS_inotify_add_watch	bits/syscall.h	d	#define SYS_inotify_add_watch (0x40000000 + 254)
+SYS_inotify_init	bits/syscall.h	d	#define SYS_inotify_init (0x40000000 + 253)
+SYS_inotify_init1	bits/syscall.h	d	#define SYS_inotify_init1 (0x40000000 + 294)
+SYS_inotify_rm_watch	bits/syscall.h	d	#define SYS_inotify_rm_watch (0x40000000 + 255)
+SYS_io_cancel	bits/syscall.h	d	#define SYS_io_cancel (0x40000000 + 210)
+SYS_io_destroy	bits/syscall.h	d	#define SYS_io_destroy (0x40000000 + 207)
+SYS_io_getevents	bits/syscall.h	d	#define SYS_io_getevents (0x40000000 + 208)
+SYS_io_setup	bits/syscall.h	d	#define SYS_io_setup (0x40000000 + 543)
+SYS_io_submit	bits/syscall.h	d	#define SYS_io_submit (0x40000000 + 544)
+SYS_ioctl	bits/syscall.h	d	#define SYS_ioctl (0x40000000 + 514)
+SYS_ioperm	bits/syscall.h	d	#define SYS_ioperm (0x40000000 + 173)
+SYS_iopl	bits/syscall.h	d	#define SYS_iopl (0x40000000 + 172)
+SYS_ioprio_get	bits/syscall.h	d	#define SYS_ioprio_get (0x40000000 + 252)
+SYS_ioprio_set	bits/syscall.h	d	#define SYS_ioprio_set (0x40000000 + 251)
+SYS_kcmp	bits/syscall.h	d	#define SYS_kcmp (0x40000000 + 312)
+SYS_kexec_file_load	bits/syscall.h	d	#define SYS_kexec_file_load (0x40000000 + 320)
+SYS_kexec_load	bits/syscall.h	d	#define SYS_kexec_load (0x40000000 + 528)
+SYS_keyctl	bits/syscall.h	d	#define SYS_keyctl (0x40000000 + 250)
+SYS_kill	bits/syscall.h	d	#define SYS_kill (0x40000000 + 62)
+SYS_lchown	bits/syscall.h	d	#define SYS_lchown (0x40000000 + 94)
+SYS_lgetxattr	bits/syscall.h	d	#define SYS_lgetxattr (0x40000000 + 192)
+SYS_link	bits/syscall.h	d	#define SYS_link (0x40000000 + 86)
+SYS_linkat	bits/syscall.h	d	#define SYS_linkat (0x40000000 + 265)
+SYS_listen	bits/syscall.h	d	#define SYS_listen (0x40000000 + 50)
+SYS_listxattr	bits/syscall.h	d	#define SYS_listxattr (0x40000000 + 194)
+SYS_llistxattr	bits/syscall.h	d	#define SYS_llistxattr (0x40000000 + 195)
+SYS_lookup_dcookie	bits/syscall.h	d	#define SYS_lookup_dcookie (0x40000000 + 212)
+SYS_lremovexattr	bits/syscall.h	d	#define SYS_lremovexattr (0x40000000 + 198)
+SYS_lseek	bits/syscall.h	d	#define SYS_lseek (0x40000000 + 8)
+SYS_lsetxattr	bits/syscall.h	d	#define SYS_lsetxattr (0x40000000 + 189)
+SYS_lstat	bits/syscall.h	d	#define SYS_lstat (0x40000000 + 6)
+SYS_madvise	bits/syscall.h	d	#define SYS_madvise (0x40000000 + 28)
+SYS_mbind	bits/syscall.h	d	#define SYS_mbind (0x40000000 + 237)
+SYS_membarrier	bits/syscall.h	d	#define SYS_membarrier (0x40000000 + 324)
+SYS_memfd_create	bits/syscall.h	d	#define SYS_memfd_create (0x40000000 + 319)
+SYS_migrate_pages	bits/syscall.h	d	#define SYS_migrate_pages (0x40000000 + 256)
+SYS_mincore	bits/syscall.h	d	#define SYS_mincore (0x40000000 + 27)
+SYS_mkdir	bits/syscall.h	d	#define SYS_mkdir (0x40000000 + 83)
+SYS_mkdirat	bits/syscall.h	d	#define SYS_mkdirat (0x40000000 + 258)
+SYS_mknod	bits/syscall.h	d	#define SYS_mknod (0x40000000 + 133)
+SYS_mknodat	bits/syscall.h	d	#define SYS_mknodat (0x40000000 + 259)
+SYS_mlock	bits/syscall.h	d	#define SYS_mlock (0x40000000 + 149)
+SYS_mlock2	bits/syscall.h	d	#define SYS_mlock2 (0x40000000 + 325)
+SYS_mlockall	bits/syscall.h	d	#define SYS_mlockall (0x40000000 + 151)
+SYS_mmap	bits/syscall.h	d	#define SYS_mmap (0x40000000 + 9)
+SYS_modify_ldt	bits/syscall.h	d	#define SYS_modify_ldt (0x40000000 + 154)
+SYS_mount	bits/syscall.h	d	#define SYS_mount (0x40000000 + 165)
+SYS_move_pages	bits/syscall.h	d	#define SYS_move_pages (0x40000000 + 533)
+SYS_mprotect	bits/syscall.h	d	#define SYS_mprotect (0x40000000 + 10)
+SYS_mq_getsetattr	bits/syscall.h	d	#define SYS_mq_getsetattr (0x40000000 + 245)
+SYS_mq_notify	bits/syscall.h	d	#define SYS_mq_notify (0x40000000 + 527)
+SYS_mq_open	bits/syscall.h	d	#define SYS_mq_open (0x40000000 + 240)
+SYS_mq_timedreceive	bits/syscall.h	d	#define SYS_mq_timedreceive (0x40000000 + 243)
+SYS_mq_timedsend	bits/syscall.h	d	#define SYS_mq_timedsend (0x40000000 + 242)
+SYS_mq_unlink	bits/syscall.h	d	#define SYS_mq_unlink (0x40000000 + 241)
+SYS_mremap	bits/syscall.h	d	#define SYS_mremap (0x40000000 + 25)
+SYS_msgctl	bits/syscall.h	d	#define SYS_msgctl (0x40000000 + 71)
+SYS_msgget	bits/syscall.h	d	#define SYS_msgget (0x40000000 + 68)
+SYS_msgrcv	bits/syscall.h	d	#define SYS_msgrcv (0x40000000 + 70)
+SYS_msgsnd	bits/syscall.h	d	#define SYS_msgsnd (0x40000000 + 69)
+SYS_msync	bits/syscall.h	d	#define SYS_msync (0x40000000 + 26)
+SYS_munlock	bits/syscall.h	d	#define SYS_munlock (0x40000000 + 150)
+SYS_munlockall	bits/syscall.h	d	#define SYS_munlockall (0x40000000 + 152)
+SYS_munmap	bits/syscall.h	d	#define SYS_munmap (0x40000000 + 11)
+SYS_name_to_handle_at	bits/syscall.h	d	#define SYS_name_to_handle_at (0x40000000 + 303)
+SYS_nanosleep	bits/syscall.h	d	#define SYS_nanosleep (0x40000000 + 35)
+SYS_newfstatat	bits/syscall.h	d	#define SYS_newfstatat (0x40000000 + 262)
+SYS_open	bits/syscall.h	d	#define SYS_open (0x40000000 + 2)
+SYS_open_by_handle_at	bits/syscall.h	d	#define SYS_open_by_handle_at (0x40000000 + 304)
+SYS_openat	bits/syscall.h	d	#define SYS_openat (0x40000000 + 257)
+SYS_pause	bits/syscall.h	d	#define SYS_pause (0x40000000 + 34)
+SYS_perf_event_open	bits/syscall.h	d	#define SYS_perf_event_open (0x40000000 + 298)
+SYS_personality	bits/syscall.h	d	#define SYS_personality (0x40000000 + 135)
+SYS_pipe	bits/syscall.h	d	#define SYS_pipe (0x40000000 + 22)
+SYS_pipe2	bits/syscall.h	d	#define SYS_pipe2 (0x40000000 + 293)
+SYS_pivot_root	bits/syscall.h	d	#define SYS_pivot_root (0x40000000 + 155)
+SYS_poll	bits/syscall.h	d	#define SYS_poll (0x40000000 + 7)
+SYS_ppoll	bits/syscall.h	d	#define SYS_ppoll (0x40000000 + 271)
+SYS_prctl	bits/syscall.h	d	#define SYS_prctl (0x40000000 + 157)
+SYS_pread64	bits/syscall.h	d	#define SYS_pread64 (0x40000000 + 17)
+SYS_preadv	bits/syscall.h	d	#define SYS_preadv (0x40000000 + 534)
+SYS_preadv2	bits/syscall.h	d	#define SYS_preadv2 (0x40000000 + 327)
+SYS_prlimit64	bits/syscall.h	d	#define SYS_prlimit64 (0x40000000 + 302)
+SYS_process_vm_readv	bits/syscall.h	d	#define SYS_process_vm_readv (0x40000000 + 539)
+SYS_process_vm_writev	bits/syscall.h	d	#define SYS_process_vm_writev (0x40000000 + 540)
+SYS_pselect6	bits/syscall.h	d	#define SYS_pselect6 (0x40000000 + 270)
+SYS_ptrace	bits/syscall.h	d	#define SYS_ptrace (0x40000000 + 521)
+SYS_putpmsg	bits/syscall.h	d	#define SYS_putpmsg (0x40000000 + 182)
+SYS_pwrite64	bits/syscall.h	d	#define SYS_pwrite64 (0x40000000 + 18)
+SYS_pwritev	bits/syscall.h	d	#define SYS_pwritev (0x40000000 + 535)
+SYS_pwritev2	bits/syscall.h	d	#define SYS_pwritev2 (0x40000000 + 328)
+SYS_quotactl	bits/syscall.h	d	#define SYS_quotactl (0x40000000 + 179)
+SYS_read	bits/syscall.h	d	#define SYS_read (0x40000000 + 0)
+SYS_readahead	bits/syscall.h	d	#define SYS_readahead (0x40000000 + 187)
+SYS_readlink	bits/syscall.h	d	#define SYS_readlink (0x40000000 + 89)
+SYS_readlinkat	bits/syscall.h	d	#define SYS_readlinkat (0x40000000 + 267)
+SYS_readv	bits/syscall.h	d	#define SYS_readv (0x40000000 + 515)
+SYS_reboot	bits/syscall.h	d	#define SYS_reboot (0x40000000 + 169)
+SYS_recvfrom	bits/syscall.h	d	#define SYS_recvfrom (0x40000000 + 517)
+SYS_recvmmsg	bits/syscall.h	d	#define SYS_recvmmsg (0x40000000 + 537)
+SYS_recvmsg	bits/syscall.h	d	#define SYS_recvmsg (0x40000000 + 519)
+SYS_remap_file_pages	bits/syscall.h	d	#define SYS_remap_file_pages (0x40000000 + 216)
+SYS_removexattr	bits/syscall.h	d	#define SYS_removexattr (0x40000000 + 197)
+SYS_rename	bits/syscall.h	d	#define SYS_rename (0x40000000 + 82)
+SYS_renameat	bits/syscall.h	d	#define SYS_renameat (0x40000000 + 264)
+SYS_renameat2	bits/syscall.h	d	#define SYS_renameat2 (0x40000000 + 316)
+SYS_request_key	bits/syscall.h	d	#define SYS_request_key (0x40000000 + 249)
+SYS_restart_syscall	bits/syscall.h	d	#define SYS_restart_syscall (0x40000000 + 219)
+SYS_rmdir	bits/syscall.h	d	#define SYS_rmdir (0x40000000 + 84)
+SYS_rt_sigaction	bits/syscall.h	d	#define SYS_rt_sigaction (0x40000000 + 512)
+SYS_rt_sigpending	bits/syscall.h	d	#define SYS_rt_sigpending (0x40000000 + 522)
+SYS_rt_sigprocmask	bits/syscall.h	d	#define SYS_rt_sigprocmask (0x40000000 + 14)
+SYS_rt_sigqueueinfo	bits/syscall.h	d	#define SYS_rt_sigqueueinfo (0x40000000 + 524)
+SYS_rt_sigreturn	bits/syscall.h	d	#define SYS_rt_sigreturn (0x40000000 + 513)
+SYS_rt_sigsuspend	bits/syscall.h	d	#define SYS_rt_sigsuspend (0x40000000 + 130)
+SYS_rt_sigtimedwait	bits/syscall.h	d	#define SYS_rt_sigtimedwait (0x40000000 + 523)
+SYS_rt_tgsigqueueinfo	bits/syscall.h	d	#define SYS_rt_tgsigqueueinfo (0x40000000 + 536)
+SYS_sched_get_priority_max	bits/syscall.h	d	#define SYS_sched_get_priority_max (0x40000000 + 146)
+SYS_sched_get_priority_min	bits/syscall.h	d	#define SYS_sched_get_priority_min (0x40000000 + 147)
+SYS_sched_getaffinity	bits/syscall.h	d	#define SYS_sched_getaffinity (0x40000000 + 204)
+SYS_sched_getattr	bits/syscall.h	d	#define SYS_sched_getattr (0x40000000 + 315)
+SYS_sched_getparam	bits/syscall.h	d	#define SYS_sched_getparam (0x40000000 + 143)
+SYS_sched_getscheduler	bits/syscall.h	d	#define SYS_sched_getscheduler (0x40000000 + 145)
+SYS_sched_rr_get_interval	bits/syscall.h	d	#define SYS_sched_rr_get_interval (0x40000000 + 148)
+SYS_sched_setaffinity	bits/syscall.h	d	#define SYS_sched_setaffinity (0x40000000 + 203)
+SYS_sched_setattr	bits/syscall.h	d	#define SYS_sched_setattr (0x40000000 + 314)
+SYS_sched_setparam	bits/syscall.h	d	#define SYS_sched_setparam (0x40000000 + 142)
+SYS_sched_setscheduler	bits/syscall.h	d	#define SYS_sched_setscheduler (0x40000000 + 144)
+SYS_sched_yield	bits/syscall.h	d	#define SYS_sched_yield (0x40000000 + 24)
+SYS_seccomp	bits/syscall.h	d	#define SYS_seccomp (0x40000000 + 317)
+SYS_security	bits/syscall.h	d	#define SYS_security (0x40000000 + 185)
+SYS_select	bits/syscall.h	d	#define SYS_select (0x40000000 + 23)
+SYS_semctl	bits/syscall.h	d	#define SYS_semctl (0x40000000 + 66)
+SYS_semget	bits/syscall.h	d	#define SYS_semget (0x40000000 + 64)
+SYS_semop	bits/syscall.h	d	#define SYS_semop (0x40000000 + 65)
+SYS_semtimedop	bits/syscall.h	d	#define SYS_semtimedop (0x40000000 + 220)
+SYS_sendfile	bits/syscall.h	d	#define SYS_sendfile (0x40000000 + 40)
+SYS_sendmmsg	bits/syscall.h	d	#define SYS_sendmmsg (0x40000000 + 538)
+SYS_sendmsg	bits/syscall.h	d	#define SYS_sendmsg (0x40000000 + 518)
+SYS_sendto	bits/syscall.h	d	#define SYS_sendto (0x40000000 + 44)
+SYS_set_mempolicy	bits/syscall.h	d	#define SYS_set_mempolicy (0x40000000 + 238)
+SYS_set_robust_list	bits/syscall.h	d	#define SYS_set_robust_list (0x40000000 + 530)
+SYS_set_tid_address	bits/syscall.h	d	#define SYS_set_tid_address (0x40000000 + 218)
+SYS_setdomainname	bits/syscall.h	d	#define SYS_setdomainname (0x40000000 + 171)
+SYS_setfsgid	bits/syscall.h	d	#define SYS_setfsgid (0x40000000 + 123)
+SYS_setfsuid	bits/syscall.h	d	#define SYS_setfsuid (0x40000000 + 122)
+SYS_setgid	bits/syscall.h	d	#define SYS_setgid (0x40000000 + 106)
+SYS_setgroups	bits/syscall.h	d	#define SYS_setgroups (0x40000000 + 116)
+SYS_sethostname	bits/syscall.h	d	#define SYS_sethostname (0x40000000 + 170)
+SYS_setitimer	bits/syscall.h	d	#define SYS_setitimer (0x40000000 + 38)
+SYS_setns	bits/syscall.h	d	#define SYS_setns (0x40000000 + 308)
+SYS_setpgid	bits/syscall.h	d	#define SYS_setpgid (0x40000000 + 109)
+SYS_setpriority	bits/syscall.h	d	#define SYS_setpriority (0x40000000 + 141)
+SYS_setregid	bits/syscall.h	d	#define SYS_setregid (0x40000000 + 114)
+SYS_setresgid	bits/syscall.h	d	#define SYS_setresgid (0x40000000 + 119)
+SYS_setresuid	bits/syscall.h	d	#define SYS_setresuid (0x40000000 + 117)
+SYS_setreuid	bits/syscall.h	d	#define SYS_setreuid (0x40000000 + 113)
+SYS_setrlimit	bits/syscall.h	d	#define SYS_setrlimit (0x40000000 + 160)
+SYS_setsid	bits/syscall.h	d	#define SYS_setsid (0x40000000 + 112)
+SYS_setsockopt	bits/syscall.h	d	#define SYS_setsockopt (0x40000000 + 541)
+SYS_settimeofday	bits/syscall.h	d	#define SYS_settimeofday (0x40000000 + 164)
+SYS_setuid	bits/syscall.h	d	#define SYS_setuid (0x40000000 + 105)
+SYS_setxattr	bits/syscall.h	d	#define SYS_setxattr (0x40000000 + 188)
+SYS_shmat	bits/syscall.h	d	#define SYS_shmat (0x40000000 + 30)
+SYS_shmctl	bits/syscall.h	d	#define SYS_shmctl (0x40000000 + 31)
+SYS_shmdt	bits/syscall.h	d	#define SYS_shmdt (0x40000000 + 67)
+SYS_shmget	bits/syscall.h	d	#define SYS_shmget (0x40000000 + 29)
+SYS_shutdown	bits/syscall.h	d	#define SYS_shutdown (0x40000000 + 48)
+SYS_sigaltstack	bits/syscall.h	d	#define SYS_sigaltstack (0x40000000 + 525)
+SYS_signalfd	bits/syscall.h	d	#define SYS_signalfd (0x40000000 + 282)
+SYS_signalfd4	bits/syscall.h	d	#define SYS_signalfd4 (0x40000000 + 289)
+SYS_socket	bits/syscall.h	d	#define SYS_socket (0x40000000 + 41)
+SYS_socketpair	bits/syscall.h	d	#define SYS_socketpair (0x40000000 + 53)
+SYS_splice	bits/syscall.h	d	#define SYS_splice (0x40000000 + 275)
+SYS_stat	bits/syscall.h	d	#define SYS_stat (0x40000000 + 4)
+SYS_statfs	bits/syscall.h	d	#define SYS_statfs (0x40000000 + 137)
+SYS_swapoff	bits/syscall.h	d	#define SYS_swapoff (0x40000000 + 168)
+SYS_swapon	bits/syscall.h	d	#define SYS_swapon (0x40000000 + 167)
+SYS_symlink	bits/syscall.h	d	#define SYS_symlink (0x40000000 + 88)
+SYS_symlinkat	bits/syscall.h	d	#define SYS_symlinkat (0x40000000 + 266)
+SYS_sync	bits/syscall.h	d	#define SYS_sync (0x40000000 + 162)
+SYS_sync_file_range	bits/syscall.h	d	#define SYS_sync_file_range (0x40000000 + 277)
+SYS_syncfs	bits/syscall.h	d	#define SYS_syncfs (0x40000000 + 306)
+SYS_sysfs	bits/syscall.h	d	#define SYS_sysfs (0x40000000 + 139)
+SYS_sysinfo	bits/syscall.h	d	#define SYS_sysinfo (0x40000000 + 99)
+SYS_syslog	bits/syscall.h	d	#define SYS_syslog (0x40000000 + 103)
+SYS_tee	bits/syscall.h	d	#define SYS_tee (0x40000000 + 276)
+SYS_tgkill	bits/syscall.h	d	#define SYS_tgkill (0x40000000 + 234)
+SYS_time	bits/syscall.h	d	#define SYS_time (0x40000000 + 201)
+SYS_timer_create	bits/syscall.h	d	#define SYS_timer_create (0x40000000 + 526)
+SYS_timer_delete	bits/syscall.h	d	#define SYS_timer_delete (0x40000000 + 226)
+SYS_timer_getoverrun	bits/syscall.h	d	#define SYS_timer_getoverrun (0x40000000 + 225)
+SYS_timer_gettime	bits/syscall.h	d	#define SYS_timer_gettime (0x40000000 + 224)
+SYS_timer_settime	bits/syscall.h	d	#define SYS_timer_settime (0x40000000 + 223)
+SYS_timerfd_create	bits/syscall.h	d	#define SYS_timerfd_create (0x40000000 + 283)
+SYS_timerfd_gettime	bits/syscall.h	d	#define SYS_timerfd_gettime (0x40000000 + 287)
+SYS_timerfd_settime	bits/syscall.h	d	#define SYS_timerfd_settime (0x40000000 + 286)
+SYS_times	bits/syscall.h	d	#define SYS_times (0x40000000 + 100)
+SYS_tkill	bits/syscall.h	d	#define SYS_tkill (0x40000000 + 200)
+SYS_truncate	bits/syscall.h	d	#define SYS_truncate (0x40000000 + 76)
+SYS_tuxcall	bits/syscall.h	d	#define SYS_tuxcall (0x40000000 + 184)
+SYS_umask	bits/syscall.h	d	#define SYS_umask (0x40000000 + 95)
+SYS_umount2	bits/syscall.h	d	#define SYS_umount2 (0x40000000 + 166)
+SYS_uname	bits/syscall.h	d	#define SYS_uname (0x40000000 + 63)
+SYS_unlink	bits/syscall.h	d	#define SYS_unlink (0x40000000 + 87)
+SYS_unlinkat	bits/syscall.h	d	#define SYS_unlinkat (0x40000000 + 263)
+SYS_unshare	bits/syscall.h	d	#define SYS_unshare (0x40000000 + 272)
+SYS_userfaultfd	bits/syscall.h	d	#define SYS_userfaultfd (0x40000000 + 323)
+SYS_ustat	bits/syscall.h	d	#define SYS_ustat (0x40000000 + 136)
+SYS_utime	bits/syscall.h	d	#define SYS_utime (0x40000000 + 132)
+SYS_utimensat	bits/syscall.h	d	#define SYS_utimensat (0x40000000 + 280)
+SYS_utimes	bits/syscall.h	d	#define SYS_utimes (0x40000000 + 235)
+SYS_vfork	bits/syscall.h	d	#define SYS_vfork (0x40000000 + 58)
+SYS_vhangup	bits/syscall.h	d	#define SYS_vhangup (0x40000000 + 153)
+SYS_vmsplice	bits/syscall.h	d	#define SYS_vmsplice (0x40000000 + 532)
+SYS_wait4	bits/syscall.h	d	#define SYS_wait4 (0x40000000 + 61)
+SYS_waitid	bits/syscall.h	d	#define SYS_waitid (0x40000000 + 529)
+SYS_write	bits/syscall.h	d	#define SYS_write (0x40000000 + 1)
+SYS_writev	bits/syscall.h	d	#define SYS_writev (0x40000000 + 516)
 TAB0	bits/termios.h	d	#define TAB0 0000000
 TAB1	bits/termios.h	d	#define TAB1 0004000
 TAB2	bits/termios.h	d	#define TAB2 0010000
@@ -887,12 +840,16 @@ TCXONC	bits/ioctl.h	d	#define TCXONC 0x540A
 TIOCCBRK	bits/ioctl.h	d	#define TIOCCBRK 0x5428
 TIOCCONS	bits/ioctl.h	d	#define TIOCCONS 0x541D
 TIOCEXCL	bits/ioctl.h	d	#define TIOCEXCL 0x540C
+TIOCGDEV	bits/ioctl.h	d	#define TIOCGDEV 0x80045432
 TIOCGETD	bits/ioctl.h	d	#define TIOCGETD 0x5424
-TIOCGHAYESESP	bits/ioctl.h	d	#define TIOCGHAYESESP 0x545E
+TIOCGEXCL	bits/ioctl.h	d	#define TIOCGEXCL 0x80045440
 TIOCGICOUNT	bits/ioctl.h	d	#define TIOCGICOUNT 0x545D
 TIOCGLCKTRMIOS	bits/ioctl.h	d	#define TIOCGLCKTRMIOS 0x5456
 TIOCGPGRP	bits/ioctl.h	d	#define TIOCGPGRP 0x540F
+TIOCGPKT	bits/ioctl.h	d	#define TIOCGPKT 0x80045438
+TIOCGPTLCK	bits/ioctl.h	d	#define TIOCGPTLCK 0x80045439
 TIOCGPTN	bits/ioctl.h	d	#define TIOCGPTN 0x80045430
+TIOCGRS485	bits/ioctl.h	d	#define TIOCGRS485 0x542E
 TIOCGSERIAL	bits/ioctl.h	d	#define TIOCGSERIAL 0x541E
 TIOCGSID	bits/ioctl.h	d	#define TIOCGSID 0x5429
 TIOCGSOFTCAR	bits/ioctl.h	d	#define TIOCGSOFTCAR 0x5419
@@ -911,7 +868,6 @@ TIOCM_DSR	bits/ioctl.h	d	#define TIOCM_DSR 0x100
 TIOCM_DTR	bits/ioctl.h	d	#define TIOCM_DTR 0x002
 TIOCM_LE	bits/ioctl.h	d	#define TIOCM_LE 0x001
 TIOCM_LOOP	bits/ioctl.h	d	#define TIOCM_LOOP 0x8000
-TIOCM_MODEM_BITS	bits/ioctl.h	d	#define TIOCM_MODEM_BITS TIOCM_OUT2
 TIOCM_OUT1	bits/ioctl.h	d	#define TIOCM_OUT1 0x2000
 TIOCM_OUT2	bits/ioctl.h	d	#define TIOCM_OUT2 0x4000
 TIOCM_RI	bits/ioctl.h	d	#define TIOCM_RI TIOCM_RNG
@@ -942,15 +898,16 @@ TIOCSERSETMULTI	bits/ioctl.h	d	#define TIOCSERSETMULTI 0x545B
 TIOCSERSWILD	bits/ioctl.h	d	#define TIOCSERSWILD 0x5455
 TIOCSER_TEMT	bits/ioctl.h	d	#define TIOCSER_TEMT 0x01
 TIOCSETD	bits/ioctl.h	d	#define TIOCSETD 0x5423
-TIOCSHAYESESP	bits/ioctl.h	d	#define TIOCSHAYESESP 0x545F
+TIOCSIG	bits/ioctl.h	d	#define TIOCSIG 0x40045436
 TIOCSLCKTRMIOS	bits/ioctl.h	d	#define TIOCSLCKTRMIOS 0x5457
 TIOCSPGRP	bits/ioctl.h	d	#define TIOCSPGRP 0x5410
 TIOCSPTLCK	bits/ioctl.h	d	#define TIOCSPTLCK 0x40045431
+TIOCSRS485	bits/ioctl.h	d	#define TIOCSRS485 0x542F
 TIOCSSERIAL	bits/ioctl.h	d	#define TIOCSSERIAL 0x541F
 TIOCSSOFTCAR	bits/ioctl.h	d	#define TIOCSSOFTCAR 0x541A
 TIOCSTI	bits/ioctl.h	d	#define TIOCSTI 0x5412
 TIOCSWINSZ	bits/ioctl.h	d	#define TIOCSWINSZ 0x5414
-TIOCTTYGSTRUCT	bits/ioctl.h	d	#define TIOCTTYGSTRUCT 0x5426
+TIOCVHANGUP	bits/ioctl.h	d	#define TIOCVHANGUP 0x5437
 TOSTOP	bits/termios.h	d	#define TOSTOP 0000400
 UINTPTR_MAX	bits/stdint.h	d	#define UINTPTR_MAX UINT32_MAX
 UINT_FAST16_MAX	bits/stdint.h	d	#define UINT_FAST16_MAX UINT32_MAX
@@ -976,6 +933,7 @@ VT1	bits/termios.h	d	#define VT1 0040000
 VTDLY	bits/termios.h	d	#define VTDLY 0040000
 VTIME	bits/termios.h	d	#define VTIME 5
 VWERASE	bits/termios.h	d	#define VWERASE 14
+XCASE	bits/termios.h	d	#define XCASE 0000004
 XTABS	bits/termios.h	d	#define XTABS 0014000
 _Addr	bits/alltypes.h	d	#define _Addr int
 _IO	bits/ioctl.h	d	#define _IO(a,b) _IOC(_IOC_NONE,(a),(b),0)
@@ -1066,329 +1024,326 @@ __DEFINED_wchar_t	bits/alltypes.h	d	#define __DEFINED_wchar_t
 __DEFINED_wctype_t	bits/alltypes.h	d	#define __DEFINED_wctype_t
 __DEFINED_wint_t	bits/alltypes.h	d	#define __DEFINED_wint_t
 __FE_DENORM	bits/fenv.h	d	#define __FE_DENORM 2
-__NR_accept	bits/syscall.h	d	#define __NR_accept (__X32_SYSCALL_BIT + 43)
-__NR_accept4	bits/syscall.h	d	#define __NR_accept4 (__X32_SYSCALL_BIT + 288)
-__NR_access	bits/syscall.h	d	#define __NR_access (__X32_SYSCALL_BIT + 21)
-__NR_acct	bits/syscall.h	d	#define __NR_acct (__X32_SYSCALL_BIT + 163)
-__NR_add_key	bits/syscall.h	d	#define __NR_add_key (__X32_SYSCALL_BIT + 248)
-__NR_adjtimex	bits/syscall.h	d	#define __NR_adjtimex (__X32_SYSCALL_BIT + 159)
-__NR_afs_syscall	bits/syscall.h	d	#define __NR_afs_syscall (__X32_SYSCALL_BIT + 183)
-__NR_alarm	bits/syscall.h	d	#define __NR_alarm (__X32_SYSCALL_BIT + 37)
-__NR_arch_prctl	bits/syscall.h	d	#define __NR_arch_prctl (__X32_SYSCALL_BIT + 158)
-__NR_bind	bits/syscall.h	d	#define __NR_bind (__X32_SYSCALL_BIT + 49)
-__NR_bpf	bits/syscall.h	d	#define __NR_bpf (__X32_SYSCALL_BIT + 321)
-__NR_brk	bits/syscall.h	d	#define __NR_brk (__X32_SYSCALL_BIT + 12)
-__NR_capget	bits/syscall.h	d	#define __NR_capget (__X32_SYSCALL_BIT + 125)
-__NR_capset	bits/syscall.h	d	#define __NR_capset (__X32_SYSCALL_BIT + 126)
-__NR_chdir	bits/syscall.h	d	#define __NR_chdir (__X32_SYSCALL_BIT + 80)
-__NR_chmod	bits/syscall.h	d	#define __NR_chmod (__X32_SYSCALL_BIT + 90)
-__NR_chown	bits/syscall.h	d	#define __NR_chown (__X32_SYSCALL_BIT + 92)
-__NR_chroot	bits/syscall.h	d	#define __NR_chroot (__X32_SYSCALL_BIT + 161)
-__NR_clock_adjtime	bits/syscall.h	d	#define __NR_clock_adjtime (__X32_SYSCALL_BIT + 305)
-__NR_clock_getres	bits/syscall.h	d	#define __NR_clock_getres (__X32_SYSCALL_BIT + 229)
-__NR_clock_gettime	bits/syscall.h	d	#define __NR_clock_gettime (__X32_SYSCALL_BIT + 228)
-__NR_clock_nanosleep	bits/syscall.h	d	#define __NR_clock_nanosleep (__X32_SYSCALL_BIT + 230)
-__NR_clock_settime	bits/syscall.h	d	#define __NR_clock_settime (__X32_SYSCALL_BIT + 227)
-__NR_clone	bits/syscall.h	d	#define __NR_clone (__X32_SYSCALL_BIT + 56)
-__NR_close	bits/syscall.h	d	#define __NR_close (__X32_SYSCALL_BIT + 3)
-__NR_connect	bits/syscall.h	d	#define __NR_connect (__X32_SYSCALL_BIT + 42)
-__NR_creat	bits/syscall.h	d	#define __NR_creat (__X32_SYSCALL_BIT + 85)
-__NR_delete_module	bits/syscall.h	d	#define __NR_delete_module (__X32_SYSCALL_BIT + 176)
-__NR_dup	bits/syscall.h	d	#define __NR_dup (__X32_SYSCALL_BIT + 32)
-__NR_dup2	bits/syscall.h	d	#define __NR_dup2 (__X32_SYSCALL_BIT + 33)
-__NR_dup3	bits/syscall.h	d	#define __NR_dup3 (__X32_SYSCALL_BIT + 292)
-__NR_epoll_create	bits/syscall.h	d	#define __NR_epoll_create (__X32_SYSCALL_BIT + 213)
-__NR_epoll_create1	bits/syscall.h	d	#define __NR_epoll_create1 (__X32_SYSCALL_BIT + 291)
-__NR_epoll_ctl	bits/syscall.h	d	#define __NR_epoll_ctl (__X32_SYSCALL_BIT + 233)
-__NR_epoll_pwait	bits/syscall.h	d	#define __NR_epoll_pwait (__X32_SYSCALL_BIT + 281)
-__NR_epoll_wait	bits/syscall.h	d	#define __NR_epoll_wait (__X32_SYSCALL_BIT + 232)
-__NR_eventfd	bits/syscall.h	d	#define __NR_eventfd (__X32_SYSCALL_BIT + 284)
-__NR_eventfd2	bits/syscall.h	d	#define __NR_eventfd2 (__X32_SYSCALL_BIT + 290)
-__NR_execve	bits/syscall.h	d	#define __NR_execve (__X32_SYSCALL_BIT + 520)
-__NR_execveat	bits/syscall.h	d	#define __NR_execveat (__X32_SYSCALL_BIT + 545)
-__NR_exit	bits/syscall.h	d	#define __NR_exit (__X32_SYSCALL_BIT + 60)
-__NR_exit_group	bits/syscall.h	d	#define __NR_exit_group (__X32_SYSCALL_BIT + 231)
-__NR_faccessat	bits/syscall.h	d	#define __NR_faccessat (__X32_SYSCALL_BIT + 269)
-__NR_fadvise	bits/syscall.h	d	#define __NR_fadvise __NR_fadvise64
-__NR_fadvise64	bits/syscall.h	d	#define __NR_fadvise64 (__X32_SYSCALL_BIT + 221)
-__NR_fallocate	bits/syscall.h	d	#define __NR_fallocate (__X32_SYSCALL_BIT + 285)
-__NR_fanotify_init	bits/syscall.h	d	#define __NR_fanotify_init (__X32_SYSCALL_BIT + 300)
-__NR_fanotify_mark	bits/syscall.h	d	#define __NR_fanotify_mark (__X32_SYSCALL_BIT + 301)
-__NR_fchdir	bits/syscall.h	d	#define __NR_fchdir (__X32_SYSCALL_BIT + 81)
-__NR_fchmod	bits/syscall.h	d	#define __NR_fchmod (__X32_SYSCALL_BIT + 91)
-__NR_fchmodat	bits/syscall.h	d	#define __NR_fchmodat (__X32_SYSCALL_BIT + 268)
-__NR_fchown	bits/syscall.h	d	#define __NR_fchown (__X32_SYSCALL_BIT + 93)
-__NR_fchownat	bits/syscall.h	d	#define __NR_fchownat (__X32_SYSCALL_BIT + 260)
-__NR_fcntl	bits/syscall.h	d	#define __NR_fcntl (__X32_SYSCALL_BIT + 72)
-__NR_fdatasync	bits/syscall.h	d	#define __NR_fdatasync (__X32_SYSCALL_BIT + 75)
-__NR_fgetxattr	bits/syscall.h	d	#define __NR_fgetxattr (__X32_SYSCALL_BIT + 193)
-__NR_finit_module	bits/syscall.h	d	#define __NR_finit_module (__X32_SYSCALL_BIT + 313)
-__NR_flistxattr	bits/syscall.h	d	#define __NR_flistxattr (__X32_SYSCALL_BIT + 196)
-__NR_flock	bits/syscall.h	d	#define __NR_flock (__X32_SYSCALL_BIT + 73)
-__NR_fork	bits/syscall.h	d	#define __NR_fork (__X32_SYSCALL_BIT + 57)
-__NR_fremovexattr	bits/syscall.h	d	#define __NR_fremovexattr (__X32_SYSCALL_BIT + 199)
-__NR_fsetxattr	bits/syscall.h	d	#define __NR_fsetxattr (__X32_SYSCALL_BIT + 190)
-__NR_fstat	bits/syscall.h	d	#define __NR_fstat (__X32_SYSCALL_BIT + 5)
-__NR_fstatat	bits/syscall.h	d	#define __NR_fstatat __NR_newfstatat
-__NR_fstatfs	bits/syscall.h	d	#define __NR_fstatfs (__X32_SYSCALL_BIT + 138)
-__NR_fsync	bits/syscall.h	d	#define __NR_fsync (__X32_SYSCALL_BIT + 74)
-__NR_ftruncate	bits/syscall.h	d	#define __NR_ftruncate (__X32_SYSCALL_BIT + 77)
-__NR_futex	bits/syscall.h	d	#define __NR_futex (__X32_SYSCALL_BIT + 202)
-__NR_futimesat	bits/syscall.h	d	#define __NR_futimesat (__X32_SYSCALL_BIT + 261)
-__NR_get_mempolicy	bits/syscall.h	d	#define __NR_get_mempolicy (__X32_SYSCALL_BIT + 239)
-__NR_get_robust_list	bits/syscall.h	d	#define __NR_get_robust_list (__X32_SYSCALL_BIT + 531)
-__NR_getcpu	bits/syscall.h	d	#define __NR_getcpu (__X32_SYSCALL_BIT + 309)
-__NR_getcwd	bits/syscall.h	d	#define __NR_getcwd (__X32_SYSCALL_BIT + 79)
-__NR_getdents	bits/syscall.h	d	#define __NR_getdents (__X32_SYSCALL_BIT + 78)
-__NR_getdents	bits/syscall.h	d	#define __NR_getdents __NR_getdents64
-__NR_getdents64	bits/syscall.h	d	#define __NR_getdents64 (__X32_SYSCALL_BIT + 217)
-__NR_getegid	bits/syscall.h	d	#define __NR_getegid (__X32_SYSCALL_BIT + 108)
-__NR_geteuid	bits/syscall.h	d	#define __NR_geteuid (__X32_SYSCALL_BIT + 107)
-__NR_getgid	bits/syscall.h	d	#define __NR_getgid (__X32_SYSCALL_BIT + 104)
-__NR_getgroups	bits/syscall.h	d	#define __NR_getgroups (__X32_SYSCALL_BIT + 115)
-__NR_getitimer	bits/syscall.h	d	#define __NR_getitimer (__X32_SYSCALL_BIT + 36)
-__NR_getpeername	bits/syscall.h	d	#define __NR_getpeername (__X32_SYSCALL_BIT + 52)
-__NR_getpgid	bits/syscall.h	d	#define __NR_getpgid (__X32_SYSCALL_BIT + 121)
-__NR_getpgrp	bits/syscall.h	d	#define __NR_getpgrp (__X32_SYSCALL_BIT + 111)
-__NR_getpid	bits/syscall.h	d	#define __NR_getpid (__X32_SYSCALL_BIT + 39)
-__NR_getpmsg	bits/syscall.h	d	#define __NR_getpmsg (__X32_SYSCALL_BIT + 181)
-__NR_getppid	bits/syscall.h	d	#define __NR_getppid (__X32_SYSCALL_BIT + 110)
-__NR_getpriority	bits/syscall.h	d	#define __NR_getpriority (__X32_SYSCALL_BIT + 140)
-__NR_getrandom	bits/syscall.h	d	#define __NR_getrandom (__X32_SYSCALL_BIT + 318)
-__NR_getresgid	bits/syscall.h	d	#define __NR_getresgid (__X32_SYSCALL_BIT + 120)
-__NR_getresuid	bits/syscall.h	d	#define __NR_getresuid (__X32_SYSCALL_BIT + 118)
-__NR_getrlimit	bits/syscall.h	d	#define __NR_getrlimit (__X32_SYSCALL_BIT + 97)
-__NR_getrusage	bits/syscall.h	d	#define __NR_getrusage (__X32_SYSCALL_BIT + 98)
-__NR_getsid	bits/syscall.h	d	#define __NR_getsid (__X32_SYSCALL_BIT + 124)
-__NR_getsockname	bits/syscall.h	d	#define __NR_getsockname (__X32_SYSCALL_BIT + 51)
-__NR_getsockopt	bits/syscall.h	d	#define __NR_getsockopt (__X32_SYSCALL_BIT + 542)
-__NR_gettid	bits/syscall.h	d	#define __NR_gettid (__X32_SYSCALL_BIT + 186)
-__NR_gettimeofday	bits/syscall.h	d	#define __NR_gettimeofday (__X32_SYSCALL_BIT + 96)
-__NR_getuid	bits/syscall.h	d	#define __NR_getuid (__X32_SYSCALL_BIT + 102)
-__NR_getxattr	bits/syscall.h	d	#define __NR_getxattr (__X32_SYSCALL_BIT + 191)
-__NR_init_module	bits/syscall.h	d	#define __NR_init_module (__X32_SYSCALL_BIT + 175)
-__NR_inotify_add_watch	bits/syscall.h	d	#define __NR_inotify_add_watch (__X32_SYSCALL_BIT + 254)
-__NR_inotify_init	bits/syscall.h	d	#define __NR_inotify_init (__X32_SYSCALL_BIT + 253)
-__NR_inotify_init1	bits/syscall.h	d	#define __NR_inotify_init1 (__X32_SYSCALL_BIT + 294)
-__NR_inotify_rm_watch	bits/syscall.h	d	#define __NR_inotify_rm_watch (__X32_SYSCALL_BIT + 255)
-__NR_io_cancel	bits/syscall.h	d	#define __NR_io_cancel (__X32_SYSCALL_BIT + 210)
-__NR_io_destroy	bits/syscall.h	d	#define __NR_io_destroy (__X32_SYSCALL_BIT + 207)
-__NR_io_getevents	bits/syscall.h	d	#define __NR_io_getevents (__X32_SYSCALL_BIT + 208)
-__NR_io_setup	bits/syscall.h	d	#define __NR_io_setup (__X32_SYSCALL_BIT + 543)
-__NR_io_submit	bits/syscall.h	d	#define __NR_io_submit (__X32_SYSCALL_BIT + 544)
-__NR_ioctl	bits/syscall.h	d	#define __NR_ioctl (__X32_SYSCALL_BIT + 514)
-__NR_ioperm	bits/syscall.h	d	#define __NR_ioperm (__X32_SYSCALL_BIT + 173)
-__NR_iopl	bits/syscall.h	d	#define __NR_iopl (__X32_SYSCALL_BIT + 172)
-__NR_ioprio_get	bits/syscall.h	d	#define __NR_ioprio_get (__X32_SYSCALL_BIT + 252)
-__NR_ioprio_set	bits/syscall.h	d	#define __NR_ioprio_set (__X32_SYSCALL_BIT + 251)
-__NR_kcmp	bits/syscall.h	d	#define __NR_kcmp (__X32_SYSCALL_BIT + 312)
-__NR_kexec_file_load	bits/syscall.h	d	#define __NR_kexec_file_load (__X32_SYSCALL_BIT + 320)
-__NR_kexec_load	bits/syscall.h	d	#define __NR_kexec_load (__X32_SYSCALL_BIT + 528)
-__NR_keyctl	bits/syscall.h	d	#define __NR_keyctl (__X32_SYSCALL_BIT + 250)
-__NR_kill	bits/syscall.h	d	#define __NR_kill (__X32_SYSCALL_BIT + 62)
-__NR_lchown	bits/syscall.h	d	#define __NR_lchown (__X32_SYSCALL_BIT + 94)
-__NR_lgetxattr	bits/syscall.h	d	#define __NR_lgetxattr (__X32_SYSCALL_BIT + 192)
-__NR_link	bits/syscall.h	d	#define __NR_link (__X32_SYSCALL_BIT + 86)
-__NR_linkat	bits/syscall.h	d	#define __NR_linkat (__X32_SYSCALL_BIT + 265)
-__NR_listen	bits/syscall.h	d	#define __NR_listen (__X32_SYSCALL_BIT + 50)
-__NR_listxattr	bits/syscall.h	d	#define __NR_listxattr (__X32_SYSCALL_BIT + 194)
-__NR_llistxattr	bits/syscall.h	d	#define __NR_llistxattr (__X32_SYSCALL_BIT + 195)
-__NR_lookup_dcookie	bits/syscall.h	d	#define __NR_lookup_dcookie (__X32_SYSCALL_BIT + 212)
-__NR_lremovexattr	bits/syscall.h	d	#define __NR_lremovexattr (__X32_SYSCALL_BIT + 198)
-__NR_lseek	bits/syscall.h	d	#define __NR_lseek (__X32_SYSCALL_BIT + 8)
-__NR_lsetxattr	bits/syscall.h	d	#define __NR_lsetxattr (__X32_SYSCALL_BIT + 189)
-__NR_lstat	bits/syscall.h	d	#define __NR_lstat (__X32_SYSCALL_BIT + 6)
-__NR_madvise	bits/syscall.h	d	#define __NR_madvise (__X32_SYSCALL_BIT + 28)
-__NR_mbind	bits/syscall.h	d	#define __NR_mbind (__X32_SYSCALL_BIT + 237)
-__NR_membarrier	bits/syscall.h	d	#define __NR_membarrier (__X32_SYSCALL_BIT + 324)
-__NR_memfd_create	bits/syscall.h	d	#define __NR_memfd_create (__X32_SYSCALL_BIT + 319)
-__NR_migrate_pages	bits/syscall.h	d	#define __NR_migrate_pages (__X32_SYSCALL_BIT + 256)
-__NR_mincore	bits/syscall.h	d	#define __NR_mincore (__X32_SYSCALL_BIT + 27)
-__NR_mkdir	bits/syscall.h	d	#define __NR_mkdir (__X32_SYSCALL_BIT + 83)
-__NR_mkdirat	bits/syscall.h	d	#define __NR_mkdirat (__X32_SYSCALL_BIT + 258)
-__NR_mknod	bits/syscall.h	d	#define __NR_mknod (__X32_SYSCALL_BIT + 133)
-__NR_mknodat	bits/syscall.h	d	#define __NR_mknodat (__X32_SYSCALL_BIT + 259)
-__NR_mlock	bits/syscall.h	d	#define __NR_mlock (__X32_SYSCALL_BIT + 149)
-__NR_mlock2	bits/syscall.h	d	#define __NR_mlock2 (__X32_SYSCALL_BIT + 325)
-__NR_mlockall	bits/syscall.h	d	#define __NR_mlockall (__X32_SYSCALL_BIT + 151)
-__NR_mmap	bits/syscall.h	d	#define __NR_mmap (__X32_SYSCALL_BIT + 9)
-__NR_modify_ldt	bits/syscall.h	d	#define __NR_modify_ldt (__X32_SYSCALL_BIT + 154)
-__NR_mount	bits/syscall.h	d	#define __NR_mount (__X32_SYSCALL_BIT + 165)
-__NR_move_pages	bits/syscall.h	d	#define __NR_move_pages (__X32_SYSCALL_BIT + 533)
-__NR_mprotect	bits/syscall.h	d	#define __NR_mprotect (__X32_SYSCALL_BIT + 10)
-__NR_mq_getsetattr	bits/syscall.h	d	#define __NR_mq_getsetattr (__X32_SYSCALL_BIT + 245)
-__NR_mq_notify	bits/syscall.h	d	#define __NR_mq_notify (__X32_SYSCALL_BIT + 527)
-__NR_mq_open	bits/syscall.h	d	#define __NR_mq_open (__X32_SYSCALL_BIT + 240)
-__NR_mq_timedreceive	bits/syscall.h	d	#define __NR_mq_timedreceive (__X32_SYSCALL_BIT + 243)
-__NR_mq_timedsend	bits/syscall.h	d	#define __NR_mq_timedsend (__X32_SYSCALL_BIT + 242)
-__NR_mq_unlink	bits/syscall.h	d	#define __NR_mq_unlink (__X32_SYSCALL_BIT + 241)
-__NR_mremap	bits/syscall.h	d	#define __NR_mremap (__X32_SYSCALL_BIT + 25)
-__NR_msgctl	bits/syscall.h	d	#define __NR_msgctl (__X32_SYSCALL_BIT + 71)
-__NR_msgget	bits/syscall.h	d	#define __NR_msgget (__X32_SYSCALL_BIT + 68)
-__NR_msgrcv	bits/syscall.h	d	#define __NR_msgrcv (__X32_SYSCALL_BIT + 70)
-__NR_msgsnd	bits/syscall.h	d	#define __NR_msgsnd (__X32_SYSCALL_BIT + 69)
-__NR_msync	bits/syscall.h	d	#define __NR_msync (__X32_SYSCALL_BIT + 26)
-__NR_munlock	bits/syscall.h	d	#define __NR_munlock (__X32_SYSCALL_BIT + 150)
-__NR_munlockall	bits/syscall.h	d	#define __NR_munlockall (__X32_SYSCALL_BIT + 152)
-__NR_munmap	bits/syscall.h	d	#define __NR_munmap (__X32_SYSCALL_BIT + 11)
-__NR_name_to_handle_at	bits/syscall.h	d	#define __NR_name_to_handle_at (__X32_SYSCALL_BIT + 303)
-__NR_nanosleep	bits/syscall.h	d	#define __NR_nanosleep (__X32_SYSCALL_BIT + 35)
-__NR_newfstatat	bits/syscall.h	d	#define __NR_newfstatat (__X32_SYSCALL_BIT + 262)
-__NR_open	bits/syscall.h	d	#define __NR_open (__X32_SYSCALL_BIT + 2)
-__NR_open_by_handle_at	bits/syscall.h	d	#define __NR_open_by_handle_at (__X32_SYSCALL_BIT + 304)
-__NR_openat	bits/syscall.h	d	#define __NR_openat (__X32_SYSCALL_BIT + 257)
-__NR_pause	bits/syscall.h	d	#define __NR_pause (__X32_SYSCALL_BIT + 34)
-__NR_perf_event_open	bits/syscall.h	d	#define __NR_perf_event_open (__X32_SYSCALL_BIT + 298)
-__NR_personality	bits/syscall.h	d	#define __NR_personality (__X32_SYSCALL_BIT + 135)
-__NR_pipe	bits/syscall.h	d	#define __NR_pipe (__X32_SYSCALL_BIT + 22)
-__NR_pipe2	bits/syscall.h	d	#define __NR_pipe2 (__X32_SYSCALL_BIT + 293)
-__NR_pivot_root	bits/syscall.h	d	#define __NR_pivot_root (__X32_SYSCALL_BIT + 155)
-__NR_poll	bits/syscall.h	d	#define __NR_poll (__X32_SYSCALL_BIT + 7)
-__NR_ppoll	bits/syscall.h	d	#define __NR_ppoll (__X32_SYSCALL_BIT + 271)
-__NR_prctl	bits/syscall.h	d	#define __NR_prctl (__X32_SYSCALL_BIT + 157)
-__NR_pread	bits/syscall.h	d	#define __NR_pread __NR_pread64
-__NR_pread64	bits/syscall.h	d	#define __NR_pread64 (__X32_SYSCALL_BIT + 17)
-__NR_preadv	bits/syscall.h	d	#define __NR_preadv (__X32_SYSCALL_BIT + 534)
-__NR_prlimit64	bits/syscall.h	d	#define __NR_prlimit64 (__X32_SYSCALL_BIT + 302)
-__NR_process_vm_readv	bits/syscall.h	d	#define __NR_process_vm_readv (__X32_SYSCALL_BIT + 539)
-__NR_process_vm_writev	bits/syscall.h	d	#define __NR_process_vm_writev (__X32_SYSCALL_BIT + 540)
-__NR_pselect6	bits/syscall.h	d	#define __NR_pselect6 (__X32_SYSCALL_BIT + 270)
-__NR_ptrace	bits/syscall.h	d	#define __NR_ptrace (__X32_SYSCALL_BIT + 521)
-__NR_putpmsg	bits/syscall.h	d	#define __NR_putpmsg (__X32_SYSCALL_BIT + 182)
-__NR_pwrite	bits/syscall.h	d	#define __NR_pwrite __NR_pwrite64
-__NR_pwrite64	bits/syscall.h	d	#define __NR_pwrite64 (__X32_SYSCALL_BIT + 18)
-__NR_pwritev	bits/syscall.h	d	#define __NR_pwritev (__X32_SYSCALL_BIT + 535)
-__NR_quotactl	bits/syscall.h	d	#define __NR_quotactl (__X32_SYSCALL_BIT + 179)
-__NR_read	bits/syscall.h	d	#define __NR_read (__X32_SYSCALL_BIT + 0)
-__NR_readahead	bits/syscall.h	d	#define __NR_readahead (__X32_SYSCALL_BIT + 187)
-__NR_readlink	bits/syscall.h	d	#define __NR_readlink (__X32_SYSCALL_BIT + 89)
-__NR_readlinkat	bits/syscall.h	d	#define __NR_readlinkat (__X32_SYSCALL_BIT + 267)
-__NR_readv	bits/syscall.h	d	#define __NR_readv (__X32_SYSCALL_BIT + 515)
-__NR_reboot	bits/syscall.h	d	#define __NR_reboot (__X32_SYSCALL_BIT + 169)
-__NR_recvfrom	bits/syscall.h	d	#define __NR_recvfrom (__X32_SYSCALL_BIT + 517)
-__NR_recvmmsg	bits/syscall.h	d	#define __NR_recvmmsg (__X32_SYSCALL_BIT + 537)
-__NR_recvmsg	bits/syscall.h	d	#define __NR_recvmsg (__X32_SYSCALL_BIT + 519)
-__NR_remap_file_pages	bits/syscall.h	d	#define __NR_remap_file_pages (__X32_SYSCALL_BIT + 216)
-__NR_removexattr	bits/syscall.h	d	#define __NR_removexattr (__X32_SYSCALL_BIT + 197)
-__NR_rename	bits/syscall.h	d	#define __NR_rename (__X32_SYSCALL_BIT + 82)
-__NR_renameat	bits/syscall.h	d	#define __NR_renameat (__X32_SYSCALL_BIT + 264)
-__NR_renameat2	bits/syscall.h	d	#define __NR_renameat2 (__X32_SYSCALL_BIT + 316)
-__NR_request_key	bits/syscall.h	d	#define __NR_request_key (__X32_SYSCALL_BIT + 249)
-__NR_restart_syscall	bits/syscall.h	d	#define __NR_restart_syscall (__X32_SYSCALL_BIT + 219)
-__NR_rmdir	bits/syscall.h	d	#define __NR_rmdir (__X32_SYSCALL_BIT + 84)
-__NR_rt_sigaction	bits/syscall.h	d	#define __NR_rt_sigaction (__X32_SYSCALL_BIT + 512)
-__NR_rt_sigpending	bits/syscall.h	d	#define __NR_rt_sigpending (__X32_SYSCALL_BIT + 522)
-__NR_rt_sigprocmask	bits/syscall.h	d	#define __NR_rt_sigprocmask (__X32_SYSCALL_BIT + 14)
-__NR_rt_sigqueueinfo	bits/syscall.h	d	#define __NR_rt_sigqueueinfo (__X32_SYSCALL_BIT + 524)
-__NR_rt_sigreturn	bits/syscall.h	d	#define __NR_rt_sigreturn (__X32_SYSCALL_BIT + 513)
-__NR_rt_sigsuspend	bits/syscall.h	d	#define __NR_rt_sigsuspend (__X32_SYSCALL_BIT + 130)
-__NR_rt_sigtimedwait	bits/syscall.h	d	#define __NR_rt_sigtimedwait (__X32_SYSCALL_BIT + 523)
-__NR_rt_tgsigqueueinfo	bits/syscall.h	d	#define __NR_rt_tgsigqueueinfo (__X32_SYSCALL_BIT + 536)
-__NR_sched_get_priority_max	bits/syscall.h	d	#define __NR_sched_get_priority_max (__X32_SYSCALL_BIT + 146)
-__NR_sched_get_priority_min	bits/syscall.h	d	#define __NR_sched_get_priority_min (__X32_SYSCALL_BIT + 147)
-__NR_sched_getaffinity	bits/syscall.h	d	#define __NR_sched_getaffinity (__X32_SYSCALL_BIT + 204)
-__NR_sched_getattr	bits/syscall.h	d	#define __NR_sched_getattr (__X32_SYSCALL_BIT + 315)
-__NR_sched_getparam	bits/syscall.h	d	#define __NR_sched_getparam (__X32_SYSCALL_BIT + 143)
-__NR_sched_getscheduler	bits/syscall.h	d	#define __NR_sched_getscheduler (__X32_SYSCALL_BIT + 145)
-__NR_sched_rr_get_interval	bits/syscall.h	d	#define __NR_sched_rr_get_interval (__X32_SYSCALL_BIT + 148)
-__NR_sched_setaffinity	bits/syscall.h	d	#define __NR_sched_setaffinity (__X32_SYSCALL_BIT + 203)
-__NR_sched_setattr	bits/syscall.h	d	#define __NR_sched_setattr (__X32_SYSCALL_BIT + 314)
-__NR_sched_setparam	bits/syscall.h	d	#define __NR_sched_setparam (__X32_SYSCALL_BIT + 142)
-__NR_sched_setscheduler	bits/syscall.h	d	#define __NR_sched_setscheduler (__X32_SYSCALL_BIT + 144)
-__NR_sched_yield	bits/syscall.h	d	#define __NR_sched_yield (__X32_SYSCALL_BIT + 24)
-__NR_seccomp	bits/syscall.h	d	#define __NR_seccomp (__X32_SYSCALL_BIT + 317)
-__NR_security	bits/syscall.h	d	#define __NR_security (__X32_SYSCALL_BIT + 185)
-__NR_select	bits/syscall.h	d	#define __NR_select (__X32_SYSCALL_BIT + 23)
-__NR_semctl	bits/syscall.h	d	#define __NR_semctl (__X32_SYSCALL_BIT + 66)
-__NR_semget	bits/syscall.h	d	#define __NR_semget (__X32_SYSCALL_BIT + 64)
-__NR_semop	bits/syscall.h	d	#define __NR_semop (__X32_SYSCALL_BIT + 65)
-__NR_semtimedop	bits/syscall.h	d	#define __NR_semtimedop (__X32_SYSCALL_BIT + 220)
-__NR_sendfile	bits/syscall.h	d	#define __NR_sendfile (__X32_SYSCALL_BIT + 40)
-__NR_sendmmsg	bits/syscall.h	d	#define __NR_sendmmsg (__X32_SYSCALL_BIT + 538)
-__NR_sendmsg	bits/syscall.h	d	#define __NR_sendmsg (__X32_SYSCALL_BIT + 518)
-__NR_sendto	bits/syscall.h	d	#define __NR_sendto (__X32_SYSCALL_BIT + 44)
-__NR_set_mempolicy	bits/syscall.h	d	#define __NR_set_mempolicy (__X32_SYSCALL_BIT + 238)
-__NR_set_robust_list	bits/syscall.h	d	#define __NR_set_robust_list (__X32_SYSCALL_BIT + 530)
-__NR_set_tid_address	bits/syscall.h	d	#define __NR_set_tid_address (__X32_SYSCALL_BIT + 218)
-__NR_setdomainname	bits/syscall.h	d	#define __NR_setdomainname (__X32_SYSCALL_BIT + 171)
-__NR_setfsgid	bits/syscall.h	d	#define __NR_setfsgid (__X32_SYSCALL_BIT + 123)
-__NR_setfsuid	bits/syscall.h	d	#define __NR_setfsuid (__X32_SYSCALL_BIT + 122)
-__NR_setgid	bits/syscall.h	d	#define __NR_setgid (__X32_SYSCALL_BIT + 106)
-__NR_setgroups	bits/syscall.h	d	#define __NR_setgroups (__X32_SYSCALL_BIT + 116)
-__NR_sethostname	bits/syscall.h	d	#define __NR_sethostname (__X32_SYSCALL_BIT + 170)
-__NR_setitimer	bits/syscall.h	d	#define __NR_setitimer (__X32_SYSCALL_BIT + 38)
-__NR_setns	bits/syscall.h	d	#define __NR_setns (__X32_SYSCALL_BIT + 308)
-__NR_setpgid	bits/syscall.h	d	#define __NR_setpgid (__X32_SYSCALL_BIT + 109)
-__NR_setpriority	bits/syscall.h	d	#define __NR_setpriority (__X32_SYSCALL_BIT + 141)
-__NR_setregid	bits/syscall.h	d	#define __NR_setregid (__X32_SYSCALL_BIT + 114)
-__NR_setresgid	bits/syscall.h	d	#define __NR_setresgid (__X32_SYSCALL_BIT + 119)
-__NR_setresuid	bits/syscall.h	d	#define __NR_setresuid (__X32_SYSCALL_BIT + 117)
-__NR_setreuid	bits/syscall.h	d	#define __NR_setreuid (__X32_SYSCALL_BIT + 113)
-__NR_setrlimit	bits/syscall.h	d	#define __NR_setrlimit (__X32_SYSCALL_BIT + 160)
-__NR_setsid	bits/syscall.h	d	#define __NR_setsid (__X32_SYSCALL_BIT + 112)
-__NR_setsockopt	bits/syscall.h	d	#define __NR_setsockopt (__X32_SYSCALL_BIT + 541)
-__NR_settimeofday	bits/syscall.h	d	#define __NR_settimeofday (__X32_SYSCALL_BIT + 164)
-__NR_setuid	bits/syscall.h	d	#define __NR_setuid (__X32_SYSCALL_BIT + 105)
-__NR_setxattr	bits/syscall.h	d	#define __NR_setxattr (__X32_SYSCALL_BIT + 188)
-__NR_shmat	bits/syscall.h	d	#define __NR_shmat (__X32_SYSCALL_BIT + 30)
-__NR_shmctl	bits/syscall.h	d	#define __NR_shmctl (__X32_SYSCALL_BIT + 31)
-__NR_shmdt	bits/syscall.h	d	#define __NR_shmdt (__X32_SYSCALL_BIT + 67)
-__NR_shmget	bits/syscall.h	d	#define __NR_shmget (__X32_SYSCALL_BIT + 29)
-__NR_shutdown	bits/syscall.h	d	#define __NR_shutdown (__X32_SYSCALL_BIT + 48)
-__NR_sigaltstack	bits/syscall.h	d	#define __NR_sigaltstack (__X32_SYSCALL_BIT + 525)
-__NR_signalfd	bits/syscall.h	d	#define __NR_signalfd (__X32_SYSCALL_BIT + 282)
-__NR_signalfd4	bits/syscall.h	d	#define __NR_signalfd4 (__X32_SYSCALL_BIT + 289)
-__NR_socket	bits/syscall.h	d	#define __NR_socket (__X32_SYSCALL_BIT + 41)
-__NR_socketpair	bits/syscall.h	d	#define __NR_socketpair (__X32_SYSCALL_BIT + 53)
-__NR_splice	bits/syscall.h	d	#define __NR_splice (__X32_SYSCALL_BIT + 275)
-__NR_stat	bits/syscall.h	d	#define __NR_stat (__X32_SYSCALL_BIT + 4)
-__NR_statfs	bits/syscall.h	d	#define __NR_statfs (__X32_SYSCALL_BIT + 137)
-__NR_swapoff	bits/syscall.h	d	#define __NR_swapoff (__X32_SYSCALL_BIT + 168)
-__NR_swapon	bits/syscall.h	d	#define __NR_swapon (__X32_SYSCALL_BIT + 167)
-__NR_symlink	bits/syscall.h	d	#define __NR_symlink (__X32_SYSCALL_BIT + 88)
-__NR_symlinkat	bits/syscall.h	d	#define __NR_symlinkat (__X32_SYSCALL_BIT + 266)
-__NR_sync	bits/syscall.h	d	#define __NR_sync (__X32_SYSCALL_BIT + 162)
-__NR_sync_file_range	bits/syscall.h	d	#define __NR_sync_file_range (__X32_SYSCALL_BIT + 277)
-__NR_syncfs	bits/syscall.h	d	#define __NR_syncfs (__X32_SYSCALL_BIT + 306)
-__NR_sysfs	bits/syscall.h	d	#define __NR_sysfs (__X32_SYSCALL_BIT + 139)
-__NR_sysinfo	bits/syscall.h	d	#define __NR_sysinfo (__X32_SYSCALL_BIT + 99)
-__NR_syslog	bits/syscall.h	d	#define __NR_syslog (__X32_SYSCALL_BIT + 103)
-__NR_tee	bits/syscall.h	d	#define __NR_tee (__X32_SYSCALL_BIT + 276)
-__NR_tgkill	bits/syscall.h	d	#define __NR_tgkill (__X32_SYSCALL_BIT + 234)
-__NR_time	bits/syscall.h	d	#define __NR_time (__X32_SYSCALL_BIT + 201)
-__NR_timer_create	bits/syscall.h	d	#define __NR_timer_create (__X32_SYSCALL_BIT + 526)
-__NR_timer_delete	bits/syscall.h	d	#define __NR_timer_delete (__X32_SYSCALL_BIT + 226)
-__NR_timer_getoverrun	bits/syscall.h	d	#define __NR_timer_getoverrun (__X32_SYSCALL_BIT + 225)
-__NR_timer_gettime	bits/syscall.h	d	#define __NR_timer_gettime (__X32_SYSCALL_BIT + 224)
-__NR_timer_settime	bits/syscall.h	d	#define __NR_timer_settime (__X32_SYSCALL_BIT + 223)
-__NR_timerfd_create	bits/syscall.h	d	#define __NR_timerfd_create (__X32_SYSCALL_BIT + 283)
-__NR_timerfd_gettime	bits/syscall.h	d	#define __NR_timerfd_gettime (__X32_SYSCALL_BIT + 287)
-__NR_timerfd_settime	bits/syscall.h	d	#define __NR_timerfd_settime (__X32_SYSCALL_BIT + 286)
-__NR_times	bits/syscall.h	d	#define __NR_times (__X32_SYSCALL_BIT + 100)
-__NR_tkill	bits/syscall.h	d	#define __NR_tkill (__X32_SYSCALL_BIT + 200)
-__NR_truncate	bits/syscall.h	d	#define __NR_truncate (__X32_SYSCALL_BIT + 76)
-__NR_tuxcall	bits/syscall.h	d	#define __NR_tuxcall (__X32_SYSCALL_BIT + 184)
-__NR_umask	bits/syscall.h	d	#define __NR_umask (__X32_SYSCALL_BIT + 95)
-__NR_umount2	bits/syscall.h	d	#define __NR_umount2 (__X32_SYSCALL_BIT + 166)
-__NR_uname	bits/syscall.h	d	#define __NR_uname (__X32_SYSCALL_BIT + 63)
-__NR_unlink	bits/syscall.h	d	#define __NR_unlink (__X32_SYSCALL_BIT + 87)
-__NR_unlinkat	bits/syscall.h	d	#define __NR_unlinkat (__X32_SYSCALL_BIT + 263)
-__NR_unshare	bits/syscall.h	d	#define __NR_unshare (__X32_SYSCALL_BIT + 272)
-__NR_userfaultfd	bits/syscall.h	d	#define __NR_userfaultfd (__X32_SYSCALL_BIT + 323)
-__NR_ustat	bits/syscall.h	d	#define __NR_ustat (__X32_SYSCALL_BIT + 136)
-__NR_utime	bits/syscall.h	d	#define __NR_utime (__X32_SYSCALL_BIT + 132)
-__NR_utimensat	bits/syscall.h	d	#define __NR_utimensat (__X32_SYSCALL_BIT + 280)
-__NR_utimes	bits/syscall.h	d	#define __NR_utimes (__X32_SYSCALL_BIT + 235)
-__NR_vfork	bits/syscall.h	d	#define __NR_vfork (__X32_SYSCALL_BIT + 58)
-__NR_vhangup	bits/syscall.h	d	#define __NR_vhangup (__X32_SYSCALL_BIT + 153)
-__NR_vmsplice	bits/syscall.h	d	#define __NR_vmsplice (__X32_SYSCALL_BIT + 532)
-__NR_wait4	bits/syscall.h	d	#define __NR_wait4 (__X32_SYSCALL_BIT + 61)
-__NR_waitid	bits/syscall.h	d	#define __NR_waitid (__X32_SYSCALL_BIT + 529)
-__NR_write	bits/syscall.h	d	#define __NR_write (__X32_SYSCALL_BIT + 1)
-__NR_writev	bits/syscall.h	d	#define __NR_writev (__X32_SYSCALL_BIT + 516)
+__NR_accept	bits/syscall.h	d	#define __NR_accept (0x40000000 + 43)
+__NR_accept4	bits/syscall.h	d	#define __NR_accept4 (0x40000000 + 288)
+__NR_access	bits/syscall.h	d	#define __NR_access (0x40000000 + 21)
+__NR_acct	bits/syscall.h	d	#define __NR_acct (0x40000000 + 163)
+__NR_add_key	bits/syscall.h	d	#define __NR_add_key (0x40000000 + 248)
+__NR_adjtimex	bits/syscall.h	d	#define __NR_adjtimex (0x40000000 + 159)
+__NR_afs_syscall	bits/syscall.h	d	#define __NR_afs_syscall (0x40000000 + 183)
+__NR_alarm	bits/syscall.h	d	#define __NR_alarm (0x40000000 + 37)
+__NR_arch_prctl	bits/syscall.h	d	#define __NR_arch_prctl (0x40000000 + 158)
+__NR_bind	bits/syscall.h	d	#define __NR_bind (0x40000000 + 49)
+__NR_bpf	bits/syscall.h	d	#define __NR_bpf (0x40000000 + 321)
+__NR_brk	bits/syscall.h	d	#define __NR_brk (0x40000000 + 12)
+__NR_capget	bits/syscall.h	d	#define __NR_capget (0x40000000 + 125)
+__NR_capset	bits/syscall.h	d	#define __NR_capset (0x40000000 + 126)
+__NR_chdir	bits/syscall.h	d	#define __NR_chdir (0x40000000 + 80)
+__NR_chmod	bits/syscall.h	d	#define __NR_chmod (0x40000000 + 90)
+__NR_chown	bits/syscall.h	d	#define __NR_chown (0x40000000 + 92)
+__NR_chroot	bits/syscall.h	d	#define __NR_chroot (0x40000000 + 161)
+__NR_clock_adjtime	bits/syscall.h	d	#define __NR_clock_adjtime (0x40000000 + 305)
+__NR_clock_getres	bits/syscall.h	d	#define __NR_clock_getres (0x40000000 + 229)
+__NR_clock_gettime	bits/syscall.h	d	#define __NR_clock_gettime (0x40000000 + 228)
+__NR_clock_nanosleep	bits/syscall.h	d	#define __NR_clock_nanosleep (0x40000000 + 230)
+__NR_clock_settime	bits/syscall.h	d	#define __NR_clock_settime (0x40000000 + 227)
+__NR_clone	bits/syscall.h	d	#define __NR_clone (0x40000000 + 56)
+__NR_close	bits/syscall.h	d	#define __NR_close (0x40000000 + 3)
+__NR_connect	bits/syscall.h	d	#define __NR_connect (0x40000000 + 42)
+__NR_copy_file_range	bits/syscall.h	d	#define __NR_copy_file_range (0x40000000 + 326)
+__NR_creat	bits/syscall.h	d	#define __NR_creat (0x40000000 + 85)
+__NR_delete_module	bits/syscall.h	d	#define __NR_delete_module (0x40000000 + 176)
+__NR_dup	bits/syscall.h	d	#define __NR_dup (0x40000000 + 32)
+__NR_dup2	bits/syscall.h	d	#define __NR_dup2 (0x40000000 + 33)
+__NR_dup3	bits/syscall.h	d	#define __NR_dup3 (0x40000000 + 292)
+__NR_epoll_create	bits/syscall.h	d	#define __NR_epoll_create (0x40000000 + 213)
+__NR_epoll_create1	bits/syscall.h	d	#define __NR_epoll_create1 (0x40000000 + 291)
+__NR_epoll_ctl	bits/syscall.h	d	#define __NR_epoll_ctl (0x40000000 + 233)
+__NR_epoll_pwait	bits/syscall.h	d	#define __NR_epoll_pwait (0x40000000 + 281)
+__NR_epoll_wait	bits/syscall.h	d	#define __NR_epoll_wait (0x40000000 + 232)
+__NR_eventfd	bits/syscall.h	d	#define __NR_eventfd (0x40000000 + 284)
+__NR_eventfd2	bits/syscall.h	d	#define __NR_eventfd2 (0x40000000 + 290)
+__NR_execve	bits/syscall.h	d	#define __NR_execve (0x40000000 + 520)
+__NR_execveat	bits/syscall.h	d	#define __NR_execveat (0x40000000 + 545)
+__NR_exit	bits/syscall.h	d	#define __NR_exit (0x40000000 + 60)
+__NR_exit_group	bits/syscall.h	d	#define __NR_exit_group (0x40000000 + 231)
+__NR_faccessat	bits/syscall.h	d	#define __NR_faccessat (0x40000000 + 269)
+__NR_fadvise64	bits/syscall.h	d	#define __NR_fadvise64 (0x40000000 + 221)
+__NR_fallocate	bits/syscall.h	d	#define __NR_fallocate (0x40000000 + 285)
+__NR_fanotify_init	bits/syscall.h	d	#define __NR_fanotify_init (0x40000000 + 300)
+__NR_fanotify_mark	bits/syscall.h	d	#define __NR_fanotify_mark (0x40000000 + 301)
+__NR_fchdir	bits/syscall.h	d	#define __NR_fchdir (0x40000000 + 81)
+__NR_fchmod	bits/syscall.h	d	#define __NR_fchmod (0x40000000 + 91)
+__NR_fchmodat	bits/syscall.h	d	#define __NR_fchmodat (0x40000000 + 268)
+__NR_fchown	bits/syscall.h	d	#define __NR_fchown (0x40000000 + 93)
+__NR_fchownat	bits/syscall.h	d	#define __NR_fchownat (0x40000000 + 260)
+__NR_fcntl	bits/syscall.h	d	#define __NR_fcntl (0x40000000 + 72)
+__NR_fdatasync	bits/syscall.h	d	#define __NR_fdatasync (0x40000000 + 75)
+__NR_fgetxattr	bits/syscall.h	d	#define __NR_fgetxattr (0x40000000 + 193)
+__NR_finit_module	bits/syscall.h	d	#define __NR_finit_module (0x40000000 + 313)
+__NR_flistxattr	bits/syscall.h	d	#define __NR_flistxattr (0x40000000 + 196)
+__NR_flock	bits/syscall.h	d	#define __NR_flock (0x40000000 + 73)
+__NR_fork	bits/syscall.h	d	#define __NR_fork (0x40000000 + 57)
+__NR_fremovexattr	bits/syscall.h	d	#define __NR_fremovexattr (0x40000000 + 199)
+__NR_fsetxattr	bits/syscall.h	d	#define __NR_fsetxattr (0x40000000 + 190)
+__NR_fstat	bits/syscall.h	d	#define __NR_fstat (0x40000000 + 5)
+__NR_fstatfs	bits/syscall.h	d	#define __NR_fstatfs (0x40000000 + 138)
+__NR_fsync	bits/syscall.h	d	#define __NR_fsync (0x40000000 + 74)
+__NR_ftruncate	bits/syscall.h	d	#define __NR_ftruncate (0x40000000 + 77)
+__NR_futex	bits/syscall.h	d	#define __NR_futex (0x40000000 + 202)
+__NR_futimesat	bits/syscall.h	d	#define __NR_futimesat (0x40000000 + 261)
+__NR_get_mempolicy	bits/syscall.h	d	#define __NR_get_mempolicy (0x40000000 + 239)
+__NR_get_robust_list	bits/syscall.h	d	#define __NR_get_robust_list (0x40000000 + 531)
+__NR_getcpu	bits/syscall.h	d	#define __NR_getcpu (0x40000000 + 309)
+__NR_getcwd	bits/syscall.h	d	#define __NR_getcwd (0x40000000 + 79)
+__NR_getdents	bits/syscall.h	d	#define __NR_getdents (0x40000000 + 78)
+__NR_getdents64	bits/syscall.h	d	#define __NR_getdents64 (0x40000000 + 217)
+__NR_getegid	bits/syscall.h	d	#define __NR_getegid (0x40000000 + 108)
+__NR_geteuid	bits/syscall.h	d	#define __NR_geteuid (0x40000000 + 107)
+__NR_getgid	bits/syscall.h	d	#define __NR_getgid (0x40000000 + 104)
+__NR_getgroups	bits/syscall.h	d	#define __NR_getgroups (0x40000000 + 115)
+__NR_getitimer	bits/syscall.h	d	#define __NR_getitimer (0x40000000 + 36)
+__NR_getpeername	bits/syscall.h	d	#define __NR_getpeername (0x40000000 + 52)
+__NR_getpgid	bits/syscall.h	d	#define __NR_getpgid (0x40000000 + 121)
+__NR_getpgrp	bits/syscall.h	d	#define __NR_getpgrp (0x40000000 + 111)
+__NR_getpid	bits/syscall.h	d	#define __NR_getpid (0x40000000 + 39)
+__NR_getpmsg	bits/syscall.h	d	#define __NR_getpmsg (0x40000000 + 181)
+__NR_getppid	bits/syscall.h	d	#define __NR_getppid (0x40000000 + 110)
+__NR_getpriority	bits/syscall.h	d	#define __NR_getpriority (0x40000000 + 140)
+__NR_getrandom	bits/syscall.h	d	#define __NR_getrandom (0x40000000 + 318)
+__NR_getresgid	bits/syscall.h	d	#define __NR_getresgid (0x40000000 + 120)
+__NR_getresuid	bits/syscall.h	d	#define __NR_getresuid (0x40000000 + 118)
+__NR_getrlimit	bits/syscall.h	d	#define __NR_getrlimit (0x40000000 + 97)
+__NR_getrusage	bits/syscall.h	d	#define __NR_getrusage (0x40000000 + 98)
+__NR_getsid	bits/syscall.h	d	#define __NR_getsid (0x40000000 + 124)
+__NR_getsockname	bits/syscall.h	d	#define __NR_getsockname (0x40000000 + 51)
+__NR_getsockopt	bits/syscall.h	d	#define __NR_getsockopt (0x40000000 + 542)
+__NR_gettid	bits/syscall.h	d	#define __NR_gettid (0x40000000 + 186)
+__NR_gettimeofday	bits/syscall.h	d	#define __NR_gettimeofday (0x40000000 + 96)
+__NR_getuid	bits/syscall.h	d	#define __NR_getuid (0x40000000 + 102)
+__NR_getxattr	bits/syscall.h	d	#define __NR_getxattr (0x40000000 + 191)
+__NR_init_module	bits/syscall.h	d	#define __NR_init_module (0x40000000 + 175)
+__NR_inotify_add_watch	bits/syscall.h	d	#define __NR_inotify_add_watch (0x40000000 + 254)
+__NR_inotify_init	bits/syscall.h	d	#define __NR_inotify_init (0x40000000 + 253)
+__NR_inotify_init1	bits/syscall.h	d	#define __NR_inotify_init1 (0x40000000 + 294)
+__NR_inotify_rm_watch	bits/syscall.h	d	#define __NR_inotify_rm_watch (0x40000000 + 255)
+__NR_io_cancel	bits/syscall.h	d	#define __NR_io_cancel (0x40000000 + 210)
+__NR_io_destroy	bits/syscall.h	d	#define __NR_io_destroy (0x40000000 + 207)
+__NR_io_getevents	bits/syscall.h	d	#define __NR_io_getevents (0x40000000 + 208)
+__NR_io_setup	bits/syscall.h	d	#define __NR_io_setup (0x40000000 + 543)
+__NR_io_submit	bits/syscall.h	d	#define __NR_io_submit (0x40000000 + 544)
+__NR_ioctl	bits/syscall.h	d	#define __NR_ioctl (0x40000000 + 514)
+__NR_ioperm	bits/syscall.h	d	#define __NR_ioperm (0x40000000 + 173)
+__NR_iopl	bits/syscall.h	d	#define __NR_iopl (0x40000000 + 172)
+__NR_ioprio_get	bits/syscall.h	d	#define __NR_ioprio_get (0x40000000 + 252)
+__NR_ioprio_set	bits/syscall.h	d	#define __NR_ioprio_set (0x40000000 + 251)
+__NR_kcmp	bits/syscall.h	d	#define __NR_kcmp (0x40000000 + 312)
+__NR_kexec_file_load	bits/syscall.h	d	#define __NR_kexec_file_load (0x40000000 + 320)
+__NR_kexec_load	bits/syscall.h	d	#define __NR_kexec_load (0x40000000 + 528)
+__NR_keyctl	bits/syscall.h	d	#define __NR_keyctl (0x40000000 + 250)
+__NR_kill	bits/syscall.h	d	#define __NR_kill (0x40000000 + 62)
+__NR_lchown	bits/syscall.h	d	#define __NR_lchown (0x40000000 + 94)
+__NR_lgetxattr	bits/syscall.h	d	#define __NR_lgetxattr (0x40000000 + 192)
+__NR_link	bits/syscall.h	d	#define __NR_link (0x40000000 + 86)
+__NR_linkat	bits/syscall.h	d	#define __NR_linkat (0x40000000 + 265)
+__NR_listen	bits/syscall.h	d	#define __NR_listen (0x40000000 + 50)
+__NR_listxattr	bits/syscall.h	d	#define __NR_listxattr (0x40000000 + 194)
+__NR_llistxattr	bits/syscall.h	d	#define __NR_llistxattr (0x40000000 + 195)
+__NR_lookup_dcookie	bits/syscall.h	d	#define __NR_lookup_dcookie (0x40000000 + 212)
+__NR_lremovexattr	bits/syscall.h	d	#define __NR_lremovexattr (0x40000000 + 198)
+__NR_lseek	bits/syscall.h	d	#define __NR_lseek (0x40000000 + 8)
+__NR_lsetxattr	bits/syscall.h	d	#define __NR_lsetxattr (0x40000000 + 189)
+__NR_lstat	bits/syscall.h	d	#define __NR_lstat (0x40000000 + 6)
+__NR_madvise	bits/syscall.h	d	#define __NR_madvise (0x40000000 + 28)
+__NR_mbind	bits/syscall.h	d	#define __NR_mbind (0x40000000 + 237)
+__NR_membarrier	bits/syscall.h	d	#define __NR_membarrier (0x40000000 + 324)
+__NR_memfd_create	bits/syscall.h	d	#define __NR_memfd_create (0x40000000 + 319)
+__NR_migrate_pages	bits/syscall.h	d	#define __NR_migrate_pages (0x40000000 + 256)
+__NR_mincore	bits/syscall.h	d	#define __NR_mincore (0x40000000 + 27)
+__NR_mkdir	bits/syscall.h	d	#define __NR_mkdir (0x40000000 + 83)
+__NR_mkdirat	bits/syscall.h	d	#define __NR_mkdirat (0x40000000 + 258)
+__NR_mknod	bits/syscall.h	d	#define __NR_mknod (0x40000000 + 133)
+__NR_mknodat	bits/syscall.h	d	#define __NR_mknodat (0x40000000 + 259)
+__NR_mlock	bits/syscall.h	d	#define __NR_mlock (0x40000000 + 149)
+__NR_mlock2	bits/syscall.h	d	#define __NR_mlock2 (0x40000000 + 325)
+__NR_mlockall	bits/syscall.h	d	#define __NR_mlockall (0x40000000 + 151)
+__NR_mmap	bits/syscall.h	d	#define __NR_mmap (0x40000000 + 9)
+__NR_modify_ldt	bits/syscall.h	d	#define __NR_modify_ldt (0x40000000 + 154)
+__NR_mount	bits/syscall.h	d	#define __NR_mount (0x40000000 + 165)
+__NR_move_pages	bits/syscall.h	d	#define __NR_move_pages (0x40000000 + 533)
+__NR_mprotect	bits/syscall.h	d	#define __NR_mprotect (0x40000000 + 10)
+__NR_mq_getsetattr	bits/syscall.h	d	#define __NR_mq_getsetattr (0x40000000 + 245)
+__NR_mq_notify	bits/syscall.h	d	#define __NR_mq_notify (0x40000000 + 527)
+__NR_mq_open	bits/syscall.h	d	#define __NR_mq_open (0x40000000 + 240)
+__NR_mq_timedreceive	bits/syscall.h	d	#define __NR_mq_timedreceive (0x40000000 + 243)
+__NR_mq_timedsend	bits/syscall.h	d	#define __NR_mq_timedsend (0x40000000 + 242)
+__NR_mq_unlink	bits/syscall.h	d	#define __NR_mq_unlink (0x40000000 + 241)
+__NR_mremap	bits/syscall.h	d	#define __NR_mremap (0x40000000 + 25)
+__NR_msgctl	bits/syscall.h	d	#define __NR_msgctl (0x40000000 + 71)
+__NR_msgget	bits/syscall.h	d	#define __NR_msgget (0x40000000 + 68)
+__NR_msgrcv	bits/syscall.h	d	#define __NR_msgrcv (0x40000000 + 70)
+__NR_msgsnd	bits/syscall.h	d	#define __NR_msgsnd (0x40000000 + 69)
+__NR_msync	bits/syscall.h	d	#define __NR_msync (0x40000000 + 26)
+__NR_munlock	bits/syscall.h	d	#define __NR_munlock (0x40000000 + 150)
+__NR_munlockall	bits/syscall.h	d	#define __NR_munlockall (0x40000000 + 152)
+__NR_munmap	bits/syscall.h	d	#define __NR_munmap (0x40000000 + 11)
+__NR_name_to_handle_at	bits/syscall.h	d	#define __NR_name_to_handle_at (0x40000000 + 303)
+__NR_nanosleep	bits/syscall.h	d	#define __NR_nanosleep (0x40000000 + 35)
+__NR_newfstatat	bits/syscall.h	d	#define __NR_newfstatat (0x40000000 + 262)
+__NR_open	bits/syscall.h	d	#define __NR_open (0x40000000 + 2)
+__NR_open_by_handle_at	bits/syscall.h	d	#define __NR_open_by_handle_at (0x40000000 + 304)
+__NR_openat	bits/syscall.h	d	#define __NR_openat (0x40000000 + 257)
+__NR_pause	bits/syscall.h	d	#define __NR_pause (0x40000000 + 34)
+__NR_perf_event_open	bits/syscall.h	d	#define __NR_perf_event_open (0x40000000 + 298)
+__NR_personality	bits/syscall.h	d	#define __NR_personality (0x40000000 + 135)
+__NR_pipe	bits/syscall.h	d	#define __NR_pipe (0x40000000 + 22)
+__NR_pipe2	bits/syscall.h	d	#define __NR_pipe2 (0x40000000 + 293)
+__NR_pivot_root	bits/syscall.h	d	#define __NR_pivot_root (0x40000000 + 155)
+__NR_poll	bits/syscall.h	d	#define __NR_poll (0x40000000 + 7)
+__NR_ppoll	bits/syscall.h	d	#define __NR_ppoll (0x40000000 + 271)
+__NR_prctl	bits/syscall.h	d	#define __NR_prctl (0x40000000 + 157)
+__NR_pread64	bits/syscall.h	d	#define __NR_pread64 (0x40000000 + 17)
+__NR_preadv	bits/syscall.h	d	#define __NR_preadv (0x40000000 + 534)
+__NR_preadv2	bits/syscall.h	d	#define __NR_preadv2 (0x40000000 + 327)
+__NR_prlimit64	bits/syscall.h	d	#define __NR_prlimit64 (0x40000000 + 302)
+__NR_process_vm_readv	bits/syscall.h	d	#define __NR_process_vm_readv (0x40000000 + 539)
+__NR_process_vm_writev	bits/syscall.h	d	#define __NR_process_vm_writev (0x40000000 + 540)
+__NR_pselect6	bits/syscall.h	d	#define __NR_pselect6 (0x40000000 + 270)
+__NR_ptrace	bits/syscall.h	d	#define __NR_ptrace (0x40000000 + 521)
+__NR_putpmsg	bits/syscall.h	d	#define __NR_putpmsg (0x40000000 + 182)
+__NR_pwrite64	bits/syscall.h	d	#define __NR_pwrite64 (0x40000000 + 18)
+__NR_pwritev	bits/syscall.h	d	#define __NR_pwritev (0x40000000 + 535)
+__NR_pwritev2	bits/syscall.h	d	#define __NR_pwritev2 (0x40000000 + 328)
+__NR_quotactl	bits/syscall.h	d	#define __NR_quotactl (0x40000000 + 179)
+__NR_read	bits/syscall.h	d	#define __NR_read (0x40000000 + 0)
+__NR_readahead	bits/syscall.h	d	#define __NR_readahead (0x40000000 + 187)
+__NR_readlink	bits/syscall.h	d	#define __NR_readlink (0x40000000 + 89)
+__NR_readlinkat	bits/syscall.h	d	#define __NR_readlinkat (0x40000000 + 267)
+__NR_readv	bits/syscall.h	d	#define __NR_readv (0x40000000 + 515)
+__NR_reboot	bits/syscall.h	d	#define __NR_reboot (0x40000000 + 169)
+__NR_recvfrom	bits/syscall.h	d	#define __NR_recvfrom (0x40000000 + 517)
+__NR_recvmmsg	bits/syscall.h	d	#define __NR_recvmmsg (0x40000000 + 537)
+__NR_recvmsg	bits/syscall.h	d	#define __NR_recvmsg (0x40000000 + 519)
+__NR_remap_file_pages	bits/syscall.h	d	#define __NR_remap_file_pages (0x40000000 + 216)
+__NR_removexattr	bits/syscall.h	d	#define __NR_removexattr (0x40000000 + 197)
+__NR_rename	bits/syscall.h	d	#define __NR_rename (0x40000000 + 82)
+__NR_renameat	bits/syscall.h	d	#define __NR_renameat (0x40000000 + 264)
+__NR_renameat2	bits/syscall.h	d	#define __NR_renameat2 (0x40000000 + 316)
+__NR_request_key	bits/syscall.h	d	#define __NR_request_key (0x40000000 + 249)
+__NR_restart_syscall	bits/syscall.h	d	#define __NR_restart_syscall (0x40000000 + 219)
+__NR_rmdir	bits/syscall.h	d	#define __NR_rmdir (0x40000000 + 84)
+__NR_rt_sigaction	bits/syscall.h	d	#define __NR_rt_sigaction (0x40000000 + 512)
+__NR_rt_sigpending	bits/syscall.h	d	#define __NR_rt_sigpending (0x40000000 + 522)
+__NR_rt_sigprocmask	bits/syscall.h	d	#define __NR_rt_sigprocmask (0x40000000 + 14)
+__NR_rt_sigqueueinfo	bits/syscall.h	d	#define __NR_rt_sigqueueinfo (0x40000000 + 524)
+__NR_rt_sigreturn	bits/syscall.h	d	#define __NR_rt_sigreturn (0x40000000 + 513)
+__NR_rt_sigsuspend	bits/syscall.h	d	#define __NR_rt_sigsuspend (0x40000000 + 130)
+__NR_rt_sigtimedwait	bits/syscall.h	d	#define __NR_rt_sigtimedwait (0x40000000 + 523)
+__NR_rt_tgsigqueueinfo	bits/syscall.h	d	#define __NR_rt_tgsigqueueinfo (0x40000000 + 536)
+__NR_sched_get_priority_max	bits/syscall.h	d	#define __NR_sched_get_priority_max (0x40000000 + 146)
+__NR_sched_get_priority_min	bits/syscall.h	d	#define __NR_sched_get_priority_min (0x40000000 + 147)
+__NR_sched_getaffinity	bits/syscall.h	d	#define __NR_sched_getaffinity (0x40000000 + 204)
+__NR_sched_getattr	bits/syscall.h	d	#define __NR_sched_getattr (0x40000000 + 315)
+__NR_sched_getparam	bits/syscall.h	d	#define __NR_sched_getparam (0x40000000 + 143)
+__NR_sched_getscheduler	bits/syscall.h	d	#define __NR_sched_getscheduler (0x40000000 + 145)
+__NR_sched_rr_get_interval	bits/syscall.h	d	#define __NR_sched_rr_get_interval (0x40000000 + 148)
+__NR_sched_setaffinity	bits/syscall.h	d	#define __NR_sched_setaffinity (0x40000000 + 203)
+__NR_sched_setattr	bits/syscall.h	d	#define __NR_sched_setattr (0x40000000 + 314)
+__NR_sched_setparam	bits/syscall.h	d	#define __NR_sched_setparam (0x40000000 + 142)
+__NR_sched_setscheduler	bits/syscall.h	d	#define __NR_sched_setscheduler (0x40000000 + 144)
+__NR_sched_yield	bits/syscall.h	d	#define __NR_sched_yield (0x40000000 + 24)
+__NR_seccomp	bits/syscall.h	d	#define __NR_seccomp (0x40000000 + 317)
+__NR_security	bits/syscall.h	d	#define __NR_security (0x40000000 + 185)
+__NR_select	bits/syscall.h	d	#define __NR_select (0x40000000 + 23)
+__NR_semctl	bits/syscall.h	d	#define __NR_semctl (0x40000000 + 66)
+__NR_semget	bits/syscall.h	d	#define __NR_semget (0x40000000 + 64)
+__NR_semop	bits/syscall.h	d	#define __NR_semop (0x40000000 + 65)
+__NR_semtimedop	bits/syscall.h	d	#define __NR_semtimedop (0x40000000 + 220)
+__NR_sendfile	bits/syscall.h	d	#define __NR_sendfile (0x40000000 + 40)
+__NR_sendmmsg	bits/syscall.h	d	#define __NR_sendmmsg (0x40000000 + 538)
+__NR_sendmsg	bits/syscall.h	d	#define __NR_sendmsg (0x40000000 + 518)
+__NR_sendto	bits/syscall.h	d	#define __NR_sendto (0x40000000 + 44)
+__NR_set_mempolicy	bits/syscall.h	d	#define __NR_set_mempolicy (0x40000000 + 238)
+__NR_set_robust_list	bits/syscall.h	d	#define __NR_set_robust_list (0x40000000 + 530)
+__NR_set_tid_address	bits/syscall.h	d	#define __NR_set_tid_address (0x40000000 + 218)
+__NR_setdomainname	bits/syscall.h	d	#define __NR_setdomainname (0x40000000 + 171)
+__NR_setfsgid	bits/syscall.h	d	#define __NR_setfsgid (0x40000000 + 123)
+__NR_setfsuid	bits/syscall.h	d	#define __NR_setfsuid (0x40000000 + 122)
+__NR_setgid	bits/syscall.h	d	#define __NR_setgid (0x40000000 + 106)
+__NR_setgroups	bits/syscall.h	d	#define __NR_setgroups (0x40000000 + 116)
+__NR_sethostname	bits/syscall.h	d	#define __NR_sethostname (0x40000000 + 170)
+__NR_setitimer	bits/syscall.h	d	#define __NR_setitimer (0x40000000 + 38)
+__NR_setns	bits/syscall.h	d	#define __NR_setns (0x40000000 + 308)
+__NR_setpgid	bits/syscall.h	d	#define __NR_setpgid (0x40000000 + 109)
+__NR_setpriority	bits/syscall.h	d	#define __NR_setpriority (0x40000000 + 141)
+__NR_setregid	bits/syscall.h	d	#define __NR_setregid (0x40000000 + 114)
+__NR_setresgid	bits/syscall.h	d	#define __NR_setresgid (0x40000000 + 119)
+__NR_setresuid	bits/syscall.h	d	#define __NR_setresuid (0x40000000 + 117)
+__NR_setreuid	bits/syscall.h	d	#define __NR_setreuid (0x40000000 + 113)
+__NR_setrlimit	bits/syscall.h	d	#define __NR_setrlimit (0x40000000 + 160)
+__NR_setsid	bits/syscall.h	d	#define __NR_setsid (0x40000000 + 112)
+__NR_setsockopt	bits/syscall.h	d	#define __NR_setsockopt (0x40000000 + 541)
+__NR_settimeofday	bits/syscall.h	d	#define __NR_settimeofday (0x40000000 + 164)
+__NR_setuid	bits/syscall.h	d	#define __NR_setuid (0x40000000 + 105)
+__NR_setxattr	bits/syscall.h	d	#define __NR_setxattr (0x40000000 + 188)
+__NR_shmat	bits/syscall.h	d	#define __NR_shmat (0x40000000 + 30)
+__NR_shmctl	bits/syscall.h	d	#define __NR_shmctl (0x40000000 + 31)
+__NR_shmdt	bits/syscall.h	d	#define __NR_shmdt (0x40000000 + 67)
+__NR_shmget	bits/syscall.h	d	#define __NR_shmget (0x40000000 + 29)
+__NR_shutdown	bits/syscall.h	d	#define __NR_shutdown (0x40000000 + 48)
+__NR_sigaltstack	bits/syscall.h	d	#define __NR_sigaltstack (0x40000000 + 525)
+__NR_signalfd	bits/syscall.h	d	#define __NR_signalfd (0x40000000 + 282)
+__NR_signalfd4	bits/syscall.h	d	#define __NR_signalfd4 (0x40000000 + 289)
+__NR_socket	bits/syscall.h	d	#define __NR_socket (0x40000000 + 41)
+__NR_socketpair	bits/syscall.h	d	#define __NR_socketpair (0x40000000 + 53)
+__NR_splice	bits/syscall.h	d	#define __NR_splice (0x40000000 + 275)
+__NR_stat	bits/syscall.h	d	#define __NR_stat (0x40000000 + 4)
+__NR_statfs	bits/syscall.h	d	#define __NR_statfs (0x40000000 + 137)
+__NR_swapoff	bits/syscall.h	d	#define __NR_swapoff (0x40000000 + 168)
+__NR_swapon	bits/syscall.h	d	#define __NR_swapon (0x40000000 + 167)
+__NR_symlink	bits/syscall.h	d	#define __NR_symlink (0x40000000 + 88)
+__NR_symlinkat	bits/syscall.h	d	#define __NR_symlinkat (0x40000000 + 266)
+__NR_sync	bits/syscall.h	d	#define __NR_sync (0x40000000 + 162)
+__NR_sync_file_range	bits/syscall.h	d	#define __NR_sync_file_range (0x40000000 + 277)
+__NR_syncfs	bits/syscall.h	d	#define __NR_syncfs (0x40000000 + 306)
+__NR_sysfs	bits/syscall.h	d	#define __NR_sysfs (0x40000000 + 139)
+__NR_sysinfo	bits/syscall.h	d	#define __NR_sysinfo (0x40000000 + 99)
+__NR_syslog	bits/syscall.h	d	#define __NR_syslog (0x40000000 + 103)
+__NR_tee	bits/syscall.h	d	#define __NR_tee (0x40000000 + 276)
+__NR_tgkill	bits/syscall.h	d	#define __NR_tgkill (0x40000000 + 234)
+__NR_time	bits/syscall.h	d	#define __NR_time (0x40000000 + 201)
+__NR_timer_create	bits/syscall.h	d	#define __NR_timer_create (0x40000000 + 526)
+__NR_timer_delete	bits/syscall.h	d	#define __NR_timer_delete (0x40000000 + 226)
+__NR_timer_getoverrun	bits/syscall.h	d	#define __NR_timer_getoverrun (0x40000000 + 225)
+__NR_timer_gettime	bits/syscall.h	d	#define __NR_timer_gettime (0x40000000 + 224)
+__NR_timer_settime	bits/syscall.h	d	#define __NR_timer_settime (0x40000000 + 223)
+__NR_timerfd_create	bits/syscall.h	d	#define __NR_timerfd_create (0x40000000 + 283)
+__NR_timerfd_gettime	bits/syscall.h	d	#define __NR_timerfd_gettime (0x40000000 + 287)
+__NR_timerfd_settime	bits/syscall.h	d	#define __NR_timerfd_settime (0x40000000 + 286)
+__NR_times	bits/syscall.h	d	#define __NR_times (0x40000000 + 100)
+__NR_tkill	bits/syscall.h	d	#define __NR_tkill (0x40000000 + 200)
+__NR_truncate	bits/syscall.h	d	#define __NR_truncate (0x40000000 + 76)
+__NR_tuxcall	bits/syscall.h	d	#define __NR_tuxcall (0x40000000 + 184)
+__NR_umask	bits/syscall.h	d	#define __NR_umask (0x40000000 + 95)
+__NR_umount2	bits/syscall.h	d	#define __NR_umount2 (0x40000000 + 166)
+__NR_uname	bits/syscall.h	d	#define __NR_uname (0x40000000 + 63)
+__NR_unlink	bits/syscall.h	d	#define __NR_unlink (0x40000000 + 87)
+__NR_unlinkat	bits/syscall.h	d	#define __NR_unlinkat (0x40000000 + 263)
+__NR_unshare	bits/syscall.h	d	#define __NR_unshare (0x40000000 + 272)
+__NR_userfaultfd	bits/syscall.h	d	#define __NR_userfaultfd (0x40000000 + 323)
+__NR_ustat	bits/syscall.h	d	#define __NR_ustat (0x40000000 + 136)
+__NR_utime	bits/syscall.h	d	#define __NR_utime (0x40000000 + 132)
+__NR_utimensat	bits/syscall.h	d	#define __NR_utimensat (0x40000000 + 280)
+__NR_utimes	bits/syscall.h	d	#define __NR_utimes (0x40000000 + 235)
+__NR_vfork	bits/syscall.h	d	#define __NR_vfork (0x40000000 + 58)
+__NR_vhangup	bits/syscall.h	d	#define __NR_vhangup (0x40000000 + 153)
+__NR_vmsplice	bits/syscall.h	d	#define __NR_vmsplice (0x40000000 + 532)
+__NR_wait4	bits/syscall.h	d	#define __NR_wait4 (0x40000000 + 61)
+__NR_waitid	bits/syscall.h	d	#define __NR_waitid (0x40000000 + 529)
+__NR_write	bits/syscall.h	d	#define __NR_write (0x40000000 + 1)
+__NR_writev	bits/syscall.h	d	#define __NR_writev (0x40000000 + 516)
 __WORDSIZE	bits/reg.h	d	#define __WORDSIZE 32
 __WORDSIZE	bits/user.h	d	#define __WORDSIZE 64
-__X32_SYSCALL_BIT	bits/syscall.h	d	#define __X32_SYSCALL_BIT 0x40000000
 __isoc_va_list	bits/alltypes.h	t	typedef __builtin_va_list __isoc_va_list;
 __jmp_buf	bits/setjmp.h	t	typedef unsigned long long __jmp_buf[8];
 blkcnt_t	bits/alltypes.h	t	typedef _Int64 blkcnt_t;

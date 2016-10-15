@@ -90,6 +90,7 @@
 #endif
 #include <stdarg.h>
 #include <stdbool.h>
+#include <stdc-predef.h>
 #include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -197,6 +198,7 @@ P(,DIR)
 T(,Dl_info)
 T(,ENTRY)
 T(,Elf32_Addr)
+T(,Elf32_Chdr)
 T(,Elf32_Conflict)
 T(,Elf32_Dyn)
 T(,Elf32_Ehdr)
@@ -225,6 +227,7 @@ T(,Elf32_Xword)
 T(,Elf32_auxv_t)
 T(,Elf32_gptab)
 T(,Elf64_Addr)
+T(,Elf64_Chdr)
 T(,Elf64_Dyn)
 T(,Elf64_Ehdr)
 T(,Elf64_Half)
@@ -249,6 +252,7 @@ T(,Elf64_Versym)
 T(,Elf64_Word)
 T(,Elf64_Xword)
 T(,Elf64_auxv_t)
+T(,Elf_MIPS_ABIFlags_v0)
 T(,Elf_Options)
 T(,Elf_Options_Hw)
 T(,Elf_Symndx)

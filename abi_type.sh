@@ -8,8 +8,11 @@ arm
 i386
 microblaze
 mips
+mips64
+mipsn32
 or1k
 powerpc
+powerpc64
 sh
 x32
 x86_64
