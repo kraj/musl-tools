@@ -79,6 +79,7 @@ AF_NFC	sys/socket.h	d	#define AF_NFC PF_NFC
 AF_PACKET	sys/socket.h	d	#define AF_PACKET PF_PACKET
 AF_PHONET	sys/socket.h	d	#define AF_PHONET PF_PHONET
 AF_PPPOX	sys/socket.h	d	#define AF_PPPOX PF_PPPOX
+AF_QIPCRTR	sys/socket.h	d	#define AF_QIPCRTR PF_QIPCRTR
 AF_RDS	sys/socket.h	d	#define AF_RDS PF_RDS
 AF_ROSE	sys/socket.h	d	#define AF_ROSE PF_ROSE
 AF_ROUTE	sys/socket.h	d	#define AF_ROUTE PF_ROUTE
@@ -114,6 +115,7 @@ ARMAG	ar.h	d	#define ARMAG "!<arch>\n"
 ARPD_FLUSH	net/if_arp.h	d	#define ARPD_FLUSH 0x03
 ARPD_LOOKUP	net/if_arp.h	d	#define ARPD_LOOKUP 0x02
 ARPD_UPDATE	net/if_arp.h	d	#define ARPD_UPDATE 0x01
+ARPHRD_6LOWPAN	net/if_arp.h	d	#define ARPHRD_6LOWPAN 825
 ARPHRD_ADAPT	net/if_arp.h	d	#define ARPHRD_ADAPT 264
 ARPHRD_APPLETLK	net/if_arp.h	d	#define ARPHRD_APPLETLK 8
 ARPHRD_ARCNET	net/if_arp.h	d	#define ARPHRD_ARCNET 7
@@ -292,7 +294,7 @@ BUS_MCEERR_AR	signal.h	d	#define BUS_MCEERR_AR 4
 BUS_OBJERR	signal.h	d	#define BUS_OBJERR 3
 BYTE_ORDER	endian.h	d	#define BYTE_ORDER __BYTE_ORDER
 CACHEABLE	sys/cachectl.h	d	#define CACHEABLE 0
-CANBSIZE	sys/param.h	d	#define CANBSIZE 255
+CANBSIZ	sys/param.h	d	#define CANBSIZ 255
 CBRK	sys/ttydefaults.h	d	#define CBRK CEOL
 CDISCARD	sys/ttydefaults.h	d	#define CDISCARD CTRL('o')
 CDSUSP	sys/ttydefaults.h	d	#define CDSUSP CTRL('y')
@@ -877,30 +879,69 @@ ELF_NOTE_SOLARIS	elf.h	d	#define ELF_NOTE_SOLARIS "SUNW Solaris"
 ELF_PRARGSZ	sys/procfs.h	d	#define ELF_PRARGSZ 80
 EMPTY	utmpx.h	d	#define EMPTY 0
 EM_386	elf.h	d	#define EM_386 3
+EM_56800EX	elf.h	d	#define EM_56800EX 200
 EM_68HC05	elf.h	d	#define EM_68HC05 72
 EM_68HC08	elf.h	d	#define EM_68HC08 71
 EM_68HC11	elf.h	d	#define EM_68HC11 70
 EM_68HC12	elf.h	d	#define EM_68HC12 53
 EM_68HC16	elf.h	d	#define EM_68HC16 69
 EM_68K	elf.h	d	#define EM_68K 4
+EM_78KOR	elf.h	d	#define EM_78KOR 199
+EM_8051	elf.h	d	#define EM_8051 165
 EM_860	elf.h	d	#define EM_860 7
 EM_88K	elf.h	d	#define EM_88K 5
 EM_960	elf.h	d	#define EM_960 19
 EM_AARCH64	elf.h	d	#define EM_AARCH64 183
 EM_ALPHA	elf.h	d	#define EM_ALPHA 0x9026
 EM_ALTERA_NIOS2	elf.h	d	#define EM_ALTERA_NIOS2 113
+EM_AMDGPU	elf.h	d	#define EM_AMDGPU 224
 EM_ARC	elf.h	d	#define EM_ARC 45
+EM_ARCA	elf.h	d	#define EM_ARCA 109
 EM_ARC_A5	elf.h	d	#define EM_ARC_A5 93
+EM_ARC_COMPACT	elf.h	d	#define EM_ARC_COMPACT 93
+EM_ARC_COMPACT2	elf.h	d	#define EM_ARC_COMPACT2 195
 EM_ARM	elf.h	d	#define EM_ARM 40
 EM_AVR	elf.h	d	#define EM_AVR 83
+EM_AVR32	elf.h	d	#define EM_AVR32 185
+EM_BA1	elf.h	d	#define EM_BA1 201
+EM_BA2	elf.h	d	#define EM_BA2 202
+EM_BLACKFIN	elf.h	d	#define EM_BLACKFIN 106
+EM_BPF	elf.h	d	#define EM_BPF 247
+EM_C166	elf.h	d	#define EM_C166 116
+EM_CDP	elf.h	d	#define EM_CDP 215
+EM_CE	elf.h	d	#define EM_CE 119
+EM_CLOUDSHIELD	elf.h	d	#define EM_CLOUDSHIELD 192
+EM_COGE	elf.h	d	#define EM_COGE 216
 EM_COLDFIRE	elf.h	d	#define EM_COLDFIRE 52
+EM_COOL	elf.h	d	#define EM_COOL 217
+EM_COREA_1ST	elf.h	d	#define EM_COREA_1ST 193
+EM_COREA_2ND	elf.h	d	#define EM_COREA_2ND 194
+EM_CR	elf.h	d	#define EM_CR 103
+EM_CR16	elf.h	d	#define EM_CR16 177
+EM_CRAYNV2	elf.h	d	#define EM_CRAYNV2 172
 EM_CRIS	elf.h	d	#define EM_CRIS 76
+EM_CRX	elf.h	d	#define EM_CRX 114
+EM_CSR_KALIMBA	elf.h	d	#define EM_CSR_KALIMBA 219
+EM_CUDA	elf.h	d	#define EM_CUDA 190
+EM_CYPRESS_M8C	elf.h	d	#define EM_CYPRESS_M8C 161
 EM_D10V	elf.h	d	#define EM_D10V 85
 EM_D30V	elf.h	d	#define EM_D30V 86
+EM_DSP24	elf.h	d	#define EM_DSP24 136
+EM_DSPIC30F	elf.h	d	#define EM_DSPIC30F 118
+EM_DXP	elf.h	d	#define EM_DXP 112
+EM_ECOG16	elf.h	d	#define EM_ECOG16 176
+EM_ECOG1X	elf.h	d	#define EM_ECOG1X 168
+EM_ECOG2	elf.h	d	#define EM_ECOG2 134
+EM_EMX16	elf.h	d	#define EM_EMX16 212
+EM_EMX8	elf.h	d	#define EM_EMX8 213
+EM_ETPU	elf.h	d	#define EM_ETPU 178
+EM_EXCESS	elf.h	d	#define EM_EXCESS 111
+EM_F2MC16	elf.h	d	#define EM_F2MC16 104
 EM_FAKE_ALPHA	elf.h	d	#define EM_FAKE_ALPHA 41
 EM_FIREPATH	elf.h	d	#define EM_FIREPATH 78
 EM_FR20	elf.h	d	#define EM_FR20 37
 EM_FR30	elf.h	d	#define EM_FR30 84
+EM_FT32	elf.h	d	#define EM_FT32 222
 EM_FX66	elf.h	d	#define EM_FX66 66
 EM_H8S	elf.h	d	#define EM_H8S 48
 EM_H8_300	elf.h	d	#define EM_H8_300 46
@@ -908,22 +949,44 @@ EM_H8_300H	elf.h	d	#define EM_H8_300H 47
 EM_H8_500	elf.h	d	#define EM_H8_500 49
 EM_HUANY	elf.h	d	#define EM_HUANY 81
 EM_IA_64	elf.h	d	#define EM_IA_64 50
+EM_IP2K	elf.h	d	#define EM_IP2K 101
 EM_JAVELIN	elf.h	d	#define EM_JAVELIN 77
+EM_K10M	elf.h	d	#define EM_K10M 181
+EM_KM32	elf.h	d	#define EM_KM32 210
+EM_KMX32	elf.h	d	#define EM_KMX32 211
+EM_KVARC	elf.h	d	#define EM_KVARC 214
+EM_L10M	elf.h	d	#define EM_L10M 180
+EM_LATTICEMICO32	elf.h	d	#define EM_LATTICEMICO32 138
+EM_M16C	elf.h	d	#define EM_M16C 117
 EM_M32	elf.h	d	#define EM_M32 1
+EM_M32C	elf.h	d	#define EM_M32C 120
 EM_M32R	elf.h	d	#define EM_M32R 88
+EM_MANIK	elf.h	d	#define EM_MANIK 171
+EM_MAX	elf.h	d	#define EM_MAX 102
+EM_MAXQ30	elf.h	d	#define EM_MAXQ30 169
+EM_MCHP_PIC	elf.h	d	#define EM_MCHP_PIC 204
+EM_MCST_ELBRUS	elf.h	d	#define EM_MCST_ELBRUS 175
 EM_ME16	elf.h	d	#define EM_ME16 59
+EM_METAG	elf.h	d	#define EM_METAG 174
 EM_MICROBLAZE	elf.h	d	#define EM_MICROBLAZE 189
 EM_MIPS	elf.h	d	#define EM_MIPS 8
 EM_MIPS_RS3_LE	elf.h	d	#define EM_MIPS_RS3_LE 10
 EM_MIPS_X	elf.h	d	#define EM_MIPS_X 51
 EM_MMA	elf.h	d	#define EM_MMA 54
+EM_MMDSP_PLUS	elf.h	d	#define EM_MMDSP_PLUS 160
 EM_MMIX	elf.h	d	#define EM_MMIX 80
 EM_MN10200	elf.h	d	#define EM_MN10200 90
 EM_MN10300	elf.h	d	#define EM_MN10300 89
+EM_MOXIE	elf.h	d	#define EM_MOXIE 223
+EM_MSP430	elf.h	d	#define EM_MSP430 105
 EM_NCPU	elf.h	d	#define EM_NCPU 56
 EM_NDR1	elf.h	d	#define EM_NDR1 57
+EM_NDS32	elf.h	d	#define EM_NDS32 167
 EM_NONE	elf.h	d	#define EM_NONE 0
-EM_NUM	elf.h	d	#define EM_NUM 192
+EM_NORC	elf.h	d	#define EM_NORC 218
+EM_NS32K	elf.h	d	#define EM_NS32K 97
+EM_NUM	elf.h	d	#define EM_NUM 248
+EM_OPEN8	elf.h	d	#define EM_OPEN8 196
 EM_OPENRISC	elf.h	d	#define EM_OPENRISC 92
 EM_OR1K	elf.h	d	#define EM_OR1K 92
 EM_PARISC	elf.h	d	#define EM_PARISC 15
@@ -933,30 +996,65 @@ EM_PJ	elf.h	d	#define EM_PJ 91
 EM_PPC	elf.h	d	#define EM_PPC 20
 EM_PPC64	elf.h	d	#define EM_PPC64 21
 EM_PRISM	elf.h	d	#define EM_PRISM 82
+EM_QDSP6	elf.h	d	#define EM_QDSP6 164
+EM_R32C	elf.h	d	#define EM_R32C 162
 EM_RCE	elf.h	d	#define EM_RCE 39
 EM_RH32	elf.h	d	#define EM_RH32 38
+EM_RISCV	elf.h	d	#define EM_RISCV 243
+EM_RL78	elf.h	d	#define EM_RL78 197
+EM_RS08	elf.h	d	#define EM_RS08 132
+EM_RX	elf.h	d	#define EM_RX 173
 EM_S370	elf.h	d	#define EM_S370 9
 EM_S390	elf.h	d	#define EM_S390 22
+EM_SCORE7	elf.h	d	#define EM_SCORE7 135
+EM_SEP	elf.h	d	#define EM_SEP 108
+EM_SE_C17	elf.h	d	#define EM_SE_C17 139
+EM_SE_C33	elf.h	d	#define EM_SE_C33 107
 EM_SH	elf.h	d	#define EM_SH 42
+EM_SHARC	elf.h	d	#define EM_SHARC 133
+EM_SLE9X	elf.h	d	#define EM_SLE9X 179
+EM_SNP1K	elf.h	d	#define EM_SNP1K 99
 EM_SPARC	elf.h	d	#define EM_SPARC 2
 EM_SPARC32PLUS	elf.h	d	#define EM_SPARC32PLUS 18
 EM_SPARCV9	elf.h	d	#define EM_SPARCV9 43
 EM_ST100	elf.h	d	#define EM_ST100 60
 EM_ST19	elf.h	d	#define EM_ST19 74
+EM_ST200	elf.h	d	#define EM_ST200 100
 EM_ST7	elf.h	d	#define EM_ST7 68
 EM_ST9PLUS	elf.h	d	#define EM_ST9PLUS 67
 EM_STARCORE	elf.h	d	#define EM_STARCORE 58
+EM_STM8	elf.h	d	#define EM_STM8 186
+EM_STXP7X	elf.h	d	#define EM_STXP7X 166
 EM_SVX	elf.h	d	#define EM_SVX 73
+EM_TILE64	elf.h	d	#define EM_TILE64 187
 EM_TILEGX	elf.h	d	#define EM_TILEGX 191
 EM_TILEPRO	elf.h	d	#define EM_TILEPRO 188
 EM_TINYJ	elf.h	d	#define EM_TINYJ 61
+EM_TI_ARP32	elf.h	d	#define EM_TI_ARP32 143
+EM_TI_C2000	elf.h	d	#define EM_TI_C2000 141
+EM_TI_C5500	elf.h	d	#define EM_TI_C5500 142
+EM_TI_C6000	elf.h	d	#define EM_TI_C6000 140
+EM_TI_PRU	elf.h	d	#define EM_TI_PRU 144
+EM_TMM_GPP	elf.h	d	#define EM_TMM_GPP 96
+EM_TPC	elf.h	d	#define EM_TPC 98
 EM_TRICORE	elf.h	d	#define EM_TRICORE 44
+EM_TRIMEDIA	elf.h	d	#define EM_TRIMEDIA 163
+EM_TSK3000	elf.h	d	#define EM_TSK3000 131
+EM_UNICORE	elf.h	d	#define EM_UNICORE 110
 EM_V800	elf.h	d	#define EM_V800 36
 EM_V850	elf.h	d	#define EM_V850 87
 EM_VAX	elf.h	d	#define EM_VAX 75
+EM_VIDEOCORE	elf.h	d	#define EM_VIDEOCORE 95
+EM_VIDEOCORE3	elf.h	d	#define EM_VIDEOCORE3 137
+EM_VIDEOCORE5	elf.h	d	#define EM_VIDEOCORE5 198
+EM_VISIUM	elf.h	d	#define EM_VISIUM 221
 EM_VPP500	elf.h	d	#define EM_VPP500 17
 EM_X86_64	elf.h	d	#define EM_X86_64 62
+EM_XCORE	elf.h	d	#define EM_XCORE 203
+EM_XGATE	elf.h	d	#define EM_XGATE 115
+EM_XIMO16	elf.h	d	#define EM_XIMO16 170
 EM_XTENSA	elf.h	d	#define EM_XTENSA 94
+EM_Z80	elf.h	d	#define EM_Z80 220
 EM_ZSP	elf.h	d	#define EM_ZSP 79
 ENCRYPT_CNT	arpa/telnet.h	d	#define ENCRYPT_CNT 9
 ENCRYPT_DEC_KEYID	arpa/telnet.h	d	#define ENCRYPT_DEC_KEYID 8
@@ -1078,6 +1176,7 @@ ETH_P_EDSA	netinet/if_ether.h	d	#define ETH_P_EDSA 0xDADA
 ETH_P_FCOE	netinet/if_ether.h	d	#define ETH_P_FCOE 0x8906
 ETH_P_FIP	netinet/if_ether.h	d	#define ETH_P_FIP 0x8914
 ETH_P_HDLC	netinet/if_ether.h	d	#define ETH_P_HDLC 0x0019
+ETH_P_HSR	netinet/if_ether.h	d	#define ETH_P_HSR 0x892F
 ETH_P_IEEE802154	netinet/if_ether.h	d	#define ETH_P_IEEE802154 0x00F6
 ETH_P_IEEEPUP	netinet/if_ether.h	d	#define ETH_P_IEEEPUP 0x0a00
 ETH_P_IEEEPUPAT	netinet/if_ether.h	d	#define ETH_P_IEEEPUPAT 0x0a01
@@ -1095,6 +1194,7 @@ ETH_P_MOBITEX	netinet/if_ether.h	d	#define ETH_P_MOBITEX 0x0015
 ETH_P_MPLS_MC	netinet/if_ether.h	d	#define ETH_P_MPLS_MC 0x8848
 ETH_P_MPLS_UC	netinet/if_ether.h	d	#define ETH_P_MPLS_UC 0x8847
 ETH_P_MVRP	netinet/if_ether.h	d	#define ETH_P_MVRP 0x88F5
+ETH_P_NCSI	netinet/if_ether.h	d	#define ETH_P_NCSI 0x88F8
 ETH_P_PAE	netinet/if_ether.h	d	#define ETH_P_PAE 0x888E
 ETH_P_PAUSE	netinet/if_ether.h	d	#define ETH_P_PAUSE 0x8808
 ETH_P_PHONET	netinet/if_ether.h	d	#define ETH_P_PHONET 0x00F5
@@ -1117,9 +1217,11 @@ ETH_P_TEB	netinet/if_ether.h	d	#define ETH_P_TEB 0x6558
 ETH_P_TIPC	netinet/if_ether.h	d	#define ETH_P_TIPC 0x88CA
 ETH_P_TRAILER	netinet/if_ether.h	d	#define ETH_P_TRAILER 0x001C
 ETH_P_TR_802_2	netinet/if_ether.h	d	#define ETH_P_TR_802_2 0x0011
+ETH_P_TSN	netinet/if_ether.h	d	#define ETH_P_TSN 0x22F0
 ETH_P_WAN_PPP	netinet/if_ether.h	d	#define ETH_P_WAN_PPP 0x0007
 ETH_P_WCCP	netinet/if_ether.h	d	#define ETH_P_WCCP 0x883E
 ETH_P_X25	netinet/if_ether.h	d	#define ETH_P_X25 0x0805
+ETH_P_XDSA	netinet/if_ether.h	d	#define ETH_P_XDSA 0x00F8
 ETH_ZLEN	netinet/if_ether.h	d	#define ETH_ZLEN 60
 ET_CORE	elf.h	d	#define ET_CORE 4
 ET_DYN	elf.h	d	#define ET_DYN 3
@@ -1235,7 +1337,6 @@ ElfW	link.h	p	 const ElfW(Phdr) *dlpi_phdr;
 Elf_MIPS_ABIFlags_v0	elf.h	t	} Elf_MIPS_ABIFlags_v0;
 Elf_Options	elf.h	t	} Elf_Options;
 Elf_Options_Hw	elf.h	t	} Elf_Options_Hw;
-Elf_Symndx	link.h	t	typedef uint32_t Elf_Symndx;
 FALLOC_FL_KEEP_SIZE	fcntl.h	d	#define FALLOC_FL_KEEP_SIZE 1
 FALLOC_FL_PUNCH_HOLE	fcntl.h	d	#define FALLOC_FL_PUNCH_HOLE 2
 FANOTIFY_METADATA_VERSION	sys/fanotify.h	d	#define FANOTIFY_METADATA_VERSION 3
@@ -1285,7 +1386,7 @@ FD_ISSET	sys/select.h	d	#define FD_ISSET(d, s) !!((s)->fds_bits[(d)/(8*sizeof(lo
 FD_SET	sys/select.h	d	#define FD_SET(d, s) ((s)->fds_bits[(d)/(8*sizeof(long))] |= (1UL<<((d)%(8*sizeof(long)))))
 FD_SETSIZE	sys/select.h	d	#define FD_SETSIZE 1024
 FD_ZERO	sys/select.h	d	#define FD_ZERO(s) do { int __i; unsigned long *__b=(s)->fds_bits; for(__i=sizeof (fd_set)/sizeof (long); __i; __i--) *__b++=0; } while(0)
-FFSYNC	fcntl.h	d	#define FFSYNC O_FSYNC
+FFSYNC	fcntl.h	d	#define FFSYNC O_SYNC
 FIFOTYPE	tar.h	d	#define FIFOTYPE '6'
 FILENAME_MAX	stdio.h	d	#define FILENAME_MAX 4096
 FILESIZEBITS	limits.h	d	#define FILESIZEBITS 64
@@ -2434,6 +2535,7 @@ MS_NOATIME	sys/mount.h	d	#define MS_NOATIME 1024
 MS_NODEV	sys/mount.h	d	#define MS_NODEV 4
 MS_NODIRATIME	sys/mount.h	d	#define MS_NODIRATIME 2048
 MS_NOEXEC	sys/mount.h	d	#define MS_NOEXEC 8
+MS_NOREMOTELOCK	sys/mount.h	d	#define MS_NOREMOTELOCK (1<<27)
 MS_NOSEC	sys/mount.h	d	#define MS_NOSEC (1<<28)
 MS_NOSUID	sys/mount.h	d	#define MS_NOSUID 2
 MS_NOUSER	sys/mount.h	d	#define MS_NOUSER (1U<<31)
@@ -2918,7 +3020,7 @@ PF_LLC	sys/socket.h	d	#define PF_LLC 26
 PF_LOCAL	sys/socket.h	d	#define PF_LOCAL 1
 PF_MASKOS	elf.h	d	#define PF_MASKOS 0x0ff00000
 PF_MASKPROC	elf.h	d	#define PF_MASKPROC 0xf0000000
-PF_MAX	sys/socket.h	d	#define PF_MAX 42
+PF_MAX	sys/socket.h	d	#define PF_MAX 43
 PF_MIPS_LOCAL	elf.h	d	#define PF_MIPS_LOCAL 0x10000000
 PF_MPLS	sys/socket.h	d	#define PF_MPLS 28
 PF_NETBEUI	sys/socket.h	d	#define PF_NETBEUI 13
@@ -2929,6 +3031,7 @@ PF_PACKET	sys/socket.h	d	#define PF_PACKET 17
 PF_PARISC_SBP	elf.h	d	#define PF_PARISC_SBP 0x08000000
 PF_PHONET	sys/socket.h	d	#define PF_PHONET 35
 PF_PPPOX	sys/socket.h	d	#define PF_PPPOX 24
+PF_QIPCRTR	sys/socket.h	d	#define PF_QIPCRTR 42
 PF_R	elf.h	d	#define PF_R (1 << 2)
 PF_RDS	sys/socket.h	d	#define PF_RDS 21
 PF_ROSE	sys/socket.h	d	#define PF_ROSE 11
@@ -4023,6 +4126,8 @@ R_ARM_TLS_LE32	elf.h	d	#define R_ARM_TLS_LE32 108
 R_ARM_TLS_TPOFF32	elf.h	d	#define R_ARM_TLS_TPOFF32 19
 R_ARM_V4BX	elf.h	d	#define R_ARM_V4BX 40
 R_ARM_XPC25	elf.h	d	#define R_ARM_XPC25 15
+R_BPF_MAP_FD	elf.h	d	#define R_BPF_MAP_FD 1
+R_BPF_NONE	elf.h	d	#define R_BPF_NONE 0
 R_CRIS_16	elf.h	d	#define R_CRIS_16 2
 R_CRIS_16_GOT	elf.h	d	#define R_CRIS_16_GOT 13
 R_CRIS_16_GOTPLT	elf.h	d	#define R_CRIS_16_GOTPLT 15
@@ -5375,7 +5480,9 @@ SPLICE_F_MORE	fcntl.h	d	#define SPLICE_F_MORE 4
 SPLICE_F_MOVE	fcntl.h	d	#define SPLICE_F_MOVE 1
 SPLICE_F_NONBLOCK	fcntl.h	d	#define SPLICE_F_NONBLOCK 2
 SSIZE_MAX	limits.h	d	#define SSIZE_MAX LONG_MAX
+SS_AUTODISARM	signal.h	d	#define SS_AUTODISARM (1U << 31)
 SS_DISABLE	signal.h	d	#define SS_DISABLE 2
+SS_FLAG_BITS	signal.h	d	#define SS_FLAG_BITS SS_AUTODISARM
 SS_ONSTACK	signal.h	d	#define SS_ONSTACK 1
 START_STOP	scsi/scsi.h	d	#define START_STOP 0x1b
 STATUS	arpa/nameser.h	d	#define STATUS ns_o_status
@@ -5604,6 +5711,7 @@ TCP_QUICKACK	netinet/tcp.h	d	#define TCP_QUICKACK 12
 TCP_REPAIR	netinet/tcp.h	d	#define TCP_REPAIR 19
 TCP_REPAIR_OPTIONS	netinet/tcp.h	d	#define TCP_REPAIR_OPTIONS 22
 TCP_REPAIR_QUEUE	netinet/tcp.h	d	#define TCP_REPAIR_QUEUE 20
+TCP_REPAIR_WINDOW	netinet/tcp.h	d	#define TCP_REPAIR_WINDOW 29
 TCP_SAVED_SYN	netinet/tcp.h	d	#define TCP_SAVED_SYN 28
 TCP_SAVE_SYN	netinet/tcp.h	d	#define TCP_SAVE_SYN 27
 TCP_SYNCNT	netinet/tcp.h	d	#define TCP_SYNCNT 7
@@ -5784,6 +5892,8 @@ UDP_CORK	netinet/udp.h	d	#define UDP_CORK 1
 UDP_ENCAP	netinet/udp.h	d	#define UDP_ENCAP 100
 UDP_ENCAP_ESPINUDP	netinet/udp.h	d	#define UDP_ENCAP_ESPINUDP 2
 UDP_ENCAP_ESPINUDP_NON_IKE	netinet/udp.h	d	#define UDP_ENCAP_ESPINUDP_NON_IKE 1
+UDP_ENCAP_GTP0	netinet/udp.h	d	#define UDP_ENCAP_GTP0 4
+UDP_ENCAP_GTP1U	netinet/udp.h	d	#define UDP_ENCAP_GTP1U 5
 UDP_ENCAP_L2TPINUDP	netinet/udp.h	d	#define UDP_ENCAP_L2TPINUDP 3
 UINT16_C	stdint.h	d	#define UINT16_C(c) c
 UINT16_MAX	stdint.h	d	#define UINT16_MAX (0xffff)
@@ -5977,6 +6087,8 @@ _CS_POSIX_V7_LPBIG_OFFBIG_LDFLAGS	unistd.h	d	#define _CS_POSIX_V7_LPBIG_OFFBIG_L
 _CS_POSIX_V7_LPBIG_OFFBIG_LIBS	unistd.h	d	#define _CS_POSIX_V7_LPBIG_OFFBIG_LIBS 1146
 _CS_POSIX_V7_LPBIG_OFFBIG_LINTFLAGS	unistd.h	d	#define _CS_POSIX_V7_LPBIG_OFFBIG_LINTFLAGS 1147
 _CS_POSIX_V7_WIDTH_RESTRICTED_ENVS	unistd.h	d	#define _CS_POSIX_V7_WIDTH_RESTRICTED_ENVS 5
+_CS_V6_ENV	unistd.h	d	#define _CS_V6_ENV 1148
+_CS_V7_ENV	unistd.h	d	#define _CS_V7_ENV 1149
 _CTYPE_H	ctype.h	d	#define _CTYPE_H
 _Complex_I	complex.h	d	#define _Complex_I (0.0f+1.0fi)
 _Complex_I	complex.h	d	#define _Complex_I (__extension__ (0.0f+1.0fi))
@@ -6441,8 +6553,8 @@ __CMPLX	complex.h	d	#define __CMPLX(x, y, t) (+(_Complex t){ (t)(x), (t)(y) })
 __CMPLX	complex.h	d	#define __CMPLX(x, y, t) (__builtin_complex((t)(x), (t)(y)))
 __CMSG_LEN	sys/socket.h	d	#define __CMSG_LEN(cmsg) (((cmsg)->cmsg_len + sizeof(long) - 1) & ~(long)(sizeof(long) - 1))
 __CMSG_NEXT	sys/socket.h	d	#define __CMSG_NEXT(cmsg) ((unsigned char *)(cmsg) + __CMSG_LEN(cmsg))
-__CPU_op_S	sched.h	d	#define __CPU_op_S(i, size, set, op) ( (i)/8U >= (size) ? 0 : ((set)->__bits[(i)/8/sizeof(long)] op (1UL<<((i)%(8*sizeof(long))))) )
-__CPU_op_func_S	sched.h	d	#define __CPU_op_func_S(func, op) static __inline void __CPU_##func##_S(size_t __size, cpu_set_t *__dest, const cpu_set_t *__src1, const cpu_set_t *__src2) { size_t __i; for (__i=0; __i<__size/sizeof(long); __i++) __dest->__bits[__i] = __src1->__bits[__i] op __src2->__bits[__i] ; }
+__CPU_op_S	sched.h	d	#define __CPU_op_S(i, size, set, op) ( (i)/8U >= (size) ? 0 : (((unsigned long *)(set))[(i)/8/sizeof(long)] op (1UL<<((i)%(8*sizeof(long))))) )
+__CPU_op_func_S	sched.h	d	#define __CPU_op_func_S(func, op) static __inline void __CPU_##func##_S(size_t __size, cpu_set_t *__dest, const cpu_set_t *__src1, const cpu_set_t *__src2) { size_t __i; for (__i=0; __i<__size/sizeof(long); __i++) ((unsigned long *)__dest)[__i] = ((unsigned long *)__src1)[__i] op ((unsigned long *)__src2)[__i] ; }
 __DBLCX	tgmath.h	d	#define __DBLCX(x) (__IS_CX(x) && sizeof(x) == sizeof(double complex))
 __EPOLL_DUMMY	sys/epoll.h	e	
 __FLT	tgmath.h	d	#define __FLT(x) (__IS_REAL(x) && sizeof(x) == sizeof(float))
@@ -6723,7 +6835,7 @@ __PRI64	inttypes.h	d	#define __PRI64 "l"
 __PRI64	inttypes.h	d	#define __PRI64 "ll"
 __PRIPTR	inttypes.h	d	#define __PRIPTR ""
 __PRIPTR	inttypes.h	d	#define __PRIPTR "l"
-__RES	resolv.h	d	#define __RES 19991006
+__RES	resolv.h	d	#define __RES 19960801
 __RETCAST	tgmath.h	d	#define __RETCAST(x)
 __RETCAST	tgmath.h	d	#define __RETCAST(x) ( __type2(__IS_FP(x), __typeof__(x), double))
 __RETCAST_2	tgmath.h	d	#define __RETCAST_2(x, y)
@@ -6737,13 +6849,27 @@ __RETCAST_REAL	tgmath.h	d	#define __RETCAST_REAL(x) ( __type2(__IS_FP(x) && size
 __SID	stropts.h	d	#define __SID ('S' << 8)
 __STDC_IEC_559__	stdc-predef.h	d	#define __STDC_IEC_559__ 1
 __STDC_ISO_10646__	stdc-predef.h	d	#define __STDC_ISO_10646__ 201206L
+__UAPI_DEF_IN6_ADDR	netinet/in.h	d	#define __UAPI_DEF_IN6_ADDR 0
+__UAPI_DEF_IN6_ADDR_ALT	netinet/in.h	d	#define __UAPI_DEF_IN6_ADDR_ALT 0
+__UAPI_DEF_IN6_PKTINFO	netinet/in.h	d	#define __UAPI_DEF_IN6_PKTINFO 0
+__UAPI_DEF_IN_ADDR	netinet/in.h	d	#define __UAPI_DEF_IN_ADDR 0
+__UAPI_DEF_IN_CLASS	netinet/in.h	d	#define __UAPI_DEF_IN_CLASS 0
+__UAPI_DEF_IN_IPPROTO	netinet/in.h	d	#define __UAPI_DEF_IN_IPPROTO 0
+__UAPI_DEF_IN_PKTINFO	netinet/in.h	d	#define __UAPI_DEF_IN_PKTINFO 0
+__UAPI_DEF_IP6_MTUINFO	netinet/in.h	d	#define __UAPI_DEF_IP6_MTUINFO 0
+__UAPI_DEF_IPPROTO_V6	netinet/in.h	d	#define __UAPI_DEF_IPPROTO_V6 0
+__UAPI_DEF_IPV6_MREQ	netinet/in.h	d	#define __UAPI_DEF_IPV6_MREQ 0
+__UAPI_DEF_IPV6_OPTIONS	netinet/in.h	d	#define __UAPI_DEF_IPV6_OPTIONS 0
+__UAPI_DEF_IP_MREQ	netinet/in.h	d	#define __UAPI_DEF_IP_MREQ 0
+__UAPI_DEF_SOCKADDR_IN	netinet/in.h	d	#define __UAPI_DEF_SOCKADDR_IN 0
+__UAPI_DEF_SOCKADDR_IN6	netinet/in.h	d	#define __UAPI_DEF_SOCKADDR_IN6 0
 __USE_GNU_GETTEXT	libintl.h	d	#define __USE_GNU_GETTEXT 1
 __WALL	sys/wait.h	d	#define __WALL 0x40000000
 __WCLONE	sys/wait.h	d	#define __WCLONE 0x80000000
 __WNOTHREAD	sys/wait.h	d	#define __WNOTHREAD 0x20000000
 __alignas_is_defined	stdalign.h	d	#define __alignas_is_defined 1
 __alignof_is_defined	stdalign.h	d	#define __alignof_is_defined 1
-__assert_fail	assert.h	p	void __assert_fail(const char *, const char *, int, const char *);
+__assert_fail	assert.h	p	_Noreturn void __assert_fail(const char *, const char *, int, const char *);
 __bitop	sys/param.h	d	#define __bitop(x,i,o) ((x)[(i)/8] o (1<<(i)%8))
 __bool_true_false_are_defined	stdbool.h	d	#define __bool_true_false_are_defined 1
 __ctype_get_mb_cur_max	stdlib.h	p	size_t __ctype_get_mb_cur_max(void);
@@ -6768,6 +6894,7 @@ __fsetlocking	stdio_ext.h	p	int __fsetlocking(FILE *, int);
 __fwritable	stdio_ext.h	p	int __fwritable(FILE *);
 __fwriting	stdio_ext.h	p	int __fwriting(FILE *);
 __h_errno_location	netdb.h	p	int *__h_errno_location(void);
+__inline	features.h	d	#define __inline
 __inline	features.h	d	#define __inline inline
 __ipc_perm_key	sys/ipc.h	d	#define __ipc_perm_key __key
 __ipc_perm_seq	sys/ipc.h	d	#define __ipc_perm_seq __seq
@@ -6850,7 +6977,7 @@ aio_write64	aio.h	d	#define aio_write64 aio_write
 aiocb64	aio.h	d	#define aiocb64 aiocb
 alarm	unistd.h	p	unsigned alarm(unsigned);
 alignas	stdalign.h	d	#define alignas _Alignas
-aligned_alloc	stdlib.h	p	void *aligned_alloc(size_t alignment, size_t size);
+aligned_alloc	stdlib.h	p	void *aligned_alloc(size_t, size_t);
 alignof	stdalign.h	d	#define alignof _Alignof
 alloca	alloca.h	d	#define alloca __builtin_alloca
 alloca	alloca.h	p	void *alloca(size_t);
@@ -7260,7 +7387,7 @@ ffsl	strings.h	p	int ffsl(long);
 ffsll	strings.h	p	int ffsll(long long);
 fgetc	stdio.h	p	int fgetc(FILE *);
 fgetc_unlocked	stdio.h	p	int fgetc_unlocked(FILE *);
-fgetgrent	grp.h	p	struct group *fgetgrent(FILE *stream);
+fgetgrent	grp.h	p	struct group *fgetgrent(FILE *);
 fgetln	stdio.h	p	char *fgetln(FILE *, size_t *);
 fgetpos	stdio.h	p	int fgetpos(FILE *__restrict, fpos_t *__restrict);
 fgetpos64	stdio.h	d	#define fgetpos64 fgetpos
@@ -7269,13 +7396,15 @@ fgets	stdio.h	p	char *fgets(char *__restrict, int, FILE *__restrict);
 fgets_unlocked	stdio.h	p	char *fgets_unlocked(char *, int, FILE *);
 fgetspent	shadow.h	p	struct spwd *fgetspent(FILE *);
 fgetwc	wchar.h	p	wint_t fgetwc(FILE *);
+fgetwc_unlocked	wchar.h	p	wint_t fgetwc_unlocked(FILE *);
 fgetws	wchar.h	p	wchar_t *fgetws(wchar_t *__restrict, int, FILE *__restrict);
-fgetxattr	sys/xattr.h	p	ssize_t fgetxattr(int filedes, const char *, void *, size_t);
+fgetws_unlocked	wchar.h	p	wchar_t *fgetws_unlocked(wchar_t *__restrict, int, FILE *__restrict);
+fgetxattr	sys/xattr.h	p	ssize_t fgetxattr(int, const char *, void *, size_t);
 fileno	stdio.h	p	int fileno(FILE *);
 fileno_unlocked	stdio.h	p	int fileno_unlocked(FILE *);
 finite	math.h	p	int finite(double);
 finitef	math.h	p	int finitef(float);
-flistxattr	sys/xattr.h	p	ssize_t flistxattr(int filedes, char *, size_t);
+flistxattr	sys/xattr.h	p	ssize_t flistxattr(int, char *, size_t);
 flock	sys/file.h	p	int flock(int, int);
 flock64	fcntl.h	d	#define flock64 flock
 flockfile	stdio.h	p	void flockfile(FILE *);
@@ -7317,14 +7446,16 @@ fputc_unlocked	stdio.h	p	int fputc_unlocked(int, FILE *);
 fputs	stdio.h	p	int fputs(const char *__restrict, FILE *__restrict);
 fputs_unlocked	stdio.h	p	int fputs_unlocked(const char *, FILE *);
 fputwc	wchar.h	p	wint_t fputwc(wchar_t, FILE *);
+fputwc_unlocked	wchar.h	p	wint_t fputwc_unlocked(wchar_t, FILE *);
 fputws	wchar.h	p	int fputws(const wchar_t *__restrict, FILE *__restrict);
+fputws_unlocked	wchar.h	p	int fputws_unlocked(const wchar_t *__restrict, FILE *__restrict);
 fread	stdio.h	p	size_t fread(void *__restrict, size_t, size_t, FILE *__restrict);
 fread_unlocked	stdio.h	p	size_t fread_unlocked(void *, size_t, size_t, FILE *);
 free	malloc.h	p	void free(void *);
 free	sched.h	p	void free(void *);
 free	stdlib.h	p	void free(void *);
 freeaddrinfo	netdb.h	p	void freeaddrinfo(struct addrinfo *);
-freeifaddrs	ifaddrs.h	p	void freeifaddrs(struct ifaddrs *ifp);
+freeifaddrs	ifaddrs.h	p	void freeifaddrs(struct ifaddrs *);
 freelocale	locale.h	p	void freelocale(locale_t);
 fremovexattr	sys/xattr.h	p	int fremovexattr(int, const char *);
 freopen	stdio.h	p	FILE *freopen(const char *__restrict, const char *__restrict, FILE *__restrict);
@@ -7420,7 +7551,7 @@ gethostbyname_r	netdb.h	p	int gethostbyname_r(const char *, struct hostent *, ch
 gethostent	netdb.h	p	struct hostent *gethostent(void);
 gethostid	unistd.h	p	long gethostid(void);
 gethostname	unistd.h	p	int gethostname(char *, size_t);
-getifaddrs	ifaddrs.h	p	int getifaddrs(struct ifaddrs **ifap);
+getifaddrs	ifaddrs.h	p	int getifaddrs(struct ifaddrs **);
 getitimer	sys/time.h	p	int getitimer(int, struct itimerval *);
 getline	stdio.h	p	ssize_t getline(char **__restrict, size_t *__restrict, FILE *__restrict);
 getloadavg	stdlib.h	p	int getloadavg(double *, int);
@@ -7481,7 +7612,9 @@ getutxid	utmpx.h	p	struct utmpx *getutxid(const struct utmpx *);
 getutxline	utmpx.h	p	struct utmpx *getutxline(const struct utmpx *);
 getw	stdio.h	p	int getw(FILE *);
 getwc	wchar.h	p	wint_t getwc(FILE *);
+getwc_unlocked	wchar.h	p	wint_t getwc_unlocked(FILE *);
 getwchar	wchar.h	p	wint_t getwchar(void);
+getwchar_unlocked	wchar.h	p	wint_t getwchar_unlocked(void);
 getxattr	sys/xattr.h	p	ssize_t getxattr(const char *, const char *, void *, size_t);
 glob	glob.h	p	int glob(const char *__restrict, int, int(*)(const char *, int), glob_t *__restrict);
 glob64	glob.h	d	#define glob64 glob
@@ -8283,6 +8416,7 @@ pthread_equal	pthread.h	d	#define pthread_equal(x,y) ((x)==(y))
 pthread_equal	pthread.h	p	int pthread_equal(pthread_t, pthread_t);
 pthread_exit	pthread.h	p	_Noreturn void pthread_exit(void *);
 pthread_getaffinity_np	pthread.h	p	int pthread_getaffinity_np(pthread_t, size_t, struct cpu_set_t *);
+pthread_getattr_default_np	pthread.h	p	int pthread_getattr_default_np(pthread_attr_t *);
 pthread_getattr_np	pthread.h	p	int pthread_getattr_np(pthread_t, pthread_attr_t *);
 pthread_getconcurrency	pthread.h	p	int pthread_getconcurrency(void);
 pthread_getcpuclockid	pthread.h	p	int pthread_getcpuclockid(pthread_t, clockid_t *);
@@ -8329,9 +8463,11 @@ pthread_rwlockattr_init	pthread.h	p	int pthread_rwlockattr_init(pthread_rwlockat
 pthread_rwlockattr_setpshared	pthread.h	p	int pthread_rwlockattr_setpshared(pthread_rwlockattr_t *, int);
 pthread_self	pthread.h	p	pthread_t pthread_self(void);
 pthread_setaffinity_np	pthread.h	p	int pthread_setaffinity_np(pthread_t, size_t, const struct cpu_set_t *);
+pthread_setattr_default_np	pthread.h	p	int pthread_setattr_default_np(const pthread_attr_t *);
 pthread_setcancelstate	pthread.h	p	int pthread_setcancelstate(int, int *);
 pthread_setcanceltype	pthread.h	p	int pthread_setcanceltype(int, int *);
 pthread_setconcurrency	pthread.h	p	int pthread_setconcurrency(int);
+pthread_setname_np	pthread.h	p	int pthread_setname_np(pthread_t, const char *);
 pthread_setschedparam	pthread.h	p	int pthread_setschedparam(pthread_t, int, const struct sched_param *);
 pthread_setschedprio	pthread.h	p	int pthread_setschedprio(pthread_t, int);
 pthread_setspecific	pthread.h	p	int pthread_setspecific(pthread_key_t, const void *);
@@ -8360,7 +8496,9 @@ pututline	utmp.h	p	struct utmp *pututline(const struct utmp *);
 pututxline	utmpx.h	p	struct utmpx *pututxline(const struct utmpx *);
 putw	stdio.h	p	int putw(int, FILE *);
 putwc	wchar.h	p	wint_t putwc(wchar_t, FILE *);
+putwc_unlocked	wchar.h	p	wint_t putwc_unlocked(wchar_t, FILE *);
 putwchar	wchar.h	p	wint_t putwchar(wchar_t);
+putwchar_unlocked	wchar.h	p	wint_t putwchar_unlocked(wchar_t);
 pwrite	unistd.h	p	ssize_t pwrite(int, const void *, size_t, off_t);
 pwrite64	unistd.h	d	#define pwrite64 pwrite
 pwritev	sys/uio.h	p	ssize_t pwritev(int, const struct iovec *, int, off_t);
@@ -8888,6 +9026,7 @@ struct strrecvfd	stropts.h	s
 struct sysinfo	sys/sysinfo.h	s	
 struct tcp_info	netinet/tcp.h	s	
 struct tcp_md5sig	netinet/tcp.h	s	
+struct tcp_repair_window	netinet/tcp.h	s	
 struct tcphdr	netinet/tcp.h	s	
 struct tftphdr	arpa/tftp.h	s	
 struct timeb	sys/timeb.h	s	
@@ -9020,7 +9159,7 @@ truncf	math.h	p	float truncf(float);
 truncl	math.h	p	long double truncl(long double);
 tsearch	search.h	p	void *tsearch(const void *, void **, int(*)(const void *, const void *));
 tss_create	threads.h	p	int tss_create(tss_t *, tss_dtor_t);
-tss_delete	threads.h	p	void tss_delete(tss_t key);
+tss_delete	threads.h	p	void tss_delete(tss_t);
 tss_dtor_t	threads.h	t	typedef void (*tss_dtor_t)(void *);
 tss_get	threads.h	p	void *tss_get(tss_t);
 tss_set	threads.h	p	int tss_set(tss_t, void *);
@@ -9134,6 +9273,7 @@ wcscpy	wchar.h	p	wchar_t *wcscpy(wchar_t *__restrict, const wchar_t *__restrict)
 wcscspn	wchar.h	p	size_t wcscspn(const wchar_t *, const wchar_t *);
 wcsdup	wchar.h	p	wchar_t *wcsdup(const wchar_t *);
 wcsftime	wchar.h	p	size_t wcsftime(wchar_t *__restrict, size_t, const wchar_t *__restrict, const struct tm *__restrict);
+wcsftime_l	wchar.h	p	size_t wcsftime_l(wchar_t *__restrict, size_t, const wchar_t *__restrict, const struct tm *__restrict, locale_t);
 wcslen	wchar.h	p	size_t wcslen(const wchar_t *);
 wcsncasecmp	wchar.h	p	int wcsncasecmp(const wchar_t *, const wchar_t *, size_t);
 wcsncasecmp_l	wchar.h	p	int wcsncasecmp_l(const wchar_t *, const wchar_t *, size_t, locale_t);
@@ -9160,8 +9300,8 @@ wcstoull	wchar.h	p	unsigned long long wcstoull(const wchar_t *__restrict, wchar_
 wcstoumax	inttypes.h	p	uintmax_t wcstoumax(const wchar_t *__restrict, wchar_t **__restrict, int);
 wcswcs	wchar.h	p	wchar_t *wcswcs(const wchar_t *, const wchar_t *);
 wcswidth	wchar.h	p	int wcswidth(const wchar_t *, size_t);
-wcsxfrm	wchar.h	p	size_t wcsxfrm(wchar_t *__restrict, const wchar_t *__restrict, size_t n);
-wcsxfrm_l	wchar.h	p	size_t wcsxfrm_l(wchar_t *__restrict, const wchar_t *__restrict, size_t n, locale_t);
+wcsxfrm	wchar.h	p	size_t wcsxfrm(wchar_t *__restrict, const wchar_t *__restrict, size_t);
+wcsxfrm_l	wchar.h	p	size_t wcsxfrm_l(wchar_t *__restrict, const wchar_t *__restrict, size_t, locale_t);
 wctob	wchar.h	p	int wctob(wint_t);
 wctomb	stdlib.h	p	int wctomb(char *, wchar_t);
 wctrans	wctype.h	p	wctrans_t wctrans(const char *);

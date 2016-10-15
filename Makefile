@@ -10,9 +10,9 @@ abi: data/abi_type.x86_64.musl data/abi_func.x86_64.musl
 abi_type.x86_64.cc abi_func.cc: tables
 
 data/abi_type.x86_64.musl: abi_type.x86_64.cc
-	CXX=g++ ./abi_type_data.sh >$@
+	CXX='g++ -nostdinc -isystem /tmp/T.x86_64/include' ./abi_type_data.sh >$@
 data/abi_func.x86_64.musl: abi_func.cc
-	CXX=g++ ./abi_func_data.sh >$@
+	CXX='g++ -nostdinc -isystem /tmp/T.x86_64/include' ./abi_func_data.sh >$@
 
 
 sizeof: sizeof-glibc sizeof-musl

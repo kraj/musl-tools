@@ -197,6 +197,7 @@ EXFULL	bits/errno.h	d	#define EXFULL 54
 EXTA	bits/termios.h	d	#define EXTA 0000016
 EXTB	bits/termios.h	d	#define EXTB 0000017
 EXTPROC	bits/termios.h	d	#define EXTPROC 0200000
+Elf_Symndx	bits/link.h	t	typedef uint32_t Elf_Symndx;
 FE_ALL_EXCEPT	bits/fenv.h	d	#define FE_ALL_EXCEPT 0
 FE_ALL_EXCEPT	bits/fenv.h	d	#define FE_ALL_EXCEPT 31
 FE_DFL_ENV	bits/fenv.h	d	#define FE_DFL_ENV ((const fenv_t *) -1)
@@ -241,6 +242,34 @@ F_SETOWN	bits/fcntl.h	d	#define F_SETOWN 8
 F_SETOWN_EX	bits/fcntl.h	d	#define F_SETOWN_EX 15
 F_SETSIG	bits/fcntl.h	d	#define F_SETSIG 10
 HUPCL	bits/termios.h	d	#define HUPCL 0002000
+HWCAP2_AES	bits/hwcap.h	d	#define HWCAP2_AES (1 << 0)
+HWCAP2_CRC32	bits/hwcap.h	d	#define HWCAP2_CRC32 (1 << 4)
+HWCAP2_PMULL	bits/hwcap.h	d	#define HWCAP2_PMULL (1 << 1)
+HWCAP2_SHA1	bits/hwcap.h	d	#define HWCAP2_SHA1 (1 << 2)
+HWCAP2_SHA2	bits/hwcap.h	d	#define HWCAP2_SHA2 (1 << 3)
+HWCAP_26BIT	bits/hwcap.h	d	#define HWCAP_26BIT (1 << 3)
+HWCAP_CRUNCH	bits/hwcap.h	d	#define HWCAP_CRUNCH (1 << 10)
+HWCAP_EDSP	bits/hwcap.h	d	#define HWCAP_EDSP (1 << 7)
+HWCAP_EVTSTRM	bits/hwcap.h	d	#define HWCAP_EVTSTRM (1 << 21)
+HWCAP_FAST_MULT	bits/hwcap.h	d	#define HWCAP_FAST_MULT (1 << 4)
+HWCAP_FPA	bits/hwcap.h	d	#define HWCAP_FPA (1 << 5)
+HWCAP_HALF	bits/hwcap.h	d	#define HWCAP_HALF (1 << 1)
+HWCAP_IDIV	bits/hwcap.h	d	#define HWCAP_IDIV (HWCAP_IDIVA | HWCAP_IDIVT)
+HWCAP_IDIVA	bits/hwcap.h	d	#define HWCAP_IDIVA (1 << 17)
+HWCAP_IDIVT	bits/hwcap.h	d	#define HWCAP_IDIVT (1 << 18)
+HWCAP_IWMMXT	bits/hwcap.h	d	#define HWCAP_IWMMXT (1 << 9)
+HWCAP_JAVA	bits/hwcap.h	d	#define HWCAP_JAVA (1 << 8)
+HWCAP_LPAE	bits/hwcap.h	d	#define HWCAP_LPAE (1 << 20)
+HWCAP_NEON	bits/hwcap.h	d	#define HWCAP_NEON (1 << 12)
+HWCAP_SWP	bits/hwcap.h	d	#define HWCAP_SWP (1 << 0)
+HWCAP_THUMB	bits/hwcap.h	d	#define HWCAP_THUMB (1 << 2)
+HWCAP_THUMBEE	bits/hwcap.h	d	#define HWCAP_THUMBEE (1 << 11)
+HWCAP_TLS	bits/hwcap.h	d	#define HWCAP_TLS (1 << 15)
+HWCAP_VFP	bits/hwcap.h	d	#define HWCAP_VFP (1 << 6)
+HWCAP_VFPD32	bits/hwcap.h	d	#define HWCAP_VFPD32 (1 << 19)
+HWCAP_VFPv3	bits/hwcap.h	d	#define HWCAP_VFPv3 (1 << 13)
+HWCAP_VFPv3D16	bits/hwcap.h	d	#define HWCAP_VFPv3D16 (1 << 14)
+HWCAP_VFPv4	bits/hwcap.h	d	#define HWCAP_VFPv4 (1 << 16)
 ICANON	bits/termios.h	d	#define ICANON 0000002
 ICRNL	bits/termios.h	d	#define ICRNL 0000400
 IEXTEN	bits/termios.h	d	#define IEXTEN 0100000
@@ -624,6 +653,9 @@ SYS_personality	bits/syscall.h	d	#define SYS_personality 136
 SYS_pipe	bits/syscall.h	d	#define SYS_pipe 42
 SYS_pipe2	bits/syscall.h	d	#define SYS_pipe2 359
 SYS_pivot_root	bits/syscall.h	d	#define SYS_pivot_root 218
+SYS_pkey_alloc	bits/syscall.h	d	#define SYS_pkey_alloc 395
+SYS_pkey_free	bits/syscall.h	d	#define SYS_pkey_free 396
+SYS_pkey_mprotect	bits/syscall.h	d	#define SYS_pkey_mprotect 394
 SYS_poll	bits/syscall.h	d	#define SYS_poll 168
 SYS_ppoll	bits/syscall.h	d	#define SYS_ppoll 336
 SYS_prctl	bits/syscall.h	d	#define SYS_prctl 172
@@ -1193,6 +1225,9 @@ __NR_personality	bits/syscall.h	d	#define __NR_personality 136
 __NR_pipe	bits/syscall.h	d	#define __NR_pipe 42
 __NR_pipe2	bits/syscall.h	d	#define __NR_pipe2 359
 __NR_pivot_root	bits/syscall.h	d	#define __NR_pivot_root 218
+__NR_pkey_alloc	bits/syscall.h	d	#define __NR_pkey_alloc 395
+__NR_pkey_free	bits/syscall.h	d	#define __NR_pkey_free 396
+__NR_pkey_mprotect	bits/syscall.h	d	#define __NR_pkey_mprotect 394
 __NR_poll	bits/syscall.h	d	#define __NR_poll 168
 __NR_ppoll	bits/syscall.h	d	#define __NR_ppoll 336
 __NR_prctl	bits/syscall.h	d	#define __NR_prctl 172
@@ -1456,11 +1491,7 @@ uint_fast32_t	bits/stdint.h	t	typedef uint32_t uint_fast32_t;
 uintmax_t	bits/alltypes.h	t	typedef unsigned _Int64 uintmax_t;
 uintptr_t	bits/alltypes.h	t	typedef unsigned _Addr uintptr_t;
 useconds_t	bits/alltypes.h	t	typedef unsigned useconds_t;
-va_arg	bits/stdarg.h	d	#define va_arg(v,l) __builtin_va_arg(v,l)
-va_copy	bits/stdarg.h	d	#define va_copy(d,s) __builtin_va_copy(d,s)
-va_end	bits/stdarg.h	d	#define va_end(v) __builtin_va_end(v)
 va_list	bits/alltypes.h	t	typedef __builtin_va_list va_list;
-va_start	bits/stdarg.h	d	#define va_start(v,l) __builtin_va_start(v,l)
 wchar_t	bits/alltypes.h	t	typedef unsigned wchar_t;
 wctype_t	bits/alltypes.h	t	typedef unsigned long wctype_t;
 wint_t	bits/alltypes.h	t	typedef unsigned wint_t;

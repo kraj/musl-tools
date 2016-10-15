@@ -201,6 +201,7 @@ EXFULL	bits/errno.h	d	#define EXFULL 54
 EXTA	bits/termios.h	d	#define EXTA 0000016
 EXTB	bits/termios.h	d	#define EXTB 0000017
 EXTPROC	bits/termios.h	d	#define EXTPROC 0200000
+Elf_Symndx	bits/link.h	t	typedef uint32_t Elf_Symndx;
 FE_ALL_EXCEPT	bits/fenv.h	d	#define FE_ALL_EXCEPT 63
 FE_DFL_ENV	bits/fenv.h	d	#define FE_DFL_ENV ((const fenv_t *) -1)
 FE_DIVBYZERO	bits/fenv.h	d	#define FE_DIVBYZERO 4
@@ -670,6 +671,9 @@ SYS_personality	bits/syscall.h	d	#define SYS_personality 135
 SYS_pipe	bits/syscall.h	d	#define SYS_pipe 22
 SYS_pipe2	bits/syscall.h	d	#define SYS_pipe2 293
 SYS_pivot_root	bits/syscall.h	d	#define SYS_pivot_root 155
+SYS_pkey_alloc	bits/syscall.h	d	#define SYS_pkey_alloc 330
+SYS_pkey_free	bits/syscall.h	d	#define SYS_pkey_free 331
+SYS_pkey_mprotect	bits/syscall.h	d	#define SYS_pkey_mprotect 329
 SYS_poll	bits/syscall.h	d	#define SYS_poll 7
 SYS_ppoll	bits/syscall.h	d	#define SYS_ppoll 271
 SYS_prctl	bits/syscall.h	d	#define SYS_prctl 157
@@ -1217,6 +1221,9 @@ __NR_personality	bits/syscall.h	d	#define __NR_personality 135
 __NR_pipe	bits/syscall.h	d	#define __NR_pipe 22
 __NR_pipe2	bits/syscall.h	d	#define __NR_pipe2 293
 __NR_pivot_root	bits/syscall.h	d	#define __NR_pivot_root 155
+__NR_pkey_alloc	bits/syscall.h	d	#define __NR_pkey_alloc 330
+__NR_pkey_free	bits/syscall.h	d	#define __NR_pkey_free 331
+__NR_pkey_mprotect	bits/syscall.h	d	#define __NR_pkey_mprotect 329
 __NR_poll	bits/syscall.h	d	#define __NR_poll 7
 __NR_ppoll	bits/syscall.h	d	#define __NR_ppoll 271
 __NR_prctl	bits/syscall.h	d	#define __NR_prctl 157
@@ -1471,11 +1478,7 @@ uint_fast32_t	bits/stdint.h	t	typedef uint32_t uint_fast32_t;
 uintmax_t	bits/alltypes.h	t	typedef unsigned _Int64 uintmax_t;
 uintptr_t	bits/alltypes.h	t	typedef unsigned _Addr uintptr_t;
 useconds_t	bits/alltypes.h	t	typedef unsigned useconds_t;
-va_arg	bits/stdarg.h	d	#define va_arg(v,l) __builtin_va_arg(v,l)
-va_copy	bits/stdarg.h	d	#define va_copy(d,s) __builtin_va_copy(d,s)
-va_end	bits/stdarg.h	d	#define va_end(v) __builtin_va_end(v)
 va_list	bits/alltypes.h	t	typedef __builtin_va_list va_list;
-va_start	bits/stdarg.h	d	#define va_start(v,l) __builtin_va_start(v,l)
 wchar_t	bits/alltypes.h	t	typedef int wchar_t;
 wctype_t	bits/alltypes.h	t	typedef unsigned long wctype_t;
 wint_t	bits/alltypes.h	t	typedef unsigned wint_t;

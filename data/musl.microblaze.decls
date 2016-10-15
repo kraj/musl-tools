@@ -196,6 +196,7 @@ EXFULL	bits/errno.h	d	#define EXFULL 54
 EXTA	bits/termios.h	d	#define EXTA 0000016
 EXTB	bits/termios.h	d	#define EXTB 0000017
 EXTPROC	bits/termios.h	d	#define EXTPROC 0200000
+Elf_Symndx	bits/link.h	t	typedef uint32_t Elf_Symndx;
 FE_ALL_EXCEPT	bits/fenv.h	d	#define FE_ALL_EXCEPT 0
 FE_DFL_ENV	bits/fenv.h	d	#define FE_DFL_ENV ((const fenv_t *) -1)
 FE_TONEAREST	bits/fenv.h	d	#define FE_TONEAREST 0
@@ -581,6 +582,7 @@ SYS_lstat	bits/syscall.h	d	#define SYS_lstat 107
 SYS_lstat64	bits/syscall.h	d	#define SYS_lstat64 196
 SYS_madvise	bits/syscall.h	d	#define SYS_madvise 219
 SYS_mbind	bits/syscall.h	d	#define SYS_mbind 274
+SYS_membarrier	bits/syscall.h	d	#define SYS_membarrier 390
 SYS_memfd_create	bits/syscall.h	d	#define SYS_memfd_create 386
 SYS_migrate_pages	bits/syscall.h	d	#define SYS_migrate_pages 294
 SYS_mincore	bits/syscall.h	d	#define SYS_mincore 218
@@ -589,6 +591,7 @@ SYS_mkdirat	bits/syscall.h	d	#define SYS_mkdirat 296
 SYS_mknod	bits/syscall.h	d	#define SYS_mknod 14
 SYS_mknodat	bits/syscall.h	d	#define SYS_mknodat 297
 SYS_mlock	bits/syscall.h	d	#define SYS_mlock 150
+SYS_mlock2	bits/syscall.h	d	#define SYS_mlock2 391
 SYS_mlockall	bits/syscall.h	d	#define SYS_mlockall 152
 SYS_mmap	bits/syscall.h	d	#define SYS_mmap 90
 SYS_mmap2	bits/syscall.h	d	#define SYS_mmap2 192
@@ -792,6 +795,7 @@ SYS_unlink	bits/syscall.h	d	#define SYS_unlink 10
 SYS_unlinkat	bits/syscall.h	d	#define SYS_unlinkat 301
 SYS_unshare	bits/syscall.h	d	#define SYS_unshare 310
 SYS_uselib	bits/syscall.h	d	#define SYS_uselib 86
+SYS_userfaultfd	bits/syscall.h	d	#define SYS_userfaultfd 389
 SYS_ustat	bits/syscall.h	d	#define SYS_ustat 62
 SYS_utime	bits/syscall.h	d	#define SYS_utime 30
 SYS_utimensat	bits/syscall.h	d	#define SYS_utimensat 320
@@ -1181,6 +1185,7 @@ __NR_lstat	bits/syscall.h	d	#define __NR_lstat 107
 __NR_lstat64	bits/syscall.h	d	#define __NR_lstat64 196
 __NR_madvise	bits/syscall.h	d	#define __NR_madvise 219
 __NR_mbind	bits/syscall.h	d	#define __NR_mbind 274
+__NR_membarrier	bits/syscall.h	d	#define __NR_membarrier 390
 __NR_memfd_create	bits/syscall.h	d	#define __NR_memfd_create 386
 __NR_migrate_pages	bits/syscall.h	d	#define __NR_migrate_pages 294
 __NR_mincore	bits/syscall.h	d	#define __NR_mincore 218
@@ -1189,6 +1194,7 @@ __NR_mkdirat	bits/syscall.h	d	#define __NR_mkdirat 296
 __NR_mknod	bits/syscall.h	d	#define __NR_mknod 14
 __NR_mknodat	bits/syscall.h	d	#define __NR_mknodat 297
 __NR_mlock	bits/syscall.h	d	#define __NR_mlock 150
+__NR_mlock2	bits/syscall.h	d	#define __NR_mlock2 391
 __NR_mlockall	bits/syscall.h	d	#define __NR_mlockall 152
 __NR_mmap	bits/syscall.h	d	#define __NR_mmap 90
 __NR_mmap2	bits/syscall.h	d	#define __NR_mmap2 192
@@ -1392,6 +1398,7 @@ __NR_unlink	bits/syscall.h	d	#define __NR_unlink 10
 __NR_unlinkat	bits/syscall.h	d	#define __NR_unlinkat 301
 __NR_unshare	bits/syscall.h	d	#define __NR_unshare 310
 __NR_uselib	bits/syscall.h	d	#define __NR_uselib 86
+__NR_userfaultfd	bits/syscall.h	d	#define __NR_userfaultfd 389
 __NR_ustat	bits/syscall.h	d	#define __NR_ustat 62
 __NR_utime	bits/syscall.h	d	#define __NR_utime 30
 __NR_utimensat	bits/syscall.h	d	#define __NR_utimensat 320
@@ -1503,11 +1510,7 @@ uint_fast32_t	bits/stdint.h	t	typedef uint32_t uint_fast32_t;
 uintmax_t	bits/alltypes.h	t	typedef unsigned _Int64 uintmax_t;
 uintptr_t	bits/alltypes.h	t	typedef unsigned _Addr uintptr_t;
 useconds_t	bits/alltypes.h	t	typedef unsigned useconds_t;
-va_arg	bits/stdarg.h	d	#define va_arg(v,l) __builtin_va_arg(v,l)
-va_copy	bits/stdarg.h	d	#define va_copy(d,s) __builtin_va_copy(d,s)
-va_end	bits/stdarg.h	d	#define va_end(v) __builtin_va_end(v)
 va_list	bits/alltypes.h	t	typedef __builtin_va_list va_list;
-va_start	bits/stdarg.h	d	#define va_start(v,l) __builtin_va_start(v,l)
 wchar_t	bits/alltypes.h	t	typedef int wchar_t;
 wctype_t	bits/alltypes.h	t	typedef unsigned long wctype_t;
 wint_t	bits/alltypes.h	t	typedef unsigned wint_t;

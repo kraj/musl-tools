@@ -38,6 +38,17 @@ CBAUDEX	bits/termios.h	d	#define CBAUDEX 0010000
 CIBAUD	bits/termios.h	d	#define CIBAUD 002003600000
 CLOCAL	bits/termios.h	d	#define CLOCAL 0004000
 CMSPAR	bits/termios.h	d	#define CMSPAR 010000000000
+CPU_HAS_CAS_L	bits/hwcap.h	d	#define CPU_HAS_CAS_L 0x0400
+CPU_HAS_DSP	bits/hwcap.h	d	#define CPU_HAS_DSP 0x0008
+CPU_HAS_FPU	bits/hwcap.h	d	#define CPU_HAS_FPU 0x0001
+CPU_HAS_L2_CACHE	bits/hwcap.h	d	#define CPU_HAS_L2_CACHE 0x0080
+CPU_HAS_LLSC	bits/hwcap.h	d	#define CPU_HAS_LLSC 0x0040
+CPU_HAS_MMU_PAGE_ASSOC	bits/hwcap.h	d	#define CPU_HAS_MMU_PAGE_ASSOC 0x0004
+CPU_HAS_OP32	bits/hwcap.h	d	#define CPU_HAS_OP32 0x0100
+CPU_HAS_P2_FLUSH_BUG	bits/hwcap.h	d	#define CPU_HAS_P2_FLUSH_BUG 0x0002
+CPU_HAS_PERF_COUNTER	bits/hwcap.h	d	#define CPU_HAS_PERF_COUNTER 0x0010
+CPU_HAS_PTEA	bits/hwcap.h	d	#define CPU_HAS_PTEA 0x0020
+CPU_HAS_PTEAEX	bits/hwcap.h	d	#define CPU_HAS_PTEAEX 0x0200
 CR0	bits/termios.h	d	#define CR0 0000000
 CR1	bits/termios.h	d	#define CR1 0001000
 CR2	bits/termios.h	d	#define CR2 0002000
@@ -197,6 +208,7 @@ EXFULL	bits/errno.h	d	#define EXFULL 54
 EXTA	bits/termios.h	d	#define EXTA 0000016
 EXTB	bits/termios.h	d	#define EXTB 0000017
 EXTPROC	bits/termios.h	d	#define EXTPROC 0200000
+Elf_Symndx	bits/link.h	t	typedef uint32_t Elf_Symndx;
 FE_ALL_EXCEPT	bits/fenv.h	d	#define FE_ALL_EXCEPT 0
 FE_ALL_EXCEPT	bits/fenv.h	d	#define FE_ALL_EXCEPT 0x7c
 FE_DFL_ENV	bits/fenv.h	d	#define FE_DFL_ENV ((const fenv_t *) -1)
@@ -459,6 +471,7 @@ SYS_adjtimex	bits/syscall.h	d	#define SYS_adjtimex 124
 SYS_alarm	bits/syscall.h	d	#define SYS_alarm 27
 SYS_bdflush	bits/syscall.h	d	#define SYS_bdflush 134
 SYS_bind	bits/syscall.h	d	#define SYS_bind 341
+SYS_bpf	bits/syscall.h	d	#define SYS_bpf 375
 SYS_brk	bits/syscall.h	d	#define SYS_brk 45
 SYS_cacheflush	bits/syscall.h	d	#define SYS_cacheflush 123
 SYS_capget	bits/syscall.h	d	#define SYS_capget 184
@@ -476,6 +489,7 @@ SYS_clock_settime	bits/syscall.h	d	#define SYS_clock_settime 264
 SYS_clone	bits/syscall.h	d	#define SYS_clone 120
 SYS_close	bits/syscall.h	d	#define SYS_close 6
 SYS_connect	bits/syscall.h	d	#define SYS_connect 342
+SYS_copy_file_range	bits/syscall.h	d	#define SYS_copy_file_range 380
 SYS_creat	bits/syscall.h	d	#define SYS_creat 8
 SYS_delete_module	bits/syscall.h	d	#define SYS_delete_module 129
 SYS_dup	bits/syscall.h	d	#define SYS_dup 41
@@ -489,6 +503,7 @@ SYS_epoll_wait	bits/syscall.h	d	#define SYS_epoll_wait 256
 SYS_eventfd	bits/syscall.h	d	#define SYS_eventfd 323
 SYS_eventfd2	bits/syscall.h	d	#define SYS_eventfd2 328
 SYS_execve	bits/syscall.h	d	#define SYS_execve 11
+SYS_execveat	bits/syscall.h	d	#define SYS_execveat 376
 SYS_exit	bits/syscall.h	d	#define SYS_exit 1
 SYS_exit_group	bits/syscall.h	d	#define SYS_exit_group 252
 SYS_faccessat	bits/syscall.h	d	#define SYS_faccessat 307
@@ -544,6 +559,7 @@ SYS_getpgrp	bits/syscall.h	d	#define SYS_getpgrp 65
 SYS_getpid	bits/syscall.h	d	#define SYS_getpid 20
 SYS_getppid	bits/syscall.h	d	#define SYS_getppid 64
 SYS_getpriority	bits/syscall.h	d	#define SYS_getpriority 96
+SYS_getrandom	bits/syscall.h	d	#define SYS_getrandom 373
 SYS_getresgid	bits/syscall.h	d	#define SYS_getresgid 171
 SYS_getresgid32	bits/syscall.h	d	#define SYS_getresgid32 211
 SYS_getresuid	bits/syscall.h	d	#define SYS_getresuid 165
@@ -592,6 +608,8 @@ SYS_lstat	bits/syscall.h	d	#define SYS_lstat 107
 SYS_lstat64	bits/syscall.h	d	#define SYS_lstat64 196
 SYS_madvise	bits/syscall.h	d	#define SYS_madvise 219
 SYS_mbind	bits/syscall.h	d	#define SYS_mbind 274
+SYS_membarrier	bits/syscall.h	d	#define SYS_membarrier 378
+SYS_memfd_create	bits/syscall.h	d	#define SYS_memfd_create 374
 SYS_migrate_pages	bits/syscall.h	d	#define SYS_migrate_pages 294
 SYS_mincore	bits/syscall.h	d	#define SYS_mincore 218
 SYS_mkdir	bits/syscall.h	d	#define SYS_mkdir 39
@@ -599,6 +617,7 @@ SYS_mkdirat	bits/syscall.h	d	#define SYS_mkdirat 296
 SYS_mknod	bits/syscall.h	d	#define SYS_mknod 14
 SYS_mknodat	bits/syscall.h	d	#define SYS_mknodat 297
 SYS_mlock	bits/syscall.h	d	#define SYS_mlock 150
+SYS_mlock2	bits/syscall.h	d	#define SYS_mlock2 379
 SYS_mlockall	bits/syscall.h	d	#define SYS_mlockall 152
 SYS_mmap	bits/syscall.h	d	#define SYS_mmap 90
 SYS_mmap2	bits/syscall.h	d	#define SYS_mmap2 192
@@ -638,6 +657,7 @@ SYS_ppoll	bits/syscall.h	d	#define SYS_ppoll 309
 SYS_prctl	bits/syscall.h	d	#define SYS_prctl 172
 SYS_pread64	bits/syscall.h	d	#define SYS_pread64 180
 SYS_preadv	bits/syscall.h	d	#define SYS_preadv 333
+SYS_preadv2	bits/syscall.h	d	#define SYS_preadv2 381
 SYS_prlimit64	bits/syscall.h	d	#define SYS_prlimit64 339
 SYS_process_vm_readv	bits/syscall.h	d	#define SYS_process_vm_readv 365
 SYS_process_vm_writev	bits/syscall.h	d	#define SYS_process_vm_writev 366
@@ -645,6 +665,7 @@ SYS_pselect6	bits/syscall.h	d	#define SYS_pselect6 308
 SYS_ptrace	bits/syscall.h	d	#define SYS_ptrace 26
 SYS_pwrite64	bits/syscall.h	d	#define SYS_pwrite64 181
 SYS_pwritev	bits/syscall.h	d	#define SYS_pwritev 334
+SYS_pwritev2	bits/syscall.h	d	#define SYS_pwritev2 382
 SYS_quotactl	bits/syscall.h	d	#define SYS_quotactl 131
 SYS_read	bits/syscall.h	d	#define SYS_read 3
 SYS_readahead	bits/syscall.h	d	#define SYS_readahead 225
@@ -661,6 +682,7 @@ SYS_remap_file_pages	bits/syscall.h	d	#define SYS_remap_file_pages 257
 SYS_removexattr	bits/syscall.h	d	#define SYS_removexattr 235
 SYS_rename	bits/syscall.h	d	#define SYS_rename 38
 SYS_renameat	bits/syscall.h	d	#define SYS_renameat 302
+SYS_renameat2	bits/syscall.h	d	#define SYS_renameat2 371
 SYS_request_key	bits/syscall.h	d	#define SYS_request_key 286
 SYS_restart_syscall	bits/syscall.h	d	#define SYS_restart_syscall 0
 SYS_rmdir	bits/syscall.h	d	#define SYS_rmdir 40
@@ -675,13 +697,16 @@ SYS_rt_tgsigqueueinfo	bits/syscall.h	d	#define SYS_rt_tgsigqueueinfo 335
 SYS_sched_get_priority_max	bits/syscall.h	d	#define SYS_sched_get_priority_max 159
 SYS_sched_get_priority_min	bits/syscall.h	d	#define SYS_sched_get_priority_min 160
 SYS_sched_getaffinity	bits/syscall.h	d	#define SYS_sched_getaffinity 242
+SYS_sched_getattr	bits/syscall.h	d	#define SYS_sched_getattr 369
 SYS_sched_getparam	bits/syscall.h	d	#define SYS_sched_getparam 155
 SYS_sched_getscheduler	bits/syscall.h	d	#define SYS_sched_getscheduler 157
 SYS_sched_rr_get_interval	bits/syscall.h	d	#define SYS_sched_rr_get_interval 161
 SYS_sched_setaffinity	bits/syscall.h	d	#define SYS_sched_setaffinity 241
+SYS_sched_setattr	bits/syscall.h	d	#define SYS_sched_setattr 370
 SYS_sched_setparam	bits/syscall.h	d	#define SYS_sched_setparam 154
 SYS_sched_setscheduler	bits/syscall.h	d	#define SYS_sched_setscheduler 156
 SYS_sched_yield	bits/syscall.h	d	#define SYS_sched_yield 158
+SYS_seccomp	bits/syscall.h	d	#define SYS_seccomp 372
 SYS_send	bits/syscall.h	d	#define SYS_send 348
 SYS_sendfile	bits/syscall.h	d	#define SYS_sendfile 187
 SYS_sendfile64	bits/syscall.h	d	#define SYS_sendfile64 239
@@ -775,6 +800,7 @@ SYS_unlink	bits/syscall.h	d	#define SYS_unlink 10
 SYS_unlinkat	bits/syscall.h	d	#define SYS_unlinkat 301
 SYS_unshare	bits/syscall.h	d	#define SYS_unshare 310
 SYS_uselib	bits/syscall.h	d	#define SYS_uselib 86
+SYS_userfaultfd	bits/syscall.h	d	#define SYS_userfaultfd 377
 SYS_ustat	bits/syscall.h	d	#define SYS_ustat 62
 SYS_utime	bits/syscall.h	d	#define SYS_utime 30
 SYS_utimensat	bits/syscall.h	d	#define SYS_utimensat 320
@@ -1012,6 +1038,7 @@ __NR_adjtimex	bits/syscall.h	d	#define __NR_adjtimex 124
 __NR_alarm	bits/syscall.h	d	#define __NR_alarm 27
 __NR_bdflush	bits/syscall.h	d	#define __NR_bdflush 134
 __NR_bind	bits/syscall.h	d	#define __NR_bind 341
+__NR_bpf	bits/syscall.h	d	#define __NR_bpf 375
 __NR_brk	bits/syscall.h	d	#define __NR_brk 45
 __NR_cacheflush	bits/syscall.h	d	#define __NR_cacheflush 123
 __NR_capget	bits/syscall.h	d	#define __NR_capget 184
@@ -1029,6 +1056,7 @@ __NR_clock_settime	bits/syscall.h	d	#define __NR_clock_settime 264
 __NR_clone	bits/syscall.h	d	#define __NR_clone 120
 __NR_close	bits/syscall.h	d	#define __NR_close 6
 __NR_connect	bits/syscall.h	d	#define __NR_connect 342
+__NR_copy_file_range	bits/syscall.h	d	#define __NR_copy_file_range 380
 __NR_creat	bits/syscall.h	d	#define __NR_creat 8
 __NR_delete_module	bits/syscall.h	d	#define __NR_delete_module 129
 __NR_dup	bits/syscall.h	d	#define __NR_dup 41
@@ -1042,6 +1070,7 @@ __NR_epoll_wait	bits/syscall.h	d	#define __NR_epoll_wait 256
 __NR_eventfd	bits/syscall.h	d	#define __NR_eventfd 323
 __NR_eventfd2	bits/syscall.h	d	#define __NR_eventfd2 328
 __NR_execve	bits/syscall.h	d	#define __NR_execve 11
+__NR_execveat	bits/syscall.h	d	#define __NR_execveat 376
 __NR_exit	bits/syscall.h	d	#define __NR_exit 1
 __NR_exit_group	bits/syscall.h	d	#define __NR_exit_group 252
 __NR_faccessat	bits/syscall.h	d	#define __NR_faccessat 307
@@ -1097,6 +1126,7 @@ __NR_getpgrp	bits/syscall.h	d	#define __NR_getpgrp 65
 __NR_getpid	bits/syscall.h	d	#define __NR_getpid 20
 __NR_getppid	bits/syscall.h	d	#define __NR_getppid 64
 __NR_getpriority	bits/syscall.h	d	#define __NR_getpriority 96
+__NR_getrandom	bits/syscall.h	d	#define __NR_getrandom 373
 __NR_getresgid	bits/syscall.h	d	#define __NR_getresgid 171
 __NR_getresgid32	bits/syscall.h	d	#define __NR_getresgid32 211
 __NR_getresuid	bits/syscall.h	d	#define __NR_getresuid 165
@@ -1145,6 +1175,8 @@ __NR_lstat	bits/syscall.h	d	#define __NR_lstat 107
 __NR_lstat64	bits/syscall.h	d	#define __NR_lstat64 196
 __NR_madvise	bits/syscall.h	d	#define __NR_madvise 219
 __NR_mbind	bits/syscall.h	d	#define __NR_mbind 274
+__NR_membarrier	bits/syscall.h	d	#define __NR_membarrier 378
+__NR_memfd_create	bits/syscall.h	d	#define __NR_memfd_create 374
 __NR_migrate_pages	bits/syscall.h	d	#define __NR_migrate_pages 294
 __NR_mincore	bits/syscall.h	d	#define __NR_mincore 218
 __NR_mkdir	bits/syscall.h	d	#define __NR_mkdir 39
@@ -1152,6 +1184,7 @@ __NR_mkdirat	bits/syscall.h	d	#define __NR_mkdirat 296
 __NR_mknod	bits/syscall.h	d	#define __NR_mknod 14
 __NR_mknodat	bits/syscall.h	d	#define __NR_mknodat 297
 __NR_mlock	bits/syscall.h	d	#define __NR_mlock 150
+__NR_mlock2	bits/syscall.h	d	#define __NR_mlock2 379
 __NR_mlockall	bits/syscall.h	d	#define __NR_mlockall 152
 __NR_mmap	bits/syscall.h	d	#define __NR_mmap 90
 __NR_mmap2	bits/syscall.h	d	#define __NR_mmap2 192
@@ -1191,6 +1224,7 @@ __NR_ppoll	bits/syscall.h	d	#define __NR_ppoll 309
 __NR_prctl	bits/syscall.h	d	#define __NR_prctl 172
 __NR_pread64	bits/syscall.h	d	#define __NR_pread64 180
 __NR_preadv	bits/syscall.h	d	#define __NR_preadv 333
+__NR_preadv2	bits/syscall.h	d	#define __NR_preadv2 381
 __NR_prlimit64	bits/syscall.h	d	#define __NR_prlimit64 339
 __NR_process_vm_readv	bits/syscall.h	d	#define __NR_process_vm_readv 365
 __NR_process_vm_writev	bits/syscall.h	d	#define __NR_process_vm_writev 366
@@ -1198,6 +1232,7 @@ __NR_pselect6	bits/syscall.h	d	#define __NR_pselect6 308
 __NR_ptrace	bits/syscall.h	d	#define __NR_ptrace 26
 __NR_pwrite64	bits/syscall.h	d	#define __NR_pwrite64 181
 __NR_pwritev	bits/syscall.h	d	#define __NR_pwritev 334
+__NR_pwritev2	bits/syscall.h	d	#define __NR_pwritev2 382
 __NR_quotactl	bits/syscall.h	d	#define __NR_quotactl 131
 __NR_read	bits/syscall.h	d	#define __NR_read 3
 __NR_readahead	bits/syscall.h	d	#define __NR_readahead 225
@@ -1214,6 +1249,7 @@ __NR_remap_file_pages	bits/syscall.h	d	#define __NR_remap_file_pages 257
 __NR_removexattr	bits/syscall.h	d	#define __NR_removexattr 235
 __NR_rename	bits/syscall.h	d	#define __NR_rename 38
 __NR_renameat	bits/syscall.h	d	#define __NR_renameat 302
+__NR_renameat2	bits/syscall.h	d	#define __NR_renameat2 371
 __NR_request_key	bits/syscall.h	d	#define __NR_request_key 286
 __NR_restart_syscall	bits/syscall.h	d	#define __NR_restart_syscall 0
 __NR_rmdir	bits/syscall.h	d	#define __NR_rmdir 40
@@ -1228,13 +1264,16 @@ __NR_rt_tgsigqueueinfo	bits/syscall.h	d	#define __NR_rt_tgsigqueueinfo 335
 __NR_sched_get_priority_max	bits/syscall.h	d	#define __NR_sched_get_priority_max 159
 __NR_sched_get_priority_min	bits/syscall.h	d	#define __NR_sched_get_priority_min 160
 __NR_sched_getaffinity	bits/syscall.h	d	#define __NR_sched_getaffinity 242
+__NR_sched_getattr	bits/syscall.h	d	#define __NR_sched_getattr 369
 __NR_sched_getparam	bits/syscall.h	d	#define __NR_sched_getparam 155
 __NR_sched_getscheduler	bits/syscall.h	d	#define __NR_sched_getscheduler 157
 __NR_sched_rr_get_interval	bits/syscall.h	d	#define __NR_sched_rr_get_interval 161
 __NR_sched_setaffinity	bits/syscall.h	d	#define __NR_sched_setaffinity 241
+__NR_sched_setattr	bits/syscall.h	d	#define __NR_sched_setattr 370
 __NR_sched_setparam	bits/syscall.h	d	#define __NR_sched_setparam 154
 __NR_sched_setscheduler	bits/syscall.h	d	#define __NR_sched_setscheduler 156
 __NR_sched_yield	bits/syscall.h	d	#define __NR_sched_yield 158
+__NR_seccomp	bits/syscall.h	d	#define __NR_seccomp 372
 __NR_send	bits/syscall.h	d	#define __NR_send 348
 __NR_sendfile	bits/syscall.h	d	#define __NR_sendfile 187
 __NR_sendfile64	bits/syscall.h	d	#define __NR_sendfile64 239
@@ -1328,6 +1367,7 @@ __NR_unlink	bits/syscall.h	d	#define __NR_unlink 10
 __NR_unlinkat	bits/syscall.h	d	#define __NR_unlinkat 301
 __NR_unshare	bits/syscall.h	d	#define __NR_unshare 310
 __NR_uselib	bits/syscall.h	d	#define __NR_uselib 86
+__NR_userfaultfd	bits/syscall.h	d	#define __NR_userfaultfd 377
 __NR_ustat	bits/syscall.h	d	#define __NR_ustat 62
 __NR_utime	bits/syscall.h	d	#define __NR_utime 30
 __NR_utimensat	bits/syscall.h	d	#define __NR_utimensat 320
@@ -1445,11 +1485,7 @@ uint_fast32_t	bits/stdint.h	t	typedef uint32_t uint_fast32_t;
 uintmax_t	bits/alltypes.h	t	typedef unsigned _Int64 uintmax_t;
 uintptr_t	bits/alltypes.h	t	typedef unsigned _Addr uintptr_t;
 useconds_t	bits/alltypes.h	t	typedef unsigned useconds_t;
-va_arg	bits/stdarg.h	d	#define va_arg(v,l) __builtin_va_arg(v,l)
-va_copy	bits/stdarg.h	d	#define va_copy(d,s) __builtin_va_copy(d,s)
-va_end	bits/stdarg.h	d	#define va_end(v) __builtin_va_end(v)
 va_list	bits/alltypes.h	t	typedef __builtin_va_list va_list;
-va_start	bits/stdarg.h	d	#define va_start(v,l) __builtin_va_start(v,l)
 wchar_t	bits/alltypes.h	t	typedef long wchar_t;
 wctype_t	bits/alltypes.h	t	typedef unsigned long wctype_t;
 wint_t	bits/alltypes.h	t	typedef unsigned wint_t;

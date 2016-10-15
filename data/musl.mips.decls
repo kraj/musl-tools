@@ -238,6 +238,7 @@ EXFULL	bits/errno.h	d	#define EXFULL 52
 EXTA	bits/termios.h	d	#define EXTA 0000016
 EXTB	bits/termios.h	d	#define EXTB 0000017
 EXTPROC	bits/termios.h	d	#define EXTPROC 0200000
+Elf_Symndx	bits/link.h	t	typedef uint32_t Elf_Symndx;
 FE_ALL_EXCEPT	bits/fenv.h	d	#define FE_ALL_EXCEPT 0
 FE_ALL_EXCEPT	bits/fenv.h	d	#define FE_ALL_EXCEPT 124
 FE_DFL_ENV	bits/fenv.h	d	#define FE_DFL_ENV ((const fenv_t *) -1)
@@ -281,6 +282,8 @@ F_SETOWN	bits/fcntl.h	d	#define F_SETOWN 24
 F_SETOWN_EX	bits/fcntl.h	d	#define F_SETOWN_EX 15
 F_SETSIG	bits/fcntl.h	d	#define F_SETSIG 10
 HUPCL	bits/termios.h	d	#define HUPCL 0002000
+HWCAP_MIPS_MSA	bits/hwcap.h	d	#define HWCAP_MIPS_MSA (1 << 1)
+HWCAP_MIPS_R6	bits/hwcap.h	d	#define HWCAP_MIPS_R6 (1 << 0)
 ICANON	bits/termios.h	d	#define ICANON 0000002
 ICRNL	bits/termios.h	d	#define ICRNL 0000400
 IEXTEN	bits/termios.h	d	#define IEXTEN 0000400
@@ -720,6 +723,9 @@ SYS_personality	bits/syscall.h	d	#define SYS_personality 4136
 SYS_pipe	bits/syscall.h	d	#define SYS_pipe 4042
 SYS_pipe2	bits/syscall.h	d	#define SYS_pipe2 4328
 SYS_pivot_root	bits/syscall.h	d	#define SYS_pivot_root 4216
+SYS_pkey_alloc	bits/syscall.h	d	#define SYS_pkey_alloc 4364
+SYS_pkey_free	bits/syscall.h	d	#define SYS_pkey_free 4365
+SYS_pkey_mprotect	bits/syscall.h	d	#define SYS_pkey_mprotect 4363
 SYS_poll	bits/syscall.h	d	#define SYS_poll 4188
 SYS_ppoll	bits/syscall.h	d	#define SYS_ppoll 4302
 SYS_prctl	bits/syscall.h	d	#define SYS_prctl 4192
@@ -906,9 +912,9 @@ TCION	bits/termios.h	d	#define TCION 3
 TCOFLUSH	bits/termios.h	d	#define TCOFLUSH 1
 TCOOFF	bits/termios.h	d	#define TCOOFF 0
 TCOON	bits/termios.h	d	#define TCOON 1
-TCSADRAIN	bits/termios.h	d	#define TCSADRAIN 0x540f
-TCSAFLUSH	bits/termios.h	d	#define TCSAFLUSH 0x5410
-TCSANOW	bits/termios.h	d	#define TCSANOW 0x540e
+TCSADRAIN	bits/termios.h	d	#define TCSADRAIN 1
+TCSAFLUSH	bits/termios.h	d	#define TCSAFLUSH 2
+TCSANOW	bits/termios.h	d	#define TCSANOW 0
 TCSBRK	bits/ioctl.h	d	#define TCSBRK 0x5405
 TCSBRKP	bits/ioctl.h	d	#define TCSBRKP 0x5486
 TCSETA	bits/ioctl.h	d	#define TCSETA 0x5402
@@ -1300,6 +1306,9 @@ __NR_personality	bits/syscall.h	d	#define __NR_personality 4136
 __NR_pipe	bits/syscall.h	d	#define __NR_pipe 4042
 __NR_pipe2	bits/syscall.h	d	#define __NR_pipe2 4328
 __NR_pivot_root	bits/syscall.h	d	#define __NR_pivot_root 4216
+__NR_pkey_alloc	bits/syscall.h	d	#define __NR_pkey_alloc 4364
+__NR_pkey_free	bits/syscall.h	d	#define __NR_pkey_free 4365
+__NR_pkey_mprotect	bits/syscall.h	d	#define __NR_pkey_mprotect 4363
 __NR_poll	bits/syscall.h	d	#define __NR_poll 4188
 __NR_ppoll	bits/syscall.h	d	#define __NR_ppoll 4302
 __NR_prctl	bits/syscall.h	d	#define __NR_prctl 4192
@@ -1574,11 +1583,7 @@ uint_fast32_t	bits/stdint.h	t	typedef uint32_t uint_fast32_t;
 uintmax_t	bits/alltypes.h	t	typedef unsigned _Int64 uintmax_t;
 uintptr_t	bits/alltypes.h	t	typedef unsigned _Addr uintptr_t;
 useconds_t	bits/alltypes.h	t	typedef unsigned useconds_t;
-va_arg	bits/stdarg.h	d	#define va_arg(v,l) __builtin_va_arg(v,l)
-va_copy	bits/stdarg.h	d	#define va_copy(d,s) __builtin_va_copy(d,s)
-va_end	bits/stdarg.h	d	#define va_end(v) __builtin_va_end(v)
 va_list	bits/alltypes.h	t	typedef __builtin_va_list va_list;
-va_start	bits/stdarg.h	d	#define va_start(v,l) __builtin_va_start(v,l)
 wchar_t	bits/alltypes.h	t	typedef int wchar_t;
 wctype_t	bits/alltypes.h	t	typedef unsigned long wctype_t;
 wint_t	bits/alltypes.h	t	typedef unsigned wint_t;

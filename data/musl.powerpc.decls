@@ -199,6 +199,7 @@ EXFULL	bits/errno.h	d	#define EXFULL 54
 EXTA	bits/termios.h	d	#define EXTA 0000016
 EXTB	bits/termios.h	d	#define EXTB 0000017
 EXTPROC	bits/termios.h	d	#define EXTPROC 0x10000000
+Elf_Symndx	bits/link.h	t	typedef uint32_t Elf_Symndx;
 FE_ALL_EXCEPT	bits/fenv.h	d	#define FE_ALL_EXCEPT 0
 FE_ALL_EXCEPT	bits/fenv.h	d	#define FE_ALL_EXCEPT 0x3e000000
 FE_ALL_INVALID	bits/fenv.h	d	#define FE_ALL_INVALID 0x01f80700
@@ -346,6 +347,44 @@ PARENB	bits/termios.h	d	#define PARENB 00010000
 PARMRK	bits/termios.h	d	#define PARMRK 0000010
 PARODD	bits/termios.h	d	#define PARODD 00020000
 PENDIN	bits/termios.h	d	#define PENDIN 0x20000000
+PPC_FEATURE2_ARCH_2_07	bits/hwcap.h	d	#define PPC_FEATURE2_ARCH_2_07 0x80000000
+PPC_FEATURE2_ARCH_3_00	bits/hwcap.h	d	#define PPC_FEATURE2_ARCH_3_00 0x00800000
+PPC_FEATURE2_DSCR	bits/hwcap.h	d	#define PPC_FEATURE2_DSCR 0x20000000
+PPC_FEATURE2_EBB	bits/hwcap.h	d	#define PPC_FEATURE2_EBB 0x10000000
+PPC_FEATURE2_HAS_IEEE128	bits/hwcap.h	d	#define PPC_FEATURE2_HAS_IEEE128 0x00400000
+PPC_FEATURE2_HTM	bits/hwcap.h	d	#define PPC_FEATURE2_HTM 0x40000000
+PPC_FEATURE2_HTM_NOSC	bits/hwcap.h	d	#define PPC_FEATURE2_HTM_NOSC 0x01000000
+PPC_FEATURE2_ISEL	bits/hwcap.h	d	#define PPC_FEATURE2_ISEL 0x08000000
+PPC_FEATURE2_TAR	bits/hwcap.h	d	#define PPC_FEATURE2_TAR 0x04000000
+PPC_FEATURE2_VEC_CRYPTO	bits/hwcap.h	d	#define PPC_FEATURE2_VEC_CRYPTO 0x02000000
+PPC_FEATURE_32	bits/hwcap.h	d	#define PPC_FEATURE_32 0x80000000
+PPC_FEATURE_601_INSTR	bits/hwcap.h	d	#define PPC_FEATURE_601_INSTR 0x20000000
+PPC_FEATURE_64	bits/hwcap.h	d	#define PPC_FEATURE_64 0x40000000
+PPC_FEATURE_ARCH_2_05	bits/hwcap.h	d	#define PPC_FEATURE_ARCH_2_05 0x00001000
+PPC_FEATURE_ARCH_2_06	bits/hwcap.h	d	#define PPC_FEATURE_ARCH_2_06 0x00000100
+PPC_FEATURE_BOOKE	bits/hwcap.h	d	#define PPC_FEATURE_BOOKE 0x00008000
+PPC_FEATURE_CELL	bits/hwcap.h	d	#define PPC_FEATURE_CELL 0x00010000
+PPC_FEATURE_HAS_4xxMAC	bits/hwcap.h	d	#define PPC_FEATURE_HAS_4xxMAC 0x02000000
+PPC_FEATURE_HAS_ALTIVEC	bits/hwcap.h	d	#define PPC_FEATURE_HAS_ALTIVEC 0x10000000
+PPC_FEATURE_HAS_DFP	bits/hwcap.h	d	#define PPC_FEATURE_HAS_DFP 0x00000400
+PPC_FEATURE_HAS_EFP_DOUBLE	bits/hwcap.h	d	#define PPC_FEATURE_HAS_EFP_DOUBLE 0x00200000
+PPC_FEATURE_HAS_EFP_SINGLE	bits/hwcap.h	d	#define PPC_FEATURE_HAS_EFP_SINGLE 0x00400000
+PPC_FEATURE_HAS_FPU	bits/hwcap.h	d	#define PPC_FEATURE_HAS_FPU 0x08000000
+PPC_FEATURE_HAS_MMU	bits/hwcap.h	d	#define PPC_FEATURE_HAS_MMU 0x04000000
+PPC_FEATURE_HAS_SPE	bits/hwcap.h	d	#define PPC_FEATURE_HAS_SPE 0x00800000
+PPC_FEATURE_HAS_VSX	bits/hwcap.h	d	#define PPC_FEATURE_HAS_VSX 0x00000080
+PPC_FEATURE_ICACHE_SNOOP	bits/hwcap.h	d	#define PPC_FEATURE_ICACHE_SNOOP 0x00002000
+PPC_FEATURE_NO_TB	bits/hwcap.h	d	#define PPC_FEATURE_NO_TB 0x00100000
+PPC_FEATURE_PA6T	bits/hwcap.h	d	#define PPC_FEATURE_PA6T 0x00000800
+PPC_FEATURE_POWER4	bits/hwcap.h	d	#define PPC_FEATURE_POWER4 0x00080000
+PPC_FEATURE_POWER5	bits/hwcap.h	d	#define PPC_FEATURE_POWER5 0x00040000
+PPC_FEATURE_POWER5_PLUS	bits/hwcap.h	d	#define PPC_FEATURE_POWER5_PLUS 0x00020000
+PPC_FEATURE_POWER6_EXT	bits/hwcap.h	d	#define PPC_FEATURE_POWER6_EXT 0x00000200
+PPC_FEATURE_PPC_LE	bits/hwcap.h	d	#define PPC_FEATURE_PPC_LE 0x00000001
+PPC_FEATURE_PSERIES_PERFMON_COMPAT	bits/hwcap.h	d	#define PPC_FEATURE_PSERIES_PERFMON_COMPAT 0x00000040
+PPC_FEATURE_SMT	bits/hwcap.h	d	#define PPC_FEATURE_SMT 0x00004000
+PPC_FEATURE_TRUE_LE	bits/hwcap.h	d	#define PPC_FEATURE_TRUE_LE 0x00000002
+PPC_FEATURE_UNIFIED_CACHE	bits/hwcap.h	d	#define PPC_FEATURE_UNIFIED_CACHE 0x01000000
 PROT_SAO	bits/mman.h	d	#define PROT_SAO 0x10
 PTRDIFF_MAX	bits/stdint.h	d	#define PTRDIFF_MAX INT32_MAX
 PTRDIFF_MIN	bits/stdint.h	d	#define PTRDIFF_MIN INT32_MIN
@@ -1551,11 +1590,7 @@ uint_fast32_t	bits/stdint.h	t	typedef uint32_t uint_fast32_t;
 uintmax_t	bits/alltypes.h	t	typedef unsigned _Int64 uintmax_t;
 uintptr_t	bits/alltypes.h	t	typedef unsigned _Addr uintptr_t;
 useconds_t	bits/alltypes.h	t	typedef unsigned useconds_t;
-va_arg	bits/stdarg.h	d	#define va_arg(v,l) __builtin_va_arg(v,l)
-va_copy	bits/stdarg.h	d	#define va_copy(d,s) __builtin_va_copy(d,s)
-va_end	bits/stdarg.h	d	#define va_end(v) __builtin_va_end(v)
 va_list	bits/alltypes.h	t	typedef __builtin_va_list va_list;
-va_start	bits/stdarg.h	d	#define va_start(v,l) __builtin_va_start(v,l)
 vrregset_t	bits/signal.h	t	} vrregset_t;
 wchar_t	bits/alltypes.h	t	typedef long wchar_t;
 wctype_t	bits/alltypes.h	t	typedef unsigned long wctype_t;
