@@ -20,10 +20,10 @@ nodecl	dcngettext	T
 nodecl	delete_module	T
 nodecl	dgettext	T
 nodecl	dngettext	T
+nodecl	dummy_lock	B
 proto	encrypt	unistd.h	void(char*,int)	void(char[],int)	void encrypt(char *, int);	void encrypt(char block[64], int edflag);
 nodecl	fpurge	W
 proto	getc_unlocked	stdio/getc_unlocked.c	stdio.h	int()(FILE*)	int(FILE*)
-proto	gethostent	network/ent.c	netdb.h	void*()	struct hostent*(void)
 nodecl	gettext	T
 nodecl	init_module	T
 proto	lio_listio	aio.h	int(int,struct aiocb*restrict const*restrict,int,struct sigevent*restrict)	int(int,struct aiocb*restrict const[restrict],int,struct sigevent*restrict)	int lio_listio(int, struct aiocb *__restrict const *__restrict, int, struct sigevent *__restrict);	int lio_listio(int mode, struct aiocb *restrict const list[restrict], int nent, struct sigevent *restrict sig);
@@ -42,3 +42,5 @@ proto	regexec	regex.h	int(const regex_t*restrict,const char*restrict,size_t,regm
 proto	regexec	regex/regexec.c	regex.h	int(const regex_t*restrict,const char*restrict,size_t,regmatch_t[restrict],int)	int(const regex_t*restrict,const char*restrict,size_t,regmatch_t*restrict,int)
 proto	seed48	prng/seed48.c	stdlib.h	unsigned short*(unsigned short*)	unsigned short*(unsigned short[])
 proto	setgroups	linux/setgroups.c	grp.h	int(size_t,const gid_t[])	int(size_t,const gid_t*)
+proto	sigqueue	signal.h	int(pid_t,int,union sigval)	int(pid_t,int,const union sigval)	int sigqueue(pid_t, int, union sigval);	int sigqueue(pid_t pid, int signo, const union sigval value);
+proto	sigqueue	signal/sigqueue.c	signal.h	int(pid_t,int,const union sigval)	int(pid_t,int,union sigval)

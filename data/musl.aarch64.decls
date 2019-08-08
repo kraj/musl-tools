@@ -198,6 +198,7 @@ EXFULL	bits/errno.h	d	#define EXFULL 54
 EXTA	bits/termios.h	d	#define EXTA 0000016
 EXTB	bits/termios.h	d	#define EXTB 0000017
 EXTPROC	bits/termios.h	d	#define EXTPROC 0200000
+EXTRA_MAGIC	bits/signal.h	d	#define EXTRA_MAGIC 0x45585401
 Elf_Symndx	bits/link.h	t	typedef uint32_t Elf_Symndx;
 FE_ALL_EXCEPT	bits/fenv.h	d	#define FE_ALL_EXCEPT 31
 FE_DFL_ENV	bits/fenv.h	d	#define FE_DFL_ENV ((const fenv_t *) -1)
@@ -243,15 +244,36 @@ F_SETSIG	bits/fcntl.h	d	#define F_SETSIG 10
 HUPCL	bits/termios.h	d	#define HUPCL 0002000
 HWCAP_AES	bits/hwcap.h	d	#define HWCAP_AES (1 << 3)
 HWCAP_ASIMD	bits/hwcap.h	d	#define HWCAP_ASIMD (1 << 1)
+HWCAP_ASIMDDP	bits/hwcap.h	d	#define HWCAP_ASIMDDP (1 << 20)
+HWCAP_ASIMDFHM	bits/hwcap.h	d	#define HWCAP_ASIMDFHM (1 << 23)
 HWCAP_ASIMDHP	bits/hwcap.h	d	#define HWCAP_ASIMDHP (1 << 10)
+HWCAP_ASIMDRDM	bits/hwcap.h	d	#define HWCAP_ASIMDRDM (1 << 12)
 HWCAP_ATOMICS	bits/hwcap.h	d	#define HWCAP_ATOMICS (1 << 8)
+HWCAP_CPUID	bits/hwcap.h	d	#define HWCAP_CPUID (1 << 11)
 HWCAP_CRC32	bits/hwcap.h	d	#define HWCAP_CRC32 (1 << 7)
+HWCAP_DCPOP	bits/hwcap.h	d	#define HWCAP_DCPOP (1 << 16)
+HWCAP_DIT	bits/hwcap.h	d	#define HWCAP_DIT (1 << 24)
 HWCAP_EVTSTRM	bits/hwcap.h	d	#define HWCAP_EVTSTRM (1 << 2)
+HWCAP_FCMA	bits/hwcap.h	d	#define HWCAP_FCMA (1 << 14)
+HWCAP_FLAGM	bits/hwcap.h	d	#define HWCAP_FLAGM (1 << 27)
 HWCAP_FP	bits/hwcap.h	d	#define HWCAP_FP (1 << 0)
 HWCAP_FPHP	bits/hwcap.h	d	#define HWCAP_FPHP (1 << 9)
+HWCAP_ILRCPC	bits/hwcap.h	d	#define HWCAP_ILRCPC (1 << 26)
+HWCAP_JSCVT	bits/hwcap.h	d	#define HWCAP_JSCVT (1 << 13)
+HWCAP_LRCPC	bits/hwcap.h	d	#define HWCAP_LRCPC (1 << 15)
+HWCAP_PACA	bits/hwcap.h	d	#define HWCAP_PACA (1 << 30)
+HWCAP_PACG	bits/hwcap.h	d	#define HWCAP_PACG (1UL << 31)
 HWCAP_PMULL	bits/hwcap.h	d	#define HWCAP_PMULL (1 << 4)
+HWCAP_SB	bits/hwcap.h	d	#define HWCAP_SB (1 << 29)
 HWCAP_SHA1	bits/hwcap.h	d	#define HWCAP_SHA1 (1 << 5)
 HWCAP_SHA2	bits/hwcap.h	d	#define HWCAP_SHA2 (1 << 6)
+HWCAP_SHA3	bits/hwcap.h	d	#define HWCAP_SHA3 (1 << 17)
+HWCAP_SHA512	bits/hwcap.h	d	#define HWCAP_SHA512 (1 << 21)
+HWCAP_SM3	bits/hwcap.h	d	#define HWCAP_SM3 (1 << 18)
+HWCAP_SM4	bits/hwcap.h	d	#define HWCAP_SM4 (1 << 19)
+HWCAP_SSBS	bits/hwcap.h	d	#define HWCAP_SSBS (1 << 28)
+HWCAP_SVE	bits/hwcap.h	d	#define HWCAP_SVE (1 << 22)
+HWCAP_USCAT	bits/hwcap.h	d	#define HWCAP_USCAT (1 << 25)
 ICANON	bits/termios.h	d	#define ICANON 0000002
 ICRNL	bits/termios.h	d	#define ICRNL 0000400
 IEXTEN	bits/termios.h	d	#define IEXTEN 0100000
@@ -293,22 +315,6 @@ NL0	bits/termios.h	d	#define NL0 0000000
 NL1	bits/termios.h	d	#define NL1 0000400
 NLDLY	bits/termios.h	d	#define NLDLY 0000400
 NOFLSH	bits/termios.h	d	#define NOFLSH 0000200
-N_6PACK	bits/ioctl.h	d	#define N_6PACK 7
-N_AX25	bits/ioctl.h	d	#define N_AX25 5
-N_HCI	bits/ioctl.h	d	#define N_HCI 15
-N_HDLC	bits/ioctl.h	d	#define N_HDLC 13
-N_IRDA	bits/ioctl.h	d	#define N_IRDA 11
-N_MASC	bits/ioctl.h	d	#define N_MASC 8
-N_MOUSE	bits/ioctl.h	d	#define N_MOUSE 2
-N_PPP	bits/ioctl.h	d	#define N_PPP 3
-N_PROFIBUS_FDL	bits/ioctl.h	d	#define N_PROFIBUS_FDL 10
-N_R3964	bits/ioctl.h	d	#define N_R3964 9
-N_SLIP	bits/ioctl.h	d	#define N_SLIP 1
-N_SMSBLOCK	bits/ioctl.h	d	#define N_SMSBLOCK 12
-N_STRIP	bits/ioctl.h	d	#define N_STRIP 4
-N_SYNC_PPP	bits/ioctl.h	d	#define N_SYNC_PPP 14
-N_TTY	bits/ioctl.h	d	#define N_TTY 0
-N_X25	bits/ioctl.h	d	#define N_X25 6
 OCRNL	bits/termios.h	d	#define OCRNL 0000010
 OFDEL	bits/termios.h	d	#define OFDEL 0000200
 OFILL	bits/termios.h	d	#define OFILL 0000100
@@ -386,65 +392,33 @@ SIGVTALRM	bits/signal.h	d	#define SIGVTALRM 26
 SIGWINCH	bits/signal.h	d	#define SIGWINCH 28
 SIGXCPU	bits/signal.h	d	#define SIGXCPU 24
 SIGXFSZ	bits/signal.h	d	#define SIGXFSZ 25
-SIOCADDDLCI	bits/ioctl.h	d	#define SIOCADDDLCI 0x8980
-SIOCADDMULTI	bits/ioctl.h	d	#define SIOCADDMULTI 0x8931
-SIOCADDRT	bits/ioctl.h	d	#define SIOCADDRT 0x890B
 SIOCATMARK	bits/ioctl.h	d	#define SIOCATMARK 0x8905
-SIOCDARP	bits/ioctl.h	d	#define SIOCDARP 0x8953
-SIOCDELDLCI	bits/ioctl.h	d	#define SIOCDELDLCI 0x8981
-SIOCDELMULTI	bits/ioctl.h	d	#define SIOCDELMULTI 0x8932
-SIOCDELRT	bits/ioctl.h	d	#define SIOCDELRT 0x890C
-SIOCDEVPRIVATE	bits/ioctl.h	d	#define SIOCDEVPRIVATE 0x89F0
-SIOCDIFADDR	bits/ioctl.h	d	#define SIOCDIFADDR 0x8936
-SIOCDRARP	bits/ioctl.h	d	#define SIOCDRARP 0x8960
-SIOCGARP	bits/ioctl.h	d	#define SIOCGARP 0x8954
-SIOCGIFADDR	bits/ioctl.h	d	#define SIOCGIFADDR 0x8915
-SIOCGIFBR	bits/ioctl.h	d	#define SIOCGIFBR 0x8940
-SIOCGIFBRDADDR	bits/ioctl.h	d	#define SIOCGIFBRDADDR 0x8919
-SIOCGIFCONF	bits/ioctl.h	d	#define SIOCGIFCONF 0x8912
-SIOCGIFCOUNT	bits/ioctl.h	d	#define SIOCGIFCOUNT 0x8938
-SIOCGIFDSTADDR	bits/ioctl.h	d	#define SIOCGIFDSTADDR 0x8917
-SIOCGIFENCAP	bits/ioctl.h	d	#define SIOCGIFENCAP 0x8925
-SIOCGIFFLAGS	bits/ioctl.h	d	#define SIOCGIFFLAGS 0x8913
-SIOCGIFHWADDR	bits/ioctl.h	d	#define SIOCGIFHWADDR 0x8927
-SIOCGIFINDEX	bits/ioctl.h	d	#define SIOCGIFINDEX 0x8933
-SIOCGIFMAP	bits/ioctl.h	d	#define SIOCGIFMAP 0x8970
-SIOCGIFMEM	bits/ioctl.h	d	#define SIOCGIFMEM 0x891f
-SIOCGIFMETRIC	bits/ioctl.h	d	#define SIOCGIFMETRIC 0x891d
-SIOCGIFMTU	bits/ioctl.h	d	#define SIOCGIFMTU 0x8921
-SIOCGIFNAME	bits/ioctl.h	d	#define SIOCGIFNAME 0x8910
-SIOCGIFNETMASK	bits/ioctl.h	d	#define SIOCGIFNETMASK 0x891b
-SIOCGIFPFLAGS	bits/ioctl.h	d	#define SIOCGIFPFLAGS 0x8935
-SIOCGIFSLAVE	bits/ioctl.h	d	#define SIOCGIFSLAVE 0x8929
-SIOCGIFTXQLEN	bits/ioctl.h	d	#define SIOCGIFTXQLEN 0x8942
 SIOCGPGRP	bits/ioctl.h	d	#define SIOCGPGRP 0x8904
-SIOCGRARP	bits/ioctl.h	d	#define SIOCGRARP 0x8961
 SIOCGSTAMP	bits/ioctl.h	d	#define SIOCGSTAMP 0x8906
-SIOCPROTOPRIVATE	bits/ioctl.h	d	#define SIOCPROTOPRIVATE 0x89E0
-SIOCRTMSG	bits/ioctl.h	d	#define SIOCRTMSG 0x890D
-SIOCSARP	bits/ioctl.h	d	#define SIOCSARP 0x8955
-SIOCSIFADDR	bits/ioctl.h	d	#define SIOCSIFADDR 0x8916
-SIOCSIFBR	bits/ioctl.h	d	#define SIOCSIFBR 0x8941
-SIOCSIFBRDADDR	bits/ioctl.h	d	#define SIOCSIFBRDADDR 0x891a
-SIOCSIFDSTADDR	bits/ioctl.h	d	#define SIOCSIFDSTADDR 0x8918
-SIOCSIFENCAP	bits/ioctl.h	d	#define SIOCSIFENCAP 0x8926
-SIOCSIFFLAGS	bits/ioctl.h	d	#define SIOCSIFFLAGS 0x8914
-SIOCSIFHWADDR	bits/ioctl.h	d	#define SIOCSIFHWADDR 0x8924
-SIOCSIFHWBROADCAST	bits/ioctl.h	d	#define SIOCSIFHWBROADCAST 0x8937
-SIOCSIFLINK	bits/ioctl.h	d	#define SIOCSIFLINK 0x8911
-SIOCSIFMAP	bits/ioctl.h	d	#define SIOCSIFMAP 0x8971
-SIOCSIFMEM	bits/ioctl.h	d	#define SIOCSIFMEM 0x8920
-SIOCSIFMETRIC	bits/ioctl.h	d	#define SIOCSIFMETRIC 0x891e
-SIOCSIFMTU	bits/ioctl.h	d	#define SIOCSIFMTU 0x8922
-SIOCSIFNAME	bits/ioctl.h	d	#define SIOCSIFNAME 0x8923
-SIOCSIFNETMASK	bits/ioctl.h	d	#define SIOCSIFNETMASK 0x891c
-SIOCSIFPFLAGS	bits/ioctl.h	d	#define SIOCSIFPFLAGS 0x8934
-SIOCSIFSLAVE	bits/ioctl.h	d	#define SIOCSIFSLAVE 0x8930
-SIOCSIFTXQLEN	bits/ioctl.h	d	#define SIOCSIFTXQLEN 0x8943
+SIOCGSTAMPNS	bits/ioctl.h	d	#define SIOCGSTAMPNS 0x8907
 SIOCSPGRP	bits/ioctl.h	d	#define SIOCSPGRP 0x8902
-SIOCSRARP	bits/ioctl.h	d	#define SIOCSRARP 0x8962
-SIOGIFINDEX	bits/ioctl.h	d	#define SIOGIFINDEX SIOCGIFINDEX
 SIZE_MAX	bits/stdint.h	d	#define SIZE_MAX UINT64_MAX
+SVE_MAGIC	bits/signal.h	d	#define SVE_MAGIC 0x53564501
+SVE_NUM_PREGS	bits/signal.h	d	#define SVE_NUM_PREGS 16
+SVE_NUM_ZREGS	bits/signal.h	d	#define SVE_NUM_ZREGS 32
+SVE_SIG_CONTEXT_SIZE	bits/signal.h	d	#define SVE_SIG_CONTEXT_SIZE(vq) (SVE_SIG_REGS_OFFSET + SVE_SIG_REGS_SIZE(vq))
+SVE_SIG_FFR_OFFSET	bits/signal.h	d	#define SVE_SIG_FFR_OFFSET(vq) (SVE_SIG_PREGS_OFFSET(vq) + SVE_SIG_PREGS_SIZE(vq))
+SVE_SIG_FFR_SIZE	bits/signal.h	d	#define SVE_SIG_FFR_SIZE(vq) SVE_SIG_PREG_SIZE(vq)
+SVE_SIG_PREGS_OFFSET	bits/signal.h	d	#define SVE_SIG_PREGS_OFFSET(vq) (SVE_SIG_ZREGS_OFFSET + SVE_SIG_ZREGS_SIZE(vq))
+SVE_SIG_PREGS_SIZE	bits/signal.h	d	#define SVE_SIG_PREGS_SIZE(vq) (SVE_SIG_PREG_OFFSET(vq, SVE_NUM_PREGS) - SVE_SIG_PREGS_OFFSET(vq))
+SVE_SIG_PREG_OFFSET	bits/signal.h	d	#define SVE_SIG_PREG_OFFSET(vq, n) (SVE_SIG_PREGS_OFFSET(vq) + SVE_SIG_PREG_SIZE(vq) * (n))
+SVE_SIG_PREG_SIZE	bits/signal.h	d	#define SVE_SIG_PREG_SIZE(vq) ((unsigned)(vq) * (SVE_VQ_BYTES / 8))
+SVE_SIG_REGS_OFFSET	bits/signal.h	d	#define SVE_SIG_REGS_OFFSET ((sizeof(struct sve_context) + (SVE_VQ_BYTES - 1)) / SVE_VQ_BYTES * SVE_VQ_BYTES)
+SVE_SIG_REGS_SIZE	bits/signal.h	d	#define SVE_SIG_REGS_SIZE(vq) (SVE_SIG_FFR_OFFSET(vq) + SVE_SIG_FFR_SIZE(vq) - SVE_SIG_REGS_OFFSET)
+SVE_SIG_ZREGS_OFFSET	bits/signal.h	d	#define SVE_SIG_ZREGS_OFFSET SVE_SIG_REGS_OFFSET
+SVE_SIG_ZREGS_SIZE	bits/signal.h	d	#define SVE_SIG_ZREGS_SIZE(vq) (SVE_SIG_ZREG_OFFSET(vq, SVE_NUM_ZREGS) - SVE_SIG_ZREGS_OFFSET)
+SVE_SIG_ZREG_OFFSET	bits/signal.h	d	#define SVE_SIG_ZREG_OFFSET(vq, n) (SVE_SIG_ZREGS_OFFSET + SVE_SIG_ZREG_SIZE(vq) * (n))
+SVE_SIG_ZREG_SIZE	bits/signal.h	d	#define SVE_SIG_ZREG_SIZE(vq) ((unsigned)(vq) * SVE_VQ_BYTES)
+SVE_VL_MAX	bits/signal.h	d	#define SVE_VL_MAX (SVE_VQ_MAX * SVE_VQ_BYTES)
+SVE_VL_MIN	bits/signal.h	d	#define SVE_VL_MIN (SVE_VQ_MIN * SVE_VQ_BYTES)
+SVE_VQ_BYTES	bits/signal.h	d	#define SVE_VQ_BYTES 16
+SVE_VQ_MAX	bits/signal.h	d	#define SVE_VQ_MAX 512
+SVE_VQ_MIN	bits/signal.h	d	#define SVE_VQ_MIN 1
 SYS_accept	bits/syscall.h	d	#define SYS_accept 202
 SYS_accept4	bits/syscall.h	d	#define SYS_accept4 242
 SYS_acct	bits/syscall.h	d	#define SYS_acct 89
@@ -496,7 +470,6 @@ SYS_flock	bits/syscall.h	d	#define SYS_flock 32
 SYS_fremovexattr	bits/syscall.h	d	#define SYS_fremovexattr 16
 SYS_fsetxattr	bits/syscall.h	d	#define SYS_fsetxattr 7
 SYS_fstat	bits/syscall.h	d	#define SYS_fstat 80
-SYS_fstatat	bits/syscall.h	d	#define SYS_fstatat 79
 SYS_fstatfs	bits/syscall.h	d	#define SYS_fstatfs 44
 SYS_fsync	bits/syscall.h	d	#define SYS_fsync 82
 SYS_ftruncate	bits/syscall.h	d	#define SYS_ftruncate 46
@@ -535,12 +508,17 @@ SYS_inotify_rm_watch	bits/syscall.h	d	#define SYS_inotify_rm_watch 28
 SYS_io_cancel	bits/syscall.h	d	#define SYS_io_cancel 3
 SYS_io_destroy	bits/syscall.h	d	#define SYS_io_destroy 1
 SYS_io_getevents	bits/syscall.h	d	#define SYS_io_getevents 4
+SYS_io_pgetevents	bits/syscall.h	d	#define SYS_io_pgetevents 292
 SYS_io_setup	bits/syscall.h	d	#define SYS_io_setup 0
 SYS_io_submit	bits/syscall.h	d	#define SYS_io_submit 2
+SYS_io_uring_enter	bits/syscall.h	d	#define SYS_io_uring_enter 426
+SYS_io_uring_register	bits/syscall.h	d	#define SYS_io_uring_register 427
+SYS_io_uring_setup	bits/syscall.h	d	#define SYS_io_uring_setup 425
 SYS_ioctl	bits/syscall.h	d	#define SYS_ioctl 29
 SYS_ioprio_get	bits/syscall.h	d	#define SYS_ioprio_get 31
 SYS_ioprio_set	bits/syscall.h	d	#define SYS_ioprio_set 30
 SYS_kcmp	bits/syscall.h	d	#define SYS_kcmp 272
+SYS_kexec_file_load	bits/syscall.h	d	#define SYS_kexec_file_load 294
 SYS_kexec_load	bits/syscall.h	d	#define SYS_kexec_load 104
 SYS_keyctl	bits/syscall.h	d	#define SYS_keyctl 219
 SYS_kill	bits/syscall.h	d	#define SYS_kill 129
@@ -585,12 +563,13 @@ SYS_munlockall	bits/syscall.h	d	#define SYS_munlockall 231
 SYS_munmap	bits/syscall.h	d	#define SYS_munmap 215
 SYS_name_to_handle_at	bits/syscall.h	d	#define SYS_name_to_handle_at 264
 SYS_nanosleep	bits/syscall.h	d	#define SYS_nanosleep 101
+SYS_newfstatat	bits/syscall.h	d	#define SYS_newfstatat 79
 SYS_nfsservctl	bits/syscall.h	d	#define SYS_nfsservctl 42
 SYS_open_by_handle_at	bits/syscall.h	d	#define SYS_open_by_handle_at 265
 SYS_openat	bits/syscall.h	d	#define SYS_openat 56
-SYS_or1k_atomic	bits/syscall.h	d	#define SYS_or1k_atomic 244
 SYS_perf_event_open	bits/syscall.h	d	#define SYS_perf_event_open 241
 SYS_personality	bits/syscall.h	d	#define SYS_personality 92
+SYS_pidfd_send_signal	bits/syscall.h	d	#define SYS_pidfd_send_signal 424
 SYS_pipe2	bits/syscall.h	d	#define SYS_pipe2 59
 SYS_pivot_root	bits/syscall.h	d	#define SYS_pivot_root 41
 SYS_pkey_alloc	bits/syscall.h	d	#define SYS_pkey_alloc 289
@@ -624,6 +603,7 @@ SYS_renameat	bits/syscall.h	d	#define SYS_renameat 38
 SYS_renameat2	bits/syscall.h	d	#define SYS_renameat2 276
 SYS_request_key	bits/syscall.h	d	#define SYS_request_key 218
 SYS_restart_syscall	bits/syscall.h	d	#define SYS_restart_syscall 128
+SYS_rseq	bits/syscall.h	d	#define SYS_rseq 293
 SYS_rt_sigaction	bits/syscall.h	d	#define SYS_rt_sigaction 134
 SYS_rt_sigpending	bits/syscall.h	d	#define SYS_rt_sigpending 136
 SYS_rt_sigprocmask	bits/syscall.h	d	#define SYS_rt_sigprocmask 135
@@ -687,6 +667,7 @@ SYS_socket	bits/syscall.h	d	#define SYS_socket 198
 SYS_socketpair	bits/syscall.h	d	#define SYS_socketpair 199
 SYS_splice	bits/syscall.h	d	#define SYS_splice 76
 SYS_statfs	bits/syscall.h	d	#define SYS_statfs 43
+SYS_statx	bits/syscall.h	d	#define SYS_statx 291
 SYS_swapoff	bits/syscall.h	d	#define SYS_swapoff 225
 SYS_swapon	bits/syscall.h	d	#define SYS_swapon 224
 SYS_symlinkat	bits/syscall.h	d	#define SYS_symlinkat 36
@@ -759,11 +740,13 @@ TIOCGDEV	bits/ioctl.h	d	#define TIOCGDEV 0x80045432
 TIOCGETD	bits/ioctl.h	d	#define TIOCGETD 0x5424
 TIOCGEXCL	bits/ioctl.h	d	#define TIOCGEXCL 0x80045440
 TIOCGICOUNT	bits/ioctl.h	d	#define TIOCGICOUNT 0x545D
+TIOCGISO7816	bits/ioctl.h	d	#define TIOCGISO7816 0x80285442
 TIOCGLCKTRMIOS	bits/ioctl.h	d	#define TIOCGLCKTRMIOS 0x5456
 TIOCGPGRP	bits/ioctl.h	d	#define TIOCGPGRP 0x540F
 TIOCGPKT	bits/ioctl.h	d	#define TIOCGPKT 0x80045438
 TIOCGPTLCK	bits/ioctl.h	d	#define TIOCGPTLCK 0x80045439
 TIOCGPTN	bits/ioctl.h	d	#define TIOCGPTN 0x80045430
+TIOCGPTPEER	bits/ioctl.h	d	#define TIOCGPTPEER 0x5441
 TIOCGRS485	bits/ioctl.h	d	#define TIOCGRS485 0x542E
 TIOCGSERIAL	bits/ioctl.h	d	#define TIOCGSERIAL 0x541E
 TIOCGSID	bits/ioctl.h	d	#define TIOCGSID 0x5429
@@ -794,14 +777,6 @@ TIOCNOTTY	bits/ioctl.h	d	#define TIOCNOTTY 0x5422
 TIOCNXCL	bits/ioctl.h	d	#define TIOCNXCL 0x540D
 TIOCOUTQ	bits/ioctl.h	d	#define TIOCOUTQ 0x5411
 TIOCPKT	bits/ioctl.h	d	#define TIOCPKT 0x5420
-TIOCPKT_DATA	bits/ioctl.h	d	#define TIOCPKT_DATA 0
-TIOCPKT_DOSTOP	bits/ioctl.h	d	#define TIOCPKT_DOSTOP 32
-TIOCPKT_FLUSHREAD	bits/ioctl.h	d	#define TIOCPKT_FLUSHREAD 1
-TIOCPKT_FLUSHWRITE	bits/ioctl.h	d	#define TIOCPKT_FLUSHWRITE 2
-TIOCPKT_IOCTL	bits/ioctl.h	d	#define TIOCPKT_IOCTL 64
-TIOCPKT_NOSTOP	bits/ioctl.h	d	#define TIOCPKT_NOSTOP 16
-TIOCPKT_START	bits/ioctl.h	d	#define TIOCPKT_START 8
-TIOCPKT_STOP	bits/ioctl.h	d	#define TIOCPKT_STOP 4
 TIOCSBRK	bits/ioctl.h	d	#define TIOCSBRK 0x5427
 TIOCSCTTY	bits/ioctl.h	d	#define TIOCSCTTY 0x540E
 TIOCSERCONFIG	bits/ioctl.h	d	#define TIOCSERCONFIG 0x5453
@@ -811,9 +786,9 @@ TIOCSERGSTRUCT	bits/ioctl.h	d	#define TIOCSERGSTRUCT 0x5458
 TIOCSERGWILD	bits/ioctl.h	d	#define TIOCSERGWILD 0x5454
 TIOCSERSETMULTI	bits/ioctl.h	d	#define TIOCSERSETMULTI 0x545B
 TIOCSERSWILD	bits/ioctl.h	d	#define TIOCSERSWILD 0x5455
-TIOCSER_TEMT	bits/ioctl.h	d	#define TIOCSER_TEMT 0x01
 TIOCSETD	bits/ioctl.h	d	#define TIOCSETD 0x5423
 TIOCSIG	bits/ioctl.h	d	#define TIOCSIG 0x40045436
+TIOCSISO7816	bits/ioctl.h	d	#define TIOCSISO7816 0xc0285443
 TIOCSLCKTRMIOS	bits/ioctl.h	d	#define TIOCSLCKTRMIOS 0x5457
 TIOCSPGRP	bits/ioctl.h	d	#define TIOCSPGRP 0x5410
 TIOCSPTLCK	bits/ioctl.h	d	#define TIOCSPTLCK 0x40045431
@@ -919,6 +894,7 @@ __DEFINED_sigset_t	bits/alltypes.h	d	#define __DEFINED_sigset_t
 __DEFINED_size_t	bits/alltypes.h	d	#define __DEFINED_size_t
 __DEFINED_socklen_t	bits/alltypes.h	d	#define __DEFINED_socklen_t
 __DEFINED_ssize_t	bits/alltypes.h	d	#define __DEFINED_ssize_t
+__DEFINED_struct__IO_FILE	bits/alltypes.h	d	#define __DEFINED_struct__IO_FILE
 __DEFINED_struct_iovec	bits/alltypes.h	d	#define __DEFINED_struct_iovec
 __DEFINED_struct_timespec	bits/alltypes.h	d	#define __DEFINED_struct_timespec
 __DEFINED_struct_timeval	bits/alltypes.h	d	#define __DEFINED_struct_timeval
@@ -990,7 +966,6 @@ __NR_flock	bits/syscall.h	d	#define __NR_flock 32
 __NR_fremovexattr	bits/syscall.h	d	#define __NR_fremovexattr 16
 __NR_fsetxattr	bits/syscall.h	d	#define __NR_fsetxattr 7
 __NR_fstat	bits/syscall.h	d	#define __NR_fstat 80
-__NR_fstatat	bits/syscall.h	d	#define __NR_fstatat 79
 __NR_fstatfs	bits/syscall.h	d	#define __NR_fstatfs 44
 __NR_fsync	bits/syscall.h	d	#define __NR_fsync 82
 __NR_ftruncate	bits/syscall.h	d	#define __NR_ftruncate 46
@@ -1029,12 +1004,17 @@ __NR_inotify_rm_watch	bits/syscall.h	d	#define __NR_inotify_rm_watch 28
 __NR_io_cancel	bits/syscall.h	d	#define __NR_io_cancel 3
 __NR_io_destroy	bits/syscall.h	d	#define __NR_io_destroy 1
 __NR_io_getevents	bits/syscall.h	d	#define __NR_io_getevents 4
+__NR_io_pgetevents	bits/syscall.h	d	#define __NR_io_pgetevents 292
 __NR_io_setup	bits/syscall.h	d	#define __NR_io_setup 0
 __NR_io_submit	bits/syscall.h	d	#define __NR_io_submit 2
+__NR_io_uring_enter	bits/syscall.h	d	#define __NR_io_uring_enter 426
+__NR_io_uring_register	bits/syscall.h	d	#define __NR_io_uring_register 427
+__NR_io_uring_setup	bits/syscall.h	d	#define __NR_io_uring_setup 425
 __NR_ioctl	bits/syscall.h	d	#define __NR_ioctl 29
 __NR_ioprio_get	bits/syscall.h	d	#define __NR_ioprio_get 31
 __NR_ioprio_set	bits/syscall.h	d	#define __NR_ioprio_set 30
 __NR_kcmp	bits/syscall.h	d	#define __NR_kcmp 272
+__NR_kexec_file_load	bits/syscall.h	d	#define __NR_kexec_file_load 294
 __NR_kexec_load	bits/syscall.h	d	#define __NR_kexec_load 104
 __NR_keyctl	bits/syscall.h	d	#define __NR_keyctl 219
 __NR_kill	bits/syscall.h	d	#define __NR_kill 129
@@ -1079,12 +1059,13 @@ __NR_munlockall	bits/syscall.h	d	#define __NR_munlockall 231
 __NR_munmap	bits/syscall.h	d	#define __NR_munmap 215
 __NR_name_to_handle_at	bits/syscall.h	d	#define __NR_name_to_handle_at 264
 __NR_nanosleep	bits/syscall.h	d	#define __NR_nanosleep 101
+__NR_newfstatat	bits/syscall.h	d	#define __NR_newfstatat 79
 __NR_nfsservctl	bits/syscall.h	d	#define __NR_nfsservctl 42
 __NR_open_by_handle_at	bits/syscall.h	d	#define __NR_open_by_handle_at 265
 __NR_openat	bits/syscall.h	d	#define __NR_openat 56
-__NR_or1k_atomic	bits/syscall.h	d	#define __NR_or1k_atomic 244
 __NR_perf_event_open	bits/syscall.h	d	#define __NR_perf_event_open 241
 __NR_personality	bits/syscall.h	d	#define __NR_personality 92
+__NR_pidfd_send_signal	bits/syscall.h	d	#define __NR_pidfd_send_signal 424
 __NR_pipe2	bits/syscall.h	d	#define __NR_pipe2 59
 __NR_pivot_root	bits/syscall.h	d	#define __NR_pivot_root 41
 __NR_pkey_alloc	bits/syscall.h	d	#define __NR_pkey_alloc 289
@@ -1118,6 +1099,7 @@ __NR_renameat	bits/syscall.h	d	#define __NR_renameat 38
 __NR_renameat2	bits/syscall.h	d	#define __NR_renameat2 276
 __NR_request_key	bits/syscall.h	d	#define __NR_request_key 218
 __NR_restart_syscall	bits/syscall.h	d	#define __NR_restart_syscall 128
+__NR_rseq	bits/syscall.h	d	#define __NR_rseq 293
 __NR_rt_sigaction	bits/syscall.h	d	#define __NR_rt_sigaction 134
 __NR_rt_sigpending	bits/syscall.h	d	#define __NR_rt_sigpending 136
 __NR_rt_sigprocmask	bits/syscall.h	d	#define __NR_rt_sigprocmask 135
@@ -1181,6 +1163,7 @@ __NR_socket	bits/syscall.h	d	#define __NR_socket 198
 __NR_socketpair	bits/syscall.h	d	#define __NR_socketpair 199
 __NR_splice	bits/syscall.h	d	#define __NR_splice 76
 __NR_statfs	bits/syscall.h	d	#define __NR_statfs 43
+__NR_statx	bits/syscall.h	d	#define __NR_statx 291
 __NR_swapoff	bits/syscall.h	d	#define __NR_swapoff 225
 __NR_swapon	bits/syscall.h	d	#define __NR_swapon 224
 __NR_symlinkat	bits/syscall.h	d	#define __NR_symlinkat 36
@@ -1240,13 +1223,13 @@ greg_t	bits/signal.h	t	typedef unsigned long greg_t;
 gregset_t	bits/signal.h	t	typedef unsigned long gregset_t[34];
 id_t	bits/alltypes.h	t	typedef unsigned id_t;
 ino_t	bits/alltypes.h	t	typedef unsigned _Int64 ino_t;
-int16_t	bits/alltypes.h	t	typedef short int16_t;
-int32_t	bits/alltypes.h	t	typedef int int32_t;
-int64_t	bits/alltypes.h	t	typedef _Int64 int64_t;
+int16_t	bits/alltypes.h	t	typedef signed short int16_t;
+int32_t	bits/alltypes.h	t	typedef signed int int32_t;
+int64_t	bits/alltypes.h	t	typedef signed _Int64 int64_t;
 int8_t	bits/alltypes.h	t	typedef signed char int8_t;
 int_fast16_t	bits/stdint.h	t	typedef int32_t int_fast16_t;
 int_fast32_t	bits/stdint.h	t	typedef int32_t int_fast32_t;
-intmax_t	bits/alltypes.h	t	typedef _Int64 intmax_t;
+intmax_t	bits/alltypes.h	t	typedef signed _Int64 intmax_t;
 intptr_t	bits/alltypes.h	t	typedef _Addr intptr_t;
 key_t	bits/alltypes.h	t	typedef int key_t;
 locale_t	bits/alltypes.h	t	typedef struct __locale_struct * locale_t;
@@ -1282,12 +1265,14 @@ sigset_t	bits/alltypes.h	t	typedef struct __sigset_t { unsigned long __bits[128/
 size_t	bits/alltypes.h	t	typedef unsigned _Addr size_t;
 socklen_t	bits/alltypes.h	t	typedef unsigned socklen_t;
 ssize_t	bits/alltypes.h	t	typedef _Addr ssize_t;
+struct _IO_FILE	bits/alltypes.h	s	
 struct __mbstate_t	bits/alltypes.h	s	
 struct __sigset_t	bits/alltypes.h	s	
 struct __ucontext	bits/signal.h	s	
 struct _aarch64_ctx	bits/signal.h	s	
 struct cmsghdr	bits/socket.h	s	
 struct esr_context	bits/signal.h	s	
+struct extra_context	bits/signal.h	s	
 struct fpsimd_context	bits/signal.h	s	
 struct iovec	bits/alltypes.h	s	
 struct ipc_perm	bits/ipc.h	s	
@@ -1301,13 +1286,16 @@ struct sigaltstack	bits/signal.h	s
 struct sigcontext	bits/signal.h	s	
 struct stat	bits/stat.h	s	
 struct statfs	bits/statfs.h	s	
+struct sve_context	bits/signal.h	s	
 struct termios	bits/termios.h	s	
 struct timespec	bits/alltypes.h	s	
 struct timeval	bits/alltypes.h	s	
 struct user_fpsimd_struct	bits/user.h	s	
 struct user_regs_struct	bits/user.h	s	
-struct winsize	bits/ioctl.h	s	
 suseconds_t	bits/alltypes.h	t	typedef long suseconds_t;
+sve_vl_from_vq	bits/signal.h	d	#define sve_vl_from_vq(vq) ((vq) * SVE_VQ_BYTES)
+sve_vl_valid	bits/signal.h	d	#define sve_vl_valid(vl) ((vl) % SVE_VQ_BYTES == 0 && (vl) >= SVE_VL_MIN && (vl) <= SVE_VL_MAX)
+sve_vq_from_vl	bits/signal.h	d	#define sve_vq_from_vl(vl) ((vl) / SVE_VQ_BYTES)
 time_t	bits/alltypes.h	t	typedef long time_t;
 timer_t	bits/alltypes.h	t	typedef void * timer_t;
 u_int64_t	bits/alltypes.h	t	typedef unsigned _Int64 u_int64_t;

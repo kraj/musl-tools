@@ -115,8 +115,8 @@
 //#include <sys/io.h>
 #include <sys/ioctl.h>
 #include <sys/ipc.h>
-//#include <sys/kd.h>
 #include <sys/klog.h>
+#include <sys/membarrier.h>
 #include <sys/mman.h>
 #include <sys/mount.h>
 #include <sys/msg.h>
@@ -127,6 +127,7 @@
 #include <sys/procfs.h>
 #include <sys/ptrace.h>
 #include <sys/quota.h>
+#include <sys/random.h>
 #include <sys/reboot.h>
 //#include <sys/reg.h>
 #include <sys/resource.h>
@@ -277,6 +278,11 @@ T(,clock_t)
 T(,clockid_t)
 M(T(,cnd_t))
 T(,comp_t)
+T(,cookie_close_function_t)
+T(,cookie_io_functions_t)
+T(,cookie_read_function_t)
+T(,cookie_seek_function_t)
+T(,cookie_write_function_t)
 T(,cpu_set_t)
 T(,dev_t)
 T(,div_t)
@@ -412,6 +418,8 @@ T(,speed_t)
 T(,ssize_t)
 T(,stack_t)
 T(struct,FTW)
+T(struct,_IO_FILE)
+T(struct,_IO_cookie_io_functions_t)
 //T(struct,__fsid_t)
 T(struct,__jmp_buf_tag)
 //T(struct,__locale_struct)
@@ -419,6 +427,8 @@ T(struct,__jmp_buf_tag)
 T(struct,__ns_msg)
 T(struct,__ns_rr)
 //T(struct,__ptcb)
+T(struct,__ptrace_peeksiginfo_args)
+T(struct,__ptrace_seccomp_metadata)
 T(struct,__res_state)
 //T(struct,__sigset_t)
 //T(struct,__ucontext)
@@ -451,8 +461,11 @@ T(struct,ether_arp)
 T(struct,ether_header)
 T(struct,ethhdr)
 T(struct,f_owner_ex)
+T(struct,fanotify_event_info_fid)
+T(struct,fanotify_event_info_header)
 T(struct,fanotify_event_metadata)
 T(struct,fanotify_response)
+T(struct,file_handle)
 T(struct,flock)
 T(struct,fp_reg)
 T(struct,group)
@@ -548,7 +561,6 @@ T(struct,passwd)
 T(struct,pollfd)
 T(struct,prctl_mm_map)
 T(struct,protoent)
-//T(struct,ptrace_peeksiginfo_args)
 T(struct,qelem)
 T(struct,r_debug)
 T(struct,re_pattern_buffer)
@@ -595,9 +607,11 @@ T(struct,strioctl)
 T(struct,strpeek)
 T(struct,strrecvfd)
 T(struct,sysinfo)
+T(struct,tcp_diag_md5sig)
 T(struct,tcp_info)
 T(struct,tcp_md5sig)
 T(struct,tcp_repair_window)
+T(struct,tcp_zerocopy_receive)
 T(struct,tcphdr)
 T(struct,termios)
 T(struct,tftphdr)
