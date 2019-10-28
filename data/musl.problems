@@ -20,7 +20,6 @@ nodecl	dcngettext	T
 nodecl	delete_module	T
 nodecl	dgettext	T
 nodecl	dngettext	T
-nodecl	dummy_lock	B
 proto	encrypt	unistd.h	void(char*,int)	void(char[],int)	void encrypt(char *, int);	void encrypt(char block[64], int edflag);
 nodecl	fpurge	W
 proto	getc_unlocked	stdio/getc_unlocked.c	stdio.h	int()(FILE*)	int(FILE*)

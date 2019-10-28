@@ -265,7 +265,7 @@ INT_FAST16_MAX	bits/stdint.h	d	#define INT_FAST16_MAX INT32_MAX
 INT_FAST16_MIN	bits/stdint.h	d	#define INT_FAST16_MIN INT32_MIN
 INT_FAST32_MAX	bits/stdint.h	d	#define INT_FAST32_MAX INT32_MAX
 INT_FAST32_MIN	bits/stdint.h	d	#define INT_FAST32_MIN INT32_MIN
-IPC_64	bits/ipc.h	d	#define IPC_64 0x100
+IPC_STAT	bits/ipcstat.h	d	#define IPC_STAT 2
 ISIG	bits/termios.h	d	#define ISIG 0000001
 ISTRIP	bits/termios.h	d	#define ISTRIP 0000040
 IUCLC	bits/termios.h	d	#define IUCLC 0001000
@@ -468,7 +468,11 @@ SYS_flistxattr	bits/syscall.h	d	#define SYS_flistxattr 234
 SYS_flock	bits/syscall.h	d	#define SYS_flock 143
 SYS_fork	bits/syscall.h	d	#define SYS_fork 2
 SYS_fremovexattr	bits/syscall.h	d	#define SYS_fremovexattr 237
+SYS_fsconfig	bits/syscall.h	d	#define SYS_fsconfig 431
 SYS_fsetxattr	bits/syscall.h	d	#define SYS_fsetxattr 228
+SYS_fsmount	bits/syscall.h	d	#define SYS_fsmount 432
+SYS_fsopen	bits/syscall.h	d	#define SYS_fsopen 430
+SYS_fspick	bits/syscall.h	d	#define SYS_fspick 433
 SYS_fstat	bits/syscall.h	d	#define SYS_fstat 108
 SYS_fstat64	bits/syscall.h	d	#define SYS_fstat64 197
 SYS_fstatat64	bits/syscall.h	d	#define SYS_fstatat64 300
@@ -568,6 +572,7 @@ SYS_mlockall	bits/syscall.h	d	#define SYS_mlockall 152
 SYS_mmap	bits/syscall.h	d	#define SYS_mmap 90
 SYS_mmap2	bits/syscall.h	d	#define SYS_mmap2 192
 SYS_mount	bits/syscall.h	d	#define SYS_mount 21
+SYS_move_mount	bits/syscall.h	d	#define SYS_move_mount 429
 SYS_move_pages	bits/syscall.h	d	#define SYS_move_pages 317
 SYS_mprotect	bits/syscall.h	d	#define SYS_mprotect 125
 SYS_mq_getsetattr	bits/syscall.h	d	#define SYS_mq_getsetattr 282
@@ -597,6 +602,7 @@ SYS_oldstat	bits/syscall.h	d	#define SYS_oldstat 18
 SYS_olduname	bits/syscall.h	d	#define SYS_olduname 109
 SYS_open	bits/syscall.h	d	#define SYS_open 5
 SYS_open_by_handle_at	bits/syscall.h	d	#define SYS_open_by_handle_at 360
+SYS_open_tree	bits/syscall.h	d	#define SYS_open_tree 428
 SYS_openat	bits/syscall.h	d	#define SYS_openat 295
 SYS_pause	bits/syscall.h	d	#define SYS_pause 29
 SYS_perf_event_open	bits/syscall.h	d	#define SYS_perf_event_open 336
@@ -992,6 +998,7 @@ __DEFINED_uintptr_t	bits/alltypes.h	d	#define __DEFINED_uintptr_t
 __DEFINED_useconds_t	bits/alltypes.h	d	#define __DEFINED_useconds_t
 __DEFINED_va_list	bits/alltypes.h	d	#define __DEFINED_va_list
 __DEFINED_wchar_t	bits/alltypes.h	d	#define __DEFINED_wchar_t
+__DEFINED_wchar_t	bits/alltypes.h	d	#define __DEFINED_wchar_t
 __DEFINED_wctype_t	bits/alltypes.h	d	#define __DEFINED_wctype_t
 __DEFINED_wint_t	bits/alltypes.h	d	#define __DEFINED_wint_t
 __NR__llseek	bits/syscall.h	d	#define __NR__llseek 140
@@ -1067,7 +1074,11 @@ __NR_flistxattr	bits/syscall.h	d	#define __NR_flistxattr 234
 __NR_flock	bits/syscall.h	d	#define __NR_flock 143
 __NR_fork	bits/syscall.h	d	#define __NR_fork 2
 __NR_fremovexattr	bits/syscall.h	d	#define __NR_fremovexattr 237
+__NR_fsconfig	bits/syscall.h	d	#define __NR_fsconfig 431
 __NR_fsetxattr	bits/syscall.h	d	#define __NR_fsetxattr 228
+__NR_fsmount	bits/syscall.h	d	#define __NR_fsmount 432
+__NR_fsopen	bits/syscall.h	d	#define __NR_fsopen 430
+__NR_fspick	bits/syscall.h	d	#define __NR_fspick 433
 __NR_fstat	bits/syscall.h	d	#define __NR_fstat 108
 __NR_fstat64	bits/syscall.h	d	#define __NR_fstat64 197
 __NR_fstatat64	bits/syscall.h	d	#define __NR_fstatat64 300
@@ -1167,6 +1178,7 @@ __NR_mlockall	bits/syscall.h	d	#define __NR_mlockall 152
 __NR_mmap	bits/syscall.h	d	#define __NR_mmap 90
 __NR_mmap2	bits/syscall.h	d	#define __NR_mmap2 192
 __NR_mount	bits/syscall.h	d	#define __NR_mount 21
+__NR_move_mount	bits/syscall.h	d	#define __NR_move_mount 429
 __NR_move_pages	bits/syscall.h	d	#define __NR_move_pages 317
 __NR_mprotect	bits/syscall.h	d	#define __NR_mprotect 125
 __NR_mq_getsetattr	bits/syscall.h	d	#define __NR_mq_getsetattr 282
@@ -1196,6 +1208,7 @@ __NR_oldstat	bits/syscall.h	d	#define __NR_oldstat 18
 __NR_olduname	bits/syscall.h	d	#define __NR_olduname 109
 __NR_open	bits/syscall.h	d	#define __NR_open 5
 __NR_open_by_handle_at	bits/syscall.h	d	#define __NR_open_by_handle_at 360
+__NR_open_tree	bits/syscall.h	d	#define __NR_open_tree 428
 __NR_openat	bits/syscall.h	d	#define __NR_openat 295
 __NR_pause	bits/syscall.h	d	#define __NR_pause 29
 __NR_perf_event_open	bits/syscall.h	d	#define __NR_perf_event_open 336
@@ -1462,8 +1475,6 @@ struct iovec	bits/alltypes.h	s
 struct ipc_perm	bits/ipc.h	s	
 struct msghdr	bits/socket.h	s	
 struct msqid_ds	bits/msg.h	s	
-struct pt_dspregs	bits/user.h	s	
-struct pt_regs	bits/user.h	s	
 struct semid_ds	bits/sem.h	s	
 struct shm_info	bits/shm.h	s	
 struct shmid_ds	bits/shm.h	s	
@@ -1493,6 +1504,7 @@ uintmax_t	bits/alltypes.h	t	typedef unsigned _Int64 uintmax_t;
 uintptr_t	bits/alltypes.h	t	typedef unsigned _Addr uintptr_t;
 useconds_t	bits/alltypes.h	t	typedef unsigned useconds_t;
 va_list	bits/alltypes.h	t	typedef __builtin_va_list va_list;
+wchar_t	bits/alltypes.h	t	typedef __WCHAR_TYPE__ wchar_t;
 wchar_t	bits/alltypes.h	t	typedef long wchar_t;
 wctype_t	bits/alltypes.h	t	typedef unsigned long wctype_t;
 wint_t	bits/alltypes.h	t	typedef unsigned wint_t;

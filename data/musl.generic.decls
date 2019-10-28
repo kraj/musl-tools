@@ -241,8 +241,13 @@ AT_PHENT	elf.h	d	#define AT_PHENT 4
 AT_PHNUM	elf.h	d	#define AT_PHNUM 5
 AT_PLATFORM	elf.h	d	#define AT_PLATFORM 15
 AT_RANDOM	elf.h	d	#define AT_RANDOM 25
+AT_RECURSIVE	fcntl.h	d	#define AT_RECURSIVE 0x8000
 AT_REMOVEDIR	fcntl.h	d	#define AT_REMOVEDIR 0x200
 AT_SECURE	elf.h	d	#define AT_SECURE 23
+AT_STATX_DONT_SYNC	fcntl.h	d	#define AT_STATX_DONT_SYNC 0x4000
+AT_STATX_FORCE_SYNC	fcntl.h	d	#define AT_STATX_FORCE_SYNC 0x2000
+AT_STATX_SYNC_AS_STAT	fcntl.h	d	#define AT_STATX_SYNC_AS_STAT 0x0000
+AT_STATX_SYNC_TYPE	fcntl.h	d	#define AT_STATX_SYNC_TYPE 0x6000
 AT_SYMLINK_FOLLOW	fcntl.h	d	#define AT_SYMLINK_FOLLOW 0x400
 AT_SYMLINK_NOFOLLOW	fcntl.h	d	#define AT_SYMLINK_NOFOLLOW 0x100
 AT_SYSINFO	elf.h	d	#define AT_SYSINFO 32
@@ -364,6 +369,7 @@ CLONE_NEWUSER	sched.h	d	#define CLONE_NEWUSER 0x10000000
 CLONE_NEWUTS	sched.h	d	#define CLONE_NEWUTS 0x04000000
 CLONE_PARENT	sched.h	d	#define CLONE_PARENT 0x00008000
 CLONE_PARENT_SETTID	sched.h	d	#define CLONE_PARENT_SETTID 0x00100000
+CLONE_PIDFD	sched.h	d	#define CLONE_PIDFD 0x00001000
 CLONE_PTRACE	sched.h	d	#define CLONE_PTRACE 0x00002000
 CLONE_SETTLS	sched.h	d	#define CLONE_SETTLS 0x00080000
 CLONE_SIGHAND	sched.h	d	#define CLONE_SIGHAND 0x00000800
@@ -1191,6 +1197,7 @@ ETH_P_DNA_DL	netinet/if_ether.h	d	#define ETH_P_DNA_DL 0x6001
 ETH_P_DNA_RC	netinet/if_ether.h	d	#define ETH_P_DNA_RC 0x6002
 ETH_P_DNA_RT	netinet/if_ether.h	d	#define ETH_P_DNA_RT 0x6003
 ETH_P_DSA	netinet/if_ether.h	d	#define ETH_P_DSA 0x001B
+ETH_P_DSA_8021Q	netinet/if_ether.h	d	#define ETH_P_DSA_8021Q 0xDADB
 ETH_P_ECONET	netinet/if_ether.h	d	#define ETH_P_ECONET 0x0018
 ETH_P_EDSA	netinet/if_ether.h	d	#define ETH_P_EDSA 0xDADA
 ETH_P_ERSPAN	netinet/if_ether.h	d	#define ETH_P_ERSPAN 0x88BE
@@ -1568,6 +1575,8 @@ GLOB_NOSORT	glob.h	d	#define GLOB_NOSORT 0x04
 GLOB_NOSPACE	glob.h	d	#define GLOB_NOSPACE 1
 GLOB_NOSYS	glob.h	d	#define GLOB_NOSYS 4
 GLOB_PERIOD	glob.h	d	#define GLOB_PERIOD 0x80
+GLOB_TILDE	glob.h	d	#define GLOB_TILDE 0x1000
+GLOB_TILDE_CHECK	glob.h	d	#define GLOB_TILDE_CHECK 0x4000
 GMT_BOT	sys/mtio.h	d	#define GMT_BOT(x) ((x) & 0x40000000)
 GMT_DR_OPEN	sys/mtio.h	d	#define GMT_DR_OPEN(x) ((x) & 0x00040000)
 GMT_D_1600	sys/mtio.h	d	#define GMT_D_1600(x) ((x) & 0x00400000)
@@ -1939,7 +1948,6 @@ IPC_NOWAIT	sys/ipc.h	d	#define IPC_NOWAIT 04000
 IPC_PRIVATE	sys/ipc.h	d	#define IPC_PRIVATE ((key_t) 0)
 IPC_RMID	sys/ipc.h	d	#define IPC_RMID 0
 IPC_SET	sys/ipc.h	d	#define IPC_SET 1
-IPC_STAT	sys/ipc.h	d	#define IPC_STAT 2
 IPDEFTTL	netinet/ip.h	d	#define IPDEFTTL 64
 IPFRAGTTL	netinet/ip.h	d	#define IPFRAGTTL 60
 IPOPT_CLASS	netinet/ip.h	d	#define IPOPT_CLASS(o) ((o) & IPOPT_CLASS_MASK)
@@ -2608,8 +2616,8 @@ MSG_PARITY_ERROR	scsi/scsi.h	d	#define MSG_PARITY_ERROR 0x09
 MSG_PEEK	sys/socket.h	d	#define MSG_PEEK 0x0002
 MSG_PROXY	sys/socket.h	d	#define MSG_PROXY 0x0010
 MSG_RST	sys/socket.h	d	#define MSG_RST 0x1000
-MSG_STAT	sys/msg.h	d	#define MSG_STAT 11
-MSG_STAT_ANY	sys/msg.h	d	#define MSG_STAT_ANY 13
+MSG_STAT	sys/msg.h	d	#define MSG_STAT (11 | (IPC_STAT & 0x100))
+MSG_STAT_ANY	sys/msg.h	d	#define MSG_STAT_ANY (13 | (IPC_STAT & 0x100))
 MSG_SYN	sys/socket.h	d	#define MSG_SYN 0x0400
 MSG_TRUNC	sys/socket.h	d	#define MSG_TRUNC 0x0020
 MSG_WAITALL	sys/socket.h	d	#define MSG_WAITALL 0x0100
@@ -5418,8 +5426,8 @@ SELFMAG	elf.h	d	#define SELFMAG 4
 SEM_FAILED	semaphore.h	d	#define SEM_FAILED ((sem_t *)0)
 SEM_INFO	sys/sem.h	d	#define SEM_INFO 19
 SEM_NSEMS_MAX	limits.h	d	#define SEM_NSEMS_MAX 256
-SEM_STAT	sys/sem.h	d	#define SEM_STAT 18
-SEM_STAT_ANY	sys/sem.h	d	#define SEM_STAT_ANY 20
+SEM_STAT	sys/sem.h	d	#define SEM_STAT (18 | (IPC_STAT & 0x100))
+SEM_STAT_ANY	sys/sem.h	d	#define SEM_STAT_ANY (20 | (IPC_STAT & 0x100))
 SEM_UNDO	sys/sem.h	d	#define SEM_UNDO 0x1000
 SEM_VALUE_MAX	limits.h	d	#define SEM_VALUE_MAX 0x7fffffff
 SEND_DIAGNOSTIC	scsi/scsi.h	d	#define SEND_DIAGNOSTIC 0x1d
@@ -5542,8 +5550,8 @@ SHM_R	sys/shm.h	d	#define SHM_R 0400
 SHM_RDONLY	sys/shm.h	d	#define SHM_RDONLY 010000
 SHM_REMAP	sys/shm.h	d	#define SHM_REMAP 040000
 SHM_RND	sys/shm.h	d	#define SHM_RND 020000
-SHM_STAT	sys/shm.h	d	#define SHM_STAT 13
-SHM_STAT_ANY	sys/shm.h	d	#define SHM_STAT_ANY 15
+SHM_STAT	sys/shm.h	d	#define SHM_STAT (13 | (IPC_STAT & 0x100))
+SHM_STAT_ANY	sys/shm.h	d	#define SHM_STAT_ANY (15 | (IPC_STAT & 0x100))
 SHM_UNLOCK	sys/shm.h	d	#define SHM_UNLOCK 12
 SHM_W	sys/shm.h	d	#define SHM_W 0200
 SHN_ABS	elf.h	d	#define SHN_ABS 0xfff1
@@ -7641,6 +7649,7 @@ cookie_io_functions_t	stdio.h	t	} cookie_io_functions_t;
 cookie_read_function_t	stdio.h	t	typedef ssize_t (cookie_read_function_t)(void *, char *, size_t);
 cookie_seek_function_t	stdio.h	t	typedef int (cookie_seek_function_t)(void *, off_t *, int);
 cookie_write_function_t	stdio.h	t	typedef ssize_t (cookie_write_function_t)(void *, const char *, size_t);
+copy_file_range	unistd.h	p	ssize_t copy_file_range(int, off_t *, int, off_t *, size_t, unsigned);
 copysign	math.h	p	double copysign(double, double);
 copysign	tgmath.h	d	#define copysign(x,y) __tg_real_2(copysign, (x), (y))
 copysignf	math.h	p	float copysignf(float, float);
@@ -8778,6 +8787,7 @@ optional_argument	getopt.h	d	#define optional_argument 2
 optopt	getopt.h	x	extern int optind, opterr, optopt, optreset;
 optopt	unistd.h	x	extern int optind, opterr, optopt;
 optreset	getopt.h	x	extern int optind, opterr, optopt, optreset;
+optreset	unistd.h	x	extern int optreset;
 or	iso646.h	d	#define or ||
 or_eq	iso646.h	d	#define or_eq |=
 pathconf	unistd.h	p	long pathconf(const char *, int);
@@ -8798,8 +8808,10 @@ posix_madvise	sys/mman.h	p	int posix_madvise(void *, size_t, int);
 posix_memalign	stdlib.h	p	int posix_memalign(void **, size_t, size_t);
 posix_openpt	stdlib.h	p	int posix_openpt(int);
 posix_spawn	spawn.h	p	int posix_spawn(pid_t *__restrict, const char *__restrict, const posix_spawn_file_actions_t *, const posix_spawnattr_t *__restrict, char *const *__restrict, char *const *__restrict);
+posix_spawn_file_actions_addchdir_np	spawn.h	p	int posix_spawn_file_actions_addchdir_np(posix_spawn_file_actions_t *__restrict, const char *__restrict);
 posix_spawn_file_actions_addclose	spawn.h	p	int posix_spawn_file_actions_addclose(posix_spawn_file_actions_t *, int);
 posix_spawn_file_actions_adddup2	spawn.h	p	int posix_spawn_file_actions_adddup2(posix_spawn_file_actions_t *, int, int);
+posix_spawn_file_actions_addfchdir_np	spawn.h	p	int posix_spawn_file_actions_addfchdir_np(posix_spawn_file_actions_t *, int);
 posix_spawn_file_actions_addopen	spawn.h	p	int posix_spawn_file_actions_addopen(posix_spawn_file_actions_t *__restrict, int, const char *__restrict, int, mode_t);
 posix_spawn_file_actions_destroy	spawn.h	p	int posix_spawn_file_actions_destroy(posix_spawn_file_actions_t *);
 posix_spawn_file_actions_init	spawn.h	p	int posix_spawn_file_actions_init(posix_spawn_file_actions_t *);
@@ -9090,6 +9102,7 @@ sched_setaffinity	sched.h	p	int sched_setaffinity(pid_t, size_t, const cpu_set_t
 sched_setparam	sched.h	p	int sched_setparam(pid_t, const struct sched_param *);
 sched_setscheduler	sched.h	p	int sched_setscheduler(pid_t, int, const struct sched_param *);
 sched_yield	sched.h	p	int sched_yield(void);
+secure_getenv	stdlib.h	p	char *secure_getenv(const char *);
 seed48	stdlib.h	p	unsigned short *seed48(unsigned short [3]);
 seekdir	dirent.h	p	void seekdir(DIR *, long);
 select	sys/select.h	p	int select(int, fd_set *__restrict, fd_set *__restrict, fd_set *__restrict, struct timeval *__restrict);

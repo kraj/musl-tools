@@ -300,7 +300,7 @@ INT_FAST16_MAX	bits/stdint.h	d	#define INT_FAST16_MAX INT32_MAX
 INT_FAST16_MIN	bits/stdint.h	d	#define INT_FAST16_MIN INT32_MIN
 INT_FAST32_MAX	bits/stdint.h	d	#define INT_FAST32_MAX INT32_MAX
 INT_FAST32_MIN	bits/stdint.h	d	#define INT_FAST32_MIN INT32_MIN
-IPC_64	bits/ipc.h	d	#define IPC_64 0x100
+IPC_STAT	bits/ipcstat.h	d	#define IPC_STAT 2
 ISIG	bits/termios.h	d	#define ISIG 0000001
 ISTRIP	bits/termios.h	d	#define ISTRIP 0000040
 ITOSTOP	bits/termios.h	d	#define ITOSTOP 0100000
@@ -548,7 +548,11 @@ SYS_flistxattr	bits/syscall.h	d	#define SYS_flistxattr 4232
 SYS_flock	bits/syscall.h	d	#define SYS_flock 4143
 SYS_fork	bits/syscall.h	d	#define SYS_fork 4002
 SYS_fremovexattr	bits/syscall.h	d	#define SYS_fremovexattr 4235
+SYS_fsconfig	bits/syscall.h	d	#define SYS_fsconfig 4431
 SYS_fsetxattr	bits/syscall.h	d	#define SYS_fsetxattr 4226
+SYS_fsmount	bits/syscall.h	d	#define SYS_fsmount 4432
+SYS_fsopen	bits/syscall.h	d	#define SYS_fsopen 4430
+SYS_fspick	bits/syscall.h	d	#define SYS_fspick 4433
 SYS_fstat	bits/syscall.h	d	#define SYS_fstat 4108
 SYS_fstat64	bits/syscall.h	d	#define SYS_fstat64 4215
 SYS_fstatat64	bits/syscall.h	d	#define SYS_fstatat64 4293
@@ -650,6 +654,7 @@ SYS_mmap	bits/syscall.h	d	#define SYS_mmap 4090
 SYS_mmap2	bits/syscall.h	d	#define SYS_mmap2 4210
 SYS_modify_ldt	bits/syscall.h	d	#define SYS_modify_ldt 4123
 SYS_mount	bits/syscall.h	d	#define SYS_mount 4021
+SYS_move_mount	bits/syscall.h	d	#define SYS_move_mount 4429
 SYS_move_pages	bits/syscall.h	d	#define SYS_move_pages 4308
 SYS_mprotect	bits/syscall.h	d	#define SYS_mprotect 4125
 SYS_mpx	bits/syscall.h	d	#define SYS_mpx 4056
@@ -676,6 +681,7 @@ SYS_nfsservctl	bits/syscall.h	d	#define SYS_nfsservctl 4189
 SYS_nice	bits/syscall.h	d	#define SYS_nice 4034
 SYS_open	bits/syscall.h	d	#define SYS_open 4005
 SYS_open_by_handle_at	bits/syscall.h	d	#define SYS_open_by_handle_at 4340
+SYS_open_tree	bits/syscall.h	d	#define SYS_open_tree 4428
 SYS_openat	bits/syscall.h	d	#define SYS_openat 4288
 SYS_pause	bits/syscall.h	d	#define SYS_pause 4029
 SYS_perf_event_open	bits/syscall.h	d	#define SYS_perf_event_open 4333
@@ -1161,7 +1167,11 @@ __NR_flistxattr	bits/syscall.h	d	#define __NR_flistxattr 4232
 __NR_flock	bits/syscall.h	d	#define __NR_flock 4143
 __NR_fork	bits/syscall.h	d	#define __NR_fork 4002
 __NR_fremovexattr	bits/syscall.h	d	#define __NR_fremovexattr 4235
+__NR_fsconfig	bits/syscall.h	d	#define __NR_fsconfig 4431
 __NR_fsetxattr	bits/syscall.h	d	#define __NR_fsetxattr 4226
+__NR_fsmount	bits/syscall.h	d	#define __NR_fsmount 4432
+__NR_fsopen	bits/syscall.h	d	#define __NR_fsopen 4430
+__NR_fspick	bits/syscall.h	d	#define __NR_fspick 4433
 __NR_fstat	bits/syscall.h	d	#define __NR_fstat 4108
 __NR_fstat64	bits/syscall.h	d	#define __NR_fstat64 4215
 __NR_fstatat64	bits/syscall.h	d	#define __NR_fstatat64 4293
@@ -1263,6 +1273,7 @@ __NR_mmap	bits/syscall.h	d	#define __NR_mmap 4090
 __NR_mmap2	bits/syscall.h	d	#define __NR_mmap2 4210
 __NR_modify_ldt	bits/syscall.h	d	#define __NR_modify_ldt 4123
 __NR_mount	bits/syscall.h	d	#define __NR_mount 4021
+__NR_move_mount	bits/syscall.h	d	#define __NR_move_mount 4429
 __NR_move_pages	bits/syscall.h	d	#define __NR_move_pages 4308
 __NR_mprotect	bits/syscall.h	d	#define __NR_mprotect 4125
 __NR_mpx	bits/syscall.h	d	#define __NR_mpx 4056
@@ -1289,6 +1300,7 @@ __NR_nfsservctl	bits/syscall.h	d	#define __NR_nfsservctl 4189
 __NR_nice	bits/syscall.h	d	#define __NR_nice 4034
 __NR_open	bits/syscall.h	d	#define __NR_open 4005
 __NR_open_by_handle_at	bits/syscall.h	d	#define __NR_open_by_handle_at 4340
+__NR_open_tree	bits/syscall.h	d	#define __NR_open_tree 4428
 __NR_openat	bits/syscall.h	d	#define __NR_openat 4288
 __NR_pause	bits/syscall.h	d	#define __NR_pause 4029
 __NR_perf_event_open	bits/syscall.h	d	#define __NR_perf_event_open 4333
