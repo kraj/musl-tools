@@ -5,15 +5,26 @@ clean:
 
 tables:
 	MUSL=$(MUSL) ./update.sh
-abi: data/abi_type.x86_64.musl data/abi_func.x86_64.musl
 
-abi_type.x86_64.cc abi_func.cc: tables
+ARCH = x86_64 i386 arm mips m68k powerpc sh x32
 
-data/abi_type.x86_64.musl: abi_type.x86_64.cc
-	CXX='g++ -nostdinc -isystem /tmp/T.x86_64/include' ./abi_type_data.sh >$@
-data/abi_func.x86_64.musl: abi_func.cc
-	CXX='g++ -nostdinc -isystem /tmp/T.x86_64/include' ./abi_func_data.sh >$@
+abi: $(ARCH:%=data/abi_type.%.musl) $(ARCH:%=data/abi_func.%.musl)
 
+$(ARCH:%=abi_type.%.cc) abi_func.cc: tables
+
+T-x86_64 = x86_64-linux-musl
+T-i386 = i486-linux-musl
+T-arm = arm-linux-musleabi
+T-mips = mips-linux-musl
+T-m68k = m68k-linux-musl
+T-powerpc = powerpc-linux-musl
+T-sh = sh4-linux-musl
+T-x32 = x86_64-linux-muslx32
+
+data/abi_type.%.musl: abi_type.%.cc
+	ARCH=$* CXX='$(T-$*)-g++ -nostdinc -isystem /tmp/T.$*/include' ./abi_type_data.sh >$@
+data/abi_func.%.musl: abi_func.cc
+	CXX='$(T-$*)-g++ -nostdinc -isystem /tmp/T.$*/include' ./abi_func_data.sh >$@
 
 sizeof: sizeof-glibc sizeof-musl
 	./sizeof-glibc >data/sizeof.ARCH.glibc

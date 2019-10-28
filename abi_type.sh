@@ -6,6 +6,7 @@ ALL='
 aarch64
 arm
 i386
+m68k
 microblaze
 mips
 mips64
